@@ -1,114 +1,145 @@
-library(xprmntr)
+library(jaysire)
 
 
-# define trial events -----------------------------------------------------
 
-# define a welcome trial
-welcome <- trial_html_key(
-  "Welcome to the experiment! Press any key to continue",
+# welcome trial -----------------------------------------------------------
+
+welcome_trial <- trial_instructions(
+  pages = c(
+    "Welcome to the experiment! Click on the buttons to navigate",
+    "This experiment comes in two stages: the first shows images and the second is surveys",
+    "If you are ready, click 'Next' to begin the experiment"
+  ),
+  show_clickable_nav = TRUE,
+  post_trial_gap = 1000
 )
 
+# choice trials -----------------------------------------------------------
+
 # define a fixation trial
-fixation <- trial_html_key(
+fixation <- trial_html_keyboard_response(
   stimulus = '<div style="font-size:60px;">+</div>',
   choices = no_key(),
   trial_duration = 500
 )
 
 # define a test trial
-query <- trial_image_key(
+query <- trial_image_keyboard_response(
   stimulus = variable("stimulus"),
-  prompt = variable("prompt"),
-  choices = c("y","n")
+  choices = c("y", "n"),
+  prompt = variable("prompt")
 )
 
-# define a survey question
-likert1 <- question_likert(
-  prompt = "How confident were you in your answers?",
-  labels = c("very unsure", "somewhat unsure", "somewhat sure", "very sure"),
-  required = TRUE
-)
-
-# define a survey question
-likert2 <- question_likert(
-  prompt = "How bored were you in this experient?",
-  labels = c("not at all bored", "somewhat bored", "very bored"),
-  required = FALSE
-)
-
-# define a likert survey page
-survey1 <- trial_survey_likert(
-  questions = list(likert1, likert2),
-  preamble = "We have some questions"
-)
-
-# define a survey question
-multi1 <- question_multi(
-  prompt = "What gender are you?",
-  options = c("male", "female", "non-binary", "other"),
-  required = FALSE
-)
-
-# define a survey question
-multi2 <- question_multi(
-  prompt = "Do you identify as LGBTIQ?",
-  options = c("yeah", "nah"),
-  required = FALSE
-)
-
-# define a multiple choice survey page
-survey2 <- trial_survey_multi_choice(
-  questions = list(multi1, multi2),
-  preamble = "We have some more questions"
-)
-
-# define a survey question
-multi3 <- question_multi(
-  prompt = "Select all that apply",
-  options = c("lesbian", "gay", "bisexual", "transgender"),
-  required = FALSE
-)
-
-# define a multi select page
-survey3 <- trial_survey_multi_select(
-  questions = list(multi3)
-)
-
-# define a free text page
-survey4 <- trial_survey_text(
-  questions = list(
-    question_text(prompt = "Anything to add?", rows = 4),
-    question_text(prompt = "Enter completion code")
-  )
-)
-
-# define an end of experiment trial
-finish <- trial_html_key("All done!")
-
-
-
-# organise into a structure -----------------------------------------------
-
+# define stimuli
 flag_names <- c("bisexual", "transgender", "LGBT")
 flag_files <- c("bisexual.svg", "transgender.svg", "rainbow.svg")
 
 # testing procedure is a timeline of fixate/query events
-testing <- timeline(fixation, query) %>%
+choice_trials <- timeline(fixation, query) %>%
   with_variables(
     prompt = paste("is this the", flag_names, "flag? (y/n)"),
     stimulus = resource(flag_files)) %>%
   with_parameters(randomize_order = TRUE, repetitions = 2)
 
 
-#  overall procedure
+
+# likert survey -----------------------------------------------------------
+
+# define some response scale
+confidence <- c("very unsure", "somewhat unsure", "somewhat sure", "very sure")
+boredom <- c("not at all bored", "somewhat bored", "very bored")
+
+# define a survey question
+likert_confidence <- question_likert(
+  prompt = "How confident were you in your answers?",
+  labels = confidence,
+  required = TRUE
+)
+
+# define a survey question
+likert_bored <- question_likert(
+  prompt = "How bored were you in your answers?",
+  labels = boredom,
+  required = FALSE
+)
+
+# compose a likert survey
+survey_likert <- trial_survey_likert(
+  questions = list(likert_confidence, likert_bored),
+  preamble = "We have some questions"
+)
+
+
+
+# pick one survey ---------------------------------------------------------
+
+# define a survey question
+pickone_gender <- question_multi(
+  prompt = "What gender are you?",
+  options = c("male", "female", "non-binary", "other"),
+  required = FALSE
+)
+
+# define a survey question
+pickone_identity <- question_multi(
+  prompt = "Do you identify as LGBTIQ?",
+  options = c("yes", "no", "maybe"),
+  required = FALSE
+)
+
+# define a multiple choice survey page
+survey_pickone <- trial_survey_multi_choice(
+  questions = list(pickone_gender, pickone_identity),
+  preamble = "We have some more questions"
+)
+
+
+
+# pick some survey -----------------`---------------------------------------
+
+
+# define a survey question
+picksome_identities <- question_multi(
+  prompt = "Select all that apply",
+  options = c("lesbian", "gay", "bisexual", "transgender",
+              "intersex", "queer", "other"),
+  required = FALSE
+)
+
+# define a multi select page
+survey_picksome <- trial_survey_multi_select(picksome_identities)
+
+
+
+# free text survey --------------------------------------------------------
+
+# define a free text page
+survey_freetext <- question_text(prompt = "Anything to add?", rows = 2) %>%
+  trial_survey_text()
+
+
+
+# finish trial ------------------------------------------------------------
+
+
+finish_trial <- trial_html_keyboard_response(
+  stimulus = "All done! Press any key to finish",
+  choices = any_key()
+)
+
+
+
+
+# organise into a structure -----------------------------------------------
+
 all_events <- timeline(
-  welcome,
-  testing,
-  survey1,
-  survey2,
-  survey3,
-  survey4,
-  finish
+  welcome_trial,
+  choice_trials,
+  survey_likert,
+  survey_pickone,
+  survey_picksome,
+  survey_freetext,
+  finish_trial
 )
 
 
@@ -116,18 +147,18 @@ all_events <- timeline(
 
 # write the experiment files ----------------------------------------------
 
-resources <- add_resources(system.file("extdata", "img", package = "xprmntr"))
+resources <- add_resources(
+  system.file("extdata", "img", package = "jaysire")
+)
 
 experiment(
   timeline = all_events,
   path = "~/Desktop/expt",
   resources = resources,
   default_iti = 250,
-  on_finish = js_code("xprmntr.save_locally"),
+  on_finish = code("xprmntr.save_locally"),
   preload_images = resource(flag_files)
 )
-
-
 
 
 # run the experiment ------------------------------------------------------
