@@ -7,8 +7,8 @@
 #'
 #' @export
 code <- function(string) {
-  class(x) <- "json"
-  x
+  class(string) <- "json"
+  string
 }
 
 js_code <- function(x) {
