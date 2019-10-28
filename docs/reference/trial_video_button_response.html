@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Displays an image stimulus and records responses generated with a button click — trial_image_button_response • jaysire</title>
+<title>Plays a video and records responses generated with a button click — trial_video_button_response • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Displays an image stimulus and records responses generated with a button click — trial_image_button_response" />
+<meta property="og:title" content="Plays a video and records responses generated with a button click — trial_video_button_response" />
 
-<meta property="og:description" content="Displays an image stimulus and records responses generated with a button click" />
+<meta property="og:description" content="Plays a video and records responses generated with a button click" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,22 +103,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Displays an image stimulus and records responses generated with a button click</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_image_button_response.R'><code>R/trial_image_button_response.R</code></a></small>
-    <div class="hidden name"><code>trial_image_button_response.Rd</code></div>
+    <h1>Plays a video and records responses generated with a button click</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_video_button_response.R'><code>R/trial_video_button_response.R</code></a></small>
+    <div class="hidden name"><code>trial_video_button_response.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Displays an image stimulus and records responses generated with a button click</p>
+    <p>Plays a video and records responses generated with a button click</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>trial_image_button_response</span>(<span class='no'>stimulus</span>, <span class='kw'>stimulus_height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stimulus_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>maintain_aspect_ratio</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"button 0"</span>, <span class='st'>"button 1"</span>, <span class='st'>"button 2"</span>), <span class='kw'>button_html</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>margin_vertical</span> <span class='kw'>=</span> <span class='st'>"0px"</span>, <span class='kw'>margin_horizontal</span> <span class='kw'>=</span> <span class='st'>"8px"</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stimulus_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>trial_video_button_response</span>(<span class='no'>sources</span>, <span class='kw'>trial_ends_after_video</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>controls</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"button 0"</span>, <span class='st'>"button 1"</span>, <span class='st'>"button 2"</span>),
+  <span class='kw'>button_html</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>margin_vertical</span> <span class='kw'>=</span> <span class='st'>"0px"</span>,
+  <span class='kw'>margin_horizontal</span> <span class='kw'>=</span> <span class='st'>"8px"</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
@@ -126,20 +126,32 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>stimulus</th>
-      <td><p>The path of the image file to be displayed.</p></td>
+      <th>sources</th>
+      <td><p>Path(s) to the video file. Videos may be specified in multiple formats (e.g., .mp4, .ogg, .webm)</p></td>
     </tr>
     <tr>
-      <th>stimulus_height</th>
-      <td><p>Set the height of the image in pixels. If NULL, then the image will display at its natural height.</p></td>
+      <th>trial_ends_after_video</th>
+      <td><p>If TRUE the trial will end as soon as the video finishes playing.</p></td>
     </tr>
     <tr>
-      <th>stimulus_width</th>
-      <td><p>Set the width of the image in pixels. If NULL, then the image will display at its natural width.</p></td>
+      <th>width</th>
+      <td><p>The width of the video display in pixels (if NULL, natural width is used)</p></td>
     </tr>
     <tr>
-      <th>maintain_aspect_ratio</th>
-      <td><p>If setting only the width or only the height and this parameter is TRUE, then the other dimension will be scaled to maintain the image's aspect ratio.</p></td>
+      <th>height</th>
+      <td><p>The height of the video display in pixels (if NULL, natural height is used)</p></td>
+    </tr>
+    <tr>
+      <th>autoplay</th>
+      <td><p>Does the video play automatically?</p></td>
+    </tr>
+    <tr>
+      <th>controls</th>
+      <td><p>Should the video controls be made available to the user?</p></td>
+    </tr>
+    <tr>
+      <th>rate</th>
+      <td><p>What rate to play the video (1 = normal, &lt;1 slower, &gt;1 faster)</p></td>
     </tr>
     <tr>
       <th>choices</th>
@@ -160,10 +172,6 @@
     <tr>
       <th>prompt</th>
       <td><p>A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).</p></td>
-    </tr>
-    <tr>
-      <th>stimulus_duration</th>
-      <td><p>How long to show the stimulus, in milliseconds. If NULL, then the stimulus will be shown until the subject makes a response</p></td>
     </tr>
     <tr>
       <th>trial_duration</th>
@@ -189,6 +197,18 @@
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
     </tr>
+    <tr>
+      <th>controls</th>
+      <td><p>Should the video controls be shown?</p></td>
+    </tr>
+    <tr>
+      <th>start</th>
+      <td><p>Time point in seconds to start video (NULL starts at the beginning)</p></td>
+    </tr>
+    <tr>
+      <th>stop</th>
+      <td><p>Time point in seconds to stop video (NULL stops at the end)</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -208,8 +228,8 @@ corresponding CSS.</p>
 each trial: the <code>rt</code> value is the response time in milliseconds taken for the user to make a
 response. The time is measured from when the stimulus first appears on the screen until the response;
 <code>button_pressed</code> is a numeric value indicating which button was pressed. The first button in the
-choices array is recorded as value 0, the second is value 1, and so on; <code>stimulus</code> The HTML content
-that was displayed on the screen.</p>
+choices array is recorded as value 0, the second is value 1, and so on. The <code>stimulus</code> value is
+a JSON encoding of the sources array.</p>
     
 
   </div>

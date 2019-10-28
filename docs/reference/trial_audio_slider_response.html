@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Displays an image stimulus and records responses generated with a button click — trial_image_button_response • jaysire</title>
+<title>Plays an audio stimulus and records responses generated with a slider — trial_audio_slider_response • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Displays an image stimulus and records responses generated with a button click — trial_image_button_response" />
+<meta property="og:title" content="Plays an audio stimulus and records responses generated with a slider — trial_audio_slider_response" />
 
-<meta property="og:description" content="Displays an image stimulus and records responses generated with a button click" />
+<meta property="og:description" content="Plays an audio stimulus and records responses generated with a slider" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,22 +103,21 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Displays an image stimulus and records responses generated with a button click</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_image_button_response.R'><code>R/trial_image_button_response.R</code></a></small>
-    <div class="hidden name"><code>trial_image_button_response.Rd</code></div>
+    <h1>Plays an audio stimulus and records responses generated with a slider</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_audio_slider_response.R'><code>R/trial_audio_slider_response.R</code></a></small>
+    <div class="hidden name"><code>trial_audio_slider_response.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Displays an image stimulus and records responses generated with a button click</p>
+    <p>Plays an audio stimulus and records responses generated with a slider</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>trial_image_button_response</span>(<span class='no'>stimulus</span>, <span class='kw'>stimulus_height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stimulus_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>maintain_aspect_ratio</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"button 0"</span>, <span class='st'>"button 1"</span>, <span class='st'>"button 2"</span>), <span class='kw'>button_html</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>margin_vertical</span> <span class='kw'>=</span> <span class='st'>"0px"</span>, <span class='kw'>margin_horizontal</span> <span class='kw'>=</span> <span class='st'>"8px"</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stimulus_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>trial_audio_slider_response</span>(<span class='no'>stimulus</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"0%"</span>, <span class='st'>"25%"</span>, <span class='st'>"75%"</span>,
+  <span class='st'>"100%"</span>), <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>slider_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>require_movement</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>trial_ends_after_audio</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
@@ -127,43 +126,43 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>stimulus</th>
-      <td><p>The path of the image file to be displayed.</p></td>
+      <td><p>Path to the audio file to be played</p></td>
     </tr>
     <tr>
-      <th>stimulus_height</th>
-      <td><p>Set the height of the image in pixels. If NULL, then the image will display at its natural height.</p></td>
+      <th>labels</th>
+      <td><p>Labels displayed at equidistant locations on the slider.</p></td>
     </tr>
     <tr>
-      <th>stimulus_width</th>
-      <td><p>Set the width of the image in pixels. If NULL, then the image will display at its natural width.</p></td>
+      <th>min</th>
+      <td><p>Minimum value of the slider</p></td>
     </tr>
     <tr>
-      <th>maintain_aspect_ratio</th>
-      <td><p>If setting only the width or only the height and this parameter is TRUE, then the other dimension will be scaled to maintain the image's aspect ratio.</p></td>
+      <th>max</th>
+      <td><p>Maximum value of the slider</p></td>
     </tr>
     <tr>
-      <th>choices</th>
-      <td><p>Labels for the buttons. Each element of the character vector will generate a different button.</p></td>
+      <th>start</th>
+      <td><p>Initial value of the slider</p></td>
     </tr>
     <tr>
-      <th>button_html</th>
-      <td><p>A template of HTML for generating the button elements (see details)</p></td>
+      <th>step</th>
+      <td><p>Step size of the slider</p></td>
     </tr>
     <tr>
-      <th>margin_vertical</th>
-      <td><p>Vertical margin of the buttons</p></td>
+      <th>slider_width</th>
+      <td><p>Horizontal width of the slider (defaults to display width)</p></td>
     </tr>
     <tr>
-      <th>margin_horizontal</th>
-      <td><p>Horizontal margin of the buttons</p></td>
+      <th>require_movement</th>
+      <td><p>Does the user need to move the slider before clicking the continue button?</p></td>
     </tr>
     <tr>
       <th>prompt</th>
       <td><p>A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).</p></td>
     </tr>
     <tr>
-      <th>stimulus_duration</th>
-      <td><p>How long to show the stimulus, in milliseconds. If NULL, then the stimulus will be shown until the subject makes a response</p></td>
+      <th>trial_ends_after_audio</th>
+      <td><p>If TRUE the trial will end as soon as the audio file finishes playing.</p></td>
     </tr>
     <tr>
       <th>trial_duration</th>
@@ -189,27 +188,21 @@
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
     </tr>
+    <tr>
+      <th>button_label</th>
+      <td><p>Label placed on the "continue" button</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This plugin displays HTML content and records responses generated by button click. The
+    <p>This plugin displays an HTML stimulus and records responses generated by a slider. The
 stimulus can be displayed until a response is given, or for a pre-determined amount of time. The
 trial can be ended automatically if the subject has failed to respond within a fixed length of time.</p>
-<p>The response buttons can be customized using HTML formatting, via the <code>button_html</code> argument.
-This argument allows the user to specify an HTML used to generating the button elements. If this
-argument is a vector of the same length as <code>choices</code> then the i-th element of <code>button_html</code>
-will be used to define the i-th response button. If <code>button_html</code> is a single string then the
-same template will be applied to every button. The templating is defined uing a special string
-"<!-- %choice%" that will be replaced by the corresponding element of the \code{choices} vector. By default -->
-the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
-corresponding CSS.</p>
 <p>In addition to the default data collected by all plugins, this plugin collects the following data for
 each trial: the <code>rt</code> value is the response time in milliseconds taken for the user to make a
 response. The time is measured from when the stimulus first appears on the screen until the response;
-<code>button_pressed</code> is a numeric value indicating which button was pressed. The first button in the
-choices array is recorded as value 0, the second is value 1, and so on; <code>stimulus</code> The HTML content
-that was displayed on the screen.</p>
+The <code>response</code> is the numeric value of the slider response.</p>
     
 
   </div>

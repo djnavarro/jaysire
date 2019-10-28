@@ -1,4 +1,4 @@
-#' Displays an image stimulus and records responses generated with an on-screen slider
+#' Displays an image stimulus and records responses generated with a slider
 #'
 #' @param stimulus The path of the image file to be displayed.
 #' @param stimulus_height Set the height of the image in pixels. If NULL, then the image will display at its natural height.
@@ -11,7 +11,7 @@
 #' @param max Maximum value of the slider
 #' @param start Initial value of the slider
 #' @param step Step size of the slider
-#' @param slider_width Horizontal width of the slider (defaults to 100% of display)
+#' @param slider_width Horizontal width of the slider (defaults to display width)
 #' @param require_movement Does the user need to move the slider before clicking the continue button?
 #'
 #' @param prompt A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).
