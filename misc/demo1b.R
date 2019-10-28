@@ -152,7 +152,7 @@ experiment(
   path = "~/Desktop/expt",
   resources = resources,
   default_iti = 250,
-  on_finish = js_code("xprmntr.save_locally"),
+  on_finish = code("xprmntr.save_locally"),
   preload_images = resource(flag_files)
 )
 
