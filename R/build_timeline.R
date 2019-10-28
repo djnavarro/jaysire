@@ -58,4 +58,29 @@ with_parameters <- function(timeline, ...) {
   return(timeline)
 }
 
+#' Loop this timeline
+#'
+#' @param timeline the timeline object
+#' @param loop_function javascript function that returns true if loop repeats, false if terminates
+#'
+#' @export
+with_loop <- function(timeline, loop_function) {
+  timeline[["loop_function"]] <- loop_function
+  return(timeline)
+}
+
+#' Conditionally execute this timeline
+#'
+#' @param timeline the timeline object
+#' @param conditional_function javascript function that reutrns true to execute timeline, false to skip
+#'
+#' @export
+with_condition <- function(timeline, conditional_function) {
+  timeline[["conditional_function"]] <- conditional_function
+  return(timeline)
+}
+
+
+
+
 
