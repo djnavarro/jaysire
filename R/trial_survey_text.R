@@ -1,5 +1,5 @@
 
-#' A survey page with Likert scale items
+#' A survey page with free text items
 #'
 #' @param questions A question or list of questions
 #' @param preamble Text to appear above the questions
@@ -14,12 +14,13 @@
 #'
 #' @details In addition to the default data collected by all plugins, this plugin
 #' collects the following data for each trial. The \code{responses} value is a
-#' an array containing all selected choices in JSON format for each question. The
-#' encoded object will have a separate variable for the response to each question,
-#' with the first question in the trial being recorded in Q0, the second in Q1, and
-#' so on. The responses are recorded as the name of the option label. If the
-#' \code{name} parameter is defined for the question, then the response will use
-#' the value of \code{name} as the key for the response in the responses object.
+#' string in JSON format containing the response for each question. The encoded
+#' object will have a separate variable for the response to each question, with
+#' the first question in the trial being recorded in Q0, the second in Q1, and
+#' so on. Each response is a string containing whatever the subject typed into
+#' the associated text box. If the name parameter is defined for the question,
+#' then the response will use the value of name as the key for the response in
+#' the responses object.
 #'
 #' The \code{rt} value is the response time in milliseconds for the subject to make
 #' a response. The time is measured from when the questions first appear on the
@@ -31,10 +32,9 @@
 #' second question was trial.questions[0], and the final question was trial.questions[1].
 #'
 #' @export
-trial_survey_likert <- function(
+trial_survey_text <- function(
   questions,
   preamble = "",
-  scale_width = NULL,
   randomize_question_order = FALSE,
   button_label = "Continue",
 
@@ -45,7 +45,7 @@ trial_survey_likert <- function(
 ) {
 
   # if the user has passed a single question, wrap it in a list
-  if(class(questions) == "jspr_likert") {
+  if(class(questions) == "jspr_freetext") {
     questions <- list(questions)
   }
 
@@ -59,11 +59,10 @@ trial_survey_likert <- function(
   # return object
   drop_nulls(
     trial(
-      type = "survey-likert",
+      type = "survey-text",
       questions = list_to_jsarray(questions),
       randomize_question_order = as.logical(randomize_question_order),
       preamble = as.character(preamble),
-      scale_width = scale_width,
       button_label = as.character(button_label),
 
       post_trial_gap = post_trial_gap,
@@ -75,27 +74,33 @@ trial_survey_likert <- function(
 }
 
 
-#' Create a Likert question
+#' Create a free text response question
 #'
-#' @param prompt the prompt for the question
-#' @param labels the labels on the Likert scale
-#' @param required is a response to the question required?
-#' @param name a convenient label for the question
+#' @param prompt The prompt for the question
+#' @param placeholder A string specifying the placeholder text
+#' @param rows Number of rows spanned by the text box
+#' @param columns Number of columns spanned by the text box
+#' @param name A convenient label for the question
 #'
 #' @export
-question_likert <- function(
+question_text <- function(
   prompt,
-  labels,
-  required = FALSE,
+  placeholder = "",
+  rows = 1,
+  columns = 40,
   name = NULL
 ) {
   q <- drop_nulls(
     list(
       prompt = prompt,
-      labels = labels,
-      required = required,
+      placeholder = placeholder,
+      rows = rows,
+      columns = columns,
       name = name
     )
   )
-  return(structure(q, class = "jspr_likert"))
+  return(structure(q, class = "jspr_freetext"))
 }
+
+
+

@@ -46,7 +46,7 @@ trial_survey_multi_select <- function(
 ) {
 
   # if the user has passed a single question, wrap it in a list
-  if(class(questions) == "multi") {
+  if(class(questions) == "jspr_multi") {
     questions <- list(questions)
   }
 
