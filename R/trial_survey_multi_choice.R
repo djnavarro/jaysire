@@ -1,11 +1,12 @@
 
-#' A survey page with Likert scale items
+#' A survey page with multiple choice items
 #'
 #' @param questions A question or list of questions
 #' @param preamble Text to appear above the questions
 #' @param scale_width Width of the scale in pixels (NULL is the display width)
 #' @param randomize_question_order Should order be randomised?
 #' @param button_label Text for the continue button
+#' @param required_message Message to display if required response is not given.
 #'
 #' @param post_trial_gap  The gap in milliseconds between the current trial and the next trial. If NULL, there will be no gap.
 #' @param on_finish A javascript callback function to execute when the trial finishes
@@ -31,12 +32,12 @@
 #' second question was trial.questions[0], and the final question was trial.questions[1].
 #'
 #' @export
-trial_survey_likert <- function(
+trial_survey_multi_choice <- function(
   questions,
   preamble = "",
-  scale_width = NULL,
   randomize_question_order = FALSE,
   button_label = "Continue",
+  required_message = 'You must choose at least one response for this question',
 
   post_trial_gap = 0,  # start universals
   on_finish = NULL,
@@ -45,7 +46,7 @@ trial_survey_likert <- function(
 ) {
 
   # if the user has passed a single question, wrap it in a list
-  if(class(questions) == "likert") {
+  if(class(questions) == "multi") {
     questions <- list(questions)
   }
 
@@ -54,12 +55,12 @@ trial_survey_likert <- function(
   # return object
   drop_nulls(
     trial(
-      type = "survey-likert",
+      type = "survey-multi-choice",
       questions = list_to_jsarray(questions),
       randomize_question_order = as.logical(randomize_question_order),
       preamble = as.character(preamble),
-      scale_width = scale_width,
       button_label = as.character(button_label),
+      required_message = required_message,
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,
@@ -70,27 +71,30 @@ trial_survey_likert <- function(
 }
 
 
-#' Create a Likert question
+#' Create a multiple choice/select question
 #'
 #' @param prompt the prompt for the question
-#' @param labels the labels on the Likert scale
+#' @param options character vector of options
+#' @param horizontal should radio buttons be laid out horizontally?
 #' @param required is a response to the question required?
 #' @param name a convenient label for the question
 #'
 #' @export
-question_likert <- function(
+question_multi <- function(
   prompt,
-  labels,
+  options,
+  horizontal = FALSE,
   required = FALSE,
   name = NULL
 ) {
   q <- drop_nulls(
     list(
       prompt = prompt,
-      labels = labels,
+      options = options,
+      horizontal = horizontal,
       required = required,
       name = name
     )
   )
-  return(structure(q, class = "likert"))
+  return(structure(q, class = "multi"))
 }

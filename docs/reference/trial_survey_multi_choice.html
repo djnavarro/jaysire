@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A survey page with Likert scale items — trial_survey_likert • jaysire</title>
+<title>A survey page with multiple choice items — trial_survey_multi_choice • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A survey page with Likert scale items — trial_survey_likert" />
+<meta property="og:title" content="A survey page with multiple choice items — trial_survey_multi_choice" />
 
-<meta property="og:description" content="A survey page with Likert scale items" />
+<meta property="og:description" content="A survey page with multiple choice items" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,19 +103,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A survey page with Likert scale items</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_survey_likert.R'><code>R/trial_survey_likert.R</code></a></small>
-    <div class="hidden name"><code>trial_survey_likert.Rd</code></div>
+    <h1>A survey page with multiple choice items</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_survey_multi_choice.R'><code>R/trial_survey_multi_choice.R</code></a></small>
+    <div class="hidden name"><code>trial_survey_multi_choice.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A survey page with Likert scale items</p>
+    <p>A survey page with multiple choice items</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>trial_survey_likert</span>(<span class='no'>questions</span>, <span class='kw'>preamble</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>scale_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>trial_survey_multi_choice</span>(<span class='no'>questions</span>, <span class='kw'>preamble</span> <span class='kw'>=</span> <span class='st'>""</span>,
   <span class='kw'>randomize_question_order</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>button_label</span> <span class='kw'>=</span> <span class='st'>"Continue"</span>,
+  <span class='kw'>required_message</span> <span class='kw'>=</span> <span class='st'>"You must choose at least one response for this question"</span>,
   <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
@@ -131,16 +132,16 @@
       <td><p>Text to appear above the questions</p></td>
     </tr>
     <tr>
-      <th>scale_width</th>
-      <td><p>Width of the scale in pixels (NULL is the display width)</p></td>
-    </tr>
-    <tr>
       <th>randomize_question_order</th>
       <td><p>Should order be randomised?</p></td>
     </tr>
     <tr>
       <th>button_label</th>
       <td><p>Text for the continue button</p></td>
+    </tr>
+    <tr>
+      <th>required_message</th>
+      <td><p>Message to display if required response is not given.</p></td>
     </tr>
     <tr>
       <th>post_trial_gap</th>
@@ -157,6 +158,10 @@
     <tr>
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
+    </tr>
+    <tr>
+      <th>scale_width</th>
+      <td><p>Width of the scale in pixels (NULL is the display width)</p></td>
     </tr>
     </table>
     
