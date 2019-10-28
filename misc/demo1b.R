@@ -20,7 +20,7 @@ fixation <- trial_html_keyboard_response(
 )
 
 # define a test trial
-query <- trial_html_keyboard_response(
+query <- trial_image_keyboard_response(
   stimulus = variable("stimulus"),
   choices = c("y", "n"),
   prompt = variable("prompt")
@@ -65,52 +65,46 @@ survey_likert <- trial_survey_likert(
   preamble = "We have some questions"
 )
 
-#
-#
-# # pick one survey ---------------------------------------------------------
-#
-# # define a survey question
-# pickone_gender <- question(
-#   cue = cue_text("What gender are you?"),
-#   response = response_pickone(
-#     options = c("male", "female", "non-binary", "other")
-#   ),
-#   required = FALSE
-# )
-#
-# # define a survey question
-# pickone_identity <- question(
-#   cue = cue_text("Do you identify as LGBTIQ?"),
-#   response = response_pickone(
-#     options = c("yes", "no", "maybe")
-#   ),
-#   required = FALSE
-# )
-#
-# # define a multiple choice survey page
-# survey_pickone <- trial_survey(
-#   questions = list(pickone_gender, pickone_identity),
-#   preamble = "We have some more questions"
-# )
-#
-#
-#
-# # pick some survey -----------------`---------------------------------------
-#
-#
-# # define a survey question
-# picksome_identities <- question(
-#   cue = cue_text("Select all that apply"),
-#   response = response_picksome(
-#     options = c("lesbian", "gay", "bisexual", "transgender",
-#                 "intersex", "queer", "other")
-#   ),
-#   required = FALSE
-# )
-#
-# # define a multi select page
-# survey_picksome <- trial_survey(picksome_identities)
-#
+
+
+# pick one survey ---------------------------------------------------------
+
+# define a survey question
+pickone_gender <- question_multi(
+  prompt = "What gender are you?",
+  options = c("male", "female", "non-binary", "other"),
+  required = FALSE
+)
+
+# define a survey question
+pickone_identity <- question_multi(
+  prompt = "Do you identify as LGBTIQ?",
+  options = c("yes", "no", "maybe"),
+  required = FALSE
+)
+
+# define a multiple choice survey page
+survey_pickone <- trial_survey_multi_choice(
+  questions = list(pickone_gender, pickone_identity),
+  preamble = "We have some more questions"
+)
+
+
+
+# pick some survey -----------------`---------------------------------------
+
+
+# define a survey question
+picksome_identities <- question_multi(
+  prompt = "Select all that apply",
+  options = c("lesbian", "gay", "bisexual", "transgender",
+              "intersex", "queer", "other"),
+  required = FALSE
+)
+
+# define a multi select page
+survey_picksome <- trial_survey_multi_select(picksome_identities)
+
 
 
 # # free text survey --------------------------------------------------------
@@ -143,8 +137,8 @@ all_events <- timeline(
   welcome_trial,
   choice_trials,
   survey_likert,
-  #survey_pickone,
-  #survey_picksome,
+  survey_pickone,
+  survey_picksome,
   #survey_freetext,
   finish_trial
 )

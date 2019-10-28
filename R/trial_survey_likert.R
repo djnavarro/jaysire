@@ -51,6 +51,11 @@ trial_survey_likert <- function(
 
   # [add check to ensure questions are the correct type]
 
+  # questions need to be tidied before passing to jsPsych
+  questions <- purrr::map(questions, function(q) {
+    unclass(drop_nulls(q))
+  })
+
   # return object
   drop_nulls(
     trial(
