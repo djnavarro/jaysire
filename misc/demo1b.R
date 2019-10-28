@@ -107,16 +107,11 @@ survey_picksome <- trial_survey_multi_select(picksome_identities)
 
 
 
-# # free text survey --------------------------------------------------------
-#
-#
-#
-# # define a free text page
-# survey_freetext <- question(
-#   cue_text("Anything to add?"),
-#   response_freetext()
-# ) %>%
-#   trial_survey()
+# free text survey --------------------------------------------------------
+
+# define a free text page
+survey_freetext <- question_text(prompt = "Anything to add?", rows = 2) %>%
+  trial_survey_text()
 
 
 
@@ -139,7 +134,7 @@ all_events <- timeline(
   survey_likert,
   survey_pickone,
   survey_picksome,
-  #survey_freetext,
+  survey_freetext,
   finish_trial
 )
 
