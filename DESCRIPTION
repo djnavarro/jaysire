@@ -1,0 +1,22 @@
+Package: jaysire
+Type: Package
+Title: Build jsPsych Experiments in R
+Version: 0.1.0
+Author: Danielle Navarro 
+Maintainer: Danielle Navarro <d.navarro@unsw.edu.au>
+Description: The jaysire package allows the user to build browser based 
+    behavioral experiments within R by providing an interface to the jsPsych
+    javascript library.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    jsonlite,
+    methods,
+    plumber,
+    purrr,
+    readr,
+    tibble,
+    magrittr,
+    rlang
+RoxygenNote: 6.1.1
