@@ -1,10 +1,17 @@
 # file: helpers.R
 # author: Danielle Navarro
 
+
+#' Allows to press any key to respond
+#'
+#' @export
 any_key <- function() {
   js_code("jsPsych.ANY_KEY")
 }
 
+#' No key will be registered as a response
+#'
+#' @export
 no_key <- function() {
   js_code("jsPsych.NO_KEY")
 }
