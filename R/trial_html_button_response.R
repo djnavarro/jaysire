@@ -58,11 +58,8 @@ trial_html_button_response <- function(
 ) {
   drop_nulls(
     trial(
-      type = "image-button-response",
+      type = "html-button-response",
       stimulus = stimulus,
-      stimulus_height = stimulus_height,
-      stimulus_width = stimulus_width,
-      maintain_aspect_ratio = maintain_aspect_ratio,
 
       choices = choices,
       button_html = button_html,
@@ -76,6 +73,7 @@ trial_html_button_response <- function(
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,
+      on_load = on_load,
       data = data
     )
   )

@@ -63,6 +63,7 @@ trial_image_keyboard_response <- function(
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,
+      on_load = on_load,
       data = data
     )
   )

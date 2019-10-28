@@ -1,11 +1,16 @@
-#' Displays HTML stimulus and records responses generated with the keyboard
+#' Plays a video and records responses generated with the keyboard
 #'
-#' @param stimulus The HTML content to be displayed.
+#' @param sources Path(s) to the video file. Videos may be specified in multiple formats (e.g., .mp4, .ogg, .webm)
+#' @param trial_ends_after_video If TRUE the trial will end as soon as the video finishes playing.
+#' @param width The width of the video display in pixels (if NULL, natural width is used)
+#' @param height The height of the video display in pixels (if NULL, natural height is used)
+#' @param autoplay Does the video play automatically?
+#' @param controls Should the video controls be made available to the user?
+#' @param rate What rate to play the video (1 = normal, <1 slower, >1 faster)
 #'
 #' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used
 #'
 #' @param prompt A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).
-#' @param stimulus_duration How long to show the stimulus, in milliseconds. If NULL, then the stimulus will be shown until the subject makes a response
 #' @param trial_duration How long to wait for a response before ending trial in milliseconds. If NULL, the trial will wait indefinitely. If no response is made before the deadline is reached, the response will be recorded as NULL.
 #' @param response_ends_trial If TRUE, then the trial will end when a response is made (or the trial_duration expires). If FALSE, the trial continues until the deadline expires.
 #'
@@ -21,17 +26,22 @@
 #' In addition to the default data collected by all plugins, this plugin collects the following data for
 #' each trial. The \code{rt} value is the response time in milliseconds taken for the user to make a
 #' response. The time is measured from when the stimulus first appears on the screen until the response.
-#' \code{key_press} is the numeric key code corresponding to the response. \code{stimulus} The HTML content
-#' that was displayed on the screen.
+#' \code{key_press} is the numeric key code corresponding to the response. The \code{stimulus} value is
+#' a JSON encoding of the sources array.
 #'
 #' @export
-trial_html_keyboard_response <- function(
-  stimulus,
+trial_video_keyboard_response <- function(
+  sources,
+  trial_ends_after_video = FALSE, # If TRUE the trial will end as soon as the video finishes playing.
+  width = NULL, # The width of the video display in pixels (if NULL, natural width is used)
+  height = NULL, # The height of the video display in pixels (if NULL, natural height is used)
+  autoplay = TRUE, #Does the video play automatically?
+  controls = FALSE,
+  rate = 1,
 
   choices = any_key(),
 
   prompt = NULL,
-  stimulus_duration = NULL,
   trial_duration = NULL,
   response_ends_trial = TRUE,
 
@@ -42,13 +52,18 @@ trial_html_keyboard_response <- function(
 ) {
   drop_nulls(
     trial(
-      type = "html-keyboard-response",
-      stimulus = stimulus,
+      type = "video-keyboard-response",
+      sources = sources,
+      trial_ends_after_video = trial_ends_after_video, # If TRUE the trial will end as soon as the video finishes playing.
+      width = width, # The width of the video display in pixels (if NULL, natural width is used)
+      height = height, # The height of the video display in pixels (if NULL, natural height is used)
+      autoplay = autoplay, #Does the video play automatically?
+      controls = controls,
+      rate = rate,
 
       choices = choices,
 
       prompt = prompt,
-      stimulus_duration = stimulus_duration,
       trial_duration = trial_duration,
       response_ends_trial = response_ends_trial,
 

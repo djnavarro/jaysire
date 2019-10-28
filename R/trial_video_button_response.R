@@ -1,17 +1,22 @@
-#' Displays an image stimulus and records responses generated with a button click
+#' Plays a video and records responses generated with a button click
 #'
-#' @param stimulus The path of the image file to be displayed.
-#' @param stimulus_height Set the height of the image in pixels. If NULL, then the image will display at its natural height.
-#' @param stimulus_width Set the width of the image in pixels. If NULL, then the image will display at its natural width.
-#' @param maintain_aspect_ratio If setting only the width or only the height and this parameter is TRUE, then the other dimension will be scaled to maintain the image's aspect ratio.
+#' @param sources Path(s) to the video file. Videos may be specified in multiple formats (e.g., .mp4, .ogg, .webm)
+#' @param trial_ends_after_video If TRUE the trial will end as soon as the video finishes playing.
+#' @param width The width of the video display in pixels (if NULL, natural width is used)
+#' @param height The height of the video display in pixels (if NULL, natural height is used)
+#' @param autoplay Does the video play automatically?
+#' @param controls Should the video controls be made available to the user?
+#' @param rate What rate to play the video (1 = normal, <1 slower, >1 faster)
 #'
 #' @param choices Labels for the buttons. Each element of the character vector will generate a different button.
 #' @param button_html A template of HTML for generating the button elements (see details)
 #' @param margin_vertical Vertical margin of the buttons
 #' @param margin_horizontal Horizontal margin of the buttons
+#' @param controls Should the video controls be shown?
+#' @param start Time point in seconds to start video (NULL starts at the beginning)
+#' @param stop Time point in seconds to stop video (NULL stops at the end)
 #'
 #' @param prompt A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).
-#' @param stimulus_duration How long to show the stimulus, in milliseconds. If NULL, then the stimulus will be shown until the subject makes a response
 #' @param trial_duration How long to wait for a response before ending trial in milliseconds. If NULL, the trial will wait indefinitely. If no response is made before the deadline is reached, the response will be recorded as NULL.
 #' @param response_ends_trial If TRUE, then the trial will end when a response is made (or the trial_duration expires). If FALSE, the trial continues until the deadline expires.
 #'
@@ -37,15 +42,18 @@
 #' each trial: the \code{rt} value is the response time in milliseconds taken for the user to make a
 #' response. The time is measured from when the stimulus first appears on the screen until the response;
 #' \code{button_pressed} is a numeric value indicating which button was pressed. The first button in the
-#' choices array is recorded as value 0, the second is value 1, and so on; \code{stimulus} The HTML content
-#' that was displayed on the screen.
+#' choices array is recorded as value 0, the second is value 1, and so on. The \code{stimulus} value is
+#' a JSON encoding of the sources array.
 #'
 #' @export
-trial_image_button_response <- function(
-  stimulus,
-  stimulus_height = NULL,
-  stimulus_width = NULL,
-  maintain_aspect_ratio = TRUE,
+trial_video_button_response <- function(
+  sources,
+  trial_ends_after_video = FALSE, # If TRUE the trial will end as soon as the video finishes playing.
+  width = NULL, # The width of the video display in pixels (if NULL, natural width is used)
+  height = NULL, # The height of the video display in pixels (if NULL, natural height is used)
+  autoplay = TRUE, #Does the video play automatically?
+  controls = FALSE,
+  rate = 1,
 
   choices = c("button 0", "button 1", "button 2"),
   button_html = NULL,
@@ -53,7 +61,6 @@ trial_image_button_response <- function(
   margin_horizontal = "8px",
 
   prompt = NULL,
-  stimulus_duration = NULL,
   trial_duration = NULL,
   response_ends_trial = TRUE,
 
@@ -64,11 +71,14 @@ trial_image_button_response <- function(
 ) {
   drop_nulls(
     trial(
-      type = "image-button-response",
-      stimulus = stimulus,
-      stimulus_height = stimulus_height,
-      stimulus_width = stimulus_width,
-      maintain_aspect_ratio = maintain_aspect_ratio,
+      type = "video-button-response",
+      sources = sources,
+      trial_ends_after_video = trial_ends_after_video, # If TRUE the trial will end as soon as the video finishes playing.
+      width = width, # The width of the video display in pixels (if NULL, natural width is used)
+      height = height, # The height of the video display in pixels (if NULL, natural height is used)
+      autoplay = autoplay, #Does the video play automatically?
+      controls = controls,
+      rate = rate,
 
       choices = choices,
       button_html = button_html,
@@ -76,7 +86,6 @@ trial_image_button_response <- function(
       margin_horizontal = margin_horizontal,
 
       prompt = prompt,
-      stimulus_duration = stimulus_duration,
       trial_duration = trial_duration,
       response_ends_trial = response_ends_trial,
 
