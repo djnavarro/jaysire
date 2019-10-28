@@ -7,7 +7,7 @@
 #' @param allow_keys If TRUE, participants can use keyboard keys to navigate
 #' @param show_clickable_nav If TRUE, buttons will be shown to allow navigation
 #' @param button_label_previous Text on the "previous" button
-#' @param button_label_next Thext on the "next" button
+#' @param button_label_next Text on the "next" button
 #'
 #' @param post_trial_gap  The gap in milliseconds between the current trial and the next trial. If NULL, there will be no gap.
 #' @param on_finish A javascript callback function to execute when the trial finishes

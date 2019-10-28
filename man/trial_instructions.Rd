@@ -26,7 +26,7 @@ trial_instructions(pages, key_forward = "rightarrow",
 
 \item{button_label_previous}{Text on the "previous" button}
 
-\item{button_label_next}{Thext on the "next" button}
+\item{button_label_next}{Text on the "next" button}
 
 \item{post_trial_gap}{The gap in milliseconds between the current trial and the next trial. If NULL, there will be no gap.}
 
