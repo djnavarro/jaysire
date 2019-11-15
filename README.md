@@ -11,17 +11,29 @@ status](https://travis-ci.org/djnavarro/jaysire.svg?branch=master)](https://trav
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-The goal of jaysire is to provide basic tools for generating jsPsych
-experiments in R. The goal in this project is to copy the interface for
-jsPsych as closely as possible, rather than attempting a more general
-“grammar of experiments” as per the (in development) [xprmntr
-package](https://github.com/djnavarro/xprmntr)
+The goal of jaysire is to provide a method for writing behavioural
+experiments in R that can be deployed through a web browser. The package
+relies on the [jsPsych](https://www.jspsych.org) library by Josh de
+Leeuw ([GitHub page](https://github.com/jspsych/jsPsych/)) to create the
+experiments, and is structured so that functions in jaysire use the same
+argument names as the corresponding jsPsych functions. The name
+“jaysire” is a phonetic transcription of “j-psy-R”, reflecting the
+fact that it adheres closely to the design principles used in the
+jsPsych javascript library.
 
 ## Installation
 
-You can install the released version of jaysire from
-[CRAN](https://CRAN.R-project.org) with:
+The jaysire package has not been released on CRAN, but you can install
+it directly from GitHub using the following commands:
 
 ``` r
-install.packages("jaysire")
+#install.packages("remotes")
+remotes::install_github("djnavarro/jaysire")
 ```
+
+## Related packages
+
+  - The [jsPsychR](https://github.com/CrumpLab/jspsychr) package by Matt
+    Crump
+  - My [xprmtnr](https://github.com/djnavarro/xprmntr) package (in
+    development)
