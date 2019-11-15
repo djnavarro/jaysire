@@ -16,10 +16,7 @@ experiments in R that can be deployed through a web browser. The package
 relies on the [jsPsych](https://www.jspsych.org) library by Josh de
 Leeuw ([GitHub page](https://github.com/jspsych/jsPsych/)) to create the
 experiments, and is structured so that functions in jaysire use the same
-argument names as the corresponding jsPsych functions. The name
-“jaysire” is a phonetic transcription of “j-psy-R”, reflecting the
-fact that it adheres closely to the design principles used in the
-jsPsych javascript library.
+argument names as the corresponding jsPsych functions.
 
 ## Installation
 
@@ -37,3 +34,9 @@ remotes::install_github("djnavarro/jaysire")
     Crump
   - My [xprmtnr](https://github.com/djnavarro/xprmntr) package (in
     development)
+
+## Name
+
+The name “jaysire” is a phonetic transcription of “j-psy-R”, reflecting
+the fact that it adheres closely to the design principles used in the
+jsPsych javascript library.
