@@ -6,3 +6,4 @@
 ^\.workbch$
 ^docs$
 ^\.travis\.yml$
+^vignettes/jaysire01\.Rmd$

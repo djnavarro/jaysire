@@ -1,0 +1,182 @@
+---
+title: "1. Getting started"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The idea behind the jaysire package is to allow users to write flexible behavioural experiments that run through a web browser, relying on the jsPsych javascript library to run the experiment itself. In this article, I'll walk you through the process of creating a very minimal experiment using the package. The first step, as usual, is loading the package:
+
+```{r setup}
+library(jaysire)
+```
+
+Because the jaysire package is a wrapper around the jsPsych library, the place to start is with jsPsych itself. The key idea in jsPsych is that your job is to provide a description of the experiment, referred to as a *timeline*. The timeline is an abstract description of what stimuli should be shown to participants, how responses are to be collected, what randomisation procedure to follow, and so on. Once you have specified the timeline, the jsPsych library takes care of all the low level actions like determining which trial will run next, where the data are stored and so on. 
+
+In its simplest form, a timeline is straightforward: it's just a list of the trials that make up the experiment, listed in the order that they should be run. We'll talk about fancier features like randomisation, loops, conditional branching etc later on, but for now let's imagine that all we want to do is run a fixed sequence of trials in a fixed order. 
+
+That sounds pretty straightforward, but raises the natural question of "what is a 'trial', exactly?" Behavioural experiments can vary in all sorts of ways, and so the number of things that can be considered a "trial" in an experiment is limited only by your imagination. The way that jsPsych handles this is providing a system of *plugins*, where each plugin defines a different kind of experimental trial, and allows you to write your own plugins if you need to. Within the jaysire package, there is a function called `trial()` that allows you to create a trial using any plugin you like, but in most cases it is more convenient to use a more specific function. 
+
+## Creating instructions
+
+In most experiments, the first thing we want to do is present some instructions to the participant. jsPsych contains an "instructions" plugin that will present multiple pages of instructions to the participant, and there is a corresponding function in jaysire called `trial_instructions()` that we can use:
+
+```{r}
+instructions <- trial_instructions(
+  pages = c(
+    "Welcome! Use the arrow buttons to browse these instructions",
+    "Your task is to decide if an equation like '2 + 2 = 4' is true or false",
+    "You will respond by clicking a button",
+    "Press the 'Next' button to begin!"
+  ),
+  show_clickable_nav = TRUE,
+  post_trial_gap = 2000
+)
+```
+
+In this code, the `pages` argument specifies four very short pages of text that will be displayed to the participants. By setting `show_clickable_nav` to `TRUE`, we are telling jsPsych to display a pair of buttons that participants can click to move forward or backward within the instructions. By default, these are labelled "Next" and "Previous", but you can change this if you like. The third thing I've specified here is the `post_trial_gap`, which is the length of time (in milliseconds) that the experiment will pause between the end of this trial (the instructions) and the start of the next one. During this "gap" period a blank screen is shown. 
+
+## Creating simple trials
+
+Our next job is to write some experimental trials! We'll keep it simple in this first example, and create two variables `trial1` and `trial2`. In both cases we'll present people with a piece of text, and then ask them to respond by clicking a button with the mouse. We can do this with the `trial_html_button_response()` function. This function will use the "html-button-response" plugin within jsPsych. The plugin does exactly what you might expect given the name: it displays some HTML as the stimulus (in this case, just some regular text), and collects responses using buttons! Here's the code to create `trial1`:
+
+```{r}
+trial1 <- trial_html_button_response(
+  stimulus = "13 + 23 = 36",
+  choices = c("true", "false"),
+  post_trial_gap = 2000
+)
+```
+
+In this code the `stimulus` argument specifies the text that will be displayed on screen to the participant, and the `choices` argument specifies the labels that will be shown on the response buttons. Again, the `post_trial_gap` argument is used to tell jsPsych how long to pause before starting the next trial. We can create `trial2` in much the same way:
+
+```{r}
+trial2 <- trial_html_button_response(
+  stimulus = "17 - 9 = 6",
+  choices = c("true", "false"), 
+  post_trial_gap = 2000
+)
+```
+
+In fact, the code for `trial2` is so similar to the code for `trial1` that it feels inefficient. There should be a way to create both trials at the same time, and indeed there is, which I'll talk about that later. 
+
+
+## Creating a timeline
+
+Now that we have our trial objects, `instructions`, `trial1` and `trial2`, our next taks is to bind together into a timeline. The `timeline()` function allows us to do this:
+
+```{r}
+all_trials <- timeline(instructions, trial1, trial2)
+```
+
+At this point we have a complete timeline for our simple experiment! Yay! 
+
+## Building the experiment
+
+At the moment we have a complete timeline, but it is stored in an abstract form as the `all_trials` variable. What we really want to do is "build" an experiment from this timeline: we want to write the files that will run the experiment, and save those files somewhere. That is the job of the `experiment()` function. First, let's specify the location of the experiment:
+
+```{r}
+exp_path <- file.path(tempdir(), "my_exp")
+exp_path
+```
+
+```{r include=FALSE}
+# quietly wipe this directory if it exists
+if(dir.exists(exp_path)) {
+  f <- list.files(exp_path)
+  file.remove(f)
+}
+```
+
+For the purposes of this demonstration I've chosen to write the experiment to a temporary folder, but normally you'd save it somewhere more sensible. Now all we have to do is write the experiment into this folder `experiment()` function, specifying the `timeline` and `path` arguments to tell R *what* to write and *where* to write it:
+
+```{r}
+experiment(
+  timeline = all_trials,
+  path = exp_path,
+  on_finish = save_locally()
+)
+```
+
+The other thing I've specified here is the `on_finish` argument, which tells jsPsych what do to when the experiment ends. For our simple experiment, the only thing we want to do is save the data. To keep it simple, we'll assume the experiment is going to be run on the same computer where the experiment is stored, and so I've used the `save_locally()` function here. 
+
+## What have we created?
+
+When we run the `experiment()` function, two subfolders within the `exp_path` folder are created, one called "data" (which is initially empty) and another called "experiment", which contains all the source files required to run the experiment. Here are the files we've just created:
+
+```{r}
+list.files(exp_path, recursive = TRUE)
+```
+
+## Running the experiment
+
+To run the experiment on the local machine (and save the data to the "data" folder) all we have to do is call the `run_locally()` function, specifying the location of the experiment to run:
+
+```{r, eval=FALSE}
+run_locally(exp_path)
+```
+
+
+## Summary
+
+The complete code for this example is shown below: 
+
+```{r, eval=FALSE}
+library(jaysire)
+
+instructions <- trial_instructions(
+  pages = c(
+    "Welcome! Use the arrow buttons to browse these instructions",
+    "Your task is to decide if an equation like '2 + 2 = 4' is true or false",
+    "You will respond by clicking a button",
+    "Press the 'Next' button to begin!"
+  ),
+  show_clickable_nav = TRUE,
+  post_trial_gap = 2000
+)
+
+trial1 <- trial_html_button_response(
+  stimulus = "13 * 3 = 39",
+  choices = c("true", "false"),
+  post_trial_gap = 2000
+)
+
+trial2 <- trial_html_button_response(
+  stimulus = "17 - 9 = 6",
+  choices = c("true", "false")
+)
+
+all_trials <- timeline(instructions, trial1, trial2)
+exp_path <- file.path(tempdir(), "my_exp")
+
+experiment(
+  timeline = all_trials,
+  path = exp_path,
+  on_finish = save_locally()
+)
+```
+
+
+You can check out a working version of the experiment [here](../demos/example01/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+
+all_done <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/jaysire01.html'>here</a> to return to the vignette.",
+  choices = no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+exp <- here::here("docs", "demos", "example01")
+experiment(
+  timeline = timeline(all_trials, all_done),
+  path = exp
+)
+```
+
+
+
