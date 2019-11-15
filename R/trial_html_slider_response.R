@@ -35,7 +35,8 @@
 trial_html_slider_response <- function(
   stimulus,
 
-  labels = c("0%", "25%", "75%", "100%"),
+  labels = c("0%", "25%", "50%", "75%", "100%"),
+  button_label = "Continue",
   min = 0,
   max = 100,
   start = 50,
@@ -59,6 +60,7 @@ trial_html_slider_response <- function(
       stimulus = stimulus,
 
       labels = labels,
+      button_label = button_label,
       min = min,
       max = max,
       start = start,

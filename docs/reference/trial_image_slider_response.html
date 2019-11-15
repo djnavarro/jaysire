@@ -116,12 +116,12 @@
 
     <pre class="usage"><span class='fu'>trial_image_slider_response</span>(<span class='no'>stimulus</span>, <span class='kw'>stimulus_height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>stimulus_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>maintain_aspect_ratio</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"0%"</span>, <span class='st'>"25%"</span>, <span class='st'>"75%"</span>, <span class='st'>"100%"</span>), <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-  <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>slider_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>require_movement</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stimulus_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"0%"</span>, <span class='st'>"25%"</span>, <span class='st'>"50%"</span>, <span class='st'>"75%"</span>, <span class='st'>"100%"</span>),
+  <span class='kw'>button_label</span> <span class='kw'>=</span> <span class='st'>"Continue"</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>slider_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>require_movement</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stimulus_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,6 +145,10 @@
     <tr>
       <th>labels</th>
       <td><p>Labels displayed at equidistant locations on the slider.</p></td>
+    </tr>
+    <tr>
+      <th>button_label</th>
+      <td><p>Label placed on the "continue" button</p></td>
     </tr>
     <tr>
       <th>min</th>
@@ -201,10 +205,6 @@
     <tr>
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
-    </tr>
-    <tr>
-      <th>button_label</th>
-      <td><p>Label placed on the "continue" button</p></td>
     </tr>
     </table>
     

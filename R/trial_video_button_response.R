@@ -5,16 +5,15 @@
 #' @param width The width of the video display in pixels (if NULL, natural width is used)
 #' @param height The height of the video display in pixels (if NULL, natural height is used)
 #' @param autoplay Does the video play automatically?
-#' @param controls Should the video controls be made available to the user?
+#' @param controls Should the video controls be shown?
+#' @param start Time point in seconds to start video (NULL starts at the beginning)
+#' @param stop Time point in seconds to stop video (NULL stops at the end)
 #' @param rate What rate to play the video (1 = normal, <1 slower, >1 faster)
 #'
 #' @param choices Labels for the buttons. Each element of the character vector will generate a different button.
 #' @param button_html A template of HTML for generating the button elements (see details)
 #' @param margin_vertical Vertical margin of the buttons
 #' @param margin_horizontal Horizontal margin of the buttons
-#' @param controls Should the video controls be shown?
-#' @param start Time point in seconds to start video (NULL starts at the beginning)
-#' @param stop Time point in seconds to stop video (NULL stops at the end)
 #'
 #' @param prompt A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).
 #' @param trial_duration How long to wait for a response before ending trial in milliseconds. If NULL, the trial will wait indefinitely. If no response is made before the deadline is reached, the response will be recorded as NULL.
@@ -53,6 +52,8 @@ trial_video_button_response <- function(
   height = NULL, # The height of the video display in pixels (if NULL, natural height is used)
   autoplay = TRUE, #Does the video play automatically?
   controls = FALSE,
+  start = NULL,
+  stop = NULL,
   rate = 1,
 
   choices = c("button 0", "button 1", "button 2"),
@@ -78,6 +79,8 @@ trial_video_button_response <- function(
       height = height, # The height of the video display in pixels (if NULL, natural height is used)
       autoplay = autoplay, #Does the video play automatically?
       controls = controls,
+      start = start,
+      stop = stop,
       rate = rate,
 
       choices = choices,

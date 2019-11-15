@@ -149,6 +149,10 @@
       <td><p>A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).</p></td>
     </tr>
     <tr>
+      <th>trial_ends_after_audio</th>
+      <td><p>Does the trial end after the audio finishes playing? (default = FALSE)</p></td>
+    </tr>
+    <tr>
       <th>trial_duration</th>
       <td><p>How long to wait for a response before ending trial in milliseconds. If NULL, the trial will wait indefinitely. If no response is made before the deadline is reached, the response will be recorded as NULL.</p></td>
     </tr>
@@ -171,10 +175,6 @@
     <tr>
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
-    </tr>
-    <tr>
-      <th>stimulus_duration</th>
-      <td><p>How long to show the stimulus, in milliseconds. If NULL, then the stimulus will be shown until the subject makes a response</p></td>
     </tr>
     </table>
     

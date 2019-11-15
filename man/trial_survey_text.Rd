@@ -25,8 +25,6 @@ trial_survey_text(questions, preamble = "",
 \item{on_load}{A javascript callback function to execute when the trial begins, before any loading has occurred}
 
 \item{data}{An object containing additional data to store for the trial}
-
-\item{scale_width}{Width of the scale in pixels (NULL is the display width)}
 }
 \description{
 A survey page with free text items

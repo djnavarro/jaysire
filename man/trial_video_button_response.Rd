@@ -6,8 +6,8 @@
 \usage{
 trial_video_button_response(sources, trial_ends_after_video = FALSE,
   width = NULL, height = NULL, autoplay = TRUE, controls = FALSE,
-  rate = 1, choices = c("button 0", "button 1", "button 2"),
-  button_html = NULL, margin_vertical = "0px",
+  start = NULL, stop = NULL, rate = 1, choices = c("button 0",
+  "button 1", "button 2"), button_html = NULL, margin_vertical = "0px",
   margin_horizontal = "8px", prompt = NULL, trial_duration = NULL,
   response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
   on_load = NULL, data = NULL)
@@ -23,7 +23,11 @@ trial_video_button_response(sources, trial_ends_after_video = FALSE,
 
 \item{autoplay}{Does the video play automatically?}
 
-\item{controls}{Should the video controls be made available to the user?}
+\item{controls}{Should the video controls be shown?}
+
+\item{start}{Time point in seconds to start video (NULL starts at the beginning)}
+
+\item{stop}{Time point in seconds to stop video (NULL stops at the end)}
 
 \item{rate}{What rate to play the video (1 = normal, <1 slower, >1 faster)}
 
@@ -48,12 +52,6 @@ trial_video_button_response(sources, trial_ends_after_video = FALSE,
 \item{on_load}{A javascript callback function to execute when the trial begins, before any loading has occurred}
 
 \item{data}{An object containing additional data to store for the trial}
-
-\item{controls}{Should the video controls be shown?}
-
-\item{start}{Time point in seconds to start video (NULL starts at the beginning)}
-
-\item{stop}{Time point in seconds to stop video (NULL stops at the end)}
 }
 \description{
 Plays a video and records responses generated with a button click

@@ -6,12 +6,12 @@
 \usage{
 trial_image_slider_response(stimulus, stimulus_height = NULL,
   stimulus_width = NULL, maintain_aspect_ratio = TRUE,
-  labels = c("0\%", "25\%", "75\%", "100\%"), min = 0, max = 100,
-  start = 50, step = 1, slider_width = NULL,
-  require_movement = FALSE, prompt = NULL, stimulus_duration = NULL,
-  trial_duration = NULL, response_ends_trial = TRUE,
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+  labels = c("0\%", "25\%", "50\%", "75\%", "100\%"),
+  button_label = "Continue", min = 0, max = 100, start = 50,
+  step = 1, slider_width = NULL, require_movement = FALSE,
+  prompt = NULL, stimulus_duration = NULL, trial_duration = NULL,
+  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
+  on_load = NULL, data = NULL)
 }
 \arguments{
 \item{stimulus}{The path of the image file to be displayed.}
@@ -23,6 +23,8 @@ trial_image_slider_response(stimulus, stimulus_height = NULL,
 \item{maintain_aspect_ratio}{If setting only the width or only the height and this parameter is TRUE, then the other dimension will be scaled to maintain the image's aspect ratio.}
 
 \item{labels}{Labels displayed at equidistant locations on the slider.}
+
+\item{button_label}{Label placed on the "continue" button}
 
 \item{min}{Minimum value of the slider}
 
@@ -51,8 +53,6 @@ trial_image_slider_response(stimulus, stimulus_height = NULL,
 \item{on_load}{A javascript callback function to execute when the trial begins, before any loading has occurred}
 
 \item{data}{An object containing additional data to store for the trial}
-
-\item{button_label}{Label placed on the "continue" button}
 }
 \description{
 Displays an image stimulus and records responses generated with a slider

@@ -6,8 +6,8 @@
 \usage{
 trial_video_keyboard_response(sources, trial_ends_after_video = FALSE,
   width = NULL, height = NULL, autoplay = TRUE, controls = FALSE,
-  rate = 1, choices = any_key(), prompt = NULL,
-  trial_duration = NULL, response_ends_trial = TRUE,
+  start = NULL, stop = NULL, rate = 1, choices = any_key(),
+  prompt = NULL, trial_duration = NULL, response_ends_trial = TRUE,
   post_trial_gap = 0, on_finish = NULL, on_load = NULL,
   data = NULL)
 }
@@ -23,6 +23,10 @@ trial_video_keyboard_response(sources, trial_ends_after_video = FALSE,
 \item{autoplay}{Does the video play automatically?}
 
 \item{controls}{Should the video controls be made available to the user?}
+
+\item{start}{Specifies the time in seconds to start the video (if NULL, start at beginning)}
+
+\item{stop}{Specifies the time in seconds to stop the video (if NULL, stop at end)}
 
 \item{rate}{What rate to play the video (1 = normal, <1 slower, >1 faster)}
 

@@ -41,7 +41,8 @@ trial_image_slider_response <- function(
   stimulus_width = NULL,
   maintain_aspect_ratio = TRUE,
 
-  labels = c("0%", "25%", "75%", "100%"),
+  labels = c("0%", "25%", "50%", "75%", "100%"),
+  button_label = "Continue",
   min = 0,
   max = 100,
   start = 50,
@@ -68,6 +69,7 @@ trial_image_slider_response <- function(
       maintain_aspect_ratio = maintain_aspect_ratio,
 
       labels = labels,
+      button_label = button_label,
       min = min,
       max = max,
       start = start,

@@ -115,8 +115,9 @@
     </div>
 
     <pre class="usage"><span class='fu'>trial_animation</span>(<span class='no'>stimuli</span>, <span class='kw'>frame_time</span> <span class='kw'>=</span> <span class='fl'>250</span>, <span class='kw'>frame_isi</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>sequence_reps</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='any_key.html'>any_key</a></span>(), <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>sequence_reps</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='any_key.html'>any_key</a></span>(), <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -142,6 +143,10 @@
       <td><p>A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used</p></td>
     </tr>
     <tr>
+      <th>prompt</th>
+      <td><p>A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).</p></td>
+    </tr>
+    <tr>
       <th>post_trial_gap</th>
       <td><p>The gap in milliseconds between the current trial and the next trial. If NULL, there will be no gap.</p></td>
     </tr>
@@ -156,10 +161,6 @@
     <tr>
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
-    </tr>
-    <tr>
-      <th>prompt</th>
-      <td><p>A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).</p></td>
     </tr>
     </table>
     

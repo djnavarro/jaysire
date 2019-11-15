@@ -6,9 +6,10 @@
 \usage{
 trial_video_slider_response(sources, trial_ends_after_video = FALSE,
   width = NULL, height = NULL, autoplay = TRUE, controls = FALSE,
-  rate = 1, labels = c("0\%", "25\%", "75\%", "100\%"), min = 0,
-  max = 100, start = 50, step = 1, slider_width = NULL,
-  require_movement = FALSE, prompt = NULL, trial_duration = NULL,
+  start = NULL, stop = NULL, rate = 1, labels = c("0\%", "25\%",
+  "50\%", "75\%", "100\%"), min = 0, max = 100, slider_start = 50,
+  step = 1, slider_width = NULL, require_movement = FALSE,
+  button_label = "Continue", prompt = NULL, trial_duration = NULL,
   response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
   on_load = NULL, data = NULL)
 }
@@ -23,7 +24,11 @@ trial_video_slider_response(sources, trial_ends_after_video = FALSE,
 
 \item{autoplay}{Does the video play automatically?}
 
-\item{controls}{Should the video controls be made available to the user?}
+\item{controls}{Should the video controls be shown?}
+
+\item{start}{Time point in seconds to start video (NULL starts at the beginning)}
+
+\item{stop}{Time point in seconds to stop video (NULL stops at the end)}
 
 \item{rate}{What rate to play the video (1 = normal, <1 slower, >1 faster)}
 
@@ -33,13 +38,15 @@ trial_video_slider_response(sources, trial_ends_after_video = FALSE,
 
 \item{max}{Maximum value of the slider}
 
-\item{start}{Initial value of the slider}
+\item{slider_start}{Initial value of the slider}
 
 \item{step}{Step size of the slider}
 
 \item{slider_width}{Horizontal width of the slider (defaults to display width)}
 
 \item{require_movement}{Does the user need to move the slider before clicking the continue button?}
+
+\item{button_label}{Label placed on the "continue" button}
 
 \item{prompt}{A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).}
 
@@ -54,8 +61,6 @@ trial_video_slider_response(sources, trial_ends_after_video = FALSE,
 \item{on_load}{A javascript callback function to execute when the trial begins, before any loading has occurred}
 
 \item{data}{An object containing additional data to store for the trial}
-
-\item{button_label}{Label placed on the "continue" button}
 }
 \description{
 Plays a video and records responses generated with a slider

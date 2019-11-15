@@ -54,7 +54,7 @@ experiment(
   timeline = timeline(looped_start, check_pass),
   path = "~/Desktop/demo2",
   default_iti = 250,
-  on_finish = code("xprmntr.save_locally")
+  on_finish = save_locally()
 )
 
 

@@ -3,7 +3,7 @@
 
 #' Pass text as raw javascript
 #'
-#' @param string
+#' @param string a string to be interpreted as javascript code
 #'
 #' @export
 code <- function(string) {

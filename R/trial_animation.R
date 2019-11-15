@@ -36,7 +36,7 @@ trial_animation <- function(
   frame_isi = 0,
   sequence_reps = 1,
   choices = any_key(),
-
+  prompt = NULL,
   post_trial_gap = 0,  # start universals
   on_finish = NULL,
   on_load = NULL,
@@ -51,6 +51,7 @@ trial_animation <- function(
       frame_isi = frame_isi,
       sequence_reps = sequence_reps,
       choices = choices,
+      prompt = prompt,
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,

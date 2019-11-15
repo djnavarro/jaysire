@@ -3,7 +3,6 @@
 #'
 #' @param questions A question or list of questions
 #' @param preamble Text to appear above the questions
-#' @param scale_width Width of the scale in pixels (NULL is the display width)
 #' @param randomize_question_order Should order be randomised?
 #' @param button_label Text for the continue button
 #' @param required_message Message to display if required response is not given.

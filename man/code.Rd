@@ -7,7 +7,7 @@
 code(string)
 }
 \arguments{
-\item{string}{}
+\item{string}{a string to be interpreted as javascript code}
 }
 \description{
 Pass text as raw javascript

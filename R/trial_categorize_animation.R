@@ -32,7 +32,7 @@
 #'
 #' @export
 trial_categorize_animation <- function(
-  stimulus,
+  stimuli,
   key_answer,
   choices = any_key(),
   text_answer = "",
@@ -52,7 +52,7 @@ trial_categorize_animation <- function(
   drop_nulls(
     trial(
       type = "categorize-animation",
-      stimulus = stimulus,
+      stimuli = stimuli,
       key_answer = key_answer,
       choices = choices,
       text_answer = text_answer,

@@ -4,7 +4,7 @@
 \alias{trial_categorize_animation}
 \title{Displays animation, records responses with the keyboard and gives feedback}
 \usage{
-trial_categorize_animation(stimulus, key_answer, choices = any_key(),
+trial_categorize_animation(stimuli, key_answer, choices = any_key(),
   text_answer = "", correct_text = "Correct",
   incorrect_text = "Wrong", frame_time = 500, sequence_reps = 1,
   allow_response_before_complete = FALSE, prompt = NULL,
@@ -12,6 +12,8 @@ trial_categorize_animation(stimulus, key_answer, choices = any_key(),
   on_load = NULL, data = NULL)
 }
 \arguments{
+\item{stimuli}{Character vector of paths to image files}
+
 \item{key_answer}{The numeric key code indicating the correct response}
 
 \item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used}
@@ -39,8 +41,6 @@ trial_categorize_animation(stimulus, key_answer, choices = any_key(),
 \item{on_load}{A javascript callback function to execute when the trial begins, before any loading has occurred}
 
 \item{data}{An object containing additional data to store for the trial}
-
-\item{stimuli}{Character vector of paths to image files}
 }
 \description{
 Displays animation, records responses with the keyboard and gives feedback

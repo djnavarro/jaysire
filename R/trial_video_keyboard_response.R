@@ -6,6 +6,8 @@
 #' @param height The height of the video display in pixels (if NULL, natural height is used)
 #' @param autoplay Does the video play automatically?
 #' @param controls Should the video controls be made available to the user?
+#' @param start Specifies the time in seconds to start the video (if NULL, start at beginning)
+#' @param stop Specifies the time in seconds to stop the video (if NULL, stop at end)
 #' @param rate What rate to play the video (1 = normal, <1 slower, >1 faster)
 #'
 #' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used
@@ -37,6 +39,8 @@ trial_video_keyboard_response <- function(
   height = NULL, # The height of the video display in pixels (if NULL, natural height is used)
   autoplay = TRUE, #Does the video play automatically?
   controls = FALSE,
+  start = NULL,
+  stop = NULL,
   rate = 1,
 
   choices = any_key(),
@@ -59,6 +63,8 @@ trial_video_keyboard_response <- function(
       height = height, # The height of the video display in pixels (if NULL, natural height is used)
       autoplay = autoplay, #Does the video play automatically?
       controls = controls,
+      start = start,
+      stop = stop,
       rate = rate,
 
       choices = choices,

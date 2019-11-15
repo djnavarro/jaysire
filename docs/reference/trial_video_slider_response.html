@@ -116,9 +116,10 @@
 
     <pre class="usage"><span class='fu'>trial_video_slider_response</span>(<span class='no'>sources</span>, <span class='kw'>trial_ends_after_video</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>controls</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"0%"</span>, <span class='st'>"25%"</span>, <span class='st'>"75%"</span>, <span class='st'>"100%"</span>), <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>slider_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>require_movement</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stop</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"0%"</span>, <span class='st'>"25%"</span>,
+  <span class='st'>"50%"</span>, <span class='st'>"75%"</span>, <span class='st'>"100%"</span>), <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>slider_start</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>slider_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>require_movement</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>button_label</span> <span class='kw'>=</span> <span class='st'>"Continue"</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
@@ -147,7 +148,15 @@
     </tr>
     <tr>
       <th>controls</th>
-      <td><p>Should the video controls be made available to the user?</p></td>
+      <td><p>Should the video controls be shown?</p></td>
+    </tr>
+    <tr>
+      <th>start</th>
+      <td><p>Time point in seconds to start video (NULL starts at the beginning)</p></td>
+    </tr>
+    <tr>
+      <th>stop</th>
+      <td><p>Time point in seconds to stop video (NULL stops at the end)</p></td>
     </tr>
     <tr>
       <th>rate</th>
@@ -166,7 +175,7 @@
       <td><p>Maximum value of the slider</p></td>
     </tr>
     <tr>
-      <th>start</th>
+      <th>slider_start</th>
       <td><p>Initial value of the slider</p></td>
     </tr>
     <tr>
@@ -180,6 +189,10 @@
     <tr>
       <th>require_movement</th>
       <td><p>Does the user need to move the slider before clicking the continue button?</p></td>
+    </tr>
+    <tr>
+      <th>button_label</th>
+      <td><p>Label placed on the "continue" button</p></td>
     </tr>
     <tr>
       <th>prompt</th>
@@ -208,10 +221,6 @@
     <tr>
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
-    </tr>
-    <tr>
-      <th>button_label</th>
-      <td><p>Label placed on the "continue" button</p></td>
     </tr>
     </table>
     

@@ -153,10 +153,10 @@ resources <- add_resources(
 
 experiment(
   timeline = all_events,
-  path = "~/Desktop/expt",
+  path = "~/Desktop/demo1",
   resources = resources,
   default_iti = 250,
-  on_finish = code("xprmntr.save_locally"),
+  on_finish = save_locally(),
   preload_images = resource(flag_files)
 )
 
@@ -165,7 +165,7 @@ experiment(
 
 if(FALSE) {
   run_locally(
-    path = "~/Desktop/expt",
+    path = "~/Desktop/demo1",
     port = 8000
   )
 }

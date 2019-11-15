@@ -114,7 +114,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>trial_categorize_animation</span>(<span class='no'>stimulus</span>, <span class='no'>key_answer</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='any_key.html'>any_key</a></span>(),
+    <pre class="usage"><span class='fu'>trial_categorize_animation</span>(<span class='no'>stimuli</span>, <span class='no'>key_answer</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='any_key.html'>any_key</a></span>(),
   <span class='kw'>text_answer</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>correct_text</span> <span class='kw'>=</span> <span class='st'>"Correct"</span>,
   <span class='kw'>incorrect_text</span> <span class='kw'>=</span> <span class='st'>"Wrong"</span>, <span class='kw'>frame_time</span> <span class='kw'>=</span> <span class='fl'>500</span>, <span class='kw'>sequence_reps</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>allow_response_before_complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -124,6 +124,10 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>stimuli</th>
+      <td><p>Character vector of paths to image files</p></td>
+    </tr>
     <tr>
       <th>key_answer</th>
       <td><p>The numeric key code indicating the correct response</p></td>
@@ -179,10 +183,6 @@
     <tr>
       <th>data</th>
       <td><p>An object containing additional data to store for the trial</p></td>
-    </tr>
-    <tr>
-      <th>stimuli</th>
-      <td><p>Character vector of paths to image files</p></td>
     </tr>
     </table>
     

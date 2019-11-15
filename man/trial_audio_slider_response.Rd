@@ -4,9 +4,10 @@
 \alias{trial_audio_slider_response}
 \title{Plays an audio stimulus and records responses generated with a slider}
 \usage{
-trial_audio_slider_response(stimulus, labels = c("0\%", "25\%", "75\%",
-  "100\%"), min = 0, max = 100, start = 50, step = 1,
-  slider_width = NULL, require_movement = FALSE, prompt = NULL,
+trial_audio_slider_response(stimulus, labels = c("0\%", "25\%", "50\%",
+  "75\%", "100\%"), button_label = "Continue", min = 0, max = 100,
+  start = 50, step = 1, slider_width = NULL,
+  require_movement = FALSE, prompt = NULL,
   trial_ends_after_audio = FALSE, trial_duration = NULL,
   response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
   on_load = NULL, data = NULL)
@@ -15,6 +16,8 @@ trial_audio_slider_response(stimulus, labels = c("0\%", "25\%", "75\%",
 \item{stimulus}{Path to the audio file to be played}
 
 \item{labels}{Labels displayed at equidistant locations on the slider.}
+
+\item{button_label}{Label placed on the "continue" button}
 
 \item{min}{Minimum value of the slider}
 
@@ -43,8 +46,6 @@ trial_audio_slider_response(stimulus, labels = c("0\%", "25\%", "75\%",
 \item{on_load}{A javascript callback function to execute when the trial begins, before any loading has occurred}
 
 \item{data}{An object containing additional data to store for the trial}
-
-\item{button_label}{Label placed on the "continue" button}
 }
 \description{
 Plays an audio stimulus and records responses generated with a slider

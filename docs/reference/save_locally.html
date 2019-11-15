@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A survey page with free text items — trial_survey_text • jaysire</title>
+<title>Save data locally — save_locally • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A survey page with free text items — trial_survey_text" />
+<meta property="og:title" content="Save data locally — save_locally" />
 
-<meta property="og:description" content="A survey page with free text items" />
+<meta property="og:description" content="Save data locally" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,87 +103,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A survey page with free text items</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_survey_text.R'><code>R/trial_survey_text.R</code></a></small>
-    <div class="hidden name"><code>trial_survey_text.Rd</code></div>
+    <h1>Save data locally</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/save_locally.R'><code>R/save_locally.R</code></a></small>
+    <div class="hidden name"><code>save_locally.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A survey page with free text items</p>
+    <p>Save data locally</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>trial_survey_text</span>(<span class='no'>questions</span>, <span class='kw'>preamble</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>randomize_question_order</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>button_label</span> <span class='kw'>=</span> <span class='st'>"Continue"</span>,
-  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>questions</th>
-      <td><p>A question or list of questions</p></td>
-    </tr>
-    <tr>
-      <th>preamble</th>
-      <td><p>Text to appear above the questions</p></td>
-    </tr>
-    <tr>
-      <th>randomize_question_order</th>
-      <td><p>Should order be randomised?</p></td>
-    </tr>
-    <tr>
-      <th>button_label</th>
-      <td><p>Text for the continue button</p></td>
-    </tr>
-    <tr>
-      <th>post_trial_gap</th>
-      <td><p>The gap in milliseconds between the current trial and the next trial. If NULL, there will be no gap.</p></td>
-    </tr>
-    <tr>
-      <th>on_finish</th>
-      <td><p>A javascript callback function to execute when the trial finishes</p></td>
-    </tr>
-    <tr>
-      <th>on_load</th>
-      <td><p>A javascript callback function to execute when the trial begins, before any loading has occurred</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>An object containing additional data to store for the trial</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>In addition to the default data collected by all plugins, this plugin
-collects the following data for each trial. The <code>responses</code> value is a
-string in JSON format containing the response for each question. The encoded
-object will have a separate variable for the response to each question, with
-the first question in the trial being recorded in Q0, the second in Q1, and
-so on. Each response is a string containing whatever the subject typed into
-the associated text box. If the name parameter is defined for the question,
-then the response will use the value of name as the key for the response in
-the responses object.</p>
-<p>The <code>rt</code> value is the response time in milliseconds for the subject to make
-a response. The time is measured from when the questions first appear on the
-screen until the subject's response.</p>
-<p>The <code>question_order</code> value is a string in JSON format containing an array
-with the order of questions. For example [2,0,1] would indicate that the first
-question was trial.questions[2] (the third item in the questions parameter), the
-second question was trial.questions[0], and the final question was trial.questions[1].</p>
-    
+    <pre class="usage"><span class='fu'>save_locally</span>()</pre>
+        
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-          </ul>
+                </ul>
 
   </div>
 </div>

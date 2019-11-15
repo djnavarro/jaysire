@@ -17,6 +17,8 @@ trial_audio_keyboard_response(stimulus, choices = any_key(),
 
 \item{prompt}{A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).}
 
+\item{trial_ends_after_audio}{Does the trial end after the audio finishes playing? (default = FALSE)}
+
 \item{trial_duration}{How long to wait for a response before ending trial in milliseconds. If NULL, the trial will wait indefinitely. If no response is made before the deadline is reached, the response will be recorded as NULL.}
 
 \item{response_ends_trial}{If TRUE, then the trial will end when a response is made (or the trial_duration expires). If FALSE, the trial continues until the deadline expires.}
@@ -28,8 +30,6 @@ trial_audio_keyboard_response(stimulus, choices = any_key(),
 \item{on_load}{A javascript callback function to execute when the trial begins, before any loading has occurred}
 
 \item{data}{An object containing additional data to store for the trial}
-
-\item{stimulus_duration}{How long to show the stimulus, in milliseconds. If NULL, then the stimulus will be shown until the subject makes a response}
 }
 \description{
 Plays an audio stimulus and records responses generated with the keyboard

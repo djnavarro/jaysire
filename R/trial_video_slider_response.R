@@ -5,14 +5,16 @@
 #' @param width The width of the video display in pixels (if NULL, natural width is used)
 #' @param height The height of the video display in pixels (if NULL, natural height is used)
 #' @param autoplay Does the video play automatically?
-#' @param controls Should the video controls be made available to the user?
+#' @param controls Should the video controls be shown?
+#' @param start Time point in seconds to start video (NULL starts at the beginning)
+#' @param stop Time point in seconds to stop video (NULL stops at the end)
 #' @param rate What rate to play the video (1 = normal, <1 slower, >1 faster)
 #'
 #' @param labels Labels displayed at equidistant locations on the slider.
 #' @param button_label Label placed on the "continue" button
 #' @param min Minimum value of the slider
 #' @param max Maximum value of the slider
-#' @param start Initial value of the slider
+#' @param slider_start Initial value of the slider
 #' @param step Step size of the slider
 #' @param slider_width Horizontal width of the slider (defaults to display width)
 #' @param require_movement Does the user need to move the slider before clicking the continue button?
@@ -44,15 +46,18 @@ trial_video_slider_response <- function(
   height = NULL, # The height of the video display in pixels (if NULL, natural height is used)
   autoplay = TRUE, #Does the video play automatically?
   controls = FALSE,
+  start = NULL,
+  stop = NULL,
   rate = 1,
 
-  labels = c("0%", "25%", "75%", "100%"),
+  labels = c("0%", "25%", "50%", "75%", "100%"),
   min = 0,
   max = 100,
-  start = 50,
+  slider_start = 50,
   step = 1,
   slider_width = NULL,
   require_movement = FALSE,
+  button_label = "Continue",
 
   prompt = NULL,
   trial_duration = NULL,
@@ -72,15 +77,18 @@ trial_video_slider_response <- function(
       height = height, # The height of the video display in pixels (if NULL, natural height is used)
       autoplay = autoplay, #Does the video play automatically?
       controls = controls,
+      start = start,
+      stop = stop,
       rate = rate,
 
       labels = labels,
       min = min,
       max = max,
-      start = start,
+      slider_start = slider_start,
       step = step,
       slider_width = slider_width,
       require_movement = require_movement,
+      button_label = button_label,
 
       prompt = prompt,
       trial_duration = trial_duration,

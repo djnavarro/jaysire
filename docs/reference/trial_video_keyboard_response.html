@@ -116,8 +116,8 @@
 
     <pre class="usage"><span class='fu'>trial_video_keyboard_response</span>(<span class='no'>sources</span>, <span class='kw'>trial_ends_after_video</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>controls</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='any_key.html'>any_key</a></span>(), <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stop</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='any_key.html'>any_key</a></span>(),
+  <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
@@ -147,6 +147,14 @@
     <tr>
       <th>controls</th>
       <td><p>Should the video controls be made available to the user?</p></td>
+    </tr>
+    <tr>
+      <th>start</th>
+      <td><p>Specifies the time in seconds to start the video (if NULL, start at beginning)</p></td>
+    </tr>
+    <tr>
+      <th>stop</th>
+      <td><p>Specifies the time in seconds to stop the video (if NULL, stop at end)</p></td>
     </tr>
     <tr>
       <th>rate</th>
