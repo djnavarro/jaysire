@@ -5,3 +5,4 @@
 ^misc$
 ^\.workbch$
 ^docs$
+^\.travis\.yml$
