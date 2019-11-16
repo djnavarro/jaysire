@@ -1,0 +1,97 @@
+---
+title: "3. Using resource files"
+---
+
+In the [first](jaysire01.html) and [second](jaysire02.html) articles, the stimulus materials were simple text, and so I didn't need to worry about specifying image files or anything like that. For the sake of simplicity, I won't bother with instruction trials this time
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r example3, message=FALSE}
+library(jaysire)
+library(tibble)
+library(ggplot2)
+
+
+# ----------- all stimuli -----------
+make_image <- function(nblue, nred, filename) {
+  points <- tibble(
+    x = runif(nblue + nred),
+    y = runif(nblue + nred),
+    col = c(rep("blue", nblue), rep("red", nred))
+  )
+  img <- ggplot(points, aes(x, y, color = col)) + 
+    geom_point(size = 4, show.legend = FALSE) + 
+    scale_color_identity() + 
+    theme_void()
+  ggsave(filename, img, width = 4, height = 4, dpi = 100)
+}
+
+
+nblue <-   c(20, 20, 25, 25, 30, 30, 35, 35)
+nred <- c(15, 25, 20, 30, 25, 35, 30, 40)
+
+image_folder <- file.path(tempdir(), "images")
+if(!dir.exists(image_folder)) dir.create(image_folder)
+
+for(stim in 1:8) {
+  filename <- file.path(image_folder, paste0("stimulus", stim, ".png"))
+  make_image(nblue[stim], nred[stim], filename)
+}
+
+image_paths <- list.files(image_folder)
+
+
+# ----------- trials from template -----------
+trial_template <- trial_image_button_response(
+  stimulus = variable("stimulus"),
+  stimulus_height = 400,
+  stimulus_width = 400,
+  choices = c("there are more red dots", "there are more blue dots"),
+  post_trial_gap = 1000
+)
+
+trials <- timeline(trial_template) %>%
+  with_variables(stimulus = resource(image_paths)) %>%
+  with_parameters(randomize_order = TRUE)
+
+
+# ----------- experiment location -----------
+exp_path <- file.path(tempdir(), "images_exp")
+
+
+# ----------- build the experiment -----------
+experiment(
+  timeline = trials,
+  path = exp_path, 
+  resources = add_resources(image_folder),
+  on_finish = save_locally()
+)
+```
+
+You can check out a working version of the experiment [here](../demos/example03/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+
+finish <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/jaysire03.html'>here</a> to return to the vignette.",
+  choices = no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+experiment(
+  timeline = timeline(trials, finish),
+  resources = add_resources(image_folder),
+  path =  here::here("docs", "demos", "example03"),
+)
+```
+
+
+
