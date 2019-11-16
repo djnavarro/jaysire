@@ -1,0 +1,102 @@
+---
+title: "2. Randomisation, repetition and variables"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The [previous article](jaysire01.html) illustrated how to build a very simple experiment using jaysire and deploy it locally. In this article I take the same experiment and elaborate it in three ways:
+
+- Avoid code duplication using timeline variables
+- Randomise the order of trials within a block
+- Repetition of blocks of trials
+
+
+Complete code for this demo:
+
+```{r example2}
+library(jaysire)
+
+# ----------- instructions -----------
+instructions <- trial_instructions(
+  pages = c(
+    "Welcome! Use the arrow buttons to browse these instructions",
+    "Your task is to decide if an equation like '2 + 2 = 4' is true or false",
+    "You will respond by clicking a button",
+    "Press the 'Next' button to begin!"
+  ),
+  show_clickable_nav = TRUE,
+  post_trial_gap = 1000
+)
+
+
+# ----------- all stimuli -----------
+equations <- c(
+  "13 + 23 = 36",  
+  "17 - 9 = 6", 
+  "125 / 5 = 25", 
+  "2 - 4 = 6", 
+  "12 + 39 = 43", 
+  "4 * 23 = 92"
+)
+
+# ----------- trials from template -----------
+trial_template <- trial_html_button_response(
+  stimulus = variable("stimulus"),
+  choices = c("true", "false"),
+  post_trial_gap = 1000
+)
+
+trials <- timeline(trial_template) %>%
+  with_variables(stimulus = equations) %>%
+  with_parameters(randomize_order = TRUE, repetitions = 2)
+
+
+# ----------- final trial -----------
+finish <- trial_html_keyboard_response(
+  stimulus = "All done! Press any key to finish",
+  choices = any_key()
+)
+
+# ----------- construct timeline -----------
+all_events <- timeline(
+  instructions,
+  trials,
+  finish
+)
+
+# ----------- experiment location -----------
+exp_path <- file.path(tempdir(), "equations_exp")
+
+
+# ----------- build the experiment -----------
+experiment(
+  timeline = all_events,
+  path = exp_path,
+  on_finish = save_locally()
+)
+```
+
+
+You can check out a working version of the experiment [here](../demos/example02/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+
+finish2 <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/jaysire02.html'>here</a> to return to the vignette.",
+  choices = no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+exp <- here::here("docs", "demos", "example02")
+experiment(
+  timeline = timeline(instructions, trials, finish2),
+  path = exp,
+)
+```
+
+

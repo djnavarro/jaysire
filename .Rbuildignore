@@ -7,3 +7,4 @@
 ^docs$
 ^\.travis\.yml$
 ^vignettes/jaysire01\.Rmd$
+^vignettes/jaysire02\.Rmd$

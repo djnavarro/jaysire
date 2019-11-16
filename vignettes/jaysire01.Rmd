@@ -140,7 +140,7 @@ instructions <- trial_instructions(
 )
 
 trial1 <- trial_html_button_response(
-  stimulus = "13 * 3 = 39",
+  stimulus = "13 + 23 = 36",
   choices = c("true", "false"),
   post_trial_gap = 2000
 )
