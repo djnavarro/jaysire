@@ -1,0 +1,14 @@
+---
+title: "4. Image, video and audio files"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(jaysire)
+```

@@ -1,0 +1,14 @@
+---
+title: "7. Loops and branches"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(jaysire)
+```
