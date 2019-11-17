@@ -107,7 +107,46 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">page1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_button_response.html">trial_html_button_response</a></span>(</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="st">"Do you identify as LGBTIQ+?"</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Prefer not to say"</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">page1a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_survey_multi_select.html">trial_survey_multi_select</a></span>(</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="kw"><a href="../reference/question_multi.html">question_multi</a></span>(</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="dt">prompt =</span> <span class="st">"Select all that apply"</span>,</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="dt">options =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">      <span class="st">"Lesbian"</span>, </a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="st">"Gay"</span>, </a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">      <span class="st">"Bisexual/Pansexual"</span>, </a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">      <span class="st">"Transgender"</span>, </a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">      <span class="st">"Nonbinary"</span>,</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">      <span class="st">"Genderqueer"</span>, </a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">      <span class="st">"Intersex"</span>, </a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">      <span class="st">"Asexual"</span>,</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">      <span class="st">"Other"</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">    )</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">  )</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">)</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">page1a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/timeline.html">timeline</a></span>(page1a) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="st">  </span><span class="kw"><a href="../reference/display_if.html">display_if</a></span>(<span class="kw"><a href="../reference/data_condition.html">data_condition</a></span>(button_pressed <span class="op">==</span><span class="st"> "0"</span>))</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">resources &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"resources"</span>, <span class="dt">package =</span> <span class="st">"jaysire"</span>)</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">page2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_image_button_response.html">trial_image_button_response</a></span>(</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/resource.html">resource</a></span>(<span class="st">"heart.png"</span>), </a>
+<a class="sourceLine" id="cb1-32" data-line-number="32">  <span class="dt">stimulus_height =</span> <span class="dv">400</span>,</a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">  <span class="dt">stimulus_width =</span> <span class="dv">400</span>,</a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>),</a>
+<a class="sourceLine" id="cb1-35" data-line-number="35">  <span class="dt">prompt =</span> <span class="st">"You will not be allowed to continue unless you select 'Pleasant'"</span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36">)</a>
+<a class="sourceLine" id="cb1-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38">page2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/timeline.html">timeline</a></span>(page2) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="st">  </span><span class="kw"><a href="../reference/display_while.html">display_while</a></span>(<span class="kw"><a href="../reference/data_condition.html">data_condition</a></span>(button_pressed <span class="op">!=</span><span class="st"> "2"</span>))</a></code></pre></div>
+<p>You can check out a working version of the experiment <a href="../demos/example07/experiment/index.html">here</a>.</p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

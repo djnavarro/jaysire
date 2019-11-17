@@ -107,7 +107,64 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">page1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_survey_multi_choice.html">trial_survey_multi_choice</a></span>(</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="dt">preamble =</span> <span class="st">"Welcome! We'd like to ask some demographic questions"</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="dt">questions =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="kw"><a href="../reference/question_multi.html">question_multi</a></span>(</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">      <span class="dt">prompt =</span> <span class="st">"Please select the option that best matches your gender"</span>,</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">      <span class="dt">options =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Nonbinary"</span>, <span class="st">"Other"</span>, <span class="st">"Prefer not to say"</span>),</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">      <span class="dt">horizontal =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">      <span class="dt">name =</span> <span class="st">"gender"</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    ),</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="kw"><a href="../reference/question_multi.html">question_multi</a></span>(</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="dt">prompt =</span> <span class="st">"Do you consider yourself to be LGBTIQ+?"</span>,</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">      <span class="dt">options =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Unsure"</span>, <span class="st">"Prefer not to say"</span>),</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">      <span class="dt">horizontal =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    )</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">  )</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">)</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">page2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_survey_multi_select.html">trial_survey_multi_select</a></span>(</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">  <span class="dt">questions =</span> <span class="kw"><a href="../reference/question_multi.html">question_multi</a></span>(</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    <span class="dt">prompt =</span> <span class="st">"Which of the following R packages to you use?"</span>,</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="dt">options =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">      <span class="st">"ggplot2"</span>, <span class="st">"dplyr"</span>, <span class="st">"purrr"</span>, <span class="st">"janitor"</span>, <span class="st">"data.table"</span>, <span class="st">"testthat"</span>,</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">      <span class="st">"usethis"</span>, <span class="st">"tibble"</span>, <span class="st">"magrittr"</span>, <span class="st">"rlang"</span>, <span class="st">"babynames"</span>, <span class="st">"janeaustenr"</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">    ), </a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">    <span class="dt">horizontal =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">  )</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">)</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32">confidence_scale &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">  <span class="st">"Very unconfident"</span>, </a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">  <span class="st">"Somewhat unconfident"</span>, </a>
+<a class="sourceLine" id="cb1-35" data-line-number="35">  <span class="st">"Somewhat confident"</span>, </a>
+<a class="sourceLine" id="cb1-36" data-line-number="36">  <span class="st">"Very confident"</span></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37">)</a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39">page3 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_survey_likert.html">trial_survey_likert</a></span>(</a>
+<a class="sourceLine" id="cb1-40" data-line-number="40">  <span class="dt">preamble =</span> <span class="st">"How confident in you R skills?"</span>,</a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">  <span class="dt">questions =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
+<a class="sourceLine" id="cb1-42" data-line-number="42">    <span class="kw"><a href="../reference/question_likert.html">question_likert</a></span>(<span class="st">"Data wrangling?"</span>, confidence_scale),</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43">    <span class="kw"><a href="../reference/question_likert.html">question_likert</a></span>(<span class="st">"Data visualisation?"</span>, confidence_scale),</a>
+<a class="sourceLine" id="cb1-44" data-line-number="44">    <span class="kw"><a href="../reference/question_likert.html">question_likert</a></span>(<span class="st">"Statistical modelling?"</span>, confidence_scale),</a>
+<a class="sourceLine" id="cb1-45" data-line-number="45">    <span class="kw"><a href="../reference/question_likert.html">question_likert</a></span>(<span class="st">"Designing experiments?"</span>, confidence_scale),</a>
+<a class="sourceLine" id="cb1-46" data-line-number="46">    <span class="kw"><a href="../reference/question_likert.html">question_likert</a></span>(<span class="st">"R markdown documents?"</span>, confidence_scale)</a>
+<a class="sourceLine" id="cb1-47" data-line-number="47">  )</a>
+<a class="sourceLine" id="cb1-48" data-line-number="48">)</a>
+<a class="sourceLine" id="cb1-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50">page4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_survey_text.html">trial_survey_text</a></span>(</a>
+<a class="sourceLine" id="cb1-51" data-line-number="51">  <span class="dt">questions =</span> <span class="kw"><a href="../reference/question_text.html">question_text</a></span>(</a>
+<a class="sourceLine" id="cb1-52" data-line-number="52">    <span class="dt">prompt =</span> <span class="st">"Anything else you would like to mention?"</span>,</a>
+<a class="sourceLine" id="cb1-53" data-line-number="53">    <span class="dt">placeholder =</span> <span class="st">"Type your answer here"</span>,</a>
+<a class="sourceLine" id="cb1-54" data-line-number="54">    <span class="dt">rows =</span> <span class="dv">8</span>,</a>
+<a class="sourceLine" id="cb1-55" data-line-number="55">    <span class="dt">columns =</span> <span class="dv">60</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56">  )</a>
+<a class="sourceLine" id="cb1-57" data-line-number="57">)</a></code></pre></div>
+<p>You can check out a working version of the experiment <a href="../demos/example06/experiment/index.html">here</a>.</p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

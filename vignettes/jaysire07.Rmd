@@ -11,4 +11,61 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(jaysire)
+
+page1 <- trial_html_button_response(
+  "Do you identify as LGBTIQ+?",
+  c("Yes", "No", "Prefer not to say")
+)
+
+page1a <- trial_survey_multi_select(
+  question_multi(
+    prompt = "Select all that apply",
+    options = c(
+      "Lesbian", 
+      "Gay", 
+      "Bisexual/Pansexual", 
+      "Transgender", 
+      "Nonbinary",
+      "Genderqueer", 
+      "Intersex", 
+      "Asexual",
+      "Other"
+    )
+  )
+)
+
+page1a <- timeline(page1a) %>%
+  display_if(data_condition(button_pressed == "0"))
+
+resources <- system.file("extdata", "resources", package = "jaysire")
+
+page2 <- trial_image_button_response(
+  stimulus = resource("heart.png"), 
+  stimulus_height = 400,
+  stimulus_width = 400,
+  choices = c("Unpleasant", "Neutral", "Pleasant"),
+  prompt = "You will not be allowed to continue unless you select 'Pleasant'"
+)
+
+page2 <- timeline(page2) %>%
+  display_while(data_condition(button_pressed != "2"))
 ```
+
+
+You can check out a working version of the experiment [here](../demos/example07/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+finish <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/jaysire07.html'>here</a> to return to the vignette.",
+  choices = no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+experiment(
+  timeline = timeline(page1, page1a, page2, finish),
+  resources = add_resources(resources),
+  path =  here::here("docs", "demos", "example07")
+)
+```
+
+

@@ -9,6 +9,80 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r example6}
 library(jaysire)
+
+page1 <- trial_survey_multi_choice(
+  preamble = "Welcome! We'd like to ask some demographic questions",
+  questions = list(
+    question_multi(
+      prompt = "Please select the option that best matches your gender",
+      options = c("Male", "Female", "Nonbinary", "Other", "Prefer not to say"),
+      horizontal = FALSE,
+      name = "gender"
+    ),
+    question_multi(
+      prompt = "Do you consider yourself to be LGBTIQ+?",
+      options = c("Yes", "No", "Unsure", "Prefer not to say"),
+      horizontal = FALSE
+    )
+  )
+)
+
+page2 <- trial_survey_multi_select(
+  questions = question_multi(
+    prompt = "Which of the following R packages to you use?",
+    options = c(
+      "ggplot2", "dplyr", "purrr", "janitor", "data.table", "testthat",
+      "usethis", "tibble", "magrittr", "rlang", "babynames", "janeaustenr"
+    ), 
+    horizontal = FALSE
+  )
+)
+
+
+confidence_scale <- c(
+  "Very unconfident", 
+  "Somewhat unconfident", 
+  "Somewhat confident", 
+  "Very confident"
+)
+
+page3 <- trial_survey_likert(
+  preamble = "How confident in you R skills?",
+  questions = list(
+    question_likert("Data wrangling?", confidence_scale),
+    question_likert("Data visualisation?", confidence_scale),
+    question_likert("Statistical modelling?", confidence_scale),
+    question_likert("Designing experiments?", confidence_scale),
+    question_likert("R markdown documents?", confidence_scale)
+  )
+)
+
+page4 <- trial_survey_text(
+  questions = question_text(
+    prompt = "Anything else you would like to mention?",
+    placeholder = "Type your answer here",
+    rows = 8,
+    columns = 60
+  )
+)
 ```
+
+
+
+You can check out a working version of the experiment [here](../demos/example06/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+finish <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/jaysire06.html'>here</a> to return to the vignette.",
+  choices = no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+experiment(
+  timeline = timeline(page1, page2, page3, page4, finish),
+  path =  here::here("docs", "demos", "example06")
+)
+```
+
