@@ -9,6 +9,50 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+
+```{r experiment, message=FALSE}
 library(jaysire)
+resources <- system.file("extdata", "resources", package = "jaysire")
+list.files(resources)
+
+image_trial <- trial_image_button_response(
+  stimulus = resource("heart.png"), 
+  stimulus_height = 400,
+  stimulus_width = 400,
+  choices = c("Unpleasant", "Neutral", "Pleasant") 
+)
+
+video_trial <- trial_video_button_response(
+  sources = c(resource("heart.mpg"), resource("heart.webm")), 
+  choices = c("Unpleasant", "Neutral", "Pleasant") 
+)
+
+audio_trial <- trial_audio_button_response(
+  stimulus = resource("wood.mp4"),
+  choices = c("Unpleasant", "Neutral", "Pleasant") 
+)
+
 ```
+
+
+You can check out a working version of the experiment [here](../demos/example04/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+finish <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/jaysire04.html'>here</a> to return to the vignette.",
+  choices = no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+experiment(
+  timeline = timeline(image_trial, video_trial, audio_trial, finish),
+  resources = add_resources(resources),
+  path =  here::here("docs", "demos", "example04"),
+  use_webaudio = FALSE
+)
+```
+
+
+
+
+               
