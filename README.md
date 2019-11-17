@@ -35,17 +35,17 @@ There are a series of tutorial articles on the package website:
 1.  [Getting
     started](https://djnavarro.github.io/jaysire/articles/jaysire01.html)
 2.  [Randomisation, repetition and
-    variables](%22https://djnavarro.github.io/jaysire/articles/jaysire02.html%22)
+    variables](%22https://djnavarro.github.io/jaysire/articles/jaysire02.html)
 3.  [Using resource
-    files](%22https://djnavarro.github.io/jaysire/articles/jaysire03.html%22)
+    files](https://djnavarro.github.io/jaysire/articles/jaysire03.html)
 4.  [Image, video and audio
-    files](%22https://djnavarro.github.io/jaysire/articles/jaysire04.html%22)
+    files](https://djnavarro.github.io/jaysire/articles/jaysire04.html)
 5.  [Buttons, key presses and
-    sliders](%22https://djnavarro.github.io/jaysire/articles/jaysire05.html%22)
+    sliders](https://djnavarro.github.io/jaysire/articles/jaysire05.html)
 6.  [Survey
-    pages](%22https://djnavarro.github.io/jaysire/articles/jaysire06.html%22)
+    pages](https://djnavarro.github.io/jaysire/articles/jaysire06.html)
 7.  [Loops and
-    branches](%22https://djnavarro.github.io/jaysire/articles/jaysire07.html%22)
+    branches](https://djnavarro.github.io/jaysire/articles/jaysire07.html)
 
 ## Related packages
 
