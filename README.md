@@ -28,6 +28,25 @@ it directly from GitHub using the following commands:
 remotes::install_github("djnavarro/jaysire")
 ```
 
+## Tutorial
+
+There are a series of tutorial articles on the package website:
+
+1.  [Getting
+    started](https://djnavarro.github.io/jaysire/articles/jaysire01.html)
+2.  [Randomisation, repetition and
+    variables](%22https://djnavarro.github.io/jaysire/articles/jaysire02.html%22)
+3.  [Using resource
+    files](%22https://djnavarro.github.io/jaysire/articles/jaysire03.html%22)
+4.  [Image, video and audio
+    files](%22https://djnavarro.github.io/jaysire/articles/jaysire04.html%22)
+5.  [Buttons, key presses and
+    sliders](%22https://djnavarro.github.io/jaysire/articles/jaysire05.html%22)
+6.  [Survey
+    pages](%22https://djnavarro.github.io/jaysire/articles/jaysire06.html%22)
+7.  [Loops and
+    branches](%22https://djnavarro.github.io/jaysire/articles/jaysire07.html%22)
+
 ## Related packages
 
   - The [jsPsychR](https://github.com/CrumpLab/jspsychr) package by Matt

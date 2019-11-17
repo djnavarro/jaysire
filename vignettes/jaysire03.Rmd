@@ -19,7 +19,6 @@ library(jaysire)
 library(tibble)
 library(ggplot2)
 
-
 # ----------- all stimuli -----------
 make_image <- function(nblue, nred, filename) {
   points <- tibble(

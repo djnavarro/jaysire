@@ -12,3 +12,62 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(jaysire)
 ```
+
+
+
+```{r experiment, message=FALSE}
+library(jaysire)
+resources <- system.file("extdata", "resources", package = "jaysire")
+
+keypress_trial <- trial_image_keyboard_response(
+  stimulus = resource("heart.png"),
+  stimulus_height = 400,
+  stimulus_width = 400,
+  prompt = "<br>You will be asked judge the pleasantness of this image. Press any key to continue",
+  choices = any_key()
+)
+
+button_trial <- trial_image_button_response(
+  stimulus = resource("heart.png"), 
+  stimulus_height = 400,
+  stimulus_width = 400,
+  choices = c("Unpleasant", "Neutral", "Pleasant") 
+)
+
+slider_trial <- trial_image_slider_response(
+  stimulus = resource("heart.png"), 
+  stimulus_height = 400,
+  stimulus_width = 400,
+  labels = c("Most unpleasant", "Neutral", "Most Pleasant"),
+  min = 0,
+  max = 100,
+  start = 50
+)
+
+tests <- timeline(button_trial, slider_trial) %>%
+  with_parameters(randomize_order = TRUE)
+
+task <- timeline(keypress_trial, tests)
+```
+
+
+
+You can check out a working version of the experiment [here](../demos/example05/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+finish <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/jaysire05.html'>here</a> to return to the vignette.",
+  choices = no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+experiment(
+  timeline = timeline(task, finish),
+  resources = add_resources(resources),
+  path =  here::here("docs", "demos", "example05"),
+  use_webaudio = FALSE
+)
+```
+
+
+
