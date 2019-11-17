@@ -36,7 +36,7 @@ There are a series of tutorial articles on the package website:
 
 
 1. [Getting started](https://djnavarro.github.io/jaysire/articles/jaysire01.html)
-2. [Randomisation, repetition and variables]("https://djnavarro.github.io/jaysire/articles/jaysire02.html)
+2. [Randomisation, repetition and variables](https://djnavarro.github.io/jaysire/articles/jaysire02.html)
 3. [Using resource files](https://djnavarro.github.io/jaysire/articles/jaysire03.html)
 4. [Image, video and audio files](https://djnavarro.github.io/jaysire/articles/jaysire04.html)
 5. [Buttons, key presses and sliders](https://djnavarro.github.io/jaysire/articles/jaysire05.html)
