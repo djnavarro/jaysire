@@ -9,8 +9,106 @@ knitr::opts_chunk$set(
 )
 ```
 
+In the [previous article](jaysire03.html) I provided a short walkthrough of resource files, and how they are handled in jaysire and jsPsych. However, the only form of resource file we looked at in that article were image files, and trials were handled using the `trial_image_button_response()` function. In this article I'll extend this discussion, introducing audio files and video files. To make our lives a little easier, this time around I won't create the resource files from scratch. Instead, I'll use resource files that come bundled with the jaysire package:
 
-```{r experiment, message=FALSE}
+```{r}
+library(jaysire)
+resources <- system.file("extdata", "resources", package = "jaysire")
+list.files(resources)
+```
+
+We have one image file ("heart.png"), two versions of the same video in different formats ("heart.mpg" and "heart.webm"), and a single audio file ("wood.mp4"). 
+
+## Images
+
+First, let's write an trial using `trial_image_button_response()` to handle display the image file and ask people to rate its pleasantness on a 3-point scale:
+
+```{r}
+image_trial <- trial_image_button_response(
+  stimulus = resource("heart.png"), 
+  stimulus_height = 400,
+  stimulus_width = 400,
+  choices = c("Unpleasant", "Neutral", "Pleasant") 
+)
+```
+
+This is familiar to us from the previous article. I've specified the `stimulus` itself using the `resource()` function, listed the `choices` available to participants, and some ancillary information about the size of the image. 
+
+## Videos
+
+Embedding videos in an experiment is -- in principle -- exactly the same as embedding images. Instead of using `trial_image_button_response()` we use `trial_video_button_response()`. However, there are a few complexities to note here. First, video files often require codecs to run, not every browser supports every form of video, and so on. As a consequence, it is often a good idea to have multiple versions of your video file, and let the browser find a version that it can display. As a consequence, instead of having a `stimulus` argument, we specify the video file using a vector of `sources`, like so:
+
+```{r}
+video_trial <- trial_video_button_response(
+  sources = resource(c("heart.mpg", "heart.webm")), 
+  choices = c("Unpleasant", "Neutral", "Pleasant"), 
+  trial_ends_after_video = FALSE,
+  response_ends_trial = TRUE
+)
+```
+
+By default, `trial_video_button_response()` will end the trial as soon as the participant makes a response *or* the video ends. However, there are arguments that you can specify that allow you to make this decision yourself, as this example illustrates.
+
+## Audio
+
+The structure of the audio trial is essentially the same as what we've seen previously.
+
+```{r}
+audio_trial <- trial_audio_button_response(
+  stimulus = resource("wood.mp4"),
+  choices = c("Unpleasant", "Neutral", "Pleasant"), 
+  trial_ends_after_audio = FALSE,
+  response_ends_trial = TRUE
+)
+```
+
+However, there is one nuance to audio files if you are playing them locally (i.e., on your own computer, rather than from a remote server), which I'll explain in the next section.
+
+## Building the experiment
+
+To build the experiment, I'll start by specifying where the experiment is going to live on my computer. As with previous articles, I'll just put it in a temporary folder:
+
+```{r}
+exp_path <- file.path(tempdir(), "multimedia_exp")
+```
+
+To build the experiment into the `exp_path` folder, I'll call the `experiment()` function:
+
+```{r}
+experiment(
+  timeline = timeline(image_trial, video_trial, audio_trial),
+  path = exp_path, 
+  resources = add_resources(resources),
+  use_webaudio = FALSE,
+  on_finish = save_locally()
+)
+```
+
+Most of this should look familiar. I've specified the `timeline` that describes the experiment, the `path` to the folder where it should be located, I've used the `add_resources()` function to tell jaysire how to handle each of the resource files, and I've indicated that when the experiment finishes we should `save_locally()` into the data folder (see the [first article](jaysire01.html) for more information about the data folder). 
+
+There is one thing that is new. I've specified the `use_webaudio` argument and set it to `FALSE`. The reason for this is that when you're running the experiment locally, the web browser treats locally stored audio files as though they were being hosted on a *different* server to the webpage itself, and that triggers a "cross origin request error" (it is treated as a security risk). Fortunately, jsPsych includes a method to disable this and by setting `use_webaudio = FALSE` you can get around this issue and run your audio files even when the experiment is running locally!  
+
+## What have we created?
+
+There is one last thing worth discussing, namely the file structure of the experiment that we have build. To start with, let's take a look at what `add_resources()` creates:
+
+```{r}
+add_resources(resources)
+```
+
+Now take a look at where all the files have ended up:
+
+```{r}
+list.files(exp_path, recursive = TRUE)
+```
+
+[to do... these are actually in the wrong places!!]
+
+## Summary
+
+Here is the entire experiment:
+
+```{r experiment, message=FALSE, warning=FALSE}
 library(jaysire)
 resources <- system.file("extdata", "resources", package = "jaysire")
 list.files(resources)
@@ -23,17 +121,27 @@ image_trial <- trial_image_button_response(
 )
 
 video_trial <- trial_video_button_response(
-  sources = c(resource("heart.mpg"), resource("heart.webm")), 
-  choices = c("Unpleasant", "Neutral", "Pleasant") 
+  sources = resource(c("heart.mpg", "heart.webm")), 
+  choices = c("Unpleasant", "Neutral", "Pleasant"), 
+  trial_ends_after_video = FALSE,
+  response_ends_trial = TRUE
 )
 
 audio_trial <- trial_audio_button_response(
   stimulus = resource("wood.mp4"),
-  choices = c("Unpleasant", "Neutral", "Pleasant") 
+  choices = c("Unpleasant", "Neutral", "Pleasant"), 
+  trial_ends_after_audio = FALSE,
+  response_ends_trial = TRUE
 )
 
+experiment(
+  timeline = timeline(image_trial, video_trial, audio_trial),
+  path = exp_path, 
+  resources = add_resources(resources),
+  use_webaudio = FALSE,
+  on_finish = save_locally()
+)
 ```
-
 
 You can check out a working version of the experiment [here](../demos/example04/experiment/index.html).
 
