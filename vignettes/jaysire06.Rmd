@@ -20,6 +20,108 @@ Another very common scenario where a specialised plugin is handy is if you want 
 
 The jsPsych library does not have specialised plugins for the case where a survey page can contain questions of different types, and as a consequence neither does jaysire.
 
+```{r}
+library(jaysire)
+```
+
+## Creating a question
+
+Because a survey page can include more than one question, the jaysire package provides convenience functions that allow you to build questions. For instance, if you want a likert scale question you could do something like this:
+
+```{r}
+question_likert(
+  prompt = "Kittens are awesome",
+  labels = c("strong disagree", "somewhat disagree", "neutral",
+             "somewhat agree", "strongly agree"),
+  required = TRUE
+)
+```
+
+which defines a 5 point Likert scale item, and marks it as a required question. If you want to create a multiple choice or multiple selection question, then you can use `question_multi()`, which (following the convention in jsPsych) refers to response `options` for multiple choice trials, in contrast to the scale `labels` used by `question_likert()`. Here is an example:
+
+```{r}
+question_multi(
+  prompt = "Choose your awesomeness",
+  options = c("Kittens", "Puppies", "Otters", "Ducks", "Axolotls")
+)
+```
+
+Note that you don't need to specify whether this is a multiple choice question or a multiple selection question: if you embed it in a `trial_survey_multi_choice()` page it will be presented as a multiple choice question, but if you embed it in `trial_survey_multi_select()` it will appear in a "choose as many as apply" format.
+
+Finally, you can define a free response question using `question_text()` like so:
+
+```{r}
+question_text(
+    prompt = "Explain the awesomeness of kittens",
+    placeholder = "Type your answer here",
+    rows = 10,
+    columns = 60
+  )
+```
+
+When embedded on a `trial_survey_text()` this question will appear with a text response box underneat that spans 10 rows and 60 columns. The `placeholder` text will be shown greyed out within the box.
+
+## Composing a page of questions
+
+At this point, our next task in writing a survey is to put together a list of questions that can be passed to one of the survey items. For example, suppose we wanted a page that asks for some basic demographic information. This page would contain a short `preamble` that would be displayed at the top of the page, and then show a list of multiple choice `questions` underneath. Once all of the required questions are answered, a button can be pressed to continue to the next page. Here is how we could do that:
+
+```{r}
+page1 <- trial_survey_multi_choice(
+  preamble = "Welcome! We'd like to ask some demographic questions",
+  questions = list(
+    question_multi(
+      prompt = "Please select the option that best matches your gender",
+      options = c("Male", "Female", "Nonbinary", "Other", "Prefer not to say"),
+      name = "gender"
+    ),
+    question_multi(
+      prompt = "Do you consider yourself to be LGBTIQ+?",
+      options = c("Yes", "No", "Unsure", "Prefer not to say"),
+    )
+  )
+)
+```
+
+Notice that the `questions` argument is a *list* of questions. When you have two or more questions to include, this is mandatory, but if there is only one question jaysire will allow you to pass the question directly like so: 
+
+```{r}
+page2 <- trial_survey_multi_select(
+  questions = question_multi(
+    prompt = "Which of the following R packages to you use?",
+    options = c(
+      "ggplot2", "dplyr", "purrr", "janitor", "data.table", "testthat",
+      "usethis", "tibble", "magrittr", "rlang", "babynames", "janeaustenr"
+    )
+  )
+)
+```
+
+When creating Likert pages, it is very common to reuse the same labels for every question, so it can be convenient to create a page of Likert items like this:
+
+```{r}
+# define the scale
+confidence_scale <- c(
+  "Very unconfident", 
+  "Somewhat unconfident", 
+  "Somewhat confident", 
+  "Very confident"
+)
+
+# a page of questions that all use the same scale
+page3 <- trial_survey_likert(
+  preamble = "How confident in you R skills?",
+  questions = list(
+    question_likert("Data wrangling?", confidence_scale),
+    question_likert("Data visualisation?", confidence_scale),
+    question_likert("Statistical modelling?", confidence_scale),
+    question_likert("Designing experiments?", confidence_scale),
+    question_likert("R markdown documents?", confidence_scale)
+  )
+)
+```
+
+## Example experiment
+
 
 ```{r example6}
 library(jaysire)
@@ -45,8 +147,7 @@ page2 <- trial_survey_multi_select(
     options = c(
       "ggplot2", "dplyr", "purrr", "janitor", "data.table", "testthat",
       "usethis", "tibble", "magrittr", "rlang", "babynames", "janeaustenr"
-    ), 
-    horizontal = FALSE
+    )
   )
 )
 
@@ -77,8 +178,13 @@ page4 <- trial_survey_text(
     columns = 60
   )
 )
-```
 
+experiment(
+  timeline = timeline(page1, page2, page3, page4),
+  path = file.path(tempdir(), "responses_exp"), 
+  on_finish = save_locally()
+)
+```
 
 
 You can check out a working version of the experiment [here](../demos/example06/experiment/index.html).
