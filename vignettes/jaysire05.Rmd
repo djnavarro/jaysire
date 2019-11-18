@@ -9,16 +9,38 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(jaysire)
-```
+Up to this point we have only considered scenarios in which the participant makes responses by clicking buttons on the screen. Depending on the kind of stimulus that we are presenting, we used a different function:
 
+- When the stimulus is an image, we used `trial_image_button_response()` 
+- When the stimulus is text (or HTML more generally), we used `trial_html_button_response()` 
+- When the stimulus is a video, we used `trial_video_button_response()` 
+- When the stimulus is audio, we used `trial_audio_button_response()`
 
+This gives us a family of four trial types that vary depending on the *stimulus* modality. In jaysire (and jsPsych), we can also vary the *response* modality. There are three supported response methods: buttons, key presses, and slider bars. If you want users to respond by pressing a key, the jaysire package includes the following family of functions:
+
+- For images: `trial_image_keyboard_response()` 
+- For HTML `trial_html_keyboard_response()` 
+- For video: `trial_video_keyboard_response()` 
+- For audio: `trial_audio_keyboard_response()`
+
+If you would prefer a continuous valued response that uses a slider bar:
+
+- For images: `trial_image_slider_response()` 
+- For HTML `trial_html_slider_response()` 
+- For video: `trial_video_slider_response()` 
+- For audio: `trial_audio_slider_response()`
+
+All of these functions work in approximately the same way, but there are slightly different arguments required to describe a button press, a key press, and a slider bar. 
+
+For example, when you specify the `choices` in a button press trial, what you're doing is provide a character vector that contains the *labels* shown on each of the buttons. In contrast, when you specifiy the `choices` argument for a keyboard response trial, you're giving the a vector that specifies which keys can be used to register a response. A common use case is to ask people to press "p" to respond with their left hand or "q" to respond with their right hand, which you can do by setting `choices = c("p","q")`. You can also specify keys numerically by using their [javascript key code value](https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes). This is worth noting, because when the data are recorded, it will be the numeric key code that appears in the data set! Also note that jaysire contains the `any_key()` function that allows the user to press any key to register a response, and the `no_key()` button which makes it impossible the respond with the keyboard (this is useful if you want a trial that runs for a fixed duration)
+
+To give you a sense of how these functions work, here is a very simple experiment that uses a button press trial, a keypress trial, and a slider trial:
 
 ```{r experiment, message=FALSE}
 library(jaysire)
 resources <- system.file("extdata", "resources", package = "jaysire")
 
+# the keypress trial is used as an instruction screen
 keypress_trial <- trial_image_keyboard_response(
   stimulus = resource("heart.png"),
   stimulus_height = 400,
@@ -27,6 +49,7 @@ keypress_trial <- trial_image_keyboard_response(
   choices = any_key()
 )
 
+# use buttons to ask people to rate on a three-point likert scale
 button_trial <- trial_image_button_response(
   stimulus = resource("heart.png"), 
   stimulus_height = 400,
@@ -34,6 +57,7 @@ button_trial <- trial_image_button_response(
   choices = c("Unpleasant", "Neutral", "Pleasant") 
 )
 
+# use a slider to ask people to respond on a continuous valued scale
 slider_trial <- trial_image_slider_response(
   stimulus = resource("heart.png"), 
   stimulus_height = 400,
@@ -44,13 +68,20 @@ slider_trial <- trial_image_slider_response(
   start = 50
 )
 
+# randomise the order of the two "substantial trials"
 tests <- timeline(button_trial, slider_trial) %>%
   with_parameters(randomize_order = TRUE)
 
+# put together the whole timeline
 task <- timeline(keypress_trial, tests)
+
+# build the experiment
+experiment(
+  timeline = task,
+  path = file.path(tempdir(), "responses_exp"), 
+  on_finish = save_locally()
+)
 ```
-
-
 
 You can check out a working version of the experiment [here](../demos/example05/experiment/index.html).
 
@@ -64,8 +95,7 @@ finish <- trial_html_keyboard_response(
 experiment(
   timeline = timeline(task, finish),
   resources = add_resources(resources),
-  path =  here::here("docs", "demos", "example05"),
-  use_webaudio = FALSE
+  path =  here::here("docs", "demos", "example05")
 )
 ```
 

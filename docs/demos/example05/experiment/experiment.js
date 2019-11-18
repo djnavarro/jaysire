@@ -60,7 +60,6 @@ var timeline = {
 
 jsPsych.init(
 {
-  "timeline": [timeline],
-  "use_webaudio": [false]
+  "timeline": [timeline]
 }
 );
