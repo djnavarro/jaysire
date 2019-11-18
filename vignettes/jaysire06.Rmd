@@ -9,6 +9,18 @@ knitr::opts_chunk$set(
 )
 ```
 
+In all the experiments we've built so far, it has been assumed that a "trial" consists of a single stimulus to which a participant must give a response. By varying the stimulus type and the response type this produces a family of R functions that map onto different jsPsych plugins. In my experience these are the most common kinds of trials that one wishes to use, but there are also a variety of more specialised situations for which jsPsych supplies dedicated plugins. We've seen one example of this already, namely the `trial_instructions()` function. There's nothing stopping you from presenting instructions as a series of `trial_html_button_response()` trials, but it's tedious to build and it is hard (not impossible) to allow participants to browse the instruction set using forward and back buttons. So this is a situation where the specialised plugin is handy.
+
+Another very common scenario where a specialised plugin is handy is if you want to include an entire page of survey questions. It would of course be quite easy to create a *single* survey question using `trial_html_button_response()`, and create a complete survey by using many such questions, but it is sometimes inconvenient. To make surveys a little simpler, jsPsych has plugins for five different kinds of survey page, four of which are currently supported in jaysire. The four supported types are:
+
+- Pages where every survey question is a multiple choice question (i.e., choose exactly one option) can be created using the `trial_survey_multi_choice()` function
+- Pages where every survey question is a multiple selection question (i.e., select as many options as are applicalbe) can be created using the `trial_survey_multi_select()` function
+- Pages where every survey question is a Likert scale item can be created with `trial_survey_likert()`
+- Pages where every survey question asks for a free text response can be created with `trial_survey_text()`
+
+The jsPsych library does not have specialised plugins for the case where a survey page can contain questions of different types, and as a consequence neither does jaysire.
+
+
 ```{r example6}
 library(jaysire)
 
@@ -18,13 +30,11 @@ page1 <- trial_survey_multi_choice(
     question_multi(
       prompt = "Please select the option that best matches your gender",
       options = c("Male", "Female", "Nonbinary", "Other", "Prefer not to say"),
-      horizontal = FALSE,
       name = "gender"
     ),
     question_multi(
       prompt = "Do you consider yourself to be LGBTIQ+?",
       options = c("Yes", "No", "Unsure", "Prefer not to say"),
-      horizontal = FALSE
     )
   )
 )
