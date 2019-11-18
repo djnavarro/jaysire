@@ -2,7 +2,7 @@
 title: "3. Using resource files"
 ---
 
-In the [first](jaysire01.html) and [second](jaysire02.html) articles, the stimulus materials were simple text, and so I didn't need to worry about specifying image files or anything like that. For the sake of simplicity, I won't bother with instruction trials this time
+In the [first](jaysire01.html) and [second](jaysire02.html) articles, the stimulus materials were simple text, and so I didn't need to worry about specifying image files or anything like that. This is not the norm, of course: most behavioural experiments include images, audio or video in some form or another. The way we handle this in jaysire is by referring to *resource* files that are stored somewhere else on your computer, but will be copied (not moved - the original files are untouched) into the experiment folder when the `experiment()` function is called. In this article I'll walk you through the process. For the sake of simplicity, I won't bother with instruction trials this time
 
 
 ```{r, include = FALSE}
@@ -12,13 +12,35 @@ knitr::opts_chunk$set(
 )
 ```
 
+## The resource folder
 
-```{r example3, message=FALSE}
+The way jaysire works is to assume that there is a folder on your computer that contains all the files that your experiment needs to use. The current implementation in jaysire is a bit crude, so this needs to be a flat folder (i.e., it cannot contain any subfolders). Normally, this folder would be located somewhere sensible, but for the purposes of this example I'll create one in a temporary folder:
+
+```{r resourcefolder}
 library(jaysire)
+
+# specify the path
+resource_folder <- file.path(tempdir(), "images")
+resource_folder
+
+# create the empty folder if necessary
+if(!dir.exists(resource_folder)) {
+  dir.create(resource_folder)
+}
+```
+
+Okay, so now we have a resource folder. Note that this folder is not part of our experiment (it can't be, since we haven't created the experiment yet!) it's somewhere else. 
+
+## Creating resources in R
+
+The next step is to place resources in the folder. One way to do this is just to copy and paste existing files from your computer, but because we're in R we might as well use R to create some images for us to use in our experiment. 
+
+The experimental task that we're going to design is one that asks people to look at images containing red and blue dots and judge whether there are more red dots or more blue dots in the image. To do this, here's a function that will generate an image file that plots `nred` red dots and `nblue` blue dots, randomly located. 
+
+```{r imagemaker}
 library(tibble)
 library(ggplot2)
 
-# ----------- all stimuli -----------
 make_image <- function(nblue, nred, filename) {
   points <- tibble(
     x = runif(nblue + nred),
@@ -31,45 +53,132 @@ make_image <- function(nblue, nred, filename) {
     theme_void()
   ggsave(filename, img, width = 4, height = 4, dpi = 100)
 }
+```
 
+Now that we have our `make_image()` function, let's create stimuli that vary in the number of red dots and the number of blue dots! To do that, the first step is to specify how many red and blue dots will be in each image:
 
-nblue <-   c(20, 20, 25, 25, 30, 30, 35, 35)
-nred <- c(15, 25, 20, 30, 25, 35, 30, 40)
+```{r}
+nblue <-c(10, 20, 30, 40, 20, 30, 40, 50)
+nred <- c(20, 30, 40, 50, 10, 20, 30, 40)
+image_files <- paste0("stimulus", 1:8, ".png")
+```
 
-image_folder <- file.path(tempdir(), "images")
-if(!dir.exists(image_folder)) dir.create(image_folder)
+Now we create the files:
 
-for(stim in 1:8) {
-  filename <- file.path(image_folder, paste0("stimulus", stim, ".png"))
-  make_image(nblue[stim], nred[stim], filename)
+```{r}
+for(s in 1:8) {
+  make_image(
+    nblue = nblue[s], 
+    nred = nred[s], 
+    filename = file.path(resource_folder, image_files[s])
+  )
 }
+```
 
-image_paths <- list.files(image_folder)
+Check that it worked:
 
+```{r}
+list.files(resource_folder)
+```
 
-# ----------- trials from template -----------
+Okay, so now we have our stimulus materials, so we're ready to start incorporating them into an experiment! However, before we do so, there's something important to note. At this point we have two separate variables `resource_folder` that specifies the path to the resource folder, and `image_files` which specifies the names of the images that are contained within that folder. That is:
+
+```{r}
+resource_folder
+image_files
+```
+
+These are the two variables we'll need to use when building our experiment. 
+
+## The trial template
+
+Because we have several different stimuli to incorprate into the experiment, what we'll do is specify a template just as we did in the [second](jaysire02.html) tutorial article. However, for our new experiment, the stimulus is an image rather than text, so we'll use the `trial_image_button_response()` function this time. 
+
+```{r}
 trial_template <- trial_image_button_response(
-  stimulus = variable("stimulus"),
+  stimulus = variable(name = "my_stimulus"),
+  stimulus_height = 400,
+  stimulus_width = 400,
+  choices = c("there are more red dots", "there are more blue dots"),
+  post_trial_gap = 1000
+)
+```
+
+Notice that again I've used the `variable()` function to indicate the blank space that will need to be filled in when the experiment gets built. Another thing to notice is that the function allows you to manually specify the height and the width of the image (in pixels), so I've done that here.
+
+### Using resources in a timeline
+
+Much like we did in the previous example, we can construct the timeline by first transforming `trial_template` into a timeline object using the `timeline()` function, and then use the `with_variables()` function to specify the timeline variable "my_stimulus" that the template requires. The only difference between this time and the last one is that we need to use the `resource()` function so that jaysire knows that it needs to treat `image_files` as filenames. So our code looks like this:
+
+```{r}
+trials <- timeline(trial_template) %>%
+  with_variables(my_stimulus = resource(image_files)) 
+```
+
+Of course, in a real experiment we would probably want to randomise the order in which the stimuli are presented, so it would make more sense to add an extra step like this: 
+
+```{r}
+trials <- timeline(trial_template) %>%
+  with_variables(my_stimulus = resource(image_files)) %>%
+  with_parameters(randomize_order = TRUE)
+```
+
+In a complete experiment, the `trials` timeline would need to have other things added to it. We'd need some instructions at the start and a thank you message at the end. But I won't bother with that in this case, and so we'll pretend that `trials` is the entire timeline for the experiment.
+
+## Adding the resources to the experiment build
+
+The last step is, as always, building the experiment using the `experiment()` function. Again, for the purposes of the tutorial I'll set the experiment `path` to be a temporary folder, but in real life you'd put it somewhere sensible. Here's how I do that:
+
+```{r}
+experiment(
+  timeline = trials,
+  path = file.path(tempdir(), "images_exp"), 
+  resources = add_resources(resource_folder),
+  on_finish = save_locally()
+)
+```
+
+Notice the difference from the previous tutorials. This time around there is an extra argument called `resources`, and I've used the `add_resources()` function. It's worth unpacking this a little bit. To understand what is happening here, let's have a look at the output of the `add_resources()` function:
+
+```{r}
+add_resources(resource_folder)
+```
+
+What the `add_resources()` function does is scan the resource folder and construct a tibble containing all the information that jaysire needs to be able to structure the experiment appropriately. The first column is just the filename, the second column is the *type* of resource (in this case, everything is an image), the third column indicates where the original file is located, and the final column indicates where copy of that file will be created. 
+
+This probably seems unnecessarily complicated. The reason it is structured like this is because there are different kinds of resources, and the browser needs to be given different instructions for how to handle each type. That is, the HTML code for incorporating images is different to the code for audio, video, or javascript code, and so the input to `experiment()` needs to be explicit about what kind of resource each file corresponds to. By default the `add_resources()` function assumes that an `.mp3` file is audio, a `.png` file is an image, etc, but you can override the defaults if you need to. Alternatively, there's nothing stopping you from constructing this tibble manually if you wanted to: the `add_resources()` function is just there to make life slightly less annoying. 
+
+## Summary
+
+The walkthrough in this article is a little longer than it needed to be, because I included all the code that you would use to create the image files. Strictly speaking, that's not part of the experiment itself. Sometimes you do need to go through that process, but more often you already have the image files stored in the resource folder. If that were the case all you'd need to do is tell jaysire to copy them into the appropriate locations, and the complete code for this experiment would look like this:
+
+
+```{r example3, message=FALSE, warning = FALSE}
+library(jaysire)
+
+# ----------- resource information -----------
+resource_folder <- file.path(tempdir(), "images")
+image_files <- list.files(resource_folder)
+
+# ----------- trial template -----------
+trial_template <- trial_image_button_response(
+  stimulus = variable(name = "my_stimulus"),
   stimulus_height = 400,
   stimulus_width = 400,
   choices = c("there are more red dots", "there are more blue dots"),
   post_trial_gap = 1000
 )
 
+# ----------- build the timeline -----------
 trials <- timeline(trial_template) %>%
-  with_variables(stimulus = resource(image_paths)) %>%
+  with_variables(my_stimulus = resource(image_files)) %>%
   with_parameters(randomize_order = TRUE)
-
-
-# ----------- experiment location -----------
-exp_path <- file.path(tempdir(), "images_exp")
-
 
 # ----------- build the experiment -----------
 experiment(
   timeline = trials,
-  path = exp_path, 
-  resources = add_resources(image_folder),
+  path = file.path(tempdir(), "images_exp"), 
+  resources = add_resources(resource_folder),
   on_finish = save_locally()
 )
 ```
@@ -86,7 +195,7 @@ finish <- trial_html_keyboard_response(
 # write a working copy of the experiment into the docs folder
 experiment(
   timeline = timeline(trials, finish),
-  resources = add_resources(image_folder),
+  resources = add_resources(resource_folder),
   path =  here::here("docs", "demos", "example03"),
 )
 ```

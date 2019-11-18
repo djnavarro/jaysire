@@ -4,7 +4,7 @@ var timeline = {
       "timeline": [
         {
           "type": ["image-button-response"],
-          "stimulus": jsPsych.timelineVariable('stimulus'),
+          "stimulus": jsPsych.timelineVariable('my_stimulus'),
           "stimulus_height": [400],
           "stimulus_width": [400],
           "maintain_aspect_ratio": [true],
@@ -17,28 +17,28 @@ var timeline = {
       ],
       "timeline_variables": [
         {
-          "stimulus": ["resource/image/stimulus1.png"]
+          "my_stimulus": ["resource/image/stimulus1.png"]
         },
         {
-          "stimulus": ["resource/image/stimulus2.png"]
+          "my_stimulus": ["resource/image/stimulus2.png"]
         },
         {
-          "stimulus": ["resource/image/stimulus3.png"]
+          "my_stimulus": ["resource/image/stimulus3.png"]
         },
         {
-          "stimulus": ["resource/image/stimulus4.png"]
+          "my_stimulus": ["resource/image/stimulus4.png"]
         },
         {
-          "stimulus": ["resource/image/stimulus5.png"]
+          "my_stimulus": ["resource/image/stimulus5.png"]
         },
         {
-          "stimulus": ["resource/image/stimulus6.png"]
+          "my_stimulus": ["resource/image/stimulus6.png"]
         },
         {
-          "stimulus": ["resource/image/stimulus7.png"]
+          "my_stimulus": ["resource/image/stimulus7.png"]
         },
         {
-          "stimulus": ["resource/image/stimulus8.png"]
+          "my_stimulus": ["resource/image/stimulus8.png"]
         }
       ],
       "randomize_order": [true]
