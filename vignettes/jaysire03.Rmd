@@ -5,7 +5,6 @@ title: "3. Using resource files"
 In the [first](jaysire01.html) and [second](jaysire02.html) articles, the stimulus materials were simple text, and so I didn't need to worry about specifying image files or anything like that. For the sake of simplicity, I won't bother with instruction trials this time
 
 
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
