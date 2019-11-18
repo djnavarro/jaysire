@@ -107,49 +107,98 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">page1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_button_response.html">trial_html_button_response</a></span>(</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="st">"Do you identify as LGBTIQ+?"</span>,</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Prefer not to say"</span>)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">)</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">page1a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_survey_multi_select.html">trial_survey_multi_select</a></span>(</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="kw"><a href="../reference/question_multi.html">question_multi</a></span>(</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="dt">prompt =</span> <span class="st">"Select all that apply"</span>,</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="dt">options =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">      <span class="st">"Lesbian"</span>, </a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="st">"Gay"</span>, </a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">      <span class="st">"Bisexual/Pansexual"</span>, </a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">      <span class="st">"Transgender"</span>, </a>
-<a class="sourceLine" id="cb1-16" data-line-number="16">      <span class="st">"Nonbinary"</span>,</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">      <span class="st">"Genderqueer"</span>, </a>
-<a class="sourceLine" id="cb1-18" data-line-number="18">      <span class="st">"Intersex"</span>, </a>
-<a class="sourceLine" id="cb1-19" data-line-number="19">      <span class="st">"Asexual"</span>,</a>
-<a class="sourceLine" id="cb1-20" data-line-number="20">      <span class="st">"Other"</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21">    )</a>
-<a class="sourceLine" id="cb1-22" data-line-number="22">  )</a>
-<a class="sourceLine" id="cb1-23" data-line-number="23">)</a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25">page1a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/timeline.html">timeline</a></span>(page1a) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="st">  </span><span class="kw"><a href="../reference/display_if.html">display_if</a></span>(<span class="kw"><a href="../reference/data_condition.html">data_condition</a></span>(button_pressed <span class="op">==</span><span class="st"> "0"</span>))</a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28">resources &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"resources"</span>, <span class="dt">package =</span> <span class="st">"jaysire"</span>)</a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30">page2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_image_button_response.html">trial_image_button_response</a></span>(</a>
-<a class="sourceLine" id="cb1-31" data-line-number="31">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/resource.html">resource</a></span>(<span class="st">"heart.png"</span>), </a>
-<a class="sourceLine" id="cb1-32" data-line-number="32">  <span class="dt">stimulus_height =</span> <span class="dv">400</span>,</a>
-<a class="sourceLine" id="cb1-33" data-line-number="33">  <span class="dt">stimulus_width =</span> <span class="dv">400</span>,</a>
-<a class="sourceLine" id="cb1-34" data-line-number="34">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>),</a>
-<a class="sourceLine" id="cb1-35" data-line-number="35">  <span class="dt">prompt =</span> <span class="st">"You will not be allowed to continue unless you select 'Pleasant'"</span></a>
-<a class="sourceLine" id="cb1-36" data-line-number="36">)</a>
-<a class="sourceLine" id="cb1-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb1-38" data-line-number="38">page2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/timeline.html">timeline</a></span>(page2) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="st">  </span><span class="kw"><a href="../reference/display_while.html">display_while</a></span>(<span class="kw"><a href="../reference/data_condition.html">data_condition</a></span>(button_pressed <span class="op">!=</span><span class="st"> "2"</span>))</a></code></pre></div>
+<p>Up to this point our experiments have been mostly linear in structire. Although we have seen examples of nested timelines, randomised timelines, repeated timelines and so on, none of the example experiments we’ve built so far allow us to <em>explicitly</em> rely on programming constructs like “if” (to create conditional branching) or “while” (to build customised loops). The jaysire package provides two functions that provide these programming constructs, <code><a href="../reference/display_if.html">display_if()</a></code> and <code><a href="../reference/display_while.html">display_while()</a></code>. The <code><a href="../reference/display_if.html">display_if()</a></code> function allows you to indicate that a timeline should be executed only if a particular <em>condition</em> holds, and the <code><a href="../reference/display_while.html">display_while()</a></code> function allows you to specify that a timeline should execute over and over again until the condition no longer holds. At the moment, jaysire is quite limited in terms of what conditions are natively supported. Later releases will (I hope) extend this functionality.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a></code></pre></div>
+<div id="branching-timelines" class="section level2">
+<h2 class="hasAnchor">
+<a href="#branching-timelines" class="anchor"></a>Branching timelines</h2>
+<p>Suppose the first question in our experiment asks people to indicate whether they identify as LGBTIQ+, like so:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">page1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_button_response.html">trial_html_button_response</a></span>(</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="st">"Do you identify as LGBTIQ+?"</span>,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Prefer not to say"</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">)</a></code></pre></div>
+<p>If the user response “Yes”, we might want to ask a follow-up question, one that asks them to indicate (if they are willing to do so) which subcategories they belong to. However, we wouldn’t want to show that question to anyone who responds “No” or “Prefer not to say”, since the question isn’t relevant to those people. How do we do this? First, let’s just build the trial the same way we normally would:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">followup &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_survey_multi_select.html">trial_survey_multi_select</a></span>(</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw"><a href="../reference/question_multi.html">question_multi</a></span>(</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="dt">prompt =</span> <span class="st">"Select all that apply"</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="dt">options =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">      <span class="st">"Lesbian"</span>, </a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">      <span class="st">"Gay"</span>, </a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">      <span class="st">"Bisexual/Pansexual"</span>, </a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">      <span class="st">"Transgender"</span>, </a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">      <span class="st">"Nonbinary"</span>,</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">      <span class="st">"Genderqueer"</span>, </a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">      <span class="st">"Intersex"</span>, </a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">      <span class="st">"Asexual"</span>,</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">      <span class="st">"Other"</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    )</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">  )</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">)</a></code></pre></div>
+<p>If we add <code>followup</code> to our timeline “as is”, it will be shown to everybody regardless of what answer they provide. To fix this, what we do is wrap <code>followup</code> into a timeline, and then pipe that timeline through a <code><a href="../reference/display_if.html">display_if()</a></code> statement. What that looks like is this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">page1a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/timeline.html">timeline</a></span>(followup) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/display_if.html">display_if</a></span>(<span class="kw"><a href="../reference/data_condition.html">data_condition</a></span>(button_pressed <span class="op">==</span><span class="st"> "0"</span>))</a></code></pre></div>
+<p>What we have done here is defined <code>page1a</code> as a <em>conditional</em> timeline. When the participant actually completes the experiment, this trial will <em>only</em> be shown if the condition <code><a href="../reference/data_condition.html">data_condition(button_pressed == "0")</a></code> is true. This solves our problem, but it may not be obvious <em>how</em> we’re solving the problem, so it is worth unpacking this a little…</p>
+</div>
+<div id="what-is-going-on-here" class="section level2">
+<h2 class="hasAnchor">
+<a href="#what-is-going-on-here" class="anchor"></a>What is going on here?</h2>
+<p>Firstly, let’s take a look at the <code>button_pressed == "0"</code> part. Within jsPsych, a button response is recorded numerically: it creates an internal “button_pressed” variable to store the results of the trial, where a value of 0 indicates that the user pressed the first button, 1 refers to the second button, and so on. However, everything in jsPsych is internally stored as text, so if we want to check the response we have to use <code>"0"</code> rather than <code>0</code>. This is the reason why the condition statement takes the form <code>button_pressed == "0"</code>: the “Yes” response is the first response option for the <code>page1</code> trial, so we only want <code>page1a</code> to execute <em>if</em> the response on that trial (i.e., the value of <code>button_pressed</code> within the jsPsych data storage) is equal to <code>"0"</code>.</p>
+<p>Next, I’ll expand on what is going on with the <code><a href="../reference/data_condition.html">data_condition()</a></code> function, but to do so I need to explain the <code><a href="../reference/display_if.html">display_if()</a></code> function in a little more detail. First, let’s rewrite the code above without using the pipe, and name our arguments explicitly:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">page1a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/display_if.html">display_if</a></span>(</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="dt">timeline =</span> <span class="kw"><a href="../reference/timeline.html">timeline</a></span>(followup), </a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="dt">conditional_function =</span> <span class="kw"><a href="../reference/data_condition.html">data_condition</a></span>(button_pressed <span class="op">==</span><span class="st"> "0"</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">)</a></code></pre></div>
+<p>This isn’t quite so pretty to look at, but it is helpful for the purposes of understanding. The <code><a href="../reference/display_if.html">display_if()</a></code> function takes two arguments, the <code>timeline</code> object itself (i.e., the <code>followup</code> page), and a <code>conditional_function</code> that is used to determine whether or not the timeline should be executed. Because the experiment is eventually run in javascript through the web browser, this function must be a <em>javascript</em> function, not an R function. If you know javascript, then it may be useful to note that jaysire contains a <code><a href="../reference/code.html">code()</a></code> function that means that any text you include will be passed as unfiltered javascript, so you can in fact pass anything you like here:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">page1a &lt;-<span class="st"> </span><span class="kw"><a href="../reference/display_if.html">display_if</a></span>(</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="dt">timeline =</span> <span class="kw"><a href="../reference/timeline.html">timeline</a></span>(followup), </a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">conditional_function =</span> <span class="kw"><a href="../reference/code.html">code</a></span>(<span class="st">"/* your javascript function here */"</span>)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">)</a></code></pre></div>
+<p>If your javascript function returns <code>true</code> – logical values in javascript are <code>true</code> or <code>false</code> unlike in R where they are <code>TRUE</code> or <code>FALSE</code> – then the timeline will execute. If it returns <code>false</code> the timeline will not execute.</p>
+<p>However, one of the goals of jaysire is to minimise the amount of javascript you have to write when building a behavioural experiment, so there is a helper function called <code><a href="../reference/data_condition.html">data_condition()</a></code> that will create the javascript function that you want. By default, what it does is inspect the contents of the jsPsych data store for the <em>preceding</em> trial, and allows the user to construct an expression that will be tested against that data (e.g., <code>button_pressed == "0"</code>). This simplifies matters a little, but my intention is to extend this functionality over time to allow you to deal with the most common use cases without ever having to write your own javascript. Nevertheless, this is a work in progress.</p>
+</div>
+<div id="looping-timelines" class="section level2">
+<h2 class="hasAnchor">
+<a href="#looping-timelines" class="anchor"></a>Looping timelines</h2>
+<p>Having gone into all this detail for <code><a href="../reference/display_if.html">display_if()</a></code>, it is very simple to provide an illustration of <code><a href="../reference/display_while.html">display_while()</a></code> because it works in exactly the same fashion. Suppose I want to force people to tell me that this picture of a heart looks pleasant. Let’s construct a trial:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">resources &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"resources"</span>, <span class="dt">package =</span> <span class="st">"jaysire"</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">query &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_image_button_response.html">trial_image_button_response</a></span>(</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/resource.html">resource</a></span>(<span class="st">"heart.png"</span>), </a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="dt">stimulus_height =</span> <span class="dv">400</span>,</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="dt">stimulus_width =</span> <span class="dv">400</span>,</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>),</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">  <span class="dt">prompt =</span> <span class="st">"You will not be allowed to continue unless you select 'Pleasant'"</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">)</a></code></pre></div>
+<p>Now what we do is take this <code>query</code> trial, wrap it as a <code><a href="../reference/timeline.html">timeline()</a></code> and then keep repeating that trial until the user responds by pressing button <code>"2"</code> (i.e., selects <code>"Pleasant"</code>):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">page2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/timeline.html">timeline</a></span>(query) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/display_while.html">display_while</a></span>(<span class="kw"><a href="../reference/data_condition.html">data_condition</a></span>(button_pressed <span class="op">!=</span><span class="st"> "2"</span>))</a></code></pre></div>
+<p>At this point we are done!</p>
+</div>
+<div id="an-example-experiment" class="section level2">
+<h2 class="hasAnchor">
+<a href="#an-example-experiment" class="anchor"></a>An example experiment</h2>
+<p>Let’s wrap all this up in a single timeline, add the resources, and build it as an experiment:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/experiment.html">experiment</a></span>(</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">timeline =</span> <span class="kw"><a href="../reference/timeline.html">timeline</a></span>(page1, page1a, page2),</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">resources =</span> <span class="kw"><a href="../reference/add_resources.html">add_resources</a></span>(resources),</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">path =</span> <span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"flow_exp"</span>), </a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/save_locally.html">save_locally</a></span>()</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">)</a></code></pre></div>
 <p>You can check out a working version of the experiment <a href="../demos/example07/experiment/index.html">here</a>.</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li><a href="#branching-timelines">Branching timelines</a></li>
+      <li><a href="#what-is-going-on-here">What is going on here?</a></li>
+      <li><a href="#looping-timelines">Looping timelines</a></li>
+      <li><a href="#an-example-experiment">An example experiment</a></li>
+      </ul>
+</div>
       </div>
 
 </div>
