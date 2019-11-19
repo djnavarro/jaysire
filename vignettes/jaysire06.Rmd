@@ -28,7 +28,7 @@ library(jaysire)
 
 Because a survey page can include more than one question, the jaysire package provides convenience functions that allow you to build questions. For instance, if you want a likert scale question you could do something like this:
 
-```{r}
+```{r, results='hide'}
 question_likert(
   prompt = "Kittens are awesome",
   labels = c("strong disagree", "somewhat disagree", "neutral",
@@ -39,7 +39,7 @@ question_likert(
 
 which defines a 5 point Likert scale item, and marks it as a required question. If you want to create a multiple choice or multiple selection question, then you can use `question_multi()`, which (following the convention in jsPsych) refers to response `options` for multiple choice trials, in contrast to the scale `labels` used by `question_likert()`. Here is an example:
 
-```{r}
+```{r, results='hide'}
 question_multi(
   prompt = "Choose your awesomeness",
   options = c("Kittens", "Puppies", "Otters", "Ducks", "Axolotls")
@@ -50,13 +50,13 @@ Note that you don't need to specify whether this is a multiple choice question o
 
 Finally, you can define a free response question using `question_text()` like so:
 
-```{r}
+```{r, results='hide'}
 question_text(
-    prompt = "Explain the awesomeness of kittens",
-    placeholder = "Type your answer here",
-    rows = 10,
-    columns = 60
-  )
+  prompt = "Explain the awesomeness of kittens",
+  placeholder = "Type your answer here",
+  rows = 10,
+  columns = 60
+)
 ```
 
 When embedded on a `trial_survey_text()` this question will appear with a text response box underneat that spans 10 rows and 60 columns. The `placeholder` text will be shown greyed out within the box.
