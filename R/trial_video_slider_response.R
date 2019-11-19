@@ -72,11 +72,11 @@ trial_video_slider_response <- function(
     trial(
       type = "video-slider-response",
       sources = sources,
-      trial_ends_after_video = trial_ends_after_video, # If TRUE the trial will end as soon as the video finishes playing.
+      trial_ends_after_video = js_logical(trial_ends_after_video), # If TRUE the trial will end as soon as the video finishes playing.
       width = width, # The width of the video display in pixels (if NULL, natural width is used)
       height = height, # The height of the video display in pixels (if NULL, natural height is used)
-      autoplay = autoplay, #Does the video play automatically?
-      controls = controls,
+      autoplay = js_logical(autoplay), #Does the video play automatically?
+      controls = js_logical(controls),
       start = start,
       stop = stop,
       rate = rate,
@@ -87,12 +87,12 @@ trial_video_slider_response <- function(
       slider_start = slider_start,
       step = step,
       slider_width = slider_width,
-      require_movement = require_movement,
+      require_movement = js_logical(require_movement),
       button_label = button_label,
 
       prompt = prompt,
       trial_duration = trial_duration,
-      response_ends_trial = response_ends_trial,
+      response_ends_trial = js_logical(response_ends_trial),
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,

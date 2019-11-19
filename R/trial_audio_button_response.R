@@ -66,9 +66,9 @@ trial_audio_button_response <- function(
       margin_horizontal = margin_horizontal,
 
       prompt = prompt,
-      trial_ends_after_audio = trial_ends_after_audio,
+      trial_ends_after_audio = js_logical(trial_ends_after_audio),
       trial_duration = trial_duration,
-      response_ends_trial = response_ends_trial,
+      response_ends_trial = js_logical(response_ends_trial),
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,

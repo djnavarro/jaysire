@@ -68,7 +68,7 @@ trial_image_button_response <- function(
       stimulus = stimulus,
       stimulus_height = stimulus_height,
       stimulus_width = stimulus_width,
-      maintain_aspect_ratio = maintain_aspect_ratio,
+      maintain_aspect_ratio = js_logical(maintain_aspect_ratio),
 
       choices = choices,
       button_html = button_html,
@@ -78,7 +78,7 @@ trial_image_button_response <- function(
       prompt = prompt,
       stimulus_duration = stimulus_duration,
       trial_duration = trial_duration,
-      response_ends_trial = response_ends_trial,
+      response_ends_trial = js_logical(response_ends_trial),
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,

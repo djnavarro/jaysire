@@ -60,7 +60,7 @@ trial_categorize_animation <- function(
       incorrect_text = incorrect_text,
       frame_time = frame_time,
       sequence_reps = sequence_reps,
-      allow_response_before_complete = allow_response_before_complete,
+      allow_response_before_complete = js_logical(allow_response_before_complete),
       prompt = prompt,
       feedback_duration = feedback_duration,
       post_trial_gap = post_trial_gap,

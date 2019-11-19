@@ -66,12 +66,12 @@ trial_html_slider_response <- function(
       start = start,
       step = step,
       slider_width = slider_width,
-      require_movement = require_movement,
+      require_movement = js_logical(require_movement),
 
       prompt = prompt,
       stimulus_duration = stimulus_duration,
       trial_duration = trial_duration,
-      response_ends_trial = response_ends_trial,
+      response_ends_trial = js_logical(response_ends_trial),
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,

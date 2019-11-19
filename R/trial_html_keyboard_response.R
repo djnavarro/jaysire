@@ -50,7 +50,7 @@ trial_html_keyboard_response <- function(
       prompt = prompt,
       stimulus_duration = stimulus_duration,
       trial_duration = trial_duration,
-      response_ends_trial = response_ends_trial,
+      response_ends_trial = js_logical(response_ends_trial),
 
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,
