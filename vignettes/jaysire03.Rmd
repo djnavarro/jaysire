@@ -106,7 +106,7 @@ trial_template <- trial_image_button_response(
 
 Notice that again I've used the `variable()` function to indicate the blank space that will need to be filled in when the experiment gets built. Another thing to notice is that the function allows you to manually specify the height and the width of the image (in pixels), so I've done that here.
 
-### Using resources in a timeline
+## Using resources in a timeline
 
 Much like we did in the previous example, we can construct the timeline by first transforming `trial_template` into a timeline object using the `timeline()` function, and then use the `with_variables()` function to specify the timeline variable "my_stimulus" that the template requires. The only difference between this time and the last one is that we need to use the `resource()` function so that jaysire knows that it needs to treat `image_files` as filenames. So our code looks like this:
 
