@@ -6,7 +6,7 @@ var timeline = {
       "choices": ["Yes", "No", "Prefer not to say"],
       "margin_vertical": ["0px"],
       "margin_horizontal": ["8px"],
-      "response_ends_trial": [true],
+      "response_ends_trial": true,
       "post_trial_gap": [0]
     },
     {
@@ -44,12 +44,12 @@ var timeline = {
           "stimulus": ["resource/image/heart.png"],
           "stimulus_height": [400],
           "stimulus_width": [400],
-          "maintain_aspect_ratio": [true],
+          "maintain_aspect_ratio": true,
           "choices": ["Unpleasant", "Neutral", "Pleasant"],
           "margin_vertical": ["0px"],
           "margin_horizontal": ["8px"],
           "prompt": ["You will not be allowed to continue unless you select 'Pleasant'"],
-          "response_ends_trial": [true],
+          "response_ends_trial": true,
           "post_trial_gap": [0]
         }
       ],
@@ -66,7 +66,7 @@ var timeline = {
       "type": ["html-keyboard-response"],
       "stimulus": ["All done! Click <a href='../../../articles/jaysire07.html'>here<\/a> to return to the vignette."],
       "choices": jsPsych.NO_KEY,
-      "response_ends_trial": [true],
+      "response_ends_trial": true,
       "post_trial_gap": [0]
     }
   ]

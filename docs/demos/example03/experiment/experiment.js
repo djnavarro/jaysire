@@ -7,11 +7,11 @@ var timeline = {
           "stimulus": jsPsych.timelineVariable('my_stimulus'),
           "stimulus_height": [400],
           "stimulus_width": [400],
-          "maintain_aspect_ratio": [true],
+          "maintain_aspect_ratio": true,
           "choices": ["there are more red dots", "there are more blue dots"],
           "margin_vertical": ["0px"],
           "margin_horizontal": ["8px"],
-          "response_ends_trial": [true],
+          "response_ends_trial": true,
           "post_trial_gap": [1000]
         }
       ],
@@ -47,7 +47,7 @@ var timeline = {
       "type": ["html-keyboard-response"],
       "stimulus": ["All done! Click <a href='../../../articles/jaysire03.html'>here<\/a> to return to the vignette."],
       "choices": jsPsych.NO_KEY,
-      "response_ends_trial": [true],
+      "response_ends_trial": true,
       "post_trial_gap": [0]
     }
   ]

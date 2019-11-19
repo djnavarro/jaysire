@@ -92,7 +92,7 @@ var timeline = {
       "type": ["html-keyboard-response"],
       "stimulus": ["All done! Click <a href='../../../articles/jaysire06.html'>here<\/a> to return to the vignette."],
       "choices": jsPsych.NO_KEY,
-      "response_ends_trial": [true],
+      "response_ends_trial": true,
       "post_trial_gap": [0]
     }
   ]
