@@ -16,9 +16,11 @@ js_code <- function(x) {
   x
 }
 
-
+# return a scalar js logical
 js_logical <- function(x) {
-  as.logical(x)
+  x <- as.logical(x)
+  if(x == TRUE) return(js_code("true"))
+  return(js_code("false"))
 }
 
 js_numeric <- function(x) {
