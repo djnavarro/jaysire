@@ -37,7 +37,7 @@ The next step is to place resources in the folder. One way to do this is just to
 
 The experimental task that we're going to design is one that asks people to look at images containing red and blue dots and judge whether there are more red dots or more blue dots in the image. To do this, here's a function that will generate an image file that plots `nred` red dots and `nblue` blue dots, randomly located. 
 
-```{r imagemaker}
+```{r imagemaker, message = FALSE}
 library(tibble)
 library(ggplot2)
 
