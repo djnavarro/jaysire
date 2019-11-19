@@ -12,7 +12,7 @@ var timeline = {
           "show_clickable_nav": true,
           "button_label_previous": ["Previous"],
           "button_label_next": ["Next"],
-          "post_trial_gap": [2000]
+          "post_trial_gap": [1000]
         },
         {
           "type": ["html-button-response"],
@@ -21,7 +21,7 @@ var timeline = {
           "margin_vertical": ["0px"],
           "margin_horizontal": ["8px"],
           "response_ends_trial": true,
-          "post_trial_gap": [2000]
+          "post_trial_gap": [1000]
         },
         {
           "type": ["html-button-response"],
@@ -30,7 +30,7 @@ var timeline = {
           "margin_vertical": ["0px"],
           "margin_horizontal": ["8px"],
           "response_ends_trial": true,
-          "post_trial_gap": [2000]
+          "post_trial_gap": [1000]
         }
       ]
     },

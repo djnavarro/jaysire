@@ -34,7 +34,7 @@ instructions <- trial_instructions(
     "Press the 'Next' button to begin!"
   ),
   show_clickable_nav = TRUE,
-  post_trial_gap = 2000
+  post_trial_gap = 1000
 )
 ```
 
@@ -48,7 +48,7 @@ Our next job is to write some experimental trials! We'll keep it simple in this 
 trial1 <- trial_html_button_response(
   stimulus = "13 + 23 = 36",
   choices = c("true", "false"),
-  post_trial_gap = 2000
+  post_trial_gap = 1000
 )
 ```
 
@@ -58,7 +58,7 @@ In this code the `stimulus` argument specifies the text that will be displayed o
 trial2 <- trial_html_button_response(
   stimulus = "17 - 9 = 6",
   choices = c("true", "false"), 
-  post_trial_gap = 2000
+  post_trial_gap = 1000
 )
 ```
 
@@ -136,13 +136,13 @@ instructions <- trial_instructions(
     "Press the 'Next' button to begin!"
   ),
   show_clickable_nav = TRUE,
-  post_trial_gap = 2000
+  post_trial_gap = 1000
 )
 
 trial1 <- trial_html_button_response(
   stimulus = "13 + 23 = 36",
   choices = c("true", "false"),
-  post_trial_gap = 2000
+  post_trial_gap = 1000
 )
 
 trial2 <- trial_html_button_response(
