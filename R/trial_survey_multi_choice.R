@@ -61,11 +61,10 @@ trial_survey_multi_choice <- function(
     trial(
       type = "survey-multi-choice",
       questions = list_to_jsarray(questions),
-      randomize_question_order = as.logical(randomize_question_order),
+      randomize_question_order = js_logical(randomize_question_order),
       preamble = as.character(preamble),
       button_label = as.character(button_label),
       required_message = required_message,
-
       post_trial_gap = post_trial_gap,
       on_finish = on_finish,
       on_load = on_load,
@@ -95,8 +94,8 @@ question_multi <- function(
     list(
       prompt = prompt,
       options = options,
-      horizontal = horizontal,
-      required = required,
+      horizontal = js_logical(horizontal),
+      required = js_logical(required),
       name = name
     )
   )

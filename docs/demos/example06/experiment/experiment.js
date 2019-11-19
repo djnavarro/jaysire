@@ -6,18 +6,18 @@ var timeline = {
         {
           "prompt": ["Please select the option that best matches your gender"],
           "options": ["Male", "Female", "Nonbinary", "Other", "Prefer not to say"],
-          "horizontal": [false],
-          "required": [false],
+          "horizontal": false,
+          "required": false,
           "name": ["gender"]
         },
         {
           "prompt": ["Do you consider yourself to be LGBTIQ+?"],
           "options": ["Yes", "No", "Unsure", "Prefer not to say"],
-          "horizontal": [false],
-          "required": [false]
+          "horizontal": false,
+          "required": false
         }
       ],
-      "randomize_question_order": [false],
+      "randomize_question_order": false,
       "preamble": ["Welcome! We'd like to ask some demographic questions"],
       "button_label": ["Continue"],
       "required_message": ["You must choose at least one response for this question"],
@@ -29,11 +29,11 @@ var timeline = {
         {
           "prompt": ["Which of the following R packages to you use?"],
           "options": ["ggplot2", "dplyr", "purrr", "janitor", "data.table", "testthat", "usethis", "tibble", "magrittr", "rlang", "babynames", "janeaustenr"],
-          "horizontal": [false],
-          "required": [false]
+          "horizontal": false,
+          "required": false
         }
       ],
-      "randomize_question_order": [false],
+      "randomize_question_order": false,
       "preamble": [""],
       "button_label": ["Continue"],
       "required_message": ["You must choose at least one response for this question"],
@@ -83,7 +83,7 @@ var timeline = {
           "columns": [60]
         }
       ],
-      "randomize_question_order": [false],
+      "randomize_question_order": false,
       "preamble": [""],
       "button_label": ["Continue"],
       "post_trial_gap": [0]

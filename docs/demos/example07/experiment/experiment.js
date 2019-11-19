@@ -17,11 +17,11 @@ var timeline = {
             {
               "prompt": ["Select all that apply"],
               "options": ["Lesbian", "Gay", "Bisexual/Pansexual", "Transgender", "Nonbinary", "Genderqueer", "Intersex", "Asexual", "Other"],
-              "horizontal": [false],
-              "required": [false]
+              "horizontal": false,
+              "required": false
             }
           ],
-          "randomize_question_order": [false],
+          "randomize_question_order": false,
           "preamble": [""],
           "button_label": ["Continue"],
           "required_message": ["You must choose at least one response for this question"],

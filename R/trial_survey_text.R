@@ -60,7 +60,7 @@ trial_survey_text <- function(
     trial(
       type = "survey-text",
       questions = list_to_jsarray(questions),
-      randomize_question_order = as.logical(randomize_question_order),
+      randomize_question_order = js_logical(randomize_question_order),
       preamble = as.character(preamble),
       button_label = as.character(button_label),
 
