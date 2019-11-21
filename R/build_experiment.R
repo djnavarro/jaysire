@@ -151,7 +151,7 @@ experiment <- function(timeline, path, resources = NULL, columns = NULL, ...) {
 
   # copy xprmntr files
   file.copy(
-    from = system.file("extdata", "xprmntr.js", package = "xprmntr"),
+    from = system.file("extdata", "xprmntr.js", package = "jaysire"),
     to = file.path(path, "experiment", "resource", "script")
   )
 
