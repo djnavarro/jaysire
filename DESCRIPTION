@@ -24,4 +24,6 @@ RoxygenNote: 6.1.1
 URL: https://github.com/djnavarro/jaysire
 BugReports: https://github.com/djnavarro/jaysire/issues
 Suggests: 
-    rmarkdown
+    rmarkdown,
+    testthat (>= 2.1.0),
+    covr

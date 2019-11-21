@@ -9,6 +9,10 @@
 status](https://travis-ci.org/djnavarro/jaysire.svg?branch=master)](https://travis-ci.org/djnavarro/jaysire)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Codecov test
+coverage](https://codecov.io/gh/djnavarro/jaysire/branch/master/graph/badge.svg)](https://codecov.io/gh/djnavarro/jaysire?branch=master)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/jaysire)](https://cran.r-project.org/package=jaysire)
 <!-- badges: end -->
 
 The goal of jaysire is to provide a method for writing behavioural
