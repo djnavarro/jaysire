@@ -16,11 +16,17 @@ build_timeline <- function(...){
 #' @param type the type of trial
 #' @param ... arguments passed to the trial plugin
 #' @export
+trial_generic <- function(type, ...) {
+  trial(type, ...)
+}
+
+
+# internal version of trial_generic() using dots
 trial <- function(type, ...) {
   return(list(type = type, ...))
 }
 
-# lifted version
+# internal version of trial_generic() that lifts domain to list input
 trial_l <- purrr::lift_dl(trial)
 
 
