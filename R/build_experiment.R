@@ -134,7 +134,7 @@ experiment <- function(timeline, path, resources = NULL, columns = NULL, ...) {
   file.copy(
     from = system.file(
       "extdata", "jsPsych-6.1.0", stylesheets,
-      package = "xprmntr"
+      package = "jaysire"
     ),
     to = file.path(path, "experiment", "resource", "style")
   )
@@ -143,13 +143,13 @@ experiment <- function(timeline, path, resources = NULL, columns = NULL, ...) {
   file.copy(
     from = system.file(
       "extdata", "jsPsych-6.1.0", scripts,
-      package = "xprmntr"
+      package = "jaysire"
     ),
     to = file.path(path, "experiment", "resource", "script")
   )
 
 
-  # copy xprmntr files
+  # copy jaysire files
   file.copy(
     from = system.file("extdata", "xprmntr.js", package = "jaysire"),
     to = file.path(path, "experiment", "resource", "script")
