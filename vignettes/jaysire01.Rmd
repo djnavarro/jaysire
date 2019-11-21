@@ -67,10 +67,10 @@ In fact, the code for `trial2` is so similar to the code for `trial1` that it fe
 
 ## Creating a timeline
 
-Now that we have our trial objects, `instructions`, `trial1` and `trial2`, our next taks is to bind together into a timeline. The `timeline()` function allows us to do this:
+Now that we have our trial objects, `instructions`, `trial1` and `trial2`, our next taks is to bind together into a timeline. The `build_timeline()` function allows us to do this:
 
 ```{r}
-all_trials <- timeline(instructions, trial1, trial2)
+all_trials <- build_timeline(instructions, trial1, trial2)
 ```
 
 At this point we have a complete timeline for our simple experiment! Yay! 
@@ -98,11 +98,11 @@ For the purposes of this demonstration I've chosen to write the experiment to a 
 build_experiment(
   timeline = all_trials,
   path = exp_path,
-  on_finish = save_locally()
+  on_finish = fn_save_locally()
 )
 ```
 
-The other thing I've specified here is the `on_finish` argument, which tells jsPsych what do to when the experiment ends. For our simple experiment, the only thing we want to do is save the data. To keep it simple, we'll assume the experiment is going to be run on the same computer where the experiment is stored, and so I've used the `save_locally()` function here. 
+The other thing I've specified here is the `on_finish` argument, which tells jsPsych what do to when the experiment ends. For our simple experiment, the only thing we want to do is save the data. To keep it simple, we'll assume the experiment is going to be run on the same computer where the experiment is stored, and so I've used the `fn_save_locally()` function here. 
 
 ## What have we created?
 
@@ -150,13 +150,13 @@ trial2 <- trial_html_button_response(
   choices = c("true", "false")
 )
 
-all_trials <- timeline(instructions, trial1, trial2)
+all_trials <- build_timeline(instructions, trial1, trial2)
 exp_path <- file.path(tempdir(), "my_exp")
 
 build_experiment(
   timeline = all_trials,
   path = exp_path,
-  on_finish = save_locally()
+  on_finish = fn_save_locally()
 )
 ```
 
@@ -173,7 +173,7 @@ all_done <- trial_html_keyboard_response(
 # write a working copy of the experiment into the docs folder
 exp <- here::here("docs", "demos", "example01")
 build_experiment(
-  timeline = timeline(all_trials, all_done),
+  timeline = build_timeline(all_trials, all_done),
   path = exp
 )
 ```

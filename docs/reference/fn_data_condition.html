@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Build the experiment files — build_experiment • jaysire</title>
+<title>Return a javascript function that checks a data value — fn_data_condition • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Build the experiment files — build_experiment" />
+<meta property="og:title" content="Return a javascript function that checks a data value — fn_data_condition" />
 
-<meta property="og:description" content="Build the experiment files" />
+<meta property="og:description" content="Return a javascript function that checks a data value" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -133,41 +133,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Build the experiment files</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_experiment.R'><code>R/build_experiment.R</code></a></small>
-    <div class="hidden name"><code>build_experiment.Rd</code></div>
+    <h1>Return a javascript function that checks a data value</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/data_condition.R'><code>R/data_condition.R</code></a></small>
+    <div class="hidden name"><code>fn_data_condition.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Build the experiment files</p>
+    <p>Return a javascript function that checks a data value</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>build_experiment</span>(<span class='no'>timeline</span>, <span class='no'>path</span>, <span class='kw'>resources</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>columns</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>fn_data_condition</span>(<span class='no'>expr</span>, <span class='kw'>trials_back</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>timeline</th>
-      <td><p>tl</p></td>
+      <th>expr</th>
+      <td><p>expression to be evaluated within the jsPsych data store</p></td>
     </tr>
     <tr>
-      <th>path</th>
-      <td><p>p</p></td>
-    </tr>
-    <tr>
-      <th>resources</th>
-      <td><p>r</p></td>
-    </tr>
-    <tr>
-      <th>columns</th>
-      <td><p>columns</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>pass to init</p></td>
+      <th>trials_back</th>
+      <td><p>how many trials back?</p></td>
     </tr>
     </table>
     

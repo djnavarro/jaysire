@@ -41,10 +41,10 @@ required_answer <- '{"Q0":"correct","Q1":"correct"}'
 
 check_fail <- check_fail %>%
   timeline() %>%
-  tl_display_if(data_condition(responses != !!required_answer))
+  tl_display_if(fn_data_condition(responses != !!required_answer))
 
 looped_start <- timeline(welcome_trial, check_trial, check_fail) %>%
-  display_while(data_condition(responses != !!required_answer))
+  tl_display_while(fn_data_condition(responses != !!required_answer))
 
 
 

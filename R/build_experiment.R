@@ -5,7 +5,8 @@
 
 
 # TODO this needs to allow manual overrides and handle clashes etc...
-#' Construct a resource specification from paths
+
+#' Build the resource file specification from a directory path
 #'
 #' @param from The paths to files/directories
 #' @param audio File extensions assumed to be audio
@@ -15,7 +16,7 @@
 #' @param style File extensions assumed to be stylesheets
 #'
 #' @export
-define_resources <- function(
+build_resources <- function(
   from,
   audio  = c(".mp3", ".wav", ".aif", ".mid"),
   video  = c(".mp4", ".mpg", ".mov", ".wmv"),
@@ -81,7 +82,7 @@ define_resources <- function(
 
 }
 
-#' Build the experiment
+#' Build the experiment files
 #'
 #' @param timeline tl
 #' @param path  p

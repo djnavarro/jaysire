@@ -1,8 +1,8 @@
 
-#' Save data locally
+#' Return a javascript function to save data locally
 #'
 #' @export
-save_locally <- function() {
+fn_save_locally <- function() {
   js_code(
   "function() {
     var data = jsPsych.data.get().csv();

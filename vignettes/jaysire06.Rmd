@@ -180,9 +180,9 @@ page4 <- trial_survey_text(
 )
 
 build_experiment(
-  timeline = timeline(page1, page2, page3, page4),
+  timeline = build_timeline(page1, page2, page3, page4),
   path = file.path(tempdir(), "responses_exp"), 
-  on_finish = save_locally()
+  on_finish = fn_save_locally()
 )
 ```
 
@@ -197,7 +197,7 @@ finish <- trial_html_keyboard_response(
 
 # write a working copy of the experiment into the docs folder
 build_experiment(
-  timeline = timeline(page1, page2, page3, page4, finish),
+  timeline = build_timeline(page1, page2, page3, page4, finish),
   path =  here::here("docs", "demos", "example06")
 )
 ```

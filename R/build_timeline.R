@@ -1,11 +1,11 @@
 # file: timeline_build.R
 # author: Danielle Navarro
 
-#' Initialise a timeline
+#' Build a timeline from trials
 #'
 #' @param ... trial objects to add to this timeline
 #' @export
-timeline <- function(...){
+build_timeline <- function(...){
   tl <- list(timeline = list(...))
   class(tl) <- c("timeline", "list")
   tl

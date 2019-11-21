@@ -65,7 +65,7 @@ equations <- c(
 Now that we have specified the stimuli as an ordinary R variable, what we need to do is to link it to the trial template we defined earlier. To do this, we first "wrap" `trial_template` into a timeline, and use the `tl_add_variables()` function to attach a variable to that timeline:
 
 ```{r}
-trials <- timeline(trial_template) %>%
+trials <- build_timeline(trial_template) %>%
   tl_add_variables(my_stimulus = equations)
 ```
 
@@ -76,7 +76,7 @@ This might seem slightly odd, because in our first example we created all the tr
 So far, so good. However, one limitation with our code is that the experiment will run the six trials in the same order every time. If our experiment were running in R, what we could to is use the `sample()` function to shuffle stimuli, but that won't work in this situation because the experiment will (eventually) run through a web browser. So if we want to randomise the trial ordering we need to use the randomisation tools built into jsPsych. We can do this by attaching *parameters* to the timeline that we have just defined using the `tl_add_parameters()` function:
 
 ```{r}
-trials <- timeline(trial_template) %>%
+trials <- build_timeline(trial_template) %>%
   tl_add_variables(stimulus = equations) %>%
   tl_add_parameters(randomize_order = TRUE)
 ```
@@ -88,7 +88,7 @@ In this version, the `trials` timeline contains the same six copies of the templ
 We're almost there. Suppose we want to create a "block randomised" design, in which all six items are presented in a random order, and then the same six items are repeated in a *different* randomised order. This kind of design is quite common in experimental psychology, and we can create one by setting the `repetitions` parameter for the timeline:
 
 ```{r}
-trials <- timeline(trial_template) %>%
+trials <- build_timeline(trial_template) %>%
   tl_add_variables(stimulus = equations) %>%
   tl_add_parameters(randomize_order = TRUE, repetitions = 2)
 ```
@@ -131,7 +131,7 @@ equations <- c(
 )
 
 # ----------- template -----------
-trials <- timeline(trial_template) %>%
+trials <- build_timeline(trial_template) %>%
   tl_add_variables(stimulus = equations) %>%
   tl_add_parameters(randomize_order = TRUE, repetitions = 2)
 
@@ -143,7 +143,7 @@ finish <- trial_html_keyboard_response(
 )
 
 # ----------- construct timeline -----------
-all_events <- timeline(
+all_events <- build_timeline(
   instructions,
   trials,
   finish
@@ -157,7 +157,7 @@ exp_path <- file.path(tempdir(), "equations_exp")
 build_experiment(
   timeline = all_events,
   path = exp_path,
-  on_finish = save_locally()
+  on_finish = fn_save_locally()
 )
 ```
 
@@ -174,7 +174,7 @@ finish2 <- trial_html_keyboard_response(
 # write a working copy of the experiment into the docs folder
 exp <- here::here("docs", "demos", "example02")
 build_experiment(
-  timeline = timeline(instructions, trials, finish2),
+  timeline = build_timeline(instructions, trials, finish2),
   path = exp,
 )
 ```

@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_experiment.R
 \name{build_experiment}
 \alias{build_experiment}
-\title{Build the experiment}
+\title{Build the experiment files}
 \usage{
 build_experiment(timeline, path, resources = NULL, columns = NULL, ...)
 }
@@ -18,5 +18,5 @@ build_experiment(timeline, path, resources = NULL, columns = NULL, ...)
 \item{...}{pass to init}
 }
 \description{
-Build the experiment
+Build the experiment files
 }

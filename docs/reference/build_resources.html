@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Build the experiment files — build_experiment • jaysire</title>
+<title>Build the resource file specification from a directory path — build_resources • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Build the experiment files — build_experiment" />
+<meta property="og:title" content="Build the resource file specification from a directory path — build_resources" />
 
-<meta property="og:description" content="Build the experiment files" />
+<meta property="og:description" content="Build the resource file specification from a directory path" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -133,41 +133,47 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Build the experiment files</h1>
+    <h1>Build the resource file specification from a directory path</h1>
     <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_experiment.R'><code>R/build_experiment.R</code></a></small>
-    <div class="hidden name"><code>build_experiment.Rd</code></div>
+    <div class="hidden name"><code>build_resources.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Build the experiment files</p>
+    <p>Build the resource file specification from a directory path</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>build_experiment</span>(<span class='no'>timeline</span>, <span class='no'>path</span>, <span class='kw'>resources</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>columns</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>build_resources</span>(<span class='no'>from</span>, <span class='kw'>audio</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".mp3"</span>, <span class='st'>".wav"</span>, <span class='st'>".aif"</span>, <span class='st'>".mid"</span>),
+  <span class='kw'>video</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".mp4"</span>, <span class='st'>".mpg"</span>, <span class='st'>".mov"</span>, <span class='st'>".wmv"</span>), <span class='kw'>image</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".jpg"</span>, <span class='st'>".png"</span>,
+  <span class='st'>".bmp"</span>, <span class='st'>".svg"</span>, <span class='st'>".tiff"</span>), <span class='kw'>script</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".js"</span>), <span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".css"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>timeline</th>
-      <td><p>tl</p></td>
+      <th>from</th>
+      <td><p>The paths to files/directories</p></td>
     </tr>
     <tr>
-      <th>path</th>
-      <td><p>p</p></td>
+      <th>audio</th>
+      <td><p>File extensions assumed to be audio</p></td>
     </tr>
     <tr>
-      <th>resources</th>
-      <td><p>r</p></td>
+      <th>video</th>
+      <td><p>File extensions assumed to be video</p></td>
     </tr>
     <tr>
-      <th>columns</th>
-      <td><p>columns</p></td>
+      <th>image</th>
+      <td><p>File extensions assumed to be images</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>pass to init</p></td>
+      <th>script</th>
+      <td><p>File extensions assumed to be scripts</p></td>
+    </tr>
+    <tr>
+      <th>style</th>
+      <td><p>File extensions assumed to be stylesheets</p></td>
     </tr>
     </table>
     

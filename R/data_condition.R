@@ -1,11 +1,11 @@
 
-#' Create a javascript function that checks a data value
+#' Return a javascript function that checks a data value
 #'
 #' @param expr expression to be evaluated within the jsPsych data store
 #' @param trials_back how many trials back?
 #'
 #' @export
-data_condition <- function(expr, trials_back = 1) {
+fn_data_condition <- function(expr, trials_back = 1) {
 
   expr <- deparse(rlang::enexpr(expr))
   condition <- paste0("data.", expr)

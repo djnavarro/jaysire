@@ -147,7 +147,7 @@ all_events <- timeline(
 
 # write the experiment files ----------------------------------------------
 
-resources <- define_resources(
+resources <- build_resources(
   system.file("extdata", "img", package = "jaysire")
 )
 

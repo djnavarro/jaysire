@@ -108,17 +108,17 @@ Notice that again I've used the `insert_variable()` function to indicate the bla
 
 ## Using resources in a timeline
 
-Much like we did in the previous example, we can construct the timeline by first transforming `trial_template` into a timeline object using the `timeline()` function, and then use the `tl_add_variables()` function to specify the timeline variable "my_stimulus" that the template requires. The only difference between this time and the last one is that we need to use the `insert_resource()` function so that jaysire knows that it needs to treat `image_files` as filenames. So our code looks like this:
+Much like we did in the previous example, we can construct the timeline by first transforming `trial_template` into a timeline object using the `build_timeline()` function, and then use the `tl_add_variables()` function to specify the timeline variable "my_stimulus" that the template requires. The only difference between this time and the last one is that we need to use the `insert_resource()` function so that jaysire knows that it needs to treat `image_files` as filenames. So our code looks like this:
 
 ```{r}
-trials <- timeline(trial_template) %>%
+trials <- build_timeline(trial_template) %>%
   tl_add_variables(my_stimulus = insert_resource(image_files)) 
 ```
 
 Of course, in a real experiment we would probably want to randomise the order in which the stimuli are presented, so it would make more sense to add an extra step like this: 
 
 ```{r}
-trials <- timeline(trial_template) %>%
+trials <- build_timeline(trial_template) %>%
   tl_add_variables(my_stimulus = insert_resource(image_files)) %>%
   tl_add_parameters(randomize_order = TRUE)
 ```
@@ -133,20 +133,20 @@ The last step is, as always, building the experiment using the `build_experiment
 build_experiment(
   timeline = trials,
   path = file.path(tempdir(), "images_exp"), 
-  resources = define_resources(resource_folder),
-  on_finish = save_locally()
+  resources = build_resources(resource_folder),
+  on_finish = fn_save_locally()
 )
 ```
 
-Notice the difference from the previous tutorials. This time around there is an extra argument called `resources`, and I've used the `define_resources()` function. It's worth unpacking this a little bit. To understand what is happening here, let's have a look at the output of the `define_resources()` function:
+Notice the difference from the previous tutorials. This time around there is an extra argument called `resources`, and I've used the `build_resources()` function. It's worth unpacking this a little bit. To understand what is happening here, let's have a look at the output of the `build_resources()` function:
 
 ```{r}
-define_resources(resource_folder)
+build_resources(resource_folder)
 ```
 
-What the `define_resources()` function does is scan the resource folder and construct a tibble containing all the information that jaysire needs to be able to structure the experiment appropriately. The first column is just the filename, the second column is the *type* of resource (in this case, everything is an image), the third column indicates where the original file is located, and the final column indicates where copy of that file will be created. 
+What the `build_resources()` function does is scan the resource folder and construct a tibble containing all the information that jaysire needs to be able to structure the experiment appropriately. The first column is just the filename, the second column is the *type* of resource (in this case, everything is an image), the third column indicates where the original file is located, and the final column indicates where copy of that file will be created. 
 
-This probably seems unnecessarily complicated. The reason it is structured like this is because there are different kinds of resources, and the browser needs to be given different instructions for how to handle each type. That is, the HTML code for incorporating images is different to the code for audio, video, or javascript code, and so the input to `build_experiment()` needs to be explicit about what kind of resource each file corresponds to. By default the `define_resources()` function assumes that an `.mp3` file is audio, a `.png` file is an image, etc, but you can override the defaults if you need to. Alternatively, there's nothing stopping you from constructing this tibble manually if you wanted to: the `define_resources()` function is just there to make life slightly less annoying. 
+This probably seems unnecessarily complicated. The reason it is structured like this is because there are different kinds of resources, and the browser needs to be given different instructions for how to handle each type. That is, the HTML code for incorporating images is different to the code for audio, video, or javascript code, and so the input to `build_experiment()` needs to be explicit about what kind of resource each file corresponds to. By default the `build_resources()` function assumes that an `.mp3` file is audio, a `.png` file is an image, etc, but you can override the defaults if you need to. Alternatively, there's nothing stopping you from constructing this tibble manually if you wanted to: the `build_resources()` function is just there to make life slightly less annoying. 
 
 ## Summary
 
@@ -170,7 +170,7 @@ trial_template <- trial_image_button_response(
 )
 
 # ----------- build the timeline -----------
-trials <- timeline(trial_template) %>%
+trials <- build_timeline(trial_template) %>%
   tl_add_variables(my_stimulus = insert_resource(image_files)) %>%
   tl_add_parameters(randomize_order = TRUE)
 
@@ -178,8 +178,8 @@ trials <- timeline(trial_template) %>%
 build_experiment(
   timeline = trials,
   path = file.path(tempdir(), "images_exp"), 
-  resources = define_resources(resource_folder),
-  on_finish = save_locally()
+  resources = build_resources(resource_folder),
+  on_finish = fn_save_locally()
 )
 ```
 
@@ -194,8 +194,8 @@ finish <- trial_html_keyboard_response(
 
 # write a working copy of the experiment into the docs folder
 build_experiment(
-  timeline = timeline(trials, finish),
-  resources = define_resources(resource_folder),
+  timeline = build_timeline(trials, finish),
+  resources = build_resources(resource_folder),
   path =  here::here("docs", "demos", "example03"),
 )
 ```
