@@ -4,7 +4,7 @@
 \alias{trial_audio_keyboard_response}
 \title{Plays an audio stimulus and records responses generated with the keyboard}
 \usage{
-trial_audio_keyboard_response(stimulus, choices = any_key(),
+trial_audio_keyboard_response(stimulus, choices = respond_any_key(),
   prompt = NULL, trial_ends_after_audio = FALSE,
   trial_duration = NULL, response_ends_trial = TRUE,
   post_trial_gap = 0, on_finish = NULL, on_load = NULL,
@@ -13,7 +13,7 @@ trial_audio_keyboard_response(stimulus, choices = any_key(),
 \arguments{
 \item{stimulus}{Path to the audio file to be played}
 
-\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used}
+\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used}
 
 \item{prompt}{A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).}
 

@@ -6,7 +6,7 @@
 \usage{
 trial_video_keyboard_response(sources, trial_ends_after_video = FALSE,
   width = NULL, height = NULL, autoplay = TRUE, controls = FALSE,
-  start = NULL, stop = NULL, rate = 1, choices = any_key(),
+  start = NULL, stop = NULL, rate = 1, choices = respond_any_key(),
   prompt = NULL, trial_duration = NULL, response_ends_trial = TRUE,
   post_trial_gap = 0, on_finish = NULL, on_load = NULL,
   data = NULL)
@@ -30,7 +30,7 @@ trial_video_keyboard_response(sources, trial_ends_after_video = FALSE,
 
 \item{rate}{What rate to play the video (1 = normal, <1 slower, >1 faster)}
 
-\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used}
+\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used}
 
 \item{prompt}{A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).}
 

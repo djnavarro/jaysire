@@ -2,13 +2,7 @@
 # author: Danielle Navarro
 
 
-#' Wrapper to jsPsych.data.addProperty
-#'
-#' @param ... Name/value pairs
-#' @export
-add_properties <- function(...) {
-  list(...)
-}
+
 
 # TODO this needs to allow manual overrides and handle clashes etc...
 #' Construct a resource specification from paths
@@ -21,7 +15,7 @@ add_properties <- function(...) {
 #' @param style File extensions assumed to be stylesheets
 #'
 #' @export
-add_resources <- function(
+define_resources <- function(
   from,
   audio  = c(".mp3", ".wav", ".aif", ".mid"),
   video  = c(".mp4", ".mpg", ".mov", ".wmv"),
@@ -87,7 +81,7 @@ add_resources <- function(
 
 }
 
-#' Make the experiment
+#' Build the experiment
 #'
 #' @param timeline tl
 #' @param path  p
@@ -96,7 +90,7 @@ add_resources <- function(
 #' @param ... pass to init
 #'
 #' @export
-experiment <- function(timeline, path, resources = NULL, columns = NULL, ...) {
+build_experiment <- function(timeline, path, resources = NULL, columns = NULL, ...) {
 
   # set up
   init <- list(...)

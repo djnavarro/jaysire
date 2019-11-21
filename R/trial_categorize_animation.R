@@ -2,7 +2,7 @@
 #'
 #' @param stimuli Character vector of paths to image files
 #' @param key_answer The numeric key code indicating the correct response
-#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used
+#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used
 #' @param text_answer A label associated with the correct answer
 #' @param correct_text Text to display when correct answer given ('\%ANS\%' substitutes text_answer)
 #' @param incorrect_text Text to display when wrong answer given ('\%ANS\%' substitutes text_answer)
@@ -34,7 +34,7 @@
 trial_categorize_animation <- function(
   stimuli,
   key_answer,
-  choices = any_key(),
+  choices = respond_any_key(),
   text_answer = "",
   correct_text = "Correct",
   incorrect_text = "Wrong",

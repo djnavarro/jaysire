@@ -19,7 +19,7 @@ welcome_trial <- trial_instructions(
 # define a fixation trial
 fixation <- trial_html_keyboard_response(
   stimulus = '<div style="font-size:60px;">+</div>',
-  choices = no_key(),
+  choices = respond_no_key(),
   trial_duration = 500
 )
 
@@ -36,10 +36,10 @@ flag_files <- c("bisexual.svg", "transgender.svg", "rainbow.svg")
 
 # testing procedure is a timeline of fixate/query events
 choice_trials <- timeline(fixation, query) %>%
-  with_variables(
+  tl_add_variables(
     prompt = paste("is this the", flag_names, "flag? (y/n)"),
-    stimulus = resource(flag_files)) %>%
-  with_parameters(randomize_order = TRUE, repetitions = 2)
+    stimulus = insert_resource(flag_files)) %>%
+  tl_add_parameters(randomize_order = TRUE, repetitions = 2)
 
 
 
@@ -147,7 +147,7 @@ all_events <- timeline(
 
 # write the experiment files ----------------------------------------------
 
-resources <- add_resources(
+resources <- define_resources(
   system.file("extdata", "img", package = "jaysire")
 )
 
@@ -157,7 +157,7 @@ experiment(
   resources = resources,
   default_iti = 250,
   on_finish = save_locally(),
-  preload_images = resource(flag_files)
+  preload_images = insert_resource(flag_files)
 )
 
 

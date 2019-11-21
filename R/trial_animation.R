@@ -5,7 +5,7 @@
 #' @param frame_time How long to display each image, in milliseconds
 #' @param frame_isi How long is the gap between images, in milliseconds
 #' @param sequence_reps How many times to repeat the sequence
-#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used
+#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used
 #' @param prompt A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).
 #'
 #' @param post_trial_gap  The gap in milliseconds between the current trial and the next trial. If NULL, there will be no gap.
@@ -35,7 +35,7 @@ trial_animation <- function(
   frame_time = 250,
   frame_isi = 0,
   sequence_reps = 1,
-  choices = any_key(),
+  choices = respond_any_key(),
   prompt = NULL,
   post_trial_gap = 0,  # start universals
   on_finish = NULL,

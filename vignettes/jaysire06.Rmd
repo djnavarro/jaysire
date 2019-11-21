@@ -179,7 +179,7 @@ page4 <- trial_survey_text(
   )
 )
 
-experiment(
+build_experiment(
   timeline = timeline(page1, page2, page3, page4),
   path = file.path(tempdir(), "responses_exp"), 
   on_finish = save_locally()
@@ -192,11 +192,11 @@ You can check out a working version of the experiment [here](../demos/example06/
 ```{r include=FALSE, message=FALSE, warning=FALSE}
 finish <- trial_html_keyboard_response(
   stimulus = "All done! Click <a href='../../../articles/jaysire06.html'>here</a> to return to the vignette.",
-  choices = no_key()
+  choices = respond_no_key()
 )
 
 # write a working copy of the experiment into the docs folder
-experiment(
+build_experiment(
   timeline = timeline(page1, page2, page3, page4, finish),
   path =  here::here("docs", "demos", "example06")
 )

@@ -3,7 +3,7 @@
 #'
 #' @export
 save_locally <- function() {
-  code(
+  js_code(
   "function() {
     var data = jsPsych.data.get().csv();
     var file = 'xprmntr_local_name';

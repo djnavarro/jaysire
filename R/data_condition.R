@@ -10,7 +10,7 @@ data_condition <- function(expr, trials_back = 1) {
   expr <- deparse(rlang::enexpr(expr))
   condition <- paste0("data.", expr)
 
-  js_fun <- code(paste0(
+  js_fun <- js_code(paste0(
     "function(){
       var data = jsPsych.data.get().last(", trials_back, ").values()[0];
       if(", condition, "){

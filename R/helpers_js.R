@@ -1,16 +1,5 @@
 
 
-
-#' Pass text as raw javascript
-#'
-#' @param string a string to be interpreted as javascript code
-#'
-#' @export
-code <- function(string) {
-  class(string) <- "json"
-  string
-}
-
 js_code <- function(x) {
   class(x) <- "json"
   x

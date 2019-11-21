@@ -5,7 +5,7 @@
 \title{Displays a sequence of images at a fixed rate}
 \usage{
 trial_animation(stimuli, frame_time = 250, frame_isi = 0,
-  sequence_reps = 1, choices = any_key(), prompt = NULL,
+  sequence_reps = 1, choices = respond_any_key(), prompt = NULL,
   post_trial_gap = 0, on_finish = NULL, on_load = NULL,
   data = NULL)
 }
@@ -18,7 +18,7 @@ trial_animation(stimuli, frame_time = 250, frame_isi = 0,
 
 \item{sequence_reps}{How many times to repeat the sequence}
 
-\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used}
+\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used}
 
 \item{prompt}{A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).}
 

@@ -25,14 +25,14 @@ First, let's write an trial using `trial_image_button_response()` to handle disp
 
 ```{r}
 image_trial <- trial_image_button_response(
-  stimulus = resource("heart.png"), 
+  stimulus = insert_resource("heart.png"), 
   stimulus_height = 400,
   stimulus_width = 400,
   choices = c("Unpleasant", "Neutral", "Pleasant") 
 )
 ```
 
-This is familiar to us from the previous article. I've specified the `stimulus` itself using the `resource()` function, listed the `choices` available to participants, and some ancillary information about the size of the image. 
+This is familiar to us from the previous article. I've specified the `stimulus` itself using the `insert_resource()` function, listed the `choices` available to participants, and some ancillary information about the size of the image. 
 
 ## Videos
 
@@ -40,7 +40,7 @@ Embedding videos in an experiment is -- in principle -- exactly the same as embe
 
 ```{r}
 video_trial <- trial_video_button_response(
-  sources = resource(c("heart.mpg", "heart.webm")), 
+  sources = insert_resource(c("heart.mpg", "heart.webm")), 
   choices = c("Unpleasant", "Neutral", "Pleasant"), 
   trial_ends_after_video = FALSE,
   response_ends_trial = TRUE
@@ -55,7 +55,7 @@ The structure of the audio trial is essentially the same as what we've seen prev
 
 ```{r}
 audio_trial <- trial_audio_button_response(
-  stimulus = resource("wood.mp4"),
+  stimulus = insert_resource("wood.mp4"),
   choices = c("Unpleasant", "Neutral", "Pleasant"), 
   trial_ends_after_audio = FALSE,
   response_ends_trial = TRUE
@@ -75,25 +75,25 @@ exp_path <- file.path(tempdir(), "multimedia_exp")
 To build the experiment into the `exp_path` folder, I'll call the `experiment()` function:
 
 ```{r}
-experiment(
+build_experiment(
   timeline = timeline(image_trial, video_trial, audio_trial),
   path = exp_path, 
-  resources = add_resources(resources),
+  resources = define_resources(resources),
   use_webaudio = FALSE,
   on_finish = save_locally()
 )
 ```
 
-Most of this should look familiar. I've specified the `timeline` that describes the experiment, the `path` to the folder where it should be located, I've used the `add_resources()` function to tell jaysire how to handle each of the resource files, and I've indicated that when the experiment finishes we should `save_locally()` into the data folder (see the [first article](jaysire01.html) for more information about the data folder). 
+Most of this should look familiar. I've specified the `timeline` that describes the experiment, the `path` to the folder where it should be located, I've used the `define_resources()` function to tell jaysire how to handle each of the resource files, and I've indicated that when the experiment finishes we should `save_locally()` into the data folder (see the [first article](jaysire01.html) for more information about the data folder). 
 
 There is one thing that is new. I've specified the `use_webaudio` argument and set it to `FALSE`. The reason for this is that when you're running the experiment locally, the web browser treats locally stored audio files as though they were being hosted on a *different* server to the webpage itself, and that triggers a "cross origin request error" (it is treated as a security risk). Fortunately, jsPsych includes a method to disable this and by setting `use_webaudio = FALSE` you can get around this issue and run your audio files even when the experiment is running locally!  
 
 ## What have we created?
 
-There is one last thing worth discussing, namely the file structure of the experiment that we have build. To start with, let's take a look at what `add_resources()` creates:
+There is one last thing worth discussing, namely the file structure of the experiment that we have build. To start with, let's take a look at what `define_resources()` creates:
 
 ```{r}
-add_resources(resources)
+define_resources(resources)
 ```
 
 Now take a look at where all the files have ended up:
@@ -114,30 +114,30 @@ resources <- system.file("extdata", "resources", package = "jaysire")
 list.files(resources)
 
 image_trial <- trial_image_button_response(
-  stimulus = resource("heart.png"), 
+  stimulus = insert_resource("heart.png"), 
   stimulus_height = 400,
   stimulus_width = 400,
   choices = c("Unpleasant", "Neutral", "Pleasant") 
 )
 
 video_trial <- trial_video_button_response(
-  sources = resource(c("heart.mpg", "heart.webm")), 
+  sources = insert_resource(c("heart.mpg", "heart.webm")), 
   choices = c("Unpleasant", "Neutral", "Pleasant"), 
   trial_ends_after_video = FALSE,
   response_ends_trial = TRUE
 )
 
 audio_trial <- trial_audio_button_response(
-  stimulus = resource("wood.mp4"),
+  stimulus = insert_resource("wood.mp4"),
   choices = c("Unpleasant", "Neutral", "Pleasant"), 
   trial_ends_after_audio = FALSE,
   response_ends_trial = TRUE
 )
 
-experiment(
+build_experiment(
   timeline = timeline(image_trial, video_trial, audio_trial),
   path = exp_path, 
-  resources = add_resources(resources),
+  resources = define_resources(resources),
   use_webaudio = FALSE,
   on_finish = save_locally()
 )
@@ -148,13 +148,13 @@ You can check out a working version of the experiment [here](../demos/example04/
 ```{r include=FALSE, message=FALSE, warning=FALSE}
 finish <- trial_html_keyboard_response(
   stimulus = "All done! Click <a href='../../../articles/jaysire04.html'>here</a> to return to the vignette.",
-  choices = no_key()
+  choices = respond_no_key()
 )
 
 # write a working copy of the experiment into the docs folder
-experiment(
+build_experiment(
   timeline = timeline(image_trial, video_trial, audio_trial, finish),
-  resources = add_resources(resources),
+  resources = define_resources(resources),
   path =  here::here("docs", "demos", "example04"),
   use_webaudio = FALSE
 )

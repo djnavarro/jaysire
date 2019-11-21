@@ -4,7 +4,7 @@
 \alias{trial_html_keyboard_response}
 \title{Displays HTML stimulus and records responses generated with the keyboard}
 \usage{
-trial_html_keyboard_response(stimulus, choices = any_key(),
+trial_html_keyboard_response(stimulus, choices = respond_any_key(),
   prompt = NULL, stimulus_duration = NULL, trial_duration = NULL,
   response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
   on_load = NULL, data = NULL)
@@ -12,7 +12,7 @@ trial_html_keyboard_response(stimulus, choices = any_key(),
 \arguments{
 \item{stimulus}{The HTML content to be displayed.}
 
-\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used}
+\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used}
 
 \item{prompt}{A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).}
 

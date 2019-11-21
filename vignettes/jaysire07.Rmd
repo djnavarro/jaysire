@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Up to this point our experiments have been mostly linear in structire. Although we have seen examples of nested timelines, randomised timelines, repeated timelines and so on, none of the example experiments we've built so far allow us to *explicitly* rely on programming constructs like "if" (to create conditional branching) or "while" (to build customised loops). The jaysire package provides two functions that provide these programming constructs, `display_if()` and `display_while()`. The `display_if()` function allows you to indicate that a timeline should be executed only if a particular *condition* holds, and the `display_while()` function allows you to specify that a timeline should execute over and over again until the condition no longer holds. At the moment, jaysire is quite limited in terms of what conditions are natively supported. Later releases will (I hope) extend this functionality.
+Up to this point our experiments have been mostly linear in structire. Although we have seen examples of nested timelines, randomised timelines, repeated timelines and so on, none of the example experiments we've built so far allow us to *explicitly* rely on programming constructs like "if" (to create conditional branching) or "while" (to build customised loops). The jaysire package provides two functions that provide these programming constructs, `tl_display_if()` and `tl_display_while()`. The `tl_display_if()` function allows you to indicate that a timeline should be executed only if a particular *condition* holds, and the `tl_display_while()` function allows you to specify that a timeline should execute over and over again until the condition no longer holds. At the moment, jaysire is quite limited in terms of what conditions are natively supported. Later releases will (I hope) extend this functionality.
 
 ```{r}
 library(jaysire)
@@ -47,12 +47,12 @@ followup <- trial_survey_multi_select(
 )
 ```
 
-If we add `followup` to our timeline "as is", it will be shown to everybody regardless of what answer they provide. To fix this, what we do is wrap `followup` into a timeline, and then pipe that timeline through a `display_if()` statement. What that looks like is this:
+If we add `followup` to our timeline "as is", it will be shown to everybody regardless of what answer they provide. To fix this, what we do is wrap `followup` into a timeline, and then pipe that timeline through a `tl_display_if()` statement. What that looks like is this:
 
 
 ```{r}
 page1a <- timeline(followup) %>%
-  display_if(data_condition(button_pressed == "0"))
+  tl_display_if(data_condition(button_pressed == "0"))
 ```
 
 What we have done here is defined `page1a` as a *conditional* timeline. When the participant actually completes the experiment, this trial will *only* be shown if the condition `data_condition(button_pressed == "0")` is true. This solves our problem, but it may not be obvious *how* we're solving the problem, so it is worth unpacking this a little...
@@ -61,21 +61,21 @@ What we have done here is defined `page1a` as a *conditional* timeline. When the
 
 Firstly, let's take a look at the  `button_pressed == "0"` part. Within jsPsych, a button response is recorded numerically: it creates an internal "button_pressed" variable to store the results of the trial, where a value of 0 indicates that the user pressed the first button, 1 refers to the second button, and so on. However, everything in jsPsych is internally stored as text, so if we want to check the response we have to use `"0"` rather than `0`. This is the reason why the condition statement takes the form `button_pressed == "0"`: the "Yes" response is the first response option for the `page1` trial, so we only want `page1a` to execute *if* the response on that trial (i.e., the value of `button_pressed` within the jsPsych data storage) is equal to `"0"`. 
 
-Next, I'll expand on what is going on with the `data_condition()` function, but to do so I need to explain the `display_if()` function in a little more detail. First, let's rewrite the code above without using the pipe, and name our arguments explicitly:
+Next, I'll expand on what is going on with the `data_condition()` function, but to do so I need to explain the `tl_display_if()` function in a little more detail. First, let's rewrite the code above without using the pipe, and name our arguments explicitly:
 
 ```{r}
-page1a <- display_if(
+page1a <- tl_display_if(
   timeline = timeline(followup), 
   conditional_function = data_condition(button_pressed == "0")
 )
 ```
 
-This isn't quite so pretty to look at, but it is helpful for the purposes of understanding. The `display_if()` function takes two arguments, the `timeline` object itself (i.e., the `followup` page), and a `conditional_function` that is used to determine whether or not the timeline should be executed. Because the experiment is eventually run in javascript through the web browser, this function must be a *javascript* function, not an R function. If you know javascript, then it may be useful to note that jaysire contains a `code()` function that means that any text you include will be passed as unfiltered javascript, so you can in fact pass anything you like here:
+This isn't quite so pretty to look at, but it is helpful for the purposes of understanding. The `tl_display_if()` function takes two arguments, the `timeline` object itself (i.e., the `followup` page), and a `conditional_function` that is used to determine whether or not the timeline should be executed. Because the experiment is eventually run in javascript through the web browser, this function must be a *javascript* function, not an R function. If you know javascript, then it may be useful to note that jaysire contains an `insert_javascript()` function that means that any text you include will be passed as unfiltered javascript, so you can in fact pass anything you like here:
 
 ```{r eval=FALSE}
-page1a <- display_if(
+page1a <- tl_display_if(
   timeline = timeline(followup), 
-  conditional_function = code("/* your javascript function here */")
+  conditional_function = insert_javascript("/* your javascript function here */")
 )
 ```
 
@@ -86,13 +86,13 @@ However, one of the goals of jaysire is to minimise the amount of javascript you
 
 ## Looping timelines
 
-Having gone into all this detail for `display_if()`, it is very simple to provide an illustration of `display_while()` because it works in exactly the same fashion. Suppose I want to force people to tell me that this picture of a heart looks pleasant. Let's construct a trial:
+Having gone into all this detail for `tl_display_if()`, it is very simple to provide an illustration of `tl_display_while()` because it works in exactly the same fashion. Suppose I want to force people to tell me that this picture of a heart looks pleasant. Let's construct a trial:
 
 ```{r}
 resources <- system.file("extdata", "resources", package = "jaysire")
 
 query <- trial_image_button_response(
-  stimulus = resource("heart.png"), 
+  stimulus = insert_resource("heart.png"), 
   stimulus_height = 400,
   stimulus_width = 400,
   choices = c("Unpleasant", "Neutral", "Pleasant"),
@@ -104,7 +104,7 @@ Now what we do is take this `query` trial, wrap it as a `timeline()` and then ke
 
 ```{r looping}
 page2 <- timeline(query) %>%
-  display_while(data_condition(button_pressed != "2"))
+  tl_display_while(data_condition(button_pressed != "2"))
 ```
 
 At this point we are done!
@@ -115,9 +115,9 @@ At this point we are done!
 Let's wrap all this up in a single timeline, add the resources, and build it as an experiment:
 
 ```{r}
-experiment(
+build_experiment(
   timeline = timeline(page1, page1a, page2),
-  resources = add_resources(resources),
+  resources = define_resources(resources),
   path = file.path(tempdir(), "flow_exp"), 
   on_finish = save_locally()
 )
@@ -128,13 +128,13 @@ You can check out a working version of the experiment [here](../demos/example07/
 ```{r include=FALSE, message=FALSE, warning=FALSE}
 finish <- trial_html_keyboard_response(
   stimulus = "All done! Click <a href='../../../articles/jaysire07.html'>here</a> to return to the vignette.",
-  choices = no_key()
+  choices = respond_no_key()
 )
 
 # write a working copy of the experiment into the docs folder
-experiment(
+build_experiment(
   timeline = timeline(page1, page1a, page2, finish),
-  resources = add_resources(resources),
+  resources = define_resources(resources),
   path =  here::here("docs", "demos", "example07")
 )
 ```

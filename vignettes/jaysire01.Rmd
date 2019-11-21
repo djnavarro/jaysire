@@ -77,7 +77,7 @@ At this point we have a complete timeline for our simple experiment! Yay!
 
 ## Building the experiment
 
-At the moment we have a complete timeline, but it is stored in an abstract form as the `all_trials` variable. What we really want to do is "build" an experiment from this timeline: we want to write the files that will run the experiment, and save those files somewhere. That is the job of the `experiment()` function. First, let's specify the location of the experiment:
+At the moment we have a complete timeline, but it is stored in an abstract form as the `all_trials` variable. What we really want to do is "build" an experiment from this timeline: we want to write the files that will run the experiment, and save those files somewhere. That is the job of the `build_experiment()` function. First, let's specify the location of the experiment:
 
 ```{r}
 exp_path <- file.path(tempdir(), "my_exp")
@@ -92,10 +92,10 @@ if(dir.exists(exp_path)) {
 }
 ```
 
-For the purposes of this demonstration I've chosen to write the experiment to a temporary folder, but normally you'd save it somewhere more sensible. Now all we have to do is write the experiment into this folder `experiment()` function, specifying the `timeline` and `path` arguments to tell R *what* to write and *where* to write it:
+For the purposes of this demonstration I've chosen to write the experiment to a temporary folder, but normally you'd save it somewhere more sensible. Now all we have to do is write the experiment into this folder `build_experiment()` function, specifying the `timeline` and `path` arguments to tell R *what* to write and *where* to write it:
 
 ```{r}
-experiment(
+build_experiment(
   timeline = all_trials,
   path = exp_path,
   on_finish = save_locally()
@@ -106,7 +106,7 @@ The other thing I've specified here is the `on_finish` argument, which tells jsP
 
 ## What have we created?
 
-When we run the `experiment()` function, two subfolders within the `exp_path` folder are created, one called "data" (which is initially empty) and another called "experiment", which contains all the source files required to run the experiment. Here are the files we've just created:
+When we run the `build_experiment()` function, two subfolders within the `exp_path` folder are created, one called "data" (which is initially empty) and another called "experiment", which contains all the source files required to run the experiment. Here are the files we've just created:
 
 ```{r}
 list.files(exp_path, recursive = TRUE)
@@ -153,7 +153,7 @@ trial2 <- trial_html_button_response(
 all_trials <- timeline(instructions, trial1, trial2)
 exp_path <- file.path(tempdir(), "my_exp")
 
-experiment(
+build_experiment(
   timeline = all_trials,
   path = exp_path,
   on_finish = save_locally()
@@ -167,12 +167,12 @@ You can check out a working version of the experiment [here](../demos/example01/
 
 all_done <- trial_html_keyboard_response(
   stimulus = "All done! Click <a href='../../../articles/jaysire01.html'>here</a> to return to the vignette.",
-  choices = no_key()
+  choices = respond_no_key()
 )
 
 # write a working copy of the experiment into the docs folder
 exp <- here::here("docs", "demos", "example01")
-experiment(
+build_experiment(
   timeline = timeline(all_trials, all_done),
   path = exp
 )

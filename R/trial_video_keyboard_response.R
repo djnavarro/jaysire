@@ -10,7 +10,7 @@
 #' @param stop Specifies the time in seconds to stop the video (if NULL, stop at end)
 #' @param rate What rate to play the video (1 = normal, <1 slower, >1 faster)
 #'
-#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used
+#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used
 #'
 #' @param prompt A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).
 #' @param trial_duration How long to wait for a response before ending trial in milliseconds. If NULL, the trial will wait indefinitely. If no response is made before the deadline is reached, the response will be recorded as NULL.
@@ -43,7 +43,7 @@ trial_video_keyboard_response <- function(
   stop = NULL,
   rate = 1,
 
-  choices = any_key(),
+  choices = respond_any_key(),
 
   prompt = NULL,
   trial_duration = NULL,

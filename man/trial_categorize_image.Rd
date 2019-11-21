@@ -4,7 +4,7 @@
 \alias{trial_categorize_image}
 \title{Displays an image, records responses with the keyboard and gives feedback}
 \usage{
-trial_categorize_image(stimulus, key_answer, choices = any_key(),
+trial_categorize_image(stimulus, key_answer, choices = respond_any_key(),
   text_answer = "", correct_text = "Correct",
   incorrect_text = "Wrong", prompt = NULL,
   force_correct_button_press = FALSE, show_stim_with_feedback = TRUE,
@@ -19,7 +19,7 @@ trial_categorize_image(stimulus, key_answer, choices = any_key(),
 
 \item{key_answer}{The numeric key code indicating the correct response}
 
-\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used}
+\item{choices}{A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used}
 
 \item{text_answer}{A label associated with the correct answer}
 

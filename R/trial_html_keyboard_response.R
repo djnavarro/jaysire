@@ -2,7 +2,7 @@
 #'
 #' @param stimulus The HTML content to be displayed.
 #'
-#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, any_key() and no_key() can be used
+#' @param choices A character vector of keycodes (either numeric values or the characters themselves). Alternatively, respond_any_key() and respond_no_key() can be used
 #'
 #' @param prompt A string (may contain HTML) that will be displayed below the stimulus, intended as a reminder about the actions to take (e.g., which key to press).
 #' @param stimulus_duration How long to show the stimulus, in milliseconds. If NULL, then the stimulus will be shown until the subject makes a response
@@ -28,7 +28,7 @@
 trial_html_keyboard_response <- function(
   stimulus,
 
-  choices = any_key(),
+  choices = respond_any_key(),
 
   prompt = NULL,
   stimulus_duration = NULL,
