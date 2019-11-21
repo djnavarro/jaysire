@@ -22,6 +22,31 @@ Leeuw ([GitHub page](https://github.com/jspsych/jsPsych/)) to create the
 experiments, and is structured so that functions in jaysire use the same
 argument names as the corresponding jsPsych functions.
 
+## Structure
+
+The package is designed around families of functions that use a common
+prefix:
+
+  - The `trial_` functions are used to define individual trials in the
+    experiment
+  - The `build_` functions are used to construct more complex entities:
+    there are build functions for timelines, experiments and resource
+    file lists.
+  - The `insert_` functions are used to tell jsPsych to “insert” the
+    input into the experiment as a particular kind of entity: a
+    reference to a resource file, a reference to a timeline variable, a
+    data property or as raw javascript.
+  - The `tl_` functions are used to modify how a timeline executes: by
+    defining a timeline variable, adding parameters, executing in a
+    loop, or executing if a condition holds
+  - The `question_` family is used when constructing surveys
+  - The `respond_` family is used when a key press response is needed
+  - The `fn_` family is used to specify javascript functions used in the
+    experiment
+
+See the [reference page](https://djnavarro.github.io/jaysire/reference/)
+for the complete list of all functions.
+
 ## Installation
 
 The jaysire package has not been released on CRAN, but you can install

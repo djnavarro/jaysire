@@ -109,6 +109,21 @@
 <!-- badges: start -->
 
 <p>The goal of jaysire is to provide a method for writing behavioural experiments in R that can be deployed through a web browser. The package relies on the <a href="https://www.jspsych.org">jsPsych</a> library by Josh de Leeuw (<a href="https://github.com/jspsych/jsPsych/">GitHub page</a>) to create the experiments, and is structured so that functions in jaysire use the same argument names as the corresponding jsPsych functions.</p>
+<div id="structure" class="section level2">
+<h2 class="hasAnchor">
+<a href="#structure" class="anchor"></a>Structure</h2>
+<p>The package is designed around families of functions that use a common prefix:</p>
+<ul>
+<li>The <code>trial_</code> functions are used to define individual trials in the experiment</li>
+<li>The <code>build_</code> functions are used to construct more complex entities: there are build functions for timelines, experiments and resource file lists.</li>
+<li>The <code>insert_</code> functions are used to tell jsPsych to “insert” the input into the experiment as a particular kind of entity: a reference to a resource file, a reference to a timeline variable, a data property or as raw javascript.</li>
+<li>The <code>tl_</code> functions are used to modify how a timeline executes: by defining a timeline variable, adding parameters, executing in a loop, or executing if a condition holds</li>
+<li>The <code>question_</code> family is used when constructing surveys</li>
+<li>The <code>respond_</code> family is used when a key press response is needed</li>
+<li>The <code>fn_</code> family is used to specify javascript functions used in the experiment</li>
+</ul>
+<p>See the <a href="https://djnavarro.github.io/jaysire/reference/">reference page</a> for the complete list of all functions.</p>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
