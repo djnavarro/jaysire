@@ -1,0 +1,49 @@
+authors:
+  Danielle Navarro:
+    href: https://compcogscisydney.org
+template:
+  params:
+    bootswatch: flatly
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - gallery
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Articles
+      menu:
+      - text: 1. Getting started
+        href: articles/jaysire01.html
+      - text: 2. Randomisation, repetition and variables
+        href: articles/jaysire02.html
+      - text: 3. Using resource files
+        href: articles/jaysire03.html
+      - text: 4. Image, video and audio files
+        href: articles/jaysire04.html
+      - text: 5. Buttons, key presses and sliders
+        href: articles/jaysire05.html
+      - text: 6. Survey pages
+        href: articles/jaysire06.html
+      - text: 7. Loops and branches
+        href: articles/jaysire07.html
+    gallery:
+      text: Gallery
+      menu:
+      - text: First experiment
+        href: articles/experiment01.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/djnavarro/jaysire

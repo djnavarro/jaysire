@@ -14,3 +14,5 @@
 ^vignettes/jaysire06\.Rmd$
 ^vignettes/jaysire07\.Rmd$
 ^codecov\.yml$
+^vignettes/experiment01\.Rmd$
+^_pkgdown.yml$

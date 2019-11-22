@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# jaysire
+# Behavioural experiments with jaysire
 
 <!-- badges: start -->
 
