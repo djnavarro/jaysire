@@ -1,12 +1,12 @@
 # file: api_build.R
 # author: Danielle Navarro
 
-#' Run a jspsych experiment
+#' Deploy a jspsych experiment locally
 #'
-#' @param path the experiment directory
+#' @param path the experiment folder
 #' @param port port to use
 #' @export
-run_locally <- function(path = ".", port = 8000) {
+run_locally <- function(path, port = 8000) {
 
   pr <- plumber::plumber$new()
 
@@ -37,4 +37,18 @@ run_locally <- function(path = ".", port = 8000) {
   utils::browseURL(url)
   pr$run(swagger = FALSE, port = port)
 
+}
+
+#' Deploy a jspsych experiment on google app engie
+#'
+#' @param path path to the experiment folder
+#' @param project_id the google app engine project id
+#'
+#' @export
+run_appengine <- function(path, project_id) {
+  app <- file.path(path, "experiment", "app.yaml")
+  cmd <- paste0("gcloud app deploy ", app, " --project=", project_id)
+  cat("To deploy, enter the following command at the console:\n")
+  cat(cmd, "\n")
+  return(invisible(cmd))
 }

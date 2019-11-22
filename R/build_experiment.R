@@ -143,12 +143,29 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
     to = file.path(path, "experiment", "resource", "script")
   )
 
-
-  # copy jaysire files
+  # copy jaysire files [<-- pretty sure this is now unnecessary]
   file.copy(
     from = system.file("extdata", "xprmntr.js", package = "jaysire"),
     to = file.path(path, "experiment", "resource", "script")
   )
+
+  # copy GAE files if necessary
+  if(identical(init$on_finish, fn_save_datastore())){
+    file.copy(
+      from = system.file("extdata", "app.yaml", package = "jaysire"),
+      to = file.path(path, "experiment")
+    )
+    file.copy(
+      from = system.file("extdata", "backend.py", package = "jaysire"),
+      to = file.path(path, "experiment")
+    )
+    file.copy(
+      from = system.file("extdata", "jquery.min.js", package = "jaysire"),
+      to = file.path(path, "experiment", "resource", "script")
+    )
+
+    scripts <- c(scripts, "jquery.min.js")
+  }
 
   # variables to add to the data storage
   if(is.null(columns)) {

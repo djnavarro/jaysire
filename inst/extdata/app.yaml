@@ -1,0 +1,23 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /resource
+  static_dir: resource
+
+- url: /experiment\.js
+  static_files: experiment.js
+  upload: experiment\.js
+  
+- url: /.*
+  script: backend.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+  
+builtins:
+  - remote_api: on

@@ -2,15 +2,15 @@
 % Please edit documentation in R/build_api.R
 \name{run_locally}
 \alias{run_locally}
-\title{Run a jspsych experiment}
+\title{Deploy a jspsych experiment locally}
 \usage{
-run_locally(path = ".", port = 8000)
+run_locally(path, port = 8000)
 }
 \arguments{
-\item{path}{the experiment directory}
+\item{path}{the experiment folder}
 
 \item{port}{port to use}
 }
 \description{
-Run a jspsych experiment
+Deploy a jspsych experiment locally
 }

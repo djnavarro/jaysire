@@ -13,3 +13,15 @@ fn_save_locally <- function() {
     xhr.send(JSON.stringify({filename: file, filedata: data}));
   }")
 }
+
+
+#' Return a javascript function to save data to Google datastore
+#'
+#' @export
+fn_save_datastore <- function() {
+  js_code(
+    "function() {
+      $.post('submit',{\"content\": jsPsych.data.get().csv()})
+    }"
+  )
+}
