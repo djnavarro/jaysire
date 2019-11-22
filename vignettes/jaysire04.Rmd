@@ -17,7 +17,7 @@ resources <- system.file("extdata", "resources", package = "jaysire")
 list.files(resources)
 ```
 
-We have one image file ("heart.png"), two versions of the same video in different formats ("heart.mpg" and "heart.webm"), and a single audio file ("wood.mp4"). 
+We have one image file ("heart.png"), two versions of the same video in different formats ("heart.mpg" and "heart.webm"), and a single audio file ("lukewarm_banjo.mp3"). 
 
 ## Images
 
@@ -55,7 +55,7 @@ The structure of the audio trial is essentially the same as what we've seen prev
 
 ```{r}
 audio_trial <- trial_audio_button_response(
-  stimulus = insert_resource("wood.mp4"),
+  stimulus = insert_resource("lukewarm_banjo.mp3"),
   choices = c("Unpleasant", "Neutral", "Pleasant"), 
   trial_ends_after_audio = FALSE,
   response_ends_trial = TRUE
@@ -74,7 +74,7 @@ exp_path <- temporary_folder()
 
 To build the experiment into the `exp_path` folder, I'll call the `experiment()` function:
 
-```{r}
+```{r, warning=FALSE}
 build_experiment(
   timeline = build_timeline(image_trial, video_trial, audio_trial),
   path = exp_path, 
@@ -102,8 +102,6 @@ Now take a look at where all the files have ended up:
 list.files(exp_path, recursive = TRUE)
 ```
 
-[to do... these are actually in the wrong places!!]
-
 ## Summary
 
 Here is the entire experiment:
@@ -128,7 +126,7 @@ video_trial <- trial_video_button_response(
 )
 
 audio_trial <- trial_audio_button_response(
-  stimulus = insert_resource("wood.mp4"),
+  stimulus = insert_resource("lukewarm_banjo.mp3"),
   choices = c("Unpleasant", "Neutral", "Pleasant"), 
   trial_ends_after_audio = FALSE,
   response_ends_trial = TRUE

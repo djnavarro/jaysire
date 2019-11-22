@@ -14,7 +14,7 @@ var timeline = {
     },
     {
       "type": ["video-button-response"],
-      "sources": ["resource/video/heart.mpg", "resource/other/heart.webm"],
+      "sources": ["resource/video/heart.mpg", "resource/video/heart.webm"],
       "trial_ends_after_video": false,
       "autoplay": true,
       "controls": false,
@@ -27,7 +27,7 @@ var timeline = {
     },
     {
       "type": ["audio-button-response"],
-      "stimulus": ["resource/video/wood.mp4"],
+      "stimulus": ["resource/audio/lukewarm_banjo.mp3"],
       "choices": ["Unpleasant", "Neutral", "Pleasant"],
       "margin_vertical": ["0px"],
       "margin_horizontal": ["8px"],

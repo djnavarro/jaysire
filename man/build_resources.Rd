@@ -5,8 +5,9 @@
 \title{Build the resource file specification from a directory path}
 \usage{
 build_resources(from, audio = c(".mp3", ".wav", ".aif", ".mid"),
-  video = c(".mp4", ".mpg", ".mov", ".wmv"), image = c(".jpg", ".png",
-  ".bmp", ".svg", ".tiff"), script = c(".js"), style = c(".css"))
+  video = c(".mp4", ".mpg", ".mov", ".wmv", ".webm", ".ogg"),
+  image = c(".jpg", ".png", ".bmp", ".svg", ".tiff"),
+  script = c(".js"), style = c(".css"))
 }
 \arguments{
 \item{from}{The paths to files/directories}

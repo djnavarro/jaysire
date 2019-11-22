@@ -19,7 +19,7 @@
 build_resources <- function(
   from,
   audio  = c(".mp3", ".wav", ".aif", ".mid"),
-  video  = c(".mp4", ".mpg", ".mov", ".wmv"),
+  video  = c(".mp4", ".mpg", ".mov", ".wmv", ".webm", ".ogg"),
   image  = c(".jpg", ".png", ".bmp", ".svg", ".tiff"),
   script = c(".js"),
   style  = c(".css")
