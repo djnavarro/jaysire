@@ -47,3 +47,15 @@ get_alphanumeric <- function(n = 5) {
   r <- paste(r, collapse = "")
   return(r)
 }
+
+#' Creates a temporary folder
+#'
+#' @export
+temporary_folder <- function() {
+  idstr <- paste0("jaysire_", get_alphanumeric(n = 5))
+  resource <- file.path(tempdir(), idstr)
+  if(!dir.exists(resource)) {
+    dir.create(resource)
+  }
+  return(resource)
+}
