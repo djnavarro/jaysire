@@ -107,18 +107,55 @@ page2 <- build_timeline(query) %>%
   tl_display_while(fn_data_condition(button_pressed != "2"))
 ```
 
-At this point we are done!
-
-
-## An example experiment
-
-Let's wrap all this up in a single timeline, add the resources, and build it as an experiment:
+At this point we are done! Let's wrap all this up in a single timeline, add the resources, and build it as an experiment:
 
 ```{r}
 build_experiment(
   timeline = build_timeline(page1, page1a, page2),
   resources = build_resources(resources),
-  path = file.path(tempdir(), "flow_exp"), 
+  path = temporary_folder(), 
+  on_finish = fn_save_locally()
+)
+```
+
+## Summary
+
+```{r eval=FALSE}
+library(jaysire)
+
+resources <- system.file("extdata", "resources", package = "jaysire")
+
+page1 <- trial_html_button_response(
+  "Do you identify as LGBTIQ+?",
+  c("Yes", "No", "Prefer not to say")
+)
+
+followup <- trial_survey_multi_select(
+  question_multi(
+    prompt = "Select all that apply",
+    options = c("Lesbian", "Gay", "Bisexual/Pansexual", "Transgender",
+      "Nonbinary", "Genderqueer", "Intersex", "Asexual", "Other")
+  )
+)
+
+page1a <- build_timeline(followup) %>%
+  tl_display_if(fn_data_condition(button_pressed == "0"))
+
+query <- trial_image_button_response(
+  stimulus = insert_resource("heart.png"),
+  stimulus_height = 400,
+  stimulus_width = 400,
+  choices = c("Unpleasant", "Neutral", "Pleasant"),
+  prompt = "You will not be allowed to continue unless you select 'Pleasant'"
+)
+
+page2 <- build_timeline(query) %>%
+  tl_display_while(fn_data_condition(button_pressed != "2"))
+
+build_experiment(
+  timeline = build_timeline(page1, page1a, page2),
+  resources = build_resources(resources),
+  path = temporary_folder(),
   on_finish = fn_save_locally()
 )
 ```

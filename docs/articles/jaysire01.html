@@ -167,16 +167,17 @@
 <div id="building-the-experiment" class="section level2">
 <h2 class="hasAnchor">
 <a href="#building-the-experiment" class="anchor"></a>Building the experiment</h2>
-<p>At the moment we have a complete timeline, but it is stored in an abstract form as the <code>all_trials</code> variable. What we really want to do is “build” an experiment from this timeline: we want to write the files that will run the experiment, and save those files somewhere. That is the job of the <code><a href="../reference/build_experiment.html">build_experiment()</a></code> function. First, let’s specify the location of the experiment:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">exp_path &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"my_exp"</span>)</a>
+<p>At the moment we have a complete timeline, but it is stored in an abstract form as the <code>all_trials</code> variable. What we really want to do is “build” an experiment from this timeline: we want to write the files that will run the experiment, and save those files somewhere. That is the job of the <code><a href="../reference/build_experiment.html">build_experiment()</a></code> function. First, let’s specify the location of the experiment. Normally, we would build the experiment into a sensible location (e.g., somewhere inside an RStudio project), but for the purposes of this demonstration – which has to be reproducible on any computer, not just mine – I’ll use the <code><a href="../reference/temporary_folder.html">temporary_folder()</a></code> function for this purposes:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">exp_path &lt;-<span class="st"> </span><span class="kw"><a href="../reference/temporary_folder.html">temporary_folder</a></span>() </a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">exp_path</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [1] "/tmp/RtmpTXAE6m/my_exp"</span></a></code></pre></div>
-<p>For the purposes of this demonstration I’ve chosen to write the experiment to a temporary folder, but normally you’d save it somewhere more sensible. Now all we have to do is write the experiment into this folder <code><a href="../reference/build_experiment.html">build_experiment()</a></code> function, specifying the <code>timeline</code> and <code>path</code> arguments to tell R <em>what</em> to write and <em>where</em> to write it:</p>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [1] "/tmp/RtmpbYsFnS/jaysire_3ib2r"</span></a></code></pre></div>
+<p>Now all we have to do is write the experiment into this folder <code><a href="../reference/build_experiment.html">build_experiment()</a></code> function, specifying the <code>timeline</code> and <code>path</code> arguments to tell R <em>what</em> to write and <em>where</em> to write it:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/build_experiment.html">build_experiment</a></span>(</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">timeline =</span> all_trials,</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="dt">path =</span> exp_path,</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="dt">path =</span> <span class="kw"><a href="../reference/temporary_folder.html">temporary_folder</a></span>(),</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/fn_save_locally.html">fn_save_locally</a></span>()</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">)</a></code></pre></div>
+<a class="sourceLine" id="cb7-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; Warning in dir.create(path): '/tmp/RtmpbYsFnS/jaysire_lgddl' already exists</span></a></code></pre></div>
 <p>The other thing I’ve specified here is the <code>on_finish</code> argument, which tells jsPsych what do to when the experiment ends. For our simple experiment, the only thing we want to do is save the data. To keep it simple, we’ll assume the experiment is going to be run on the same computer where the experiment is stored, and so I’ve used the <code><a href="../reference/fn_save_locally.html">fn_save_locally()</a></code> function here.</p>
 </div>
 <div id="what-have-we-created" class="section level2">
@@ -184,13 +185,7 @@
 <a href="#what-have-we-created" class="anchor"></a>What have we created?</h2>
 <p>When we run the <code><a href="../reference/build_experiment.html">build_experiment()</a></code> function, two subfolders within the <code>exp_path</code> folder are created, one called “data” (which is initially empty) and another called “experiment”, which contains all the source files required to run the experiment. Here are the files we’ve just created:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(exp_path, <span class="dt">recursive =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; [1] "experiment/experiment.js"                                  </span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; [2] "experiment/index.html"                                     </span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; [3] "experiment/resource/script/jspsych-html-button-response.js"</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; [4] "experiment/resource/script/jspsych-instructions.js"        </span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; [5] "experiment/resource/script/jspsych.js"                     </span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; [6] "experiment/resource/script/xprmntr.js"                     </span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; [7] "experiment/resource/style/jspsych.css"</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; character(0)</span></a></code></pre></div>
 </div>
 <div id="running-the-experiment" class="section level2">
 <h2 class="hasAnchor">
@@ -226,14 +221,11 @@
 <a class="sourceLine" id="cb10-22" data-line-number="22">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"true"</span>, <span class="st">"false"</span>)</a>
 <a class="sourceLine" id="cb10-23" data-line-number="23">)</a>
 <a class="sourceLine" id="cb10-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb10-25" data-line-number="25">all_trials &lt;-<span class="st"> </span><span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(instructions, trial1, trial2)</a>
-<a class="sourceLine" id="cb10-26" data-line-number="26">exp_path &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"my_exp"</span>)</a>
-<a class="sourceLine" id="cb10-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb10-28" data-line-number="28"><span class="kw"><a href="../reference/build_experiment.html">build_experiment</a></span>(</a>
-<a class="sourceLine" id="cb10-29" data-line-number="29">  <span class="dt">timeline =</span> all_trials,</a>
-<a class="sourceLine" id="cb10-30" data-line-number="30">  <span class="dt">path =</span> exp_path,</a>
-<a class="sourceLine" id="cb10-31" data-line-number="31">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/fn_save_locally.html">fn_save_locally</a></span>()</a>
-<a class="sourceLine" id="cb10-32" data-line-number="32">)</a></code></pre></div>
+<a class="sourceLine" id="cb10-25" data-line-number="25"><span class="kw"><a href="../reference/build_experiment.html">build_experiment</a></span>(</a>
+<a class="sourceLine" id="cb10-26" data-line-number="26">  <span class="dt">timeline =</span> <span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(instructions, trial1, trial2),</a>
+<a class="sourceLine" id="cb10-27" data-line-number="27">  <span class="dt">path =</span> <span class="kw"><a href="../reference/temporary_folder.html">temporary_folder</a></span>(),</a>
+<a class="sourceLine" id="cb10-28" data-line-number="28">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/fn_save_locally.html">fn_save_locally</a></span>()</a>
+<a class="sourceLine" id="cb10-29" data-line-number="29">)</a></code></pre></div>
 <p>You can check out a working version of the experiment <a href="../demos/example01/experiment/index.html">here</a>.</p>
 </div>
   </div>

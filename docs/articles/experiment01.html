@@ -133,16 +133,16 @@
 <a class="sourceLine" id="cb2-6" data-line-number="6">orange_image &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(resources, <span class="st">"orange.png"</span>)</a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co"># create the blue circle plot</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">blue_pic &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_void</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/annotate.html">annotate</a></span>(<span class="dt">geom =</span> <span class="st">"point"</span>, <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="dv">60</span>)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">blue_pic &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span>(<span class="dt">geom =</span> <span class="st">"point"</span>, <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="dv">60</span>)</a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># create the orange circle plot</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">orange_pic &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_void</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/annotate.html">annotate</a></span>(<span class="dt">geom =</span> <span class="st">"point"</span>, <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">colour =</span> <span class="st">"orange"</span>, <span class="dt">size =</span> <span class="dv">60</span>)</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">orange_pic &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span>(<span class="dt">geom =</span> <span class="st">"point"</span>, <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">colour =</span> <span class="st">"orange"</span>, <span class="dt">size =</span> <span class="dv">60</span>)</a>
 <a class="sourceLine" id="cb2-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co"># save the images to files in the resource folder</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggsave.html">ggsave</a></span>(<span class="dt">filename =</span> blue_image, <span class="dt">plot =</span> blue_pic, <span class="dt">width =</span> <span class="dv">2</span>, <span class="dt">height =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="kw"><a href="https://rdrr.io/pkg/ggplot2/man/ggsave.html">ggsave</a></span>(<span class="dt">filename =</span> orange_image, <span class="dt">plot =</span> orange_pic, <span class="dt">width =</span> <span class="dv">2</span>, <span class="dt">height =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span>(<span class="dt">filename =</span> blue_image, <span class="dt">plot =</span> blue_pic, <span class="dt">width =</span> <span class="dv">2</span>, <span class="dt">height =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span>(<span class="dt">filename =</span> orange_image, <span class="dt">plot =</span> orange_pic, <span class="dt">width =</span> <span class="dv">2</span>, <span class="dt">height =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb2-19" data-line-number="19"></a>
 <a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co"># check that it worked</span></a>
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(resources)</a>
@@ -221,7 +221,26 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="dt">resources =</span> <span class="kw"><a href="../reference/build_resources.html">build_resources</a></span>(resources),</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="dt">path =</span> <span class="st">"~/Desktop/myrt"</span>,</a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/fn_save_locally.html">fn_save_locally</a></span>()</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">)</a></code></pre></div>
+<a class="sourceLine" id="cb5-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; Warning in dir.create(path): '/home/danielle/Desktop/myrt' already exists</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment")): '/home/danielle/</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; Desktop/myrt/experiment' already exists</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment", "resource")): '/home/</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; danielle/Desktop/myrt/experiment/resource' already exists</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment", "resource", "script")):</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt; '/home/danielle/Desktop/myrt/experiment/resource/script' already exists</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment", "resource", "style")):</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; '/home/danielle/Desktop/myrt/experiment/resource/style' already exists</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment", "resource", "audio")):</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; '/home/danielle/Desktop/myrt/experiment/resource/audio' already exists</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment", "resource", "video")):</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; '/home/danielle/Desktop/myrt/experiment/resource/video' already exists</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment", "resource", "image")):</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; '/home/danielle/Desktop/myrt/experiment/resource/image' already exists</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; Warning in dir.create(file.path(path, "experiment", "resource", "other")):</span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; '/home/danielle/Desktop/myrt/experiment/resource/other' already exists</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt; Warning in dir.create(file.path(path, "data")): '/home/danielle/Desktop/</span></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt; myrt/data' already exists</span></a></code></pre></div>
 </div>
   </div>
 

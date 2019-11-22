@@ -76,7 +76,7 @@ page1 <- trial_survey_multi_choice(
     ),
     question_multi(
       prompt = "Do you consider yourself to be LGBTIQ+?",
-      options = c("Yes", "No", "Unsure", "Prefer not to say"),
+      options = c("Yes", "No", "Unsure", "Prefer not to say")
     )
   )
 )
@@ -136,7 +136,7 @@ page1 <- trial_survey_multi_choice(
     ),
     question_multi(
       prompt = "Do you consider yourself to be LGBTIQ+?",
-      options = c("Yes", "No", "Unsure", "Prefer not to say"),
+      options = c("Yes", "No", "Unsure", "Prefer not to say")
     )
   )
 )
@@ -181,7 +181,7 @@ page4 <- trial_survey_text(
 
 build_experiment(
   timeline = build_timeline(page1, page2, page3, page4),
-  path = file.path(tempdir(), "responses_exp"), 
+  path = temporary_folder(), 
   on_finish = fn_save_locally()
 )
 ```

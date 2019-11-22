@@ -77,10 +77,10 @@ At this point we have a complete timeline for our simple experiment! Yay!
 
 ## Building the experiment
 
-At the moment we have a complete timeline, but it is stored in an abstract form as the `all_trials` variable. What we really want to do is "build" an experiment from this timeline: we want to write the files that will run the experiment, and save those files somewhere. That is the job of the `build_experiment()` function. First, let's specify the location of the experiment:
+At the moment we have a complete timeline, but it is stored in an abstract form as the `all_trials` variable. What we really want to do is "build" an experiment from this timeline: we want to write the files that will run the experiment, and save those files somewhere. That is the job of the `build_experiment()` function. First, let's specify the location of the experiment. Normally, we would build the experiment into a sensible location (e.g., somewhere inside an RStudio project), but for the purposes of this demonstration -- which has to be reproducible on any computer, not just mine -- I'll use the `temporary_folder()` function for this purposes:
 
 ```{r}
-exp_path <- file.path(tempdir(), "my_exp")
+exp_path <- temporary_folder() 
 exp_path
 ```
 
@@ -92,12 +92,12 @@ if(dir.exists(exp_path)) {
 }
 ```
 
-For the purposes of this demonstration I've chosen to write the experiment to a temporary folder, but normally you'd save it somewhere more sensible. Now all we have to do is write the experiment into this folder `build_experiment()` function, specifying the `timeline` and `path` arguments to tell R *what* to write and *where* to write it:
+Now all we have to do is write the experiment into this folder `build_experiment()` function, specifying the `timeline` and `path` arguments to tell R *what* to write and *where* to write it:
 
 ```{r}
 build_experiment(
   timeline = all_trials,
-  path = exp_path,
+  path = temporary_folder(),
   on_finish = fn_save_locally()
 )
 ```
@@ -150,12 +150,9 @@ trial2 <- trial_html_button_response(
   choices = c("true", "false")
 )
 
-all_trials <- build_timeline(instructions, trial1, trial2)
-exp_path <- file.path(tempdir(), "my_exp")
-
 build_experiment(
-  timeline = all_trials,
-  path = exp_path,
+  timeline = build_timeline(instructions, trial1, trial2),
+  path = temporary_folder(),
   on_finish = fn_save_locally()
 )
 ```

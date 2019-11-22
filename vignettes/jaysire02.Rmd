@@ -142,21 +142,10 @@ finish <- trial_html_keyboard_response(
   choices = respond_any_key()
 )
 
-# ----------- construct timeline -----------
-all_events <- build_timeline(
-  instructions,
-  trials,
-  finish
-)
-
-# ----------- experiment location -----------
-exp_path <- file.path(tempdir(), "equations_exp")
-
-
 # ----------- build the experiment -----------
 build_experiment(
-  timeline = all_events,
-  path = exp_path,
+  timeline = build_timeline(instructions, trials, finish),
+  path = temporary_folder(),
   on_finish = fn_save_locally()
 )
 ```
@@ -165,17 +154,14 @@ build_experiment(
 You can check out a working version of the experiment [here](../demos/example02/experiment/index.html).
 
 ```{r include=FALSE, message=FALSE, warning=FALSE}
-
 finish2 <- trial_html_keyboard_response(
   stimulus = "All done! Click <a href='../../../articles/jaysire02.html'>here</a> to return to the vignette.",
   choices = respond_no_key()
 )
 
-# write a working copy of the experiment into the docs folder
-exp <- here::here("docs", "demos", "example02")
 build_experiment(
   timeline = build_timeline(instructions, trials, finish2),
-  path = exp,
+  path = here::here("docs", "demos", "example02"),
 )
 ```
 

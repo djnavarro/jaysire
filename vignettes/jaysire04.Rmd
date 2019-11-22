@@ -69,7 +69,7 @@ However, there is one nuance to audio files if you are playing them locally (i.e
 To build the experiment, I'll start by specifying where the experiment is going to live on my computer. As with previous articles, I'll just put it in a temporary folder:
 
 ```{r}
-exp_path <- file.path(tempdir(), "multimedia_exp")
+exp_path <- temporary_folder()
 ```
 
 To build the experiment into the `exp_path` folder, I'll call the `experiment()` function:
@@ -136,7 +136,7 @@ audio_trial <- trial_audio_button_response(
 
 build_experiment(
   timeline = build_timeline(image_trial, video_trial, audio_trial),
-  path = exp_path, 
+  path = temporary_folder(), 
   resources = build_resources(resources),
   use_webaudio = FALSE,
   on_finish = fn_save_locally()

@@ -36,7 +36,7 @@ For example, when you specify the `choices` in a button press trial, what you're
 
 To give you a sense of how these functions work, here is a very simple experiment that uses a button press trial, a keypress trial, and a slider trial:
 
-```{r experiment, message=FALSE}
+```{r experiment, message=FALSE, warning=FALSE}
 library(jaysire)
 resources <- system.file("extdata", "resources", package = "jaysire")
 
@@ -72,13 +72,11 @@ slider_trial <- trial_image_slider_response(
 tests <- build_timeline(button_trial, slider_trial) %>%
   tl_add_parameters(randomize_order = TRUE)
 
-# put together the whole timeline
-task <- build_timeline(keypress_trial, tests)
-
 # build the experiment
 build_experiment(
-  timeline = task,
-  path = file.path(tempdir(), "responses_exp"), 
+  timeline = build_timeline(keypress_trial, tests),
+  resources = build_resources(resources),
+  path = temporary_folder(), 
   on_finish = fn_save_locally()
 )
 ```
@@ -93,7 +91,7 @@ finish <- trial_html_keyboard_response(
 
 # write a working copy of the experiment into the docs folder
 build_experiment(
-  timeline = build_timeline(task, finish),
+  timeline = build_timeline(keypress_trial, tests, finish),
   resources = build_resources(resources),
   path =  here::here("docs", "demos", "example05")
 )
