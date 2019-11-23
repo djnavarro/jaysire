@@ -85,17 +85,12 @@ instructions <- trial_instructions(
 ## Defining the experiment trials
 
 ```{r}
-fn_sample <- insert_javascript(
-  "function(){
-     return jsPsych.randomization.sampleWithoutReplacement(
-       [250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1)[0];
-   }"
-)
+intervals <- c(250, 500, 750, 1000, 1250, 1500, 1750, 2000)
 
 fixation <- trial_html_keyboard_response(
   stimulus = '<div style="font-size:60px;">+</div>',
   choices = respond_no_key(),
-  trial_duration = fn_sample
+  trial_duration = fn_sample(intervals, 1)
 )
 
 test <- trial_image_keyboard_response(
@@ -113,11 +108,30 @@ trials <- build_timeline(fixation, test) %>%
 
 ## Building the experiment
 
-```{r experiment}
+```{r experiment, eval=FALSE}
 build_experiment(
   timeline = build_timeline(welcome, instructions, trials, finish),
   resources = build_resources(resources),
-  path = "~/Desktop/myrt",
+  path = temporary_folder(),
   on_finish = fn_save_locally()
 )
 ```
+
+Working version of the experiment [here](../demos/gallery01/experiment/index.html).
+
+```{r include=FALSE, message=FALSE, warning=FALSE}
+finish <- trial_html_keyboard_response(
+  stimulus = "All done! Click <a href='../../../articles/experiment01.html'>here</a> to return to the vignette.",
+  choices = respond_no_key()
+)
+
+# write a working copy of the experiment into the docs folder
+build_experiment(
+  timeline = build_timeline(welcome, instructions, trials, finish),
+  resources = build_resources(resources),
+  path =  here::here("docs", "demos", "gallery01")
+)
+```
+
+
+
