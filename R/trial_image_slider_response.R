@@ -40,12 +40,16 @@
 #' stimulus can be displayed until a response is given, or for a pre-determined amount of time. The
 #' trial can be ended automatically if the subject has failed to respond within a fixed length of time.
 #'
-#' In addition to the default data collected by all plugins, this plugin collects the following data for
-#' each trial: the \code{rt} value is the response time in milliseconds taken for the user to make a
-#' response. The time is measured from when the stimulus first appears on the screen until the response;
-#' The \code{response} is the numeric value of the slider response. The \code{stimulus} value reocrds the
-#' HTML content that was displayed on the screen.
+#' The data recorded by this trial is as follows:
 #'
+#' \itemize{
+#' \item The \code{rt} value is the response time in milliseconds taken for the
+#' user to make a response. The time is measured from when the stimulus first
+#' appears on the screen until the response.
+#' \item The \code{response} is the numeric value of the slider bar.
+#' \item The \code{stimulus} variable records the path to the image that was
+#' displayed on this trial.
+#'}
 #'
 #' In addition, it records default variables that are recorded by all trials:
 #'

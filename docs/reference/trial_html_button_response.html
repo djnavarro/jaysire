@@ -244,12 +244,17 @@ same template will be applied to every button. The templating is defined uing a 
 "<!-- %choice%" that will be replaced by the corresponding element of the \code{choices} vector. By default -->
 the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
 corresponding CSS.</p>
-<p>In addition to the default data collected by all plugins, this plugin collects the following data for
-each trial: the <code>rt</code> value is the response time in milliseconds taken for the user to make a
-response. The time is measured from when the stimulus first appears on the screen until the response;
-<code>button_pressed</code> is a numeric value indicating which button was pressed. The first button in the
-choices array is recorded as value 0, the second is value 1, and so on; <code>stimulus</code> The HTML content
-that was displayed on the screen.</p>
+<p>The data recorded by this trial is as follows:</p>
+<ul>
+<li><p>The <code>rt</code> value is the response time in milliseconds taken for the
+user to make a response. The time is measured from when the stimulus first
+appears on the screen until the response.</p></li>
+<li><p>The <code>button_pressed</code> variable is a numeric value indicating which
+button was pressed. The first button in the choices array is recorded as
+value 0, the second is value 1, and so on.</p></li>
+<li><p>The <code>stimulus</code> variable records the HTML content that was
+displayed on this trial.</p></li>
+</ul>
 
 <p>In addition, it records default variables that are recorded by all trials:</p>
 <ul>

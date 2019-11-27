@@ -71,10 +71,25 @@ same template will be applied to every button. The templating is defined uing a 
 the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
 corresponding CSS.
 
-In addition to the default data collected by all plugins, this plugin collects the following data for
-each trial: the \code{rt} value is the response time in milliseconds taken for the user to make a
-response. The time is measured from when the stimulus first appears on the screen until the response;
-\code{button_pressed} is a numeric value indicating which button was pressed. The first button in the
-choices array is recorded as value 0, the second is value 1, and so on; \code{stimulus} The HTML content
-that was displayed on the screen.
+The data recorded by this trial is as follows:
+
+\itemize{
+\item The \code{rt} value is the response time in milliseconds taken for the
+user to make a response. The time is measured from when the stimulus first
+appears on the screen until the response.
+\item The \code{button_pressed} variable is a numeric value indicating which
+button was pressed. The first button in the choices array is recorded as
+value 0, the second is value 1, and so on.
+\item The \code{stimulus} variable records the path to the image that was
+displayed on this trial.
+}
+
+In addition, it records default variables that are recorded by all trials:
+
+\itemize{
+\item \code{trial_type} is a string that records the name of the plugin used to run the trial.
+\item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
+\item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
+\item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+}
 }

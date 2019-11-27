@@ -40,11 +40,16 @@
 #' the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
 #' corresponding CSS.
 #'
-#' In addition to the default data collected by all plugins, this plugin collects the following data for
-#' each trial: the \code{rt} value is the response time in milliseconds taken for the user to make a
-#' response. The time is measured from when the stimulus first appears on the screen until the response;
-#' \code{button_pressed} is a numeric value indicating which button was pressed. The first button in the
-#' choices array is recorded as value 0, the second is value 1, and so on.
+#' The data recorded by this trial is as follows:
+#'
+#' \itemize{
+#' \item The \code{rt} value is the response time in milliseconds taken for the
+#' user to make a response. The time is measured from when the stimulus first
+#' appears on the screen until the response.
+#' \item The \code{button_pressed} variable is a numeric value indicating which
+#' button was pressed. The first button in the choices array is recorded as
+#' value 0, the second is value 1, and so on.
+#'}
 #'
 #' In addition, it records default variables that are recorded by all trials:
 #'
