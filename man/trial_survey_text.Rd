@@ -2,7 +2,7 @@
 % Please edit documentation in R/trial_survey_text.R
 \name{trial_survey_text}
 \alias{trial_survey_text}
-\title{A survey page with free text items}
+\title{Specify a survey page with free text responding}
 \usage{
 trial_survey_text(questions, preamble = "",
   randomize_question_order = FALSE, button_label = "Continue",
@@ -35,7 +35,8 @@ and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, \code{true} and \code{false}.
 }
 \description{
-A survey page with free text items
+The \code{trial_survey_text} function is used to display a
+survey page that allows free text responding.
 }
 \details{
 In addition to the default data collected by all plugins, this plugin

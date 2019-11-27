@@ -1,4 +1,8 @@
-#' Displays animation, records responses with the keyboard and gives feedback
+#' Specify a categorization trial with an animated stimulus
+#'
+#' @description The \code{trial_categorize_animation} function is used to display
+#' a sequence of images at a fixed rate, collect a categorization response with the
+#' keyboard, and provide feedback.
 #'
 #' @param stimuli Character vector of paths to image files
 #' @param key_answer The numeric key code indicating the correct response

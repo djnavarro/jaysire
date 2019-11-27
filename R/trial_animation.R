@@ -1,5 +1,8 @@
 
-#' Displays a sequence of images at a fixed rate
+#' Specify an animation trial
+#'
+#' @description The \code{trial_animation} function is used to display a
+#'sequence of images at a fixed rate.
 #'
 #' @param stimuli A vector of paths to the image files
 #' @param frame_time How long to display each image, in milliseconds
@@ -20,21 +23,26 @@
 #' and are specified to be objects of class "json", ensuring that they will be
 #' written to file as the javascript logicals, \code{true} and \code{false}.
 #'
-#' @details In addition to the default data collected by all plugins, this plugin
-#' collects the following data for each trial.
+#' @details This function is used to specify an "animation" trial in a jsPsych experiment.
+#' An animation trial displays a sequence of images at a fixed frame rate, and the sequence
+#' can be looped a specified number of times. The participant is free to respond at any
+#' point during the animation, and the time of the response is recorded.
 #'
-#' The \code{animation_sequence} value is an array encoded in JSON format. Each
+#' The data recorded by an animation trial is as follows:
+#'
+#' \itemize{
+#' \item The \code{animation_sequence} value is an array encoded in JSON format. Each
 #' element of the array is an object that represents a stimulus in the animation
 #' sequence. Each object has a stimulus property, which is the image that was
 #' displayed, and a time property, which is the time in ms, measured from when
 #' the sequence began, that the stimulus was displayed.
-#'
-#' The \code{responses} value is an array encoded in JSON format. Each element
+#' \item The \code{responses} value is an array encoded in JSON format. Each element
 #' of the array is an object representing a response given by the subject. Each
 #' object has a stimulus property, indicating which image was displayed when the
 #' key was pressed, an rt property, indicating the time of the key press relative
 #' to the start of the animation, and a key_press property, indicating which key
 #' was pressed.
+#' }
 #'
 #' @export
 trial_animation <- function(

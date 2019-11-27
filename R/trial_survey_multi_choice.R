@@ -1,5 +1,8 @@
 
-#' A survey page with multiple choice items
+#' Specify a survey page with multiple choice items
+#'
+#' @description The \code{trial_survey_multi_choice} function is used to display a
+#' survey page with one or more multiple choice questions
 #'
 #' @param questions A question or list of questions
 #' @param preamble Text to appear above the questions

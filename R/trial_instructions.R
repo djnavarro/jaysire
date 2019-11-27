@@ -1,4 +1,8 @@
-#' Show one or more pages of instructions to the user
+
+#' Specify pages of instructions to display
+#'
+#' @description The \code{trial_instructions} function is used to display
+#' one or more pages of instructions that a participant can browse.
 #'
 #' @param pages Character vector. Each element should be an HTML-formatted string specifying a page
 #' @param key_forward This is the key that the subject can press in order to advance to the next page, specified as their numeric key code or as characters

@@ -1,5 +1,9 @@
 
-#' A survey page with free text items
+
+#' Specify a survey page with free text responding
+#'
+#' @description The \code{trial_survey_text} function is used to display a
+#' survey page that allows free text responding.
 #'
 #' @param questions A question or list of questions
 #' @param preamble Text to appear above the questions

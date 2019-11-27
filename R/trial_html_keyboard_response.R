@@ -1,4 +1,8 @@
-#' Displays HTML stimulus and records responses generated with the keyboard
+
+#' Specify an HTML trial with keyboard response
+#'
+#' @description The \code{trial_html_keyboard_response} function is used to display
+#' an HTML stimulus and collect a response using a key press.
 #'
 #' @param stimulus The HTML content to be displayed.
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/trial_generic.R
 \name{trial_generic}
 \alias{trial_generic}
-\title{Adds an arbitrary trial to the timeline}
+\title{Specify a trial using any plugin}
 \usage{
 trial_generic(type, ...)
 }
@@ -20,5 +20,6 @@ and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, \code{true} and \code{false}.
 }
 \description{
-Adds an arbitrary trial to the timeline
+The \code{trial_generic} function is used to create a trial with
+an arbitrary jsPsych plugin.
 }

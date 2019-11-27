@@ -1,4 +1,7 @@
-#' Plays an audio stimulus and records responses generated with a button click
+#' Specify an audio trial with button response
+#'
+#' @description The \code{trial_audio_button_response} function is used to play
+#' an audio stimulus and collect a response using on screen buttons.
 #'
 #' @param stimulus Path to the audio file to be played
 #'

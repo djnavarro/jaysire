@@ -1,4 +1,8 @@
-#' Displays HTML stimulus and records responses generated with a button click
+
+#' Specify an HTML trial with button response
+#'
+#' @description The \code{trial_html_button_response} function is used to display
+#' an HTML stimulus and collect a response using on screen buttons.
 #'
 #' @param stimulus The HTML content to be displayed.
 #'

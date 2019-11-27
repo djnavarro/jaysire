@@ -1,4 +1,8 @@
-#' Displays HTML, records responses with the keyboard and gives feedback
+#' Specify a categorization trial with an HTML stimulus
+#'
+#' @description The \code{trial_categorize_html} function is used to display
+#' an HTML stimulus, collect a categorization response with the
+#' keyboard, and provide feedback.
 #'
 #' @param stimulus The HTML to be displayed.
 #' @param key_answer The numeric key code indicating the correct response

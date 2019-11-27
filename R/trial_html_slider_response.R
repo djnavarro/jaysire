@@ -1,4 +1,8 @@
-#' Displays HTML stimulus and records responses generated with a slider
+
+#' Specify an HTML trial with slider bar response
+#'
+#' @description The \code{trial_html_slider_response} function is used to display
+#' an HTML stimulus and collect a response using a slider bar.
 #'
 #' @param stimulus The HTML content to be displayed.
 #'

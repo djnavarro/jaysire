@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Displays a sequence of images at a fixed rate — trial_animation • jaysire</title>
+<title>Specify an animation trial — trial_animation • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,10 @@
 
 
 
-<meta property="og:title" content="Displays a sequence of images at a fixed rate — trial_animation" />
+<meta property="og:title" content="Specify an animation trial — trial_animation" />
 
-<meta property="og:description" content="Displays a sequence of images at a fixed rate" />
+<meta property="og:description" content="The trial_animation function is used to display a
+sequence of images at a fixed rate." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -145,14 +146,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Displays a sequence of images at a fixed rate</h1>
+    <h1>Specify an animation trial</h1>
     <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/trial_animation.R'><code>R/trial_animation.R</code></a></small>
     <div class="hidden name"><code>trial_animation.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Displays a sequence of images at a fixed rate</p>
+    <p>The <code>trial_animation</code> function is used to display a
+sequence of images at a fixed rate.</p>
     
     </div>
 
@@ -217,19 +219,25 @@ written to file as the javascript logicals, <code>true</code> and <code>false</c
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>In addition to the default data collected by all plugins, this plugin
-collects the following data for each trial.</p>
-<p>The <code>animation_sequence</code> value is an array encoded in JSON format. Each
+    <p>This function is used to specify an "animation" trial in a jsPsych experiment.
+An animation trial displays a sequence of images at a fixed frame rate, and the sequence
+can be looped a specified number of times. The participant is free to respond at any
+point during the animation, and the time of the response is recorded.</p>
+<p>The data recorded by an animation trial is as follows:</p>
+<ul>
+<li><p>The <code>animation_sequence</code> value is an array encoded in JSON format. Each
 element of the array is an object that represents a stimulus in the animation
 sequence. Each object has a stimulus property, which is the image that was
 displayed, and a time property, which is the time in ms, measured from when
-the sequence began, that the stimulus was displayed.</p>
-<p>The <code>responses</code> value is an array encoded in JSON format. Each element
+the sequence began, that the stimulus was displayed.</p></li>
+<li><p>The <code>responses</code> value is an array encoded in JSON format. Each element
 of the array is an object representing a response given by the subject. Each
 object has a stimulus property, indicating which image was displayed when the
 key was pressed, an rt property, indicating the time of the key press relative
 to the start of the animation, and a key_press property, indicating which key
-was pressed.</p>
+was pressed.</p></li>
+</ul>
+
     
 
   </div>

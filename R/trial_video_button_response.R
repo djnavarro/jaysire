@@ -1,4 +1,8 @@
-#' Plays a video and records responses generated with a button click
+
+#' Specify a video trial with button response
+#'
+#' @description The \code{trial_video_button_response} function is used to play
+#' a video stimulus and collect a response using on screen buttons.
 #'
 #' @param sources Path(s) to the video file. Videos may be specified in multiple formats (e.g., .mp4, .ogg, .webm)
 #' @param trial_ends_after_video If TRUE the trial will end as soon as the video finishes playing.

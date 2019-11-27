@@ -2,7 +2,7 @@
 % Please edit documentation in R/trial_instructions.R
 \name{trial_instructions}
 \alias{trial_instructions}
-\title{Show one or more pages of instructions to the user}
+\title{Specify pages of instructions to display}
 \usage{
 trial_instructions(pages, key_forward = "rightarrow",
   key_backward = "leftarrow", allow_backward = TRUE,
@@ -52,7 +52,8 @@ and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, \code{true} and \code{false}.
 }
 \description{
-Show one or more pages of instructions to the user
+The \code{trial_instructions} function is used to display
+one or more pages of instructions that a participant can browse.
 }
 \details{
 This plugin is for showing instructions to the subject. It allows

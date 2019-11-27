@@ -2,7 +2,7 @@
 % Please edit documentation in R/trial_survey_multi_choice.R
 \name{trial_survey_multi_choice}
 \alias{trial_survey_multi_choice}
-\title{A survey page with multiple choice items}
+\title{Specify a survey page with multiple choice items}
 \usage{
 trial_survey_multi_choice(questions, preamble = "",
   randomize_question_order = FALSE, button_label = "Continue",
@@ -38,7 +38,8 @@ and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, \code{true} and \code{false}.
 }
 \description{
-A survey page with multiple choice items
+The \code{trial_survey_multi_choice} function is used to display a
+survey page with one or more multiple choice questions
 }
 \details{
 In addition to the default data collected by all plugins, this plugin

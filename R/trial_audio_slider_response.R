@@ -1,4 +1,7 @@
-#' Plays an audio stimulus and records responses generated with a slider
+#' Specify an audio trial with slider bar response
+#'
+#' @description The \code{trial_audio_slider_response} function is used to play
+#' an audio stimulus and collect a response using a slider bar.
 #'
 #' @param stimulus Path to the audio file to be played
 #'

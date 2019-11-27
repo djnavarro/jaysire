@@ -2,7 +2,7 @@
 % Please edit documentation in R/trial_categorize_image.R
 \name{trial_categorize_image}
 \alias{trial_categorize_image}
-\title{Displays an image, records responses with the keyboard and gives feedback}
+\title{Specify a categorization trial with an image stimulus}
 \usage{
 trial_categorize_image(stimulus, key_answer, choices = respond_any_key(),
   text_answer = "", correct_text = "Correct",
@@ -60,7 +60,9 @@ and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, \code{true} and \code{false}.
 }
 \description{
-Displays an image, records responses with the keyboard and gives feedback
+The \code{trial_categorize_image} function is used to display
+an image stimulus, collect a categorization response with the
+keyboard, and provide feedback.
 }
 \details{
 In addition to the default data collected by all plugins, this

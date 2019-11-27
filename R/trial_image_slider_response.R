@@ -1,4 +1,8 @@
-#' Displays an image stimulus and records responses generated with a slider
+
+#' Specify an image trial with slider bar response
+#'
+#' @description The \code{trial_image_slider_response} function is used to display
+#' an image stimulus and collect a response using a slider bar.
 #'
 #' @param stimulus The path of the image file to be displayed.
 #' @param stimulus_height Set the height of the image in pixels. If NULL, then the image will display at its natural height.

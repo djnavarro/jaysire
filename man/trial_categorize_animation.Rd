@@ -2,7 +2,7 @@
 % Please edit documentation in R/trial_categorize_animation.R
 \name{trial_categorize_animation}
 \alias{trial_categorize_animation}
-\title{Displays animation, records responses with the keyboard and gives feedback}
+\title{Specify a categorization trial with an animated stimulus}
 \usage{
 trial_categorize_animation(stimuli, key_answer,
   choices = respond_any_key(), text_answer = "",
@@ -52,7 +52,9 @@ and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, \code{true} and \code{false}.
 }
 \description{
-Displays animation, records responses with the keyboard and gives feedback
+The \code{trial_categorize_animation} function is used to display
+a sequence of images at a fixed rate, collect a categorization response with the
+keyboard, and provide feedback.
 }
 \details{
 In addition to the default data collected by all plugins, this

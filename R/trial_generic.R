@@ -1,4 +1,7 @@
-#' Adds an arbitrary trial to the timeline
+#' Specify a trial using any plugin
+#'
+#' @description The \code{trial_generic} function is used to create a trial with
+#' an arbitrary jsPsych plugin.
 #'
 #' @param type the type of trial
 #' @param ... arguments passed to the trial plugin

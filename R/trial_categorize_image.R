@@ -1,4 +1,8 @@
-#' Displays an image, records responses with the keyboard and gives feedback
+#' Specify a categorization trial with an image stimulus
+#'
+#' @description The \code{trial_categorize_image} function is used to display
+#' an image stimulus, collect a categorization response with the
+#' keyboard, and provide feedback.
 #'
 #' @param stimulus The path to the image file to be displayed.
 #' @param key_answer The numeric key code indicating the correct response

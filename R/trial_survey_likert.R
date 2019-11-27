@@ -1,5 +1,8 @@
 
-#' A survey page with Likert scale items
+#' Specify a survey page with Likert scale items
+#'
+#' @description The \code{trial_survey_likert} function is used to display a
+#' survey page with one or more items with Likert scale responses.
 #'
 #' @param questions A question or list of questions
 #' @param preamble Text to appear above the questions

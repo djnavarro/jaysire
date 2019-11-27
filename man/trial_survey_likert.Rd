@@ -2,7 +2,7 @@
 % Please edit documentation in R/trial_survey_likert.R
 \name{trial_survey_likert}
 \alias{trial_survey_likert}
-\title{A survey page with Likert scale items}
+\title{Specify a survey page with Likert scale items}
 \usage{
 trial_survey_likert(questions, preamble = "", scale_width = NULL,
   randomize_question_order = FALSE, button_label = "Continue",
@@ -37,7 +37,8 @@ and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, \code{true} and \code{false}.
 }
 \description{
-A survey page with Likert scale items
+The \code{trial_survey_likert} function is used to display a
+survey page with one or more items with Likert scale responses.
 }
 \details{
 In addition to the default data collected by all plugins, this plugin

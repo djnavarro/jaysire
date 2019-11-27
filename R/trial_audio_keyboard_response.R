@@ -1,4 +1,7 @@
-#' Plays an audio stimulus and records responses generated with the keyboard
+#' Specify an audio trial with keyboard response
+#'
+#' @description The \code{trial_audio_keyboard_response} function is used to play
+#' an audio stimulus and collect a response using a key press.
 #'
 #' @param stimulus Path to the audio file to be played
 #'
