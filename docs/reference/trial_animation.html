@@ -206,6 +206,15 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Functions with a <code>trial_</code> prefix always return a "trial" object.
+A trial object is simply a list containing the input arguments, with
+<code>NULL</code> elements removed. Logical values in the input (<code>TRUE</code> and
+<code>FALSE</code>) are transformed to character vectors <code>"true"</code> and <code>"false"</code>
+and are specified to be objects of class "json", ensuring that they will be
+written to file as the javascript logicals, <code>true</code> and <code>false</code>.</p>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>In addition to the default data collected by all plugins, this plugin
@@ -229,6 +238,8 @@ was pressed.</p>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#details">Details</a></li>
           </ul>
 

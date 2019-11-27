@@ -68,7 +68,7 @@ var timeline = {
           "required": [false]
         }
       ],
-      "randomize_question_order": [false],
+      "randomize_question_order": false,
       "preamble": ["How confident in you R skills?"],
       "button_label": ["Continue"],
       "post_trial_gap": [0]

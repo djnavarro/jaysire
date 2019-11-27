@@ -28,6 +28,14 @@ trial_survey_likert(questions, preamble = "", scale_width = NULL,
 
 \item{data}{An object containing additional data to store for the trial}
 }
+\value{
+Functions with a \code{trial_} prefix always return a "trial" object.
+A trial object is simply a list containing the input arguments, with
+\code{NULL} elements removed. Logical values in the input (\code{TRUE} and
+\code{FALSE}) are transformed to character vectors \code{"true"} and \code{"false"}
+and are specified to be objects of class "json", ensuring that they will be
+written to file as the javascript logicals, \code{true} and \code{false}.
+}
 \description{
 A survey page with Likert scale items
 }

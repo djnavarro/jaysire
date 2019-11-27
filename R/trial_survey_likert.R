@@ -12,6 +12,14 @@
 #' @param on_load A javascript callback function to execute when the trial begins, before any loading has occurred
 #' @param data An object containing additional data to store for the trial
 #'
+#'@return Functions with a \code{trial_} prefix always return a "trial" object.
+#' A trial object is simply a list containing the input arguments, with
+#' \code{NULL} elements removed. Logical values in the input (\code{TRUE} and
+#' \code{FALSE}) are transformed to character vectors \code{"true"} and \code{"false"}
+#' and are specified to be objects of class "json", ensuring that they will be
+#' written to file as the javascript logicals, \code{true} and \code{false}.
+#'
+#'
 #' @details In addition to the default data collected by all plugins, this plugin
 #' collects the following data for each trial. The \code{responses} value is a
 #' an array containing all selected choices in JSON format for each question. The
@@ -61,7 +69,7 @@ trial_survey_likert <- function(
     trial(
       type = "survey-likert",
       questions = list_to_jsarray(questions),
-      randomize_question_order = as.logical(randomize_question_order),
+      randomize_question_order = js_logical(randomize_question_order),
       preamble = as.character(preamble),
       scale_width = scale_width,
       button_label = as.character(button_label),

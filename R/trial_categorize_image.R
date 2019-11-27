@@ -22,6 +22,14 @@
 #' @param on_load A javascript callback function to execute when the trial begins, before any loading has occurred
 #' @param data An object containing additional data to store for the trial
 #'
+#'
+#' @return Functions with a \code{trial_} prefix always return a "trial" object.
+#' A trial object is simply a list containing the input arguments, with
+#' \code{NULL} elements removed. Logical values in the input (\code{TRUE} and
+#' \code{FALSE}) are transformed to character vectors \code{"true"} and \code{"false"}
+#' and are specified to be objects of class "json", ensuring that they will be
+#' written to file as the javascript logicals, \code{true} and \code{false}.
+#'
 #' @details In addition to the default data collected by all plugins, this
 #' plugin collects the following data for each trial:
 #'

@@ -14,6 +14,21 @@
 #' @param on_load A javascript callback function to execute when the trial begins, before any loading has occurred
 #' @param data An object containing additional data to store for the trial
 #'
+#'@return Functions with a \code{trial_} prefix always return a "trial" object.
+#' A trial object is simply a list containing the input arguments, with
+#' \code{NULL} elements removed. Logical values in the input (\code{TRUE} and
+#' \code{FALSE}) are transformed to character vectors \code{"true"} and \code{"false"}
+#' and are specified to be objects of class "json", ensuring that they will be
+#' written to file as the javascript logicals, \code{true} and \code{false}.
+#'
+#'
+#'@return Functions with a \code{trial_} prefix always return a "trial" object.
+#' A trial object is simply a list containing the input arguments, with
+#' \code{NULL} elements removed. Logical values in the input (\code{TRUE} and
+#' \code{FALSE}) are transformed to character vectors \code{"true"} and \code{"false"}
+#' and are specified to be objects of class "json", ensuring that they will be
+#' written to file as the javascript logicals, \code{true} and \code{false}.
+#'
 #' @details This plugin is for showing instructions to the subject. It allows
 #' subjects to navigate through multiple pages of instructions at their own pace,
 #' recording how long the subject spends on each page. Navigation can be done
