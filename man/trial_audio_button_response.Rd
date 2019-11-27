@@ -84,3 +84,20 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
+\seealso{
+Within the "stimulus-response" family of trials, there are four types of
+stimuli (image, audio, video and HTML) and three types of response options
+(button, keyboard, slider). The corresponding functions are
+\code{\link{trial_image_button_response}},
+\code{\link{trial_image_keyboard_response}},
+\code{\link{trial_image_slider_response}},
+\code{\link{trial_audio_button_response}},
+\code{\link{trial_audio_keyboard_response}},
+\code{\link{trial_audio_slider_response}},
+\code{\link{trial_video_button_response}},
+\code{\link{trial_video_keyboard_response}},
+\code{\link{trial_video_slider_response}},
+\code{\link{trial_html_button_response}},
+\code{\link{trial_html_keyboard_response}} and
+\code{\link{trial_html_slider_response}}.
+}
