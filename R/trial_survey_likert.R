@@ -53,6 +53,12 @@
 #' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 #' }
 #'
+#' @seealso Survey page trials are constructed using the \code{\link{trial_survey_text}},
+#' \code{\link{trial_survey_likert}}, \code{\link{trial_survey_multi_choice}} and
+#' \code{\link{trial_survey_multi_select}} functions. Individual questions for survey
+#' trials can be specified using \code{\link{question_text}},
+#' \code{\link{question_likert}} and \code{\link{question_multi}}.
+#'
 #' @export
 trial_survey_likert <- function(
   questions,
@@ -104,6 +110,12 @@ trial_survey_likert <- function(
 #' @param labels the labels on the Likert scale
 #' @param required is a response to the question required?
 #' @param name a convenient label for the question
+#'
+#' @seealso Survey page trials are constructed using the \code{\link{trial_survey_text}},
+#' \code{\link{trial_survey_likert}}, \code{\link{trial_survey_multi_choice}} and
+#' \code{\link{trial_survey_multi_select}} functions. Individual questions for survey
+#' trials can be specified using \code{\link{question_text}},
+#' \code{\link{question_likert}} and \code{\link{question_multi}}.
 #'
 #' @export
 question_likert <- function(
