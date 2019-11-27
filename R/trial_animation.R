@@ -28,7 +28,7 @@
 #' can be looped a specified number of times. The participant is free to respond at any
 #' point during the animation, and the time of the response is recorded.
 #'
-#' The data recorded by an animation trial is as follows:
+#' The data recorded by this trial is as follows:
 #'
 #' \itemize{
 #' \item The \code{animation_sequence} value is an array encoded in JSON format. Each
