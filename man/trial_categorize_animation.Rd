@@ -57,18 +57,19 @@ a sequence of images at a fixed rate, collect a categorization response with the
 keyboard, and provide feedback.
 }
 \details{
-In addition to the default data collected by all plugins, this
-plugin collects the following data for each trial:
+The data recorded by this trial is as follows:
 
-The \code{stimulus} value is a JSON encoded representation of the array of
-stimuli displayed in the trial. The \code{key_press}
-value indicates which key the subject pressed. The value is the numeric key
-code corresponding to the subject's response. The \code{rt} value is the
-response time in milliseconds for the subject to make a response. The time is
-measured from when the stimulus first appears on the screen until the subject's
-response. The \code{correct} value is true if the subject got the correct answer,
+\itemize{
+\item The \code{stimulus} value is a JSON encoded representation of the array of
+stimuli displayed in the trial.
+\item The \code{key_press} value indicates which key the subject pressed. The
+value is the numeric key code corresponding to the subject's response.
+\item The \code{rt} value is the response time in milliseconds for the subject
+to make a response. The time is measured from when the stimulus first appears
+on the screen until the subject's response.
+\item The \code{correct} value is true if the subject got the correct answer,
 false otherwise.
-
+}
 
 In addition, it records default variables that are recorded by all trials:
 

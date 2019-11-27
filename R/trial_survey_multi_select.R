@@ -24,8 +24,10 @@
 #' written to file as the javascript logicals, \code{true} and \code{false}.
 #'
 #'
-#' @details In addition to the default data collected by all plugins, this plugin
-#' collects the following data for each trial. The \code{responses} value is a
+#' @details The data recorded by this trial is as follows:
+#'
+#' \itemize{
+#' \item The \code{responses} value is a
 #' an array containing all selected choices in JSON format for each question. The
 #' encoded object will have a separate variable for the response to each question,
 #' with the first question in the trial being recorded in Q0, the second in Q1, and
@@ -33,15 +35,15 @@
 #' \code{name} parameter is defined for the question, then the response will use
 #' the value of \code{name} as the key for the response in the responses object.
 #'
-#' The \code{rt} value is the response time in milliseconds for the subject to make
+#' \item The \code{rt} value is the response time in milliseconds for the subject to make
 #' a response. The time is measured from when the questions first appear on the
 #' screen until the subject's response.
 #'
-#' The \code{question_order} value is a string in JSON format containing an array
+#' \item The \code{question_order} value is a string in JSON format containing an array
 #' with the order of questions. For example [2,0,1] would indicate that the first
 #' question was trial.questions[2] (the third item in the questions parameter), the
 #' second question was trial.questions[0], and the final question was trial.questions[1].
-#'
+#' }
 #'
 #' In addition, it records default variables that are recorded by all trials:
 #'

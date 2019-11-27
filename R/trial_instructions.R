@@ -39,14 +39,15 @@
 #' using the mouse or keyboard. Subjects can be allowed to navigate forwards
 #' and backwards through pages, if desired.
 #'
-#' In addition to the default data collected by all plugins, this
-#' plugin collects the following data for each trial:
+#' The data recorded by this trial is as follows:
 #'
-#' The \code{view_history} value is a JSON string containing the order of pages
+#' \itemize{
+#' \item The \code{view_history} value is a JSON string containing the order of pages
 #' the subject viewed (including when the subject returned to previous pages)
-#' and the time spent viewing each page. The \code{rt} value is the response time
+#' and the time spent viewing each page.
+#' \item The \code{rt} value is the response time
 #' in milliseconds for the subject to view all of the pages.
-#'
+#' }
 #'
 #'
 #' In addition, it records default variables that are recorded by all trials:

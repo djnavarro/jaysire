@@ -216,21 +216,22 @@ written to file as the javascript logicals, <code>true</code> and <code>false</c
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>In addition to the default data collected by all plugins, this plugin
-collects the following data for each trial. The <code>responses</code> value is a
+    <p>The data recorded by this trial is as follows:</p><ul>
+<li><p>The <code>responses</code> value is a
 an array containing all selected choices in JSON format for each question. The
 encoded object will have a separate variable for the response to each question,
 with the first question in the trial being recorded in Q0, the second in Q1, and
 so on. The responses are recorded as the name of the option label. If the
 <code>name</code> parameter is defined for the question, then the response will use
-the value of <code>name</code> as the key for the response in the responses object.</p>
-<p>The <code>rt</code> value is the response time in milliseconds for the subject to make
+the value of <code>name</code> as the key for the response in the responses object.</p></li>
+<li><p>The <code>rt</code> value is the response time in milliseconds for the subject to make
 a response. The time is measured from when the questions first appear on the
-screen until the subject's response.</p>
-<p>The <code>question_order</code> value is a string in JSON format containing an array
+screen until the subject's response.</p></li>
+<li><p>The <code>question_order</code> value is a string in JSON format containing an array
 with the order of questions. For example [2,0,1] would indicate that the first
 question was trial.questions[2] (the third item in the questions parameter), the
-second question was trial.questions[0], and the final question was trial.questions[1].</p>
+second question was trial.questions[0], and the final question was trial.questions[1].</p></li>
+</ul>
 
 <p>In addition, it records default variables that are recorded by all trials:</p>
 <ul>
