@@ -69,4 +69,15 @@ The \code{view_history} value is a JSON string containing the order of pages
 the subject viewed (including when the subject returned to previous pages)
 and the time spent viewing each page. The \code{rt} value is the response time
 in milliseconds for the subject to view all of the pages.
+
+
+
+In addition, it records default variables that are recorded by all trials:
+
+\itemize{
+\item \code{trial_type} is a string that records the name of the plugin used to run the trial.
+\item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
+\item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
+\item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+}
 }

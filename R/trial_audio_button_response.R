@@ -46,6 +46,15 @@
 #' \code{button_pressed} is a numeric value indicating which button was pressed. The first button in the
 #' choices array is recorded as value 0, the second is value 1, and so on.
 #'
+#' In addition, it records default variables that are recorded by all trials:
+#'
+#' \itemize{
+#' \item \code{trial_type} is a string that records the name of the plugin used to run the trial.
+#' \item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
+#' \item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
+#' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+#' }
+#'
 #' @export
 trial_audio_button_response <- function(
   stimulus,

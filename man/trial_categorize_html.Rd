@@ -75,4 +75,14 @@ response time in milliseconds for the subject to make a response. The time is
 measured from when the stimulus first appears on the screen until the subject's
 response. The \code{correct} value is true if the subject got the correct answer,
 false otherwise.
+
+
+In addition, it records default variables that are recorded by all trials:
+
+\itemize{
+\item \code{trial_type} is a string that records the name of the plugin used to run the trial.
+\item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
+\item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
+\item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+}
 }

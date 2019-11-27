@@ -63,4 +63,13 @@ key was pressed, an rt property, indicating the time of the key press relative
 to the start of the animation, and a key_press property, indicating which key
 was pressed.
 }
+
+In addition, it records default variables that are recorded by all trials:
+
+\itemize{
+\item \code{trial_type} is a string that records the name of the plugin used to run the trial.
+\item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
+\item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
+\item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+}
 }
