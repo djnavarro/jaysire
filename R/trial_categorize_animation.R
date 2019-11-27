@@ -30,7 +30,11 @@
 #' and are specified to be objects of class "json", ensuring that they will be
 #' written to file as the javascript logicals, \code{true} and \code{false}.
 #'
-#' @details The data recorded by this trial is as follows:
+#' @details The \code{trial_categorize_animation} function is used to show a sequence of images at a
+#' specified frame rate. The subject responds by pressing a key. Feedback
+#' indicating the correctness of the response is given.
+#'
+#' The data recorded by this trial is as follows:
 #'
 #' \itemize{
 #' \item The \code{stimulus} value is a JSON encoded representation of the array of
@@ -52,6 +56,11 @@
 #' \item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
 #' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 #' }
+#'
+#' @seealso There are three types of categorization trial, corresponding to the
+#' \code{\link{trial_categorize_animation}},
+#' \code{\link{trial_categorize_html}} and
+#' \code{\link{trial_categorize_image}} functions.
 #'
 #' @export
 trial_categorize_animation <- function(
