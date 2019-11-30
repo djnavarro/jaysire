@@ -51,7 +51,7 @@ point during the animation, and the time of the response is recorded.
 The only required argument is \code{stimulus}, which should be a vector of
 paths to the image files, one per frame. The file paths should refer to
 the locations of the image files at the time the experiment is *deployed*,
-so it is often convenient to use the \code{\link{insert_resource()}}
+so it is often convenient to use the \code{\link{insert_resource}}
 function to construct these file paths automatically. The images will be
 displayed in the order that they appear in the \code{stimulus} vector.
 
@@ -66,7 +66,7 @@ Because animation trials typically require precise timing, they are designed
 to accept key press responses only: the \code{choices} argument should be a vector
 specifying the keys that will register a response. These may be specified as
 characters, or else numerically using javascript key codes. Other possible
-values are \code{\link{respond_no_key()}} and \code{\link{respond_any_key()}}.
+values are \code{\link{respond_no_key}()} and \code{\link{respond_any_key}()}.
 The \code{prompt} argument is used to specify text that remains on screen while
 the animation displays. The intended use is to remind participants of the
 valid response keys, but it allows HTML markup to be included and so can be
@@ -79,13 +79,13 @@ arguments:
 \item The \code{post_trial_gap} argument is a numeric value specifying the
 length of the pause between the current trial ending and the next one
 beginning. This parameter overrides any default values defined using the
-\code{\link{build_experiment()}} function, and a blank screen is displayed
+\code{\link{build_experiment}} function, and a blank screen is displayed
 during this gap period.
 
 \item The \code{on_load} and \code{on_finish} arguments can be used to
 specify javascript functions that will execute before the trial begins or
 after it ends. The javascript code can be written manually and inserted *as*
-javascript by using the \code{\link{insert_javascript()}} function. However,
+javascript by using the \code{\link{insert_javascript}} function. However,
 the \code{fn_} family of functions supplies a variety of functions that may
 be useful in many cases.
 
@@ -97,7 +97,7 @@ the jsPsych data storage for this trial
 
 
 When this function is called from R it returns the trial object that will
-later be inserted into the experiment when \code{\link{build_experiment()}}
+later be inserted into the experiment when \code{\link{build_experiment}}
 is called. However, when the trial runs as part of the experiment it returns
 values that are recorded in the jsPsych data store and eventually form part
 of the data set for the experiment.
