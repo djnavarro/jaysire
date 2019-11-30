@@ -226,7 +226,7 @@ point during the animation, and the time of the response is recorded.</p>
 <p>The only required argument is <code>stimulus</code>, which should be a vector of
 paths to the image files, one per frame. The file paths should refer to
 the locations of the image files at the time the experiment is *deployed*,
-so it is often convenient to use the <code><a href='insert_resource.html'>insert_resource()</a></code>
+so it is often convenient to use the <code><a href='insert_resource.html'>insert_resource</a></code>
 function to construct these file paths automatically. The images will be
 displayed in the order that they appear in the <code>stimulus</code> vector.</p>
 <p>The behaviour of an animation trial can be customised in various ways. The
@@ -239,7 +239,7 @@ number of times the sequence repeats.</p>
 to accept key press responses only: the <code>choices</code> argument should be a vector
 specifying the keys that will register a response. These may be specified as
 characters, or else numerically using javascript key codes. Other possible
-values are <code><a href='respond_no_key.html'>respond_no_key()</a></code> and <code><a href='respond_any_key.html'>respond_any_key()</a></code>.
+values are <code><a href='respond_no_key.html'>respond_no_key</a>()</code> and <code><a href='respond_any_key.html'>respond_any_key</a>()</code>.
 The <code>prompt</code> argument is used to specify text that remains on screen while
 the animation displays. The intended use is to remind participants of the
 valid response keys, but it allows HTML markup to be included and so can be
@@ -250,12 +250,12 @@ arguments:</p>
 <li><p>The <code>post_trial_gap</code> argument is a numeric value specifying the
 length of the pause between the current trial ending and the next one
 beginning. This parameter overrides any default values defined using the
-<code><a href='build_experiment.html'>build_experiment()</a></code> function, and a blank screen is displayed
+<code><a href='build_experiment.html'>build_experiment</a></code> function, and a blank screen is displayed
 during this gap period.</p></li>
 <li><p>The <code>on_load</code> and <code>on_finish</code> arguments can be used to
 specify javascript functions that will execute before the trial begins or
 after it ends. The javascript code can be written manually and inserted *as*
-javascript by using the <code><a href='insert_javascript.html'>insert_javascript()</a></code> function. However,
+javascript by using the <code><a href='insert_javascript.html'>insert_javascript</a></code> function. However,
 the <code>fn_</code> family of functions supplies a variety of functions that may
 be useful in many cases.</p></li>
 <li><p>The <code>data</code> argument can be used to insert custom data values into
@@ -269,7 +269,7 @@ the jsPsych data storage for this trial</p></li>
 
 
 <p>When this function is called from R it returns the trial object that will
-later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment()</a></code>
+later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment</a></code>
 is called. However, when the trial runs as part of the experiment it returns
 values that are recorded in the jsPsych data store and eventually form part
 of the data set for the experiment.</p>

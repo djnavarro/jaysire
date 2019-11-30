@@ -230,12 +230,12 @@ arguments:</p>
 <li><p>The <code>post_trial_gap</code> argument is a numeric value specifying the
 length of the pause between the current trial ending and the next one
 beginning. This parameter overrides any default values defined using the
-<code><a href='build_experiment.html'>build_experiment()</a></code> function, and a blank screen is displayed
+<code><a href='build_experiment.html'>build_experiment</a></code> function, and a blank screen is displayed
 during this gap period.</p></li>
 <li><p>The <code>on_load</code> and <code>on_finish</code> arguments can be used to
 specify javascript functions that will execute before the trial begins or
 after it ends. The javascript code can be written manually and inserted *as*
-javascript by using the <code><a href='insert_javascript.html'>insert_javascript()</a></code> function. However,
+javascript by using the <code><a href='insert_javascript.html'>insert_javascript</a></code> function. However,
 the <code>fn_</code> family of functions supplies a variety of functions that may
 be useful in many cases.</p></li>
 <li><p>The <code>data</code> argument can be used to insert custom data values into
@@ -249,7 +249,7 @@ the jsPsych data storage for this trial</p></li>
 
 
 <p>When this function is called from R it returns the trial object that will
-later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment()</a></code>
+later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment</a></code>
 is called. However, when the trial runs as part of the experiment it returns
 values that are recorded in the jsPsych data store and eventually form part
 of the data set for the experiment.</p>
