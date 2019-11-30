@@ -87,6 +87,37 @@ Depending on parameter settings, the trial can end when the subject responds
 also be made to end automatically at the end of the video using the
 \code{trial_ends_after_video} argument.
 
+Like all functions in the \code{trial_} family it contains four additional
+arguments:
+
+\itemize{
+\item The \code{post_trial_gap} argument is a numeric value specifying the
+length of the pause between the current trial ending and the next one
+beginning. This parameter overrides any default values defined using the
+\code{\link{build_experiment()}} function, and a blank screen is displayed
+during this gap period.
+
+\item The \code{on_load} and \code{on_finish} arguments can be used to
+specify javascript functions that will execute before the trial begins or
+after it ends. The javascript code can be written manually and inserted *as*
+javascript by using the \code{\link{insert_javascript()}} function. However,
+the \code{fn_} family of functions supplies a variety of functions that may
+be useful in many cases.
+
+\item The \code{data} argument can be used to insert custom data values into
+the jsPsych data storage for this trial
+}
+}
+\section{Data}{
+
+
+When this function is called from R it returns the trial object that will
+later be inserted into the experiment when \code{\link{build_experiment()}}
+is called. However, when the trial runs as part of the experiment it returns
+values that are recorded in the jsPsych data store and eventually form part
+of the data set for the experiment.
+
+
 The data recorded by this trial is as follows:
 
 \itemize{
@@ -106,6 +137,7 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
+
 \seealso{
 Within the "stimulus-response" family of trials, there are four types of
 stimuli (image, audio, video and HTML) and three types of response options

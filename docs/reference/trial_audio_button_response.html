@@ -255,6 +255,36 @@ same template will be applied to every button. The templating is defined using a
 "%choice%" that will be replaced by the corresponding element of the <code>choices</code> vector. By default
 the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
 corresponding CSS.</p>
+
+<p>Like all functions in the <code>trial_</code> family it contains four additional
+arguments:</p>
+<ul>
+<li><p>The <code>post_trial_gap</code> argument is a numeric value specifying the
+length of the pause between the current trial ending and the next one
+beginning. This parameter overrides any default values defined using the
+<code><a href='build_experiment.html'>build_experiment()</a></code> function, and a blank screen is displayed
+during this gap period.</p></li>
+<li><p>The <code>on_load</code> and <code>on_finish</code> arguments can be used to
+specify javascript functions that will execute before the trial begins or
+after it ends. The javascript code can be written manually and inserted *as*
+javascript by using the <code><a href='insert_javascript.html'>insert_javascript()</a></code> function. However,
+the <code>fn_</code> family of functions supplies a variety of functions that may
+be useful in many cases.</p></li>
+<li><p>The <code>data</code> argument can be used to insert custom data values into
+the jsPsych data storage for this trial</p></li>
+</ul>
+
+    
+    <h2 class="hasAnchor" id="data"><a class="anchor" href="#data"></a>Data</h2>
+
+    
+
+
+<p>When this function is called from R it returns the trial object that will
+later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment()</a></code>
+is called. However, when the trial runs as part of the experiment it returns
+values that are recorded in the jsPsych data store and eventually form part
+of the data set for the experiment.</p>
 <p>The data recorded by this trial is as follows:</p>
 <ul>
 <li><p>The <code>rt</code> value is the response time in milliseconds taken for the
@@ -302,6 +332,8 @@ stimuli (image, audio, video and HTML) and three types of response options
       <li><a href="#value">Value</a></li>
 
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#data">Data</a></li>
 
       <li><a href="#see-also">See also</a></li>
           </ul>

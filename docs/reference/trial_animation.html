@@ -220,9 +220,59 @@ written to file as the javascript logicals, <code>true</code> and <code>false</c
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function is used to specify an "animation" trial in a jsPsych experiment.
-An animation trial displays a sequence of images at a fixed frame rate, and the sequence
+An animation trial displays a sequence of images at a fixed frame rate and the sequence
 can be looped a specified number of times. The participant is free to respond at any
 point during the animation, and the time of the response is recorded.</p>
+<p>The only required argument is <code>stimulus</code>, which should be a vector of
+paths to the image files, one per frame. The file paths should refer to
+the locations of the image files at the time the experiment is *deployed*,
+so it is often convenient to use the <code><a href='insert_resource.html'>insert_resource()</a></code>
+function to construct these file paths automatically. The images will be
+displayed in the order that they appear in the <code>stimulus</code> vector.</p>
+<p>The behaviour of an animation trial can be customised in various ways. The
+<code>frame_time</code> parameter specifies the length of time (in milliseconds) that
+each image stays on screen, and the <code>frame_isi</code> parameter controls the
+inter-stimulus interval (that is, the gap between successive images) during
+which a blank screen is shown. The <code>sequence_reps</code> argument specifies the
+number of times the sequence repeats.</p>
+<p>Because animation trials typically require precise timing, they are designed
+to accept key press responses only: the <code>choices</code> argument should be a vector
+specifying the keys that will register a response. These may be specified as
+characters, or else numerically using javascript key codes. Other possible
+values are <code><a href='respond_no_key.html'>respond_no_key()</a></code> and <code><a href='respond_any_key.html'>respond_any_key()</a></code>.
+The <code>prompt</code> argument is used to specify text that remains on screen while
+the animation displays. The intended use is to remind participants of the
+valid response keys, but it allows HTML markup to be included and so can be
+used for more general purposes.</p>
+<p>Like all functions in the <code>trial_</code> family it contains four additional
+arguments:</p>
+<ul>
+<li><p>The <code>post_trial_gap</code> argument is a numeric value specifying the
+length of the pause between the current trial ending and the next one
+beginning. This parameter overrides any default values defined using the
+<code><a href='build_experiment.html'>build_experiment()</a></code> function, and a blank screen is displayed
+during this gap period.</p></li>
+<li><p>The <code>on_load</code> and <code>on_finish</code> arguments can be used to
+specify javascript functions that will execute before the trial begins or
+after it ends. The javascript code can be written manually and inserted *as*
+javascript by using the <code><a href='insert_javascript.html'>insert_javascript()</a></code> function. However,
+the <code>fn_</code> family of functions supplies a variety of functions that may
+be useful in many cases.</p></li>
+<li><p>The <code>data</code> argument can be used to insert custom data values into
+the jsPsych data storage for this trial</p></li>
+</ul>
+
+    
+    <h2 class="hasAnchor" id="data"><a class="anchor" href="#data"></a>Data</h2>
+
+    
+
+
+<p>When this function is called from R it returns the trial object that will
+later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment()</a></code>
+is called. However, when the trial runs as part of the experiment it returns
+values that are recorded in the jsPsych data store and eventually form part
+of the data set for the experiment.</p>
 <p>The data recorded by this trial is as follows:</p>
 <ul>
 <li><p>The <code>animation_sequence</code> value is an array encoded in JSON format. Each
@@ -257,6 +307,8 @@ was pressed.</p></li>
       <li><a href="#value">Value</a></li>
 
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#data">Data</a></li>
           </ul>
 
   </div>
