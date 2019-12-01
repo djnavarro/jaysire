@@ -129,7 +129,7 @@
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># specify the path</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">resource_folder &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"images"</span>)</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">resource_folder</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt; [1] "/tmp/RtmpcvXhDa/images"</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt; [1] "/tmp/Rtmpv7nzPT/images"</span></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># create the empty folder if necessary</span></a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files2.html">dir.exists</a></span>(resource_folder)) {</a>
@@ -175,7 +175,7 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [5] "stimulus5.png" "stimulus6.png" "stimulus7.png" "stimulus8.png"</span></a></code></pre></div>
 <p>Okay, so now we have our stimulus materials, so we’re ready to start incorporating them into an experiment! However, before we do so, there’s something important to note. At this point we have two separate variables <code>resource_folder</code> that specifies the path to the resource folder, and <code>image_files</code> which specifies the names of the images that are contained within that folder. That is:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">resource_folder</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "/tmp/RtmpcvXhDa/images"</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "/tmp/Rtmpv7nzPT/images"</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">image_files</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; [1] "stimulus1.png" "stimulus2.png" "stimulus3.png" "stimulus4.png"</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; [5] "stimulus5.png" "stimulus6.png" "stimulus7.png" "stimulus8.png"</span></a></code></pre></div>
@@ -221,14 +221,14 @@
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt; # A tibble: 8 x 4</span></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt;   name         type  from                           to                     </span></a>
 <a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;                          &lt;chr&gt;                  </span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 1 stimulus1.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; 2 stimulus2.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; 3 stimulus3.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; 4 stimulus4.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; 5 stimulus5.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a>
-<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">#&gt; 6 stimulus6.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">#&gt; 7 stimulus7.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a>
-<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">#&gt; 8 stimulus8.p… image /tmp/RtmpcvXhDa/images/stimul… resource/image/stimulu…</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 1 stimulus1.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; 2 stimulus2.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; 3 stimulus3.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; 4 stimulus4.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; 5 stimulus5.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">#&gt; 6 stimulus6.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">#&gt; 7 stimulus7.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">#&gt; 8 stimulus8.p… image /tmp/Rtmpv7nzPT/images/stimul… resource/image/stimulu…</span></a></code></pre></div>
 <p>What the <code><a href="../reference/build_resources.html">build_resources()</a></code> function does is scan the resource folder and construct a tibble containing all the information that jaysire needs to be able to structure the experiment appropriately. The first column is just the filename, the second column is the <em>type</em> of resource (in this case, everything is an image), the third column indicates where the original file is located, and the final column indicates where copy of that file will be created.</p>
 <p>This probably seems unnecessarily complicated. The reason it is structured like this is because there are different kinds of resources, and the browser needs to be given different instructions for how to handle each type. That is, the HTML code for incorporating images is different to the code for audio, video, or javascript code, and so the input to <code><a href="../reference/build_experiment.html">build_experiment()</a></code> needs to be explicit about what kind of resource each file corresponds to. By default the <code><a href="../reference/build_resources.html">build_resources()</a></code> function assumes that an <code>.mp3</code> file is audio, a <code>.png</code> file is an image, etc, but you can override the defaults if you need to. Alternatively, there’s nothing stopping you from constructing this tibble manually if you wanted to: the <code><a href="../reference/build_resources.html">build_resources()</a></code> function is just there to make life slightly less annoying.</p>
 </div>
