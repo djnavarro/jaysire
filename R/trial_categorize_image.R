@@ -38,6 +38,21 @@
 #' The subject responds by pressing a key. Feedback indicating the correctness
 #' of the response is given.
 #'
+#'
+#' \subsection{Stimulus display}{
+#' TBA
+#' }
+#'
+#' \subsection{Response mechanism}{
+#' TBA
+#' }
+#'
+#' \subsection{Feedback}{
+#' TBA
+#' }
+#'
+#' \subsection{Other behaviour}{
+#'
 #' Like all functions in the \code{trial_} family it contains four additional
 #' arguments:
 #'
@@ -58,8 +73,9 @@
 #' \item The \code{data} argument can be used to insert custom data values into
 #' the jsPsych data storage for this trial
 #' }
+#' }
 #'
-#' @section Data:
+#' \subsection{Data}{
 #'
 #' When this function is called from R it returns the trial object that will
 #' later be inserted into the experiment when \code{\link{build_experiment}}
@@ -90,6 +106,7 @@
 #' \item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
 #' \item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
 #' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+#' }
 #' }
 #'
 #' @seealso There are three types of categorization trial, corresponding to the

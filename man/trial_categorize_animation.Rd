@@ -61,6 +61,20 @@ The \code{trial_categorize_animation} function is used to show a sequence of ima
 specified frame rate. The subject responds by pressing a key. Feedback
 indicating the correctness of the response is given.
 
+\subsection{Stimulus display}{
+TBA
+}
+
+\subsection{Response mechanism}{
+TBA
+}
+
+\subsection{Feedback}{
+TBA
+}
+
+\subsection{Other behaviour}{
+
 Like all functions in the \code{trial_} family it contains four additional
 arguments:
 
@@ -82,8 +96,8 @@ be useful in many cases.
 the jsPsych data storage for this trial
 }
 }
-\section{Data}{
 
+\subsection{Data}{
 
 When this function is called from R it returns the trial object that will
 later be inserted into the experiment when \code{\link{build_experiment}}
@@ -115,7 +129,7 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
-
+}
 \seealso{
 There are three types of categorization trial, corresponding to the
 \code{\link{trial_categorize_animation}},
