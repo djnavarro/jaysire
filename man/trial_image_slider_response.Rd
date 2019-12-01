@@ -73,25 +73,44 @@ audio, video or HTML) and collect responses using a particular mechanism
 (button, keyboard or slider).
 This one displays an image and records responses generated with a slider.
 
-The response slider generates a numeric value, and can be customised in several
-ways. The \code{min} and \code{max} arguments are numeric values that specify the
-minimum value (leftmost point on the slider) and the maximum value (rightmost point
-on the slider) that a participant can respond with. The \code{start} parameter
-is a numeric value that indicates where the value of the the slider is initially
-position. The movement of the slider is discretised: the \code{step} parameter
-specifies the smallest possible increment that the participant can move the
-slider in either direction.
+Participant responses for this trial type are collected using a slider bar
+that the participant can move using the mouse. Once the participant is happy
+with this positioning they can click a button at the bottom of the page to
+move on to the next trial. This response method can be customised in several
+ways depending on the following arguments:
 
-Additional customisation of the slider is possible through the \code{labels}
-parameter, a character vector that consists of the labels to be displayed at equal
-distance along the slider. The \code{slider_width} controls the horizontal width
-of the slider bar: the default value of \code{NULL} creates a slider that occupies
-100% of the width of the jsPsych display (this may not be 100% of the screen width).
-To ensure that participants do engage with the slider, it is possible to set
+\itemize{
+\item The \code{min} and \code{max} arguments are numeric values that specify the
+minimum value (leftmost point on the slider) and the maximum value (rightmost point
+on the slider) that a participant can respond with.
+
+\item The \code{start} parameter is a numeric value that indicates where the value
+of the the slider is initially position. By default this is set to the middle of
+the scale, but there are many cases where it may be sensible to have the slider
+bar start at one end of the scale.
+
+\item The movement of the slider is discretised, and the granularity of this
+movement can be customised using the \code{step} parameter. This should be a
+numeric value that specifies the smallest possible increment that the participant
+can move the slider in either direction.
+
+\item The text labels displayed below the slider bar can also be customised by
+specifying the \code{labels} parameter. This argument should be a character vector
+that contains the labels to be displaed. Labels will be displayed at equally spaced
+intervals along the slider, though it is possible to include blank labels to create
+the impression of unequal spacing if that is required.
+
+\item The \code{slider_width} controls the horizontal width of the slider bar:
+the default value of \code{NULL} creates a slider that occupies 100% of the width of
+the jsPsych display. Note that this may not be 100% of the screen width.
+
+\item To ensure that participants do engage with the slider, it is possible to set
 \code{require_movement = TRUE} which forces the participant to move the slider
-at least once in order to be permitted to move onto the next trial. The
-\code{button_label} argument specifies the text displayed on the button that
+at least once in order to be permitted to move onto the next trial.
+
+\item The \code{button_label} argument specifies the text displayed on the button that
 participants click to move to the next trial.
+}
 
 As is the case for most \code{trial_} functions there is a \code{prompt} argument,
 a string that specifies additional text that is displayed on screen during the
