@@ -264,7 +264,18 @@ of the response is given.</p>
 
 <h3>Stimulus display</h3>
 
-TBA
+For trials that display an image, the <code>stimulus</code> argument is a string that
+specifies the path to the image file. More precisely, it must specify the path to
+where the image file will be located at the time the experiment runs. Typically,
+if an experiment is deployed using the <code><a href='build_experiment.html'>build_experiment</a>()</code> function
+all resource files will be stored in a "resource" folder, and the images will
+be copied to the "image" subfolder. So if the image to be displayed is a file
+called "picture.png", the <code>stimulus</code> path on a Mac or Linux machine would
+likely be "resource/image/picture.png". Note that this path is specified relative
+to the location of the primary experiment file "image.html". To make this a little
+easier, the <code><a href='insert_resource.html'>insert_resource</a>()</code> function can be used to construct
+resource paths automatically. In the example above,
+<code>stimulus = insert_resource("picture.png")</code> would suffice.
 
 
 <h3>Response mechanism</h3>

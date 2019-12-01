@@ -65,7 +65,33 @@ audio, video or HTML) and collect responses using a particular mechanism
 This one displays an image and records responses generated with a button click.
 
 \subsection{Stimulus display}{
-TBA
+For trials that display an image, the \code{stimulus} argument is a string that
+specifies the path to the image file. More precisely, it must specify the path to
+where the image file will be located at the time the experiment runs. Typically,
+if an experiment is deployed using the \code{\link{build_experiment}()} function
+all resource files will be stored in a "resource" folder, and the images will
+be copied to the "image" subfolder. So if the image to be displayed is a file
+called "picture.png", the \code{stimulus} path on a Mac or Linux machine would
+likely be "resource/image/picture.png". Note that this path is specified relative
+to the location of the primary experiment file "image.html". To make this a little
+easier, the \code{\link{insert_resource}()} function can be used to construct
+resource paths automatically. In the example above,
+\code{stimulus = insert_resource("picture.png")} would suffice.
+
+
+Other aspects to the stimulus display can be controlled with other arguments.
+The \code{stimulus_height} and \code{stimulus_width} arguments can be used to
+manually control the image display size by specifying the height/width in
+pixels. If only one of these two arguments is specified, but the
+\code{maintain_aspect_ratio} value is set to \code{TRUE}, the other dimension
+of the image will automatically be scaled appropriately.
+
+
+The length of time that the image remains on screen can also be customised
+by setting the \code{stimulus_duration} argument: this should be a numeric
+value indicating the number of milliseconds before the image disappears.
+Alternatively, a value of \code{NULL} (the default) ensures that the image
+remains visible until the trial ends.
 }
 
 \subsection{Response mechanism}{
