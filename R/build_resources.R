@@ -10,6 +10,17 @@
 #' @param script File extensions assumed to be scripts
 #' @param style File extensions assumed to be stylesheets
 #'
+#' @return The \code{build_resources()} function returns a tibble with four columns,
+#' called "name", "type", "from", and "to". The "name" column lists the name of
+#' every resource file discovered in the \code{from} folder and the "type" column lists
+#' the kind of resource file (image, audio, video, script, style or other file). Finally,
+#' the "from" colums specifies the \emph{full} path to the existing location of the
+#' resource file, while the "to" column specifies the \emph{relative} path to which a
+#' copy of the resource file should be copied (relative to the "index.html" file for
+#' the experiment)
+#'
+#' @details TBA
+#'
 #' @export
 build_resources <- function(
   from,

@@ -22,6 +22,19 @@ build_resources(from, audio = c(".mp3", ".wav", ".aif", ".mid"),
 
 \item{style}{File extensions assumed to be stylesheets}
 }
+\value{
+The \code{build_resources()} function returns a tibble with four columns,
+called "name", "type", "from", and "to". The "name" column lists the name of
+every resource file discovered in the \code{from} folder and the "type" column lists
+the kind of resource file (image, audio, video, script, style or other file). Finally,
+the "from" colums specifies the \emph{full} path to the existing location of the
+resource file, while the "to" column specifies the \emph{relative} path to which a
+copy of the resource file should be copied (relative to the "index.html" file for
+the experiment)
+}
 \description{
 Build the resource file specification from a directory path
+}
+\details{
+TBA
 }
