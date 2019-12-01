@@ -28,6 +28,8 @@
 #' can be looped a specified number of times. The participant is free to respond at any
 #' point during the animation, and the time of the response is recorded.
 #'
+#' \subsection{Stimulus display}{
+#'
 #' The only required argument is \code{stimulus}, which should be a vector of
 #' paths to the image files, one per frame. The file paths should refer to
 #' the locations of the image files at the time the experiment is *deployed*,
@@ -41,6 +43,9 @@
 #' inter-stimulus interval (that is, the gap between successive images) during
 #' which a blank screen is shown. The \code{sequence_reps} argument specifies the
 #' number of times the sequence repeats.
+#' }
+#'
+#' \subsection{Response mechanism}{
 #'
 #' Because animation trials typically require precise timing, they are designed
 #' to accept key press responses only: the \code{choices} argument should be a vector
@@ -51,6 +56,9 @@
 #' the animation displays. The intended use is to remind participants of the
 #' valid response keys, but it allows HTML markup to be included and so can be
 #' used for more general purposes.
+#' }
+#'
+#' \subsection{Other behaviour}{
 #'
 #' Like all functions in the \code{trial_} family it contains four additional
 #' arguments:
@@ -66,16 +74,15 @@
 #' specify javascript functions that will execute before the trial begins or
 #' after it ends. The javascript code can be written manually and inserted *as*
 #' javascript by using the \code{\link{insert_javascript}} function. However,
-
-
 #' the \code{fn_} family of functions supplies a variety of functions that may
 #' be useful in many cases.
 #'
 #' \item The \code{data} argument can be used to insert custom data values into
 #' the jsPsych data storage for this trial
 #' }
+#' }
 #'
-#' @section Data:
+#' \subsection{Data}{
 #'
 #' When this function is called from R it returns the trial object that will
 #' later be inserted into the experiment when \code{\link{build_experiment}}
@@ -106,6 +113,7 @@
 #' \item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
 #' \item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
 #' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+#' }
 #' }
 #'
 #' @export
