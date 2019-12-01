@@ -41,11 +41,11 @@
 #' (button, keyboard or slider).
 #' This one plays a video and records responses generated with a button click.
 #'
-#' Depending on parameter settings, the trial can end when the subject responds
-#' (\code{response_ends_trial = TRUE}), or after a fixed amount of time
-#' (specified using the \code{trial_duration} argument) has elapsed. The trial can
-#' also be made to end automatically at the end of the video using the
-#' \code{trial_ends_after_video} argument.
+#' \subsection{Stimulus display}{
+#' TBA
+#' }
+#'
+#' \subsection{Response mechanism}{
 #'
 #' The response buttons can be customized using HTML formatting, via the \code{button_html} argument.
 #' This argument allows the user to specify an HTML used to generating the button elements. If this
@@ -55,6 +55,14 @@
 #' "\%choice\%" that will be replaced by the corresponding element of the \code{choices} vector. By default
 #' the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
 #' corresponding CSS.
+#' }
+#'
+#' \subsection{Other behaviour}{
+#' Depending on parameter settings, the trial can end when the subject responds
+#' (\code{response_ends_trial = TRUE}), or after a fixed amount of time
+#' (specified using the \code{trial_duration} argument) has elapsed. The trial can
+#' also be made to end automatically at the end of the video using the
+#' \code{trial_ends_after_video} argument.
 #'
 #' Like all functions in the \code{trial_} family it contains four additional
 #' arguments:
@@ -76,8 +84,9 @@
 #' \item The \code{data} argument can be used to insert custom data values into
 #' the jsPsych data storage for this trial
 #' }
+#' }
 #'
-#' @section Data:
+#' \subsection{Data}{
 #'
 #' When this function is called from R it returns the trial object that will
 #' later be inserted into the experiment when \code{\link{build_experiment}}
@@ -105,6 +114,7 @@
 #' \item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
 #' \item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
 #' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+#' }
 #' }
 #'
 #' @seealso Within the "stimulus-response" family of trials, there are four types of

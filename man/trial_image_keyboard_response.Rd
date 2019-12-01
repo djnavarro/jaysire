@@ -57,6 +57,15 @@ audio, video or HTML) and collect responses using a particular mechanism
 (button, keyboard or slider).
 This one displays an image and records responses generated with a key press.
 
+\subsection{Stimulus display}{
+TBA
+}
+
+\subsection{Response mechanism}{
+TBA
+}
+
+\subsection{Other behaviour}{
 Depending on parameter settings, the trial can end when the subject responds
 (\code{response_ends_trial = TRUE}), or after a fixed amount of time
 (specified using the \code{trial_duration} argument) has elapsed. The length
@@ -81,18 +90,17 @@ the \code{fn_} family of functions supplies a variety of functions that may
 be useful in many cases.
 
 \item The \code{data} argument can be used to insert custom data values into
-the jsPsych data storage for this trial
+the jsPsych data storage for this trial.
 }
 }
-\section{Data}{
 
+\subsection{Data}{
 
 When this function is called from R it returns the trial object that will
 later be inserted into the experiment when \code{\link{build_experiment}}
 is called. However, when the trial runs as part of the experiment it returns
 values that are recorded in the jsPsych data store and eventually form part
 of the data set for the experiment.
-
 
 The data recorded by this trial is as follows:
 
@@ -115,7 +123,7 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
-
+}
 \seealso{
 Within the "stimulus-response" family of trials, there are four types of
 stimuli (image, audio, video and HTML) and three types of response options

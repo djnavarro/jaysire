@@ -57,12 +57,11 @@ audio, video or HTML) and collect responses using a particular mechanism
 (button, keyboard or slider).
 This one displays HTML and records responses generated with a button click.
 
-Depending on parameter settings, the trial can end when the subject responds
-(\code{response_ends_trial = TRUE}), or after a fixed amount of time
-(specified using the \code{trial_duration} argument) has elapsed. The length
-of time that the stimulus remains visible can also be customized using the
-(\code{stimulus_duration}) argument.
+\subsection{Stimulus display}{
+TBA
+}
 
+\subsection{Response mechanism}{
 The response buttons can be customized using HTML formatting, via the \code{button_html} argument.
 This argument allows the user to specify an HTML used to generating the button elements. If this
 argument is a vector of the same length as \code{choices} then the i-th element of \code{button_html}
@@ -93,9 +92,37 @@ be useful in many cases.
 the jsPsych data storage for this trial
 }
 }
-\section{Data}{
 
+\subsection{Other behaviour}{
+Depending on parameter settings, the trial can end when the subject responds
+(\code{response_ends_trial = TRUE}), or after a fixed amount of time
+(specified using the \code{trial_duration} argument) has elapsed. The length
+of time that the stimulus remains visible can also be customized using the
+(\code{stimulus_duration}) argument.
 
+Like all functions in the \code{trial_} family it contains four additional
+arguments:
+
+\itemize{
+\item The \code{post_trial_gap} argument is a numeric value specifying the
+length of the pause between the current trial ending and the next one
+beginning. This parameter overrides any default values defined using the
+\code{\link{build_experiment}} function, and a blank screen is displayed
+during this gap period.
+
+\item The \code{on_load} and \code{on_finish} arguments can be used to
+specify javascript functions that will execute before the trial begins or
+after it ends. The javascript code can be written manually and inserted *as*
+javascript by using the \code{\link{insert_javascript}} function. However,
+the \code{fn_} family of functions supplies a variety of functions that may
+be useful in many cases.
+
+\item The \code{data} argument can be used to insert custom data values into
+the jsPsych data storage for this trial
+}
+}
+
+\subsection{Data}{
 When this function is called from R it returns the trial object that will
 later be inserted into the experiment when \code{\link{build_experiment}}
 is called. However, when the trial runs as part of the experiment it returns
@@ -125,7 +152,7 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
-
+}
 \seealso{
 Within the "stimulus-response" family of trials, there are four types of
 stimuli (image, audio, video and HTML) and three types of response options

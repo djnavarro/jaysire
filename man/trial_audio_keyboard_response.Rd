@@ -50,12 +50,19 @@ audio, video or HTML) and collect responses using a particular mechanism
 (button, keyboard or slider).
 It plays audio files and records responses generated with a key press.
 
+\subsection{Stimulus display}{
 If the browser supports it, audio files are played using the WebAudio API. This
 allows for reasonably precise timing of the playback. The timing of responses
 generated is measured against the WebAudio specific clock, improving the
 measurement of response times. If the browser does not support the WebAudio API,
 then the audio file is played with HTML5 audio.
+}
 
+\subsection{Response mechanism}{
+TBA
+}
+
+\subsection{Other behaviour}{
 The trial can end when the subject responds (\code{response_ends_trial = TRUE}),
 when the audio file has finished playing (\code{trial_ends_after_audio = TRUE}),
 or if the subject has failed to respond within a fixed length of time (specified
@@ -82,9 +89,8 @@ be useful in many cases.
 the jsPsych data storage for this trial
 }
 }
-\section{Data}{
 
-
+\subsection{Data}{
 When this function is called from R it returns the trial object that will
 later be inserted into the experiment when \code{\link{build_experiment}}
 is called. However, when the trial runs as part of the experiment it returns
@@ -110,7 +116,7 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
-
+}
 \seealso{
 Within the "stimulus-response" family of trials, there are four types of
 stimuli (image, audio, video and HTML) and three types of response options

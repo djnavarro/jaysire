@@ -66,6 +66,11 @@ audio, video or HTML) and collect responses using a particular mechanism
 (button, keyboard or slider).
 This one displays HTML and records responses generated with a slider.
 
+\subsection{Stmulus display}{
+TBA
+}
+
+\subsection{Response mechanism}{
 Participant responses for this trial type are collected using a slider bar
 that the participant can move using the mouse. Once the participant is happy
 with this positioning they can click a button at the bottom of the page to
@@ -94,8 +99,8 @@ intervals along the slider, though it is possible to include blank labels to cre
 the impression of unequal spacing if that is required.
 
 \item The \code{slider_width} controls the horizontal width of the slider bar:
-the default value of \code{NULL} creates a slider that occupies 100% of the width of
-the jsPsych display. Note that this may not be 100% of the screen width.
+the default value of \code{NULL} creates a slider that occupies 100\% of the width of
+the jsPsych display. Note that this may not be 100\% of the screen width.
 
 \item To ensure that participants do engage with the slider, it is possible to set
 \code{require_movement = TRUE} which forces the participant to move the slider
@@ -104,7 +109,9 @@ at least once in order to be permitted to move onto the next trial.
 \item The \code{button_label} argument specifies the text displayed on the button that
 participants click to move to the next trial.
 }
+}
 
+\subsection{Other behaviour}{
 As is the case for most \code{trial_} functions there is a \code{prompt} argument,
 a string that specifies additional text that is displayed on screen during the
 trial. The value of \code{prompt} can contain HTML markup, allowing it to be
@@ -137,9 +144,8 @@ be useful in many cases.
 the jsPsych data storage for this trial
 }
 }
-\section{Data}{
 
-
+\subsection{Data}{
 When this function is called from R it returns the trial object that will
 later be inserted into the experiment when \code{\link{build_experiment}}
 is called. However, when the trial runs as part of the experiment it returns
@@ -167,7 +173,7 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
-
+}
 \seealso{
 Within the "stimulus-response" family of trials, there are four types of
 stimuli (image, audio, video and HTML) and three types of response options

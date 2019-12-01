@@ -57,17 +57,16 @@ audio, video or HTML) and collect responses using a particular mechanism
 (button, keyboard or slider).
 This one plays audio files and records responses generated with a button click.
 
+\subsection{Stimulus display}{
 If the browser supports it, audio files are played using the WebAudio API. This
 allows for reasonably precise timing of the playback. The timing of responses
 generated is measured against the WebAudio specific clock, improving the
 measurement of response times. If the browser does not support the WebAudio API,
 then the audio file is played with HTML5 audio.
 
-The trial can end when the subject responds (\code{response_ends_trial = TRUE}),
-when the audio file has finished playing (\code{trial_ends_after_audio = TRUE}),
-or if the subject has failed to respond within a fixed length of time (specified
-using the \code{trial_duration} argument).
+}
 
+\subsection{Response mechanism}{
 The response buttons can be customized using HTML formatting, via the \code{button_html} argument.
 This argument allows the user to specify an HTML used to generating the button elements. If this
 argument is a vector of the same length as \code{choices} then the i-th element of \code{button_html}
@@ -76,7 +75,13 @@ same template will be applied to every button. The templating is defined using a
 "\%choice\%" that will be replaced by the corresponding element of the \code{choices} vector. By default
 the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
 corresponding CSS.
+}
 
+\subsection{Other behaviour}{
+The trial can end when the subject responds (\code{response_ends_trial = TRUE}),
+when the audio file has finished playing (\code{trial_ends_after_audio = TRUE}),
+or if the subject has failed to respond within a fixed length of time (specified
+using the \code{trial_duration} argument).
 
 Like all functions in the \code{trial_} family it contains four additional
 arguments:
@@ -99,8 +104,8 @@ be useful in many cases.
 the jsPsych data storage for this trial
 }
 }
-\section{Data}{
 
+\subsection{Data}{
 
 When this function is called from R it returns the trial object that will
 later be inserted into the experiment when \code{\link{build_experiment}}
@@ -128,7 +133,7 @@ In addition, it records default variables that are recorded by all trials:
 \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
 }
 }
-
+}
 \seealso{
 Within the "stimulus-response" family of trials, there are four types of
 stimuli (image, audio, video and HTML) and three types of response options

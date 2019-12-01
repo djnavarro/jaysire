@@ -45,6 +45,11 @@
 #' (button, keyboard or slider).
 #' This one plays a video and records responses generated with a slider.
 #'
+#' \subsection{Stmulus display}{
+#' TBA
+#' }
+#'
+#' \subsection{Response mechanism}{
 #' Participant responses for this trial type are collected using a slider bar
 #' that the participant can move using the mouse. Once the participant is happy
 #' with this positioning they can click a button at the bottom of the page to
@@ -83,7 +88,9 @@
 #' \item The \code{button_label} argument specifies the text displayed on the button that
 #' participants click to move to the next trial.
 #' }
+#' }
 #'
+#' \subsection{Other behaviour}{
 #' As is the case for most \code{trial_} functions there is a \code{prompt} argument,
 #' a string that specifies additional text that is displayed on screen during the
 #' trial. The value of \code{prompt} can contain HTML markup, allowing it to be
@@ -115,9 +122,9 @@
 #' \item The \code{data} argument can be used to insert custom data values into
 #' the jsPsych data storage for this trial
 #' }
+#' }
 #'
-#' @section Data:
-#'
+#' \subsection{Data}{
 #' When this function is called from R it returns the trial object that will
 #' later be inserted into the experiment when \code{\link{build_experiment}}
 #' is called. However, when the trial runs as part of the experiment it returns
@@ -142,6 +149,7 @@
 #' \item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
 #' \item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
 #' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+#' }
 #' }
 #'
 #' @seealso Within the "stimulus-response" family of trials, there are four types of
