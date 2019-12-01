@@ -65,20 +65,37 @@ which a blank screen is shown. The \code{sequence_reps} argument specifies the
 number of times the sequence repeats.
 }
 
+
 \subsection{Response mechanism}{
 
 Because animation trials typically require precise timing, they are designed
-to accept key press responses only: the \code{choices} argument should be a vector
-specifying the keys that will register a response. These may be specified as
-characters, or else numerically using javascript key codes. Other possible
-values are \code{\link{respond_no_key}()} and \code{\link{respond_any_key}()}.
+to accept key press responses only, and \code{choices} argument is used to
+control which keys will register
+a valid response. The default value \code{choices = \link{respond_any_key}()}
+is to allow the participant to press any key to register their response.
+Alternatively it is possible to set \code{choices = \link{respond_no_key}()},
+which prevents all keys from registering a response: this can be useful if
+the trial is designed to run for a fixed duration, regardless of what the
+participant presses.
+
+In many situations it is preferable to require the participant to respond
+using specific keys (e.g., for a binary choice tasks, it may be desirable to
+require participants to press F for one response or J for the other). This
+can be achieved in two ways. One possibility is to use a character vector
+as input (e.g., \code{choices = c("f","j")}). The other is to use the
+numeric code that specifies the desired key in javascript, which in this
+case would be \code{choices = c(70, 74)}. To make it a little easier to
+work with numeric codes, the jaysire package includes the
+\code{\link{keycode}()} function to make it easier to convert from one format
+to the other.
+}
+
+\subsection{Other behaviour}{
+
 The \code{prompt} argument is used to specify text that remains on screen while
 the animation displays. The intended use is to remind participants of the
 valid response keys, but it allows HTML markup to be included and so can be
 used for more general purposes.
-}
-
-\subsection{Other behaviour}{
 
 Like all functions in the \code{trial_} family it contains four additional
 arguments:

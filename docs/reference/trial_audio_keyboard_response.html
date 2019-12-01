@@ -236,7 +236,25 @@ then the audio file is played with HTML5 audio.
 
 <h3>Response mechanism</h3>
 
-TBA
+For this kind of trial, participants can make a response by pressing a key,
+and the <code>choices</code> argument is used to control which keys will register
+a valid response. The default value <code>choices = <a href='respond_any_key.html'>respond_any_key</a>()</code>
+is to allow the participant to press any key to register their response.
+Alternatively it is possible to set <code>choices = <a href='respond_no_key.html'>respond_no_key</a>()</code>,
+which prevents all keys from registering a response: this can be useful if
+the trial is designed to run for a fixed duration, regardless of what the
+participant presses.
+
+In many situations it is preferable to require the participant to respond
+using specific keys (e.g., for a binary choice tasks, it may be desirable to
+require participants to press F for one response or J for the other). This
+can be achieved in two ways. One possibility is to use a character vector
+as input (e.g., <code>choices = c("f","j")</code>). The other is to use the
+numeric code that specifies the desired key in javascript, which in this
+case would be <code>choices = c(70, 74)</code>. To make it a little easier to
+work with numeric codes, the jaysire package includes the
+<code><a href='keycode.html'>keycode</a>()</code> function to make it easier to convert from one format
+to the other.
 
 
 <h3>Other behaviour</h3>

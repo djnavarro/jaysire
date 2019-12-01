@@ -42,7 +42,25 @@
 #' }
 #'
 #' \subsection{Response mechanism}{
-#' TBA
+#' For this kind of trial, participants can make a response by pressing a key,
+#' and the \code{choices} argument is used to control which keys will register
+#' a valid response. The default value \code{choices = \link{respond_any_key}()}
+#' is to allow the participant to press any key to register their response.
+#' Alternatively it is possible to set \code{choices = \link{respond_no_key}()},
+#' which prevents all keys from registering a response: this can be useful if
+#' the trial is designed to run for a fixed duration, regardless of what the
+#' participant presses.
+#'
+#' In many situations it is preferable to require the participant to respond
+#' using specific keys (e.g., for a binary choice tasks, it may be desirable to
+#' require participants to press F for one response or J for the other). This
+#' can be achieved in two ways. One possibility is to use a character vector
+#' as input (e.g., \code{choices = c("f","j")}). The other is to use the
+#' numeric code that specifies the desired key in javascript, which in this
+#' case would be \code{choices = c(70, 74)}. To make it a little easier to
+#' work with numeric codes, the jaysire package includes the
+#' \code{\link{keycode}()} function to make it easier to convert from one format
+#' to the other.
 #' }
 #'
 #' \subsection{Other behaviour}{
