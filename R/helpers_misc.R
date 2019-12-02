@@ -50,6 +50,17 @@ get_alphanumeric <- function(n = 5) {
 
 #' Creates a temporary folder
 #'
+#' @return A string specifying the path to the folder
+#' @details The \code{temporary_folder()} function is a convenience function
+#' used to create a new temporary folder inside the temporary directory
+#' (see \code{tempdir}) for the current R session. The name of the subfolder
+#' is always "jaysire_" followed by a 5-character alphanumeric string.
+#'
+#' The purpose of this function is mostly expository: it makes it a little
+#' easier to create easy-to-follow tutorials on the package website. It is
+#' not expected that users of the jaysire package would have much need for this
+#' function
+#'
 #' @export
 temporary_folder <- function() {
   idstr <- paste0("jaysire_", get_alphanumeric(n = 5))
