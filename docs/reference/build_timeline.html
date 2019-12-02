@@ -167,13 +167,38 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An object of class "timeline"</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Experiments in jsPsych are specified in terms of a "timeline"
+object, where each timeline can consist of one or more "trial" objects
+and timelines can contain other timelines. In pure jsPsych it is possible
+to define a "bare" trial that is not contained within a timeline (the trial
+is essentially a timeline) but jaysire is slightly more restrictive. To
+build a timeline in jaysire, the output of <code>trial_</code> functions need to be
+passed through the <code>build_timeline()</code> function to create a properly
+constructed timeline object.</p>
+<p>Once constructed, behaviour and execution of a timeline can be modified
+using the <code>tl_</code> family of functions. A timeline can be looped using the
+<code><a href='tl_display_while.html'>tl_display_while</a>()</code> function, or executed contiionally using
+the <code><a href='tl_display_if.html'>tl_display_if</a>()</code> function. Timeline variables can be attached
+using <code><a href='tl_add_variables.html'>tl_add_variables</a>()</code> and other parameters can be passed to
+the timeline using <code><a href='tl_add_parameters.html'>tl_add_parameters</a>()</code>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>
