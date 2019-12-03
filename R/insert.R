@@ -12,34 +12,96 @@ insert_javascript <- function(string) {
 
 #' Insert input as path to a resource file
 #'
-#' @param file path
+#' @param file A character vector of file names
+#' @param type A character vector of file types (if \code{NULL}, type is guessed from file extension)
 #' @export
-insert_resource <- function(file) {
+#'
+#' @return A character vector of file paths specified relative to the
+#' location of the main "index.html" file for the experiment.
+#'
+#' @details The \code{insert_resource()} function is designed to take a vector
+#' of filenames as input (the \code{file} argument), categorise files depending
+#' on their \code{type} ("audio", "video", "image", "script", "style" or "other")
+#' and construct the path to where those files will end up in the final experiment.
+#'
+#' The logic for including this functionality is as follow.
+#' Because jsPsych experiments are designed to run through the browser
+#' rather than within R, the jaysire package incorporates "resource files" in a
+#' slightly complicated way. Resource files here are divided into several
+#' categories because the experiment has to incorporate them in different ways:
+#' the code for handling images is different to the code for handling audio files
+#' or video files, and both are different to how scripts and style files are loaded.
+#' As a consequence, the \code{\link{build_experiment}()} function needs to know
+#' what kind of file each resource corresponds to in order to construct the
+#' experiment properly.
+#'
+#' When using jaysire, the \code{insert_resource()} function is generally used
+#' when building trials, and serves as a kind of "promissory note" to specify
+#' where the relevant files \emph{will be} when the experiment is constructed
+#' using \code{\link{build_experiment}()}. In contrast \code{\link{build_resources}()}
+#' is generally used when calling \code{\link{build_experiment}()}, and is in
+#' essence a set of "instructions" that \code{\link{build_experiment}()} can use
+#' to ensure that this promise is kept.
+#'
+#' @seealso \code{\link{build_resources}}, \code{\link{build_experiment}}
+insert_resource <- function(file, type = NULL) {
 
-  # THIS IS A HACK -- FIX THIS
-  audio  <- c(".mp3", ".wav", ".aif", ".mid")
-  video  <- c(".mp4", ".mpg", ".mov", ".wmv", ".webm", ".ogg")
-  image  <- c(".jpg", ".png", ".bmp", ".svg", ".tiff")
-  script <- c(".js")
-  style  <- c(".css")
+  if(is.null(type)) {
+    audio  <- c(".mp3", ".wav", ".aif", ".mid")
+    video  <- c(".mp4", ".mpg", ".mov", ".wmv", ".webm", ".ogg")
+    image  <- c(".jpg", ".png", ".bmp", ".svg", ".tiff")
+    script <- c(".js")
+    style  <- c(".css")
 
-  # assign types based on file extensions
-  fileext <- tolower(gsub("^.*(\\.[^\\.]*)$", "\\1", file))
-  type <- rep("other", length(fileext))
-  type[fileext %in% audio] <- "audio"
-  type[fileext %in% video] <- "video"
-  type[fileext %in% image] <- "image"
-  type[fileext %in% script] <- "script"
-  type[fileext %in% style] <- "style"
+    # assign types based on file extensions
+    fileext <- tolower(gsub("^.*(\\.[^\\.]*)$", "\\1", file))
+    type <- rep("other", length(fileext))
+    type[fileext %in% audio] <- "audio"
+    type[fileext %in% video] <- "video"
+    type[fileext %in% image] <- "image"
+    type[fileext %in% script] <- "script"
+    type[fileext %in% style] <- "style"
+  }
 
   file.path("resource", type, file)
 }
 
 
-#' Insert a timeline variable
+#' Insert reference to a timeline variable
 #'
-#' @param name name of the variable to insert
+#' @param name String specifying name of the variable to insert
+#' @return Javascript code that calls the jsPsych.timelineVariable() function
 #'
+#' @details When creating an experiment, a common pattern is to create a
+#' series of trials that are identical in every respect except for one thing
+#' that varies across the trial (e.g., a collection of
+#' \code{\link{trial_html_button_response}()} trials that are the same except
+#' for the text that is displayed). A natural way to handle this in the
+#' jsPsych framework is to create the trial in the usual fashion, except that
+#' instead of specifying the \emph{value} that needs to be included in the
+#' trial (e.g., the text itself) the code includes a reference to a
+#' \emph{timeline variable}. This is the job of the \code{insert_resource()}
+#' function. As an example, instead of creating a trial in which
+#' \code{stimulus = "cat"} and another one that is identical except that
+#' \code{stimulus = "dog"}, you could create a "template" for both trials by
+#' setting \code{stimulus = insert_variable("animal")}. This acts as a kind
+#' promise that is filled (at runtime) by looking for an "animal" variable
+#' attached to the timeline. See the examples section for an illustration of
+#' how these functions are intended to work together.
+#'
+#' @examples
+#' # create a template from which a series of trials can be built
+#' template <- trial_html_button_response(stimulus = insert_variable("animal"))
+#'
+#' # create a timeline with three trials, all using the same template
+#' # but with a different value for the "animal" variable
+#' timeline <- build_timeline(template) %>%
+#'   tl_add_variables(animal = c("cat", "dog", "pig"))
+#'
+#'
+#'
+#'
+#' @seealso \code{\link{tl_add_variables}()}, \code{\link{build_timeline}()}
 #' @export
 #'
 insert_variable <- function(name) {

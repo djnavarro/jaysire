@@ -2,13 +2,50 @@
 % Please edit documentation in R/insert.R
 \name{insert_variable}
 \alias{insert_variable}
-\title{Insert a timeline variable}
+\title{Insert reference to a timeline variable}
 \usage{
 insert_variable(name)
 }
 \arguments{
-\item{name}{name of the variable to insert}
+\item{name}{String specifying name of the variable to insert}
+}
+\value{
+Javascript code that calls the jsPsych.timelineVariable() function
 }
 \description{
-Insert a timeline variable
+Insert reference to a timeline variable
+}
+\details{
+When creating an experiment, a common pattern is to create a
+series of trials that are identical in every respect except for one thing
+that varies across the trial (e.g., a collection of
+\code{\link{trial_html_button_response}()} trials that are the same except
+for the text that is displayed). A natural way to handle this in the
+jsPsych framework is to create the trial in the usual fashion, except that
+instead of specifying the \emph{value} that needs to be included in the
+trial (e.g., the text itself) the code includes a reference to a
+\emph{timeline variable}. This is the job of the \code{insert_resource()}
+function. As an example, instead of creating a trial in which
+\code{stimulus = "cat"} and another one that is identical except that
+\code{stimulus = "dog"}, you could create a "template" for both trials by
+setting \code{stimulus = insert_variable("animal")}. This acts as a kind
+promise that is filled (at runtime) by looking for an "animal" variable
+attached to the timeline. See the examples section for an illustration of
+how these functions are intended to work together.
+}
+\examples{
+# create a template from which a series of trials can be built
+template <- trial_html_button_response(stimulus = insert_variable("animal"))
+
+# create a timeline with three trials, all using the same template
+# but with a different value for the "animal" variable
+timeline <- build_timeline(template) \%>\%
+  tl_add_variables(animal = c("cat", "dog", "pig"))
+
+
+
+
+}
+\seealso{
+\code{\link{tl_add_variables}()}, \code{\link{build_timeline}()}
 }

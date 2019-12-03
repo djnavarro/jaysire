@@ -4,11 +4,45 @@
 \alias{insert_resource}
 \title{Insert input as path to a resource file}
 \usage{
-insert_resource(file)
+insert_resource(file, type = NULL)
 }
 \arguments{
-\item{file}{path}
+\item{file}{A character vector of file names}
+
+\item{type}{A character vector of file types (if \code{NULL}, type is guessed from file extension)}
+}
+\value{
+A character vector of file paths specified relative to the
+location of the main "index.html" file for the experiment.
 }
 \description{
 Insert input as path to a resource file
+}
+\details{
+The \code{insert_resource()} function is designed to take a vector
+of filenames as input (the \code{file} argument), categorise files depending
+on their \code{type} ("audio", "video", "image", "script", "style" or "other")
+and construct the path to where those files will end up in the final experiment.
+
+The logic for including this functionality is as follow.
+Because jsPsych experiments are designed to run through the browser
+rather than within R, the jaysire package incorporates "resource files" in a
+slightly complicated way. Resource files here are divided into several
+categories because the experiment has to incorporate them in different ways:
+the code for handling images is different to the code for handling audio files
+or video files, and both are different to how scripts and style files are loaded.
+As a consequence, the \code{\link{build_experiment}()} function needs to know
+what kind of file each resource corresponds to in order to construct the
+experiment properly.
+
+When using jaysire, the \code{insert_resource()} function is generally used
+when building trials, and serves as a kind of "promissory note" to specify
+where the relevant files \emph{will be} when the experiment is constructed
+using \code{\link{build_experiment}()}. In contrast \code{\link{build_resources}()}
+is generally used when calling \code{\link{build_experiment}()}, and is in
+essence a set of "instructions" that \code{\link{build_experiment}()} can use
+to ensure that this promise is kept.
+}
+\seealso{
+\code{\link{build_resources}}, \code{\link{build_experiment}}
 }

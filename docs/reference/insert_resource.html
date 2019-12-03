@@ -156,16 +156,53 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>insert_resource</span>(<span class='no'>file</span>)</pre>
+    <pre class="usage"><span class='fu'>insert_resource</span>(<span class='no'>file</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>file</th>
-      <td><p>path</p></td>
+      <td><p>A character vector of file names</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>A character vector of file types (if <code>NULL</code>, type is guessed from file extension)</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A character vector of file paths specified relative to the
+location of the main "index.html" file for the experiment.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>insert_resource()</code> function is designed to take a vector
+of filenames as input (the <code>file</code> argument), categorise files depending
+on their <code>type</code> ("audio", "video", "image", "script", "style" or "other")
+and construct the path to where those files will end up in the final experiment.</p>
+<p>The logic for including this functionality is as follow.
+Because jsPsych experiments are designed to run through the browser
+rather than within R, the jaysire package incorporates "resource files" in a
+slightly complicated way. Resource files here are divided into several
+categories because the experiment has to incorporate them in different ways:
+the code for handling images is different to the code for handling audio files
+or video files, and both are different to how scripts and style files are loaded.
+As a consequence, the <code><a href='build_experiment.html'>build_experiment</a>()</code> function needs to know
+what kind of file each resource corresponds to in order to construct the
+experiment properly.</p>
+<p>When using jaysire, the <code>insert_resource()</code> function is generally used
+when building trials, and serves as a kind of "promissory note" to specify
+where the relevant files <em>will be</em> when the experiment is constructed
+using <code><a href='build_experiment.html'>build_experiment</a>()</code>. In contrast <code><a href='build_resources.html'>build_resources</a>()</code>
+is generally used when calling <code><a href='build_experiment.html'>build_experiment</a>()</code>, and is in
+essence a set of "instructions" that <code><a href='build_experiment.html'>build_experiment</a>()</code> can use
+to ensure that this promise is kept.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='build_resources.html'>build_resources</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code></p></div>
     
 
   </div>
@@ -173,7 +210,13 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

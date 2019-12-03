@@ -77,3 +77,6 @@ be flat: it should not contain subfolders. Second, there are various arguments
 extensions that are associated with each resource type. The default values are
 likely to change in future as the current lists are quite restrictive.
 }
+\seealso{
+\code{\link{insert_resource}}, \code{\link{build_experiment}}
+}
