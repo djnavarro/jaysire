@@ -18,8 +18,27 @@ question_text(prompt, placeholder = "", rows = 1, columns = 40,
 
 \item{name}{A convenient label for the question}
 }
+\value{
+A question object to be passed to \code{\link{trial_survey_text}()}.
+}
 \description{
 Create a free text response question
+}
+\details{
+The \code{question_text()} function is designed to be called when
+using \code{\link{trial_survey_text}()} to construct a survey page that contains
+free text response items. When rendered as part of the study, the text specified
+by the \code{prompt} argument is shown to the participant, with a text box placed
+underneath into which a response may be typed. The size of the text box can be
+customised by specifying the number of text \code{rows} and \code{columns}. If
+a \code{placeholder} string is specified
+(e.g., \code{placeholder = "Type your answer here"})
+it is displayed in faded text within the box, and will disappear as soon as
+the participant begins typing the response.
+
+The \code{name} argument should be a string that provides a convenient
+label for the question. If left unspecified, jsPsych defaults to labelling
+the questions within a survey page as "Q0", "Q1", "Q2", etc.
 }
 \seealso{
 Survey page trials are constructed using the \code{\link{trial_survey_text}},

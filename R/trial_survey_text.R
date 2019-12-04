@@ -147,6 +147,24 @@ trial_survey_text <- function(
 #' @param columns Number of columns spanned by the text box
 #' @param name A convenient label for the question
 #'
+#' @return A question object to be passed to \code{\link{trial_survey_text}()}.
+#'
+#' @details The \code{question_text()} function is designed to be called when
+#' using \code{\link{trial_survey_text}()} to construct a survey page that contains
+#' free text response items. When rendered as part of the study, the text specified
+#' by the \code{prompt} argument is shown to the participant, with a text box placed
+#' underneath into which a response may be typed. The size of the text box can be
+#' customised by specifying the number of text \code{rows} and \code{columns}. If
+#' a \code{placeholder} string is specified
+#' (e.g., \code{placeholder = "Type your answer here"})
+#' it is displayed in faded text within the box, and will disappear as soon as
+#' the participant begins typing the response.
+#'
+#' The \code{name} argument should be a string that provides a convenient
+#' label for the question. If left unspecified, jsPsych defaults to labelling
+#' the questions within a survey page as "Q0", "Q1", "Q2", etc.
+#'
+#'
 #' @seealso Survey page trials are constructed using the \code{\link{trial_survey_text}},
 #' \code{\link{trial_survey_likert}}, \code{\link{trial_survey_multi_choice}} and
 #' \code{\link{trial_survey_multi_select}} functions. Individual questions for survey

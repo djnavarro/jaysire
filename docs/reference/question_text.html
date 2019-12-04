@@ -184,6 +184,26 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A question object to be passed to <code><a href='trial_survey_text.html'>trial_survey_text</a>()</code>.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>question_text()</code> function is designed to be called when
+using <code><a href='trial_survey_text.html'>trial_survey_text</a>()</code> to construct a survey page that contains
+free text response items. When rendered as part of the study, the text specified
+by the <code>prompt</code> argument is shown to the participant, with a text box placed
+underneath into which a response may be typed. The size of the text box can be
+customised by specifying the number of text <code>rows</code> and <code>columns</code>. If
+a <code>placeholder</code> string is specified
+(e.g., <code>placeholder = "Type your answer here"</code>)
+it is displayed in faded text within the box, and will disappear as soon as
+the participant begins typing the response.</p>
+<p>The <code>name</code> argument should be a string that provides a convenient
+label for the question. If left unspecified, jsPsych defaults to labelling
+the questions within a survey page as "Q0", "Q1", "Q2", etc.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Survey page trials are constructed using the <code><a href='trial_survey_text.html'>trial_survey_text</a></code>,
@@ -199,6 +219,10 @@ trials can be specified using <code>question_text</code>,
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
       <li><a href="#see-also">See also</a></li>
           </ul>
 
