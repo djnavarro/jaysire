@@ -154,13 +154,35 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>expr</th>
-      <td><p>expression to be evaluated within the jsPsych data store</p></td>
+      <td><p>An expression to be evaluated within the jsPsych data store</p></td>
     </tr>
     <tr>
       <th>trials_back</th>
-      <td><p>how many trials back?</p></td>
+      <td><p>The number of trials before the present one for which to query the data</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A javascript function</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>fn_data_condition()</code> function creates a javascript function that
+can query the jsPsych data store and evaluate the expression <code>expr</code> within the
+data store. It is (at present) very limited, and can only query the data store for
+a single trial (i.e., a single row in the data set). By default it queries the
+most recent trial (<code>trials_back = 1</code>) but this behaviour can be modified.</p>
+<p>The intention behind this function is that it be used in conjunction with functions
+such as <code><a href='tl_display_if.html'>tl_display_if</a>()</code> and <code><a href='tl_display_while.html'>tl_display_while</a>()</code> that
+require a javascript function that will evaluate to true or false, in order to
+determine whether to continue the while loop or whether the if condition holds.</p>
+<p>As an example, one might set <code>fn_data_condition(button_pressed == "0")</code>
+when calling <code><a href='tl_display_if.html'>tl_display_if</a>()</code>. If the participant had pressed
+button "0" on the previous trial, then the timeline in question will be
+executed. Otherwise it is not.</p>
+<p>Note that this function is a work in progress and will likely change in
+future versions in order to allow more flexibility.</p>
     
 
   </div>
@@ -168,7 +190,11 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>
