@@ -163,13 +163,46 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>path</th>
-      <td><p>the experiment folder</p></td>
+      <td><p>Path to the experiment folder</p></td>
     </tr>
     <tr>
       <th>port</th>
-      <td><p>port to use</p></td>
+      <td><p>The port to use</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The purpose of the <code>run_locally()</code> function is to start an
+R server running (using the plumber package) that will
+serve the experiment from the local machine. The <code>path</code> argument
+specifies the location of the experiment to be run, and should be the same
+as the value of <code>path</code> that was used when calling
+<code><a href='build_experiment.html'>build_experiment</a>()</code>) to build the experiment originally. The
+<code>port</code> is the numeric value of the port on which the experiment is served.
+Once <code>run_locally()</code> has been called, a browser window should open
+showing the relevant page.</p>
+<p>There are two reasons to deploy a local experiment using <code>run_locally()</code>
+rather than simply opening the relevant "index.html" file in the browser. The
+first is for the purpose of saving data. For security reasons, browsers do not
+generally permit client-side javascript (e.g., the code that runs the jsPsych
+experiment) to save files to arbitrary locations. For this reason writing the
+data to file is the job of the R server, not the javascript code that
+is running through the browser. In other words, if the experiment is deployed
+locally using the <code>run_locally()</code> function, then the <code><a href='fn_save_locally.html'>fn_save_locally</a>()</code>
+function that used to record data locally will work properly. If, however, the
+"index.html" file is opened without starting the R server, data will not be
+saved to file.</p>
+<p>The second reason for using <code>run_locally()</code> is that it opens up the possibility
+that an experiment could use server-side R code at runtime. At the moment jaysire
+does not have any functionality to do so, but in principle there is nothing
+preventing the R server from playing a more active role when the experiment is
+running, and future versions of the package may develope this functionality
+further.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='fn_save_locally.html'>fn_save_locally</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code></p></div>
     
 
   </div>
@@ -177,7 +210,11 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>
