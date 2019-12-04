@@ -1,3 +1,7 @@
+jsPsych.data.addProperties({
+  "experiment": ["choice_rt"]
+});
+
 var timeline = {
   "timeline": [
     {
