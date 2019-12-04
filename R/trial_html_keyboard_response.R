@@ -33,7 +33,11 @@
 #'
 #'
 #' \subsection{Stimulus display}{
-#' TBA
+#' The \code{stimulus} argument is a string specifying the text to be displayed
+#' as the stimulus. It can include HTML markup, meaning that it can be used to
+#' any stimulus that can be specified using HTML. It remains on screen for a
+#' length of time corresponding to the \code{stimulus_duration} parameter in
+#' milliseconds (or indefinitely if the parameter is \code{NULL}).
 #' }
 #'
 #' \subsection{Response mechanism}{
