@@ -2,15 +2,40 @@
 % Please edit documentation in R/timeline_modify.R
 \name{tl_display_if}
 \alias{tl_display_if}
-\title{Modify timeline to execute if a condition is met}
+\title{Modify a timeline to execute if a condition is met}
 \usage{
 tl_display_if(timeline, conditional_function)
 }
 \arguments{
-\item{timeline}{the timeline object}
+\item{timeline}{A timeline object}
 
-\item{conditional_function}{javascript function that reutrns true to execute timeline, false to skip}
+\item{conditional_function}{A javascript function that returns true if the timeline should execute and false otherwise}
+}
+\value{
+The modified timeline object
 }
 \description{
-Modify timeline to execute if a condition is met
+Modify a timeline to execute if a condition is met
+}
+\details{
+The \code{tl_display_if()} function is used to modify an existing
+\code{timeline} object, and provides the ability for conditional branching
+within an experiment. To use it, the user must supply the
+\code{conditional_function}, a javascript function that executes at
+runtime and should evaluate to true or false. If the
+conditional function returns true, then the timeline object
+will execute; if the conditional function returns false then jsPsych
+will not run this timeline.
+
+At present jaysire provides only limited tools for writing the
+conditional function. The \code{\link{fn_data_condition}()} function allows
+a simple approach that allows the conditional function to query the
+jsPsych data store, but only in a limited way. Future versions will
+(hopefully) provide a richer tool set for this. However, for
+users who are comfortable with writing javascript functions directly
+the \code{\link{insert_javascript}()} function may be useful.
+}
+\seealso{
+\code{\link{tl_display_while}}, \code{\link{build_timeline}},
+\code{\link{fn_data_condition}}, \code{\link{insert_javascript}}
 }

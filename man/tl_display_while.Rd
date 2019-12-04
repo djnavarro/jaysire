@@ -2,7 +2,7 @@
 % Please edit documentation in R/timeline_modify.R
 \name{tl_display_while}
 \alias{tl_display_while}
-\title{Modify timeline to execute within a loop}
+\title{Modify a timeline to execute within a loop}
 \usage{
 tl_display_while(timeline, loop_function)
 }
@@ -11,6 +11,31 @@ tl_display_while(timeline, loop_function)
 
 \item{loop_function}{javascript function that returns true if loop repeats, false if terminates}
 }
+\value{
+The modified timeline object
+}
 \description{
-Modify timeline to execute within a loop
+Modify a timeline to execute within a loop
+}
+\details{
+The \code{tl_display_while()} function is used to modify an existing
+\code{timeline} object, and provides the ability to include while loops
+within an experiment. To use it, the user must supply the
+\code{loop_function}, a javascript function that executes at
+runtime and should evaluate to true or false. If the
+loop function returns true, then the timeline object
+will execute for another iteration; this condinues until the
+loop function returns false.
+
+At present jaysire provides only limited tools for writing the
+loop function. The \code{\link{fn_data_condition}()} function allows
+a simple approach that allows the loop function to query the
+jsPsych data store, but only in a limited way. Future versions will
+(hopefully) provide a richer tool set for this. However, for
+users who are comfortable with writing javascript functions directly
+the \code{\link{insert_javascript}()} function may be useful.
+}
+\seealso{
+\code{\link{tl_display_if}}, \code{\link{build_timeline}},
+\code{\link{fn_data_condition}}, \code{\link{insert_javascript}}
 }
