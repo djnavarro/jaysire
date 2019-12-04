@@ -48,14 +48,14 @@ list.files(resources)
 ```{r instructions}
 welcome <- trial_html_keyboard_response(
   stimulus = "Welcome to the experiment! Press any key to begin",
-  data = list(stage = "start")
+  data = insert_property(stage = "start")
 )
 
 finish <- trial_html_keyboard_response(
   stimulus = "Thank you!", 
   choices = respond_no_key(),
   trial_duration = 2000,
-  data = list(stage = "end")
+  data = insert_property(stage = "end")
 )
 
 page1 <- paste0(
@@ -88,7 +88,7 @@ instructions <- trial_instructions(
   show_clickable_nav = FALSE,
   allow_keys = TRUE,
   post_trial_gap = 2000,
-  data = list(stage = "instruction")
+  data = insert_property(stage = "instruction")
 )
 ```
 
@@ -101,7 +101,7 @@ fixation <- trial_html_keyboard_response(
   stimulus = '<div style="font-size:60px;">+</div>',
   choices = respond_no_key(),
   trial_duration = fn_sample(intervals, 1),
-  data = list(stage = "fixation")
+  data = insert_property(stage = "fixation")
 )
 
 test <- trial_image_keyboard_response(
@@ -109,7 +109,7 @@ test <- trial_image_keyboard_response(
   stimulus_height = 300,
   stimulus_width = 300,
   choices = c("f", "j"),
-  data = list(
+  data = insert_property(
     stage = "choice", 
     colour = insert_variable("colour"),
     correct_key = insert_variable("correct_key")

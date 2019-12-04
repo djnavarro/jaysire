@@ -158,13 +158,38 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list of data values to add to the data store</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The intention behind <code>insert_property()</code> is that it
+be used when adding new columns to the jsPsych data store. This can
+be done in two ways. First, it can occur as part of the call to
+<code><a href='build_experiment.html'>build_experiment</a>()</code>. Including an argument of the form
+<code>column = insert_property(column_name = "constant value")</code>
+will insert a new column to the jsPsych data store whose value is
+"constant value" in every row.</p>
+<p>The second possible way to use it is during a call to a <code>trial_</code>
+function. Including an argument of the form
+<code>data = insert_property(column_name = "this value")</code>
+will insert "this value" as the value for the current row only.</p>
+<p>Note that, at present <code>insert_property()</code> simply returns a
+named list of its inputs. In future versions of jaysire it may have
+more functionality, but at the moment it is simply a call to <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code></p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

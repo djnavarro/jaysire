@@ -127,7 +127,25 @@ insert_variable <- function(name) {
 #' Insert a property to the jsPsych data store
 #'
 #' @param ... Name/value pairs
+#' @return A list of data values to add to the data store
 #' @export
+#'
+#' @details The intention behind \code{insert_property()} is that it
+#' be used when adding new columns to the jsPsych data store. This can
+#' be done in two ways. First, it can occur as part of the call to
+#' \code{\link{build_experiment}()}. Including an argument of the form
+#' \code{column = insert_property(column_name = "constant value")}
+#' will insert a new column to the jsPsych data store whose value is
+#' "constant value" in every row.
+#'
+#' The second possible way to use it is during a call to a \code{trial_}
+#' function. Including an argument of the form
+#' \code{data = insert_property(column_name = "this value")}
+#' will insert "this value" as the value for the current row only.
+#'
+#' Note that, at present \code{insert_property()} simply returns a
+#' named list of its inputs. In future versions of jaysire it may have
+#' more functionality, but at the moment it is simply a call to \code{list()}
 insert_property <- function(...) {
   list(...)
 }
