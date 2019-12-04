@@ -33,12 +33,41 @@
 #' and are specified to be objects of class "json", ensuring that they will be
 #' written to file as the javascript logicals, \code{true} and \code{false}.
 #'
-#' @details This plugin is for showing instructions to the subject. It allows
-#' subjects to navigate through multiple pages of instructions at their own pace,
-#' recording how long the subject spends on each page. Navigation can be done
-#' using the mouse or keyboard. Subjects can be allowed to navigate forwards
+#' @details The \code{trial_instructions()} function is used to generate trials
+#' that show instruction to the participant. It allows
+#' participants to navigate through multiple pages of instructions at their own pace,
+#' recording how long thet spend on each page. Navigation can be done
+#' using the mouse or keyboard. Participants can be allowed to navigate forwards
 #' and backwards through pages, if desired.
 #'
+#' \subsection{Specifying instructions}{
+#' \itemize{
+#' \item The \code{pages} argument is a required argument, and should be a
+#' character vector. Each element of the vector specifies the text to be
+#' displayed on a single instruction page, and can include HTML markup. Depending
+#' on parameter values, instruction pages can be navigated by clicking on screen
+#' buttons or else by using key presses.
+#'
+#' \item To navigate using buttons, the \code{show_clickable_nav} argument must
+#' be set to \code{TRUE}. If \code{allow_backward} is also
+#' set to \code{TRUE} this will create two buttons on screen, one allowing the
+#' participant to move forward to the next page, and another allowing them to
+#' move backward to the previous page. If \code{allow_backward = FALSE}, only
+#' the forward button is shown. The text labels for these buttons can be
+#' customised using the \code{button_label_previous} and \code{button_label_next}
+#' arguments.
+#'
+#' \item To navigate using key presses, the \code{allow_keys} argument must be
+#' set to \code{TRUE}. By default, the keyboard navigation uses the right arrow
+#' to move forward, and the the left arrow key to move back, but these can be
+#' customised using the \code{key_forward} and \code{key_backward} arguments. The
+#' values for these arguments should either be a numeric keycode or the corresponding
+#' character code. For an overview of these codes, see the \code{\link{keycode}()}
+#' function documentation.
+#' }
+#' }
+#'
+#' \subsection{Other behaviour}{
 #'
 #' Like all functions in the \code{trial_} family it contains four additional
 #' arguments:
@@ -60,8 +89,9 @@
 #' \item The \code{data} argument can be used to insert custom data values into
 #' the jsPsych data storage for this trial
 #' }
+#' }
 #'
-#' @section Data:
+#' \subsection{Data}{
 #'
 #' When this function is called from R it returns the trial object that will
 #' later be inserted into the experiment when \code{\link{build_experiment}}
@@ -87,6 +117,7 @@
 #' \item \code{trial_index} is a number that records the index of the current trial across the whole experiment.
 #' \item \code{time_elapsed} counts the number of milliseconds since the start of the experiment when the trial ended.
 #' \item \code{internal_node_id} is a string identifier for the current "node" in the timeline.
+#' }
 #' }
 #'
 #' @export
