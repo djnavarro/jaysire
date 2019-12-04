@@ -144,14 +144,14 @@
 <a href="#defining-instructions" class="anchor"></a>Defining instructions</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">welcome &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_keyboard_response.html">trial_html_keyboard_response</a></span>(</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">stimulus =</span> <span class="st">"Welcome to the experiment! Press any key to begin"</span>,</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">stage =</span> <span class="st">"start"</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">data =</span> <span class="kw"><a href="../reference/insert_property.html">insert_property</a></span>(<span class="dt">stage =</span> <span class="st">"start"</span>)</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">)</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">finish &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_keyboard_response.html">trial_html_keyboard_response</a></span>(</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="dt">stimulus =</span> <span class="st">"Thank you!"</span>, </a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="dt">choices =</span> <span class="kw"><a href="../reference/respond_no_key.html">respond_no_key</a></span>(),</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="dt">trial_duration =</span> <span class="dv">2000</span>,</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">  <span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">stage =</span> <span class="st">"end"</span>)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">  <span class="dt">data =</span> <span class="kw"><a href="../reference/insert_property.html">insert_property</a></span>(<span class="dt">stage =</span> <span class="st">"end"</span>)</a>
 <a class="sourceLine" id="cb3-11" data-line-number="11">)</a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13">page1 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(</a>
@@ -184,7 +184,7 @@
 <a class="sourceLine" id="cb3-40" data-line-number="40">  <span class="dt">show_clickable_nav =</span> <span class="ot">FALSE</span>,</a>
 <a class="sourceLine" id="cb3-41" data-line-number="41">  <span class="dt">allow_keys =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb3-42" data-line-number="42">  <span class="dt">post_trial_gap =</span> <span class="dv">2000</span>,</a>
-<a class="sourceLine" id="cb3-43" data-line-number="43">  <span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">stage =</span> <span class="st">"instruction"</span>)</a>
+<a class="sourceLine" id="cb3-43" data-line-number="43">  <span class="dt">data =</span> <span class="kw"><a href="../reference/insert_property.html">insert_property</a></span>(<span class="dt">stage =</span> <span class="st">"instruction"</span>)</a>
 <a class="sourceLine" id="cb3-44" data-line-number="44">)</a></code></pre></div>
 </div>
 <div id="defining-the-experiment-trials" class="section level2">
@@ -196,7 +196,7 @@
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">stimulus =</span> <span class="st">'&lt;div style="font-size:60px;"&gt;+&lt;/div&gt;'</span>,</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="dt">choices =</span> <span class="kw"><a href="../reference/respond_no_key.html">respond_no_key</a></span>(),</a>
 <a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="dt">trial_duration =</span> <span class="kw"><a href="../reference/fn_sample.html">fn_sample</a></span>(intervals, <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">stage =</span> <span class="st">"fixation"</span>)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="dt">data =</span> <span class="kw"><a href="../reference/insert_property.html">insert_property</a></span>(<span class="dt">stage =</span> <span class="st">"fixation"</span>)</a>
 <a class="sourceLine" id="cb4-8" data-line-number="8">)</a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10">test &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_image_keyboard_response.html">trial_image_keyboard_response</a></span>(</a>
@@ -204,7 +204,7 @@
 <a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="dt">stimulus_height =</span> <span class="dv">300</span>,</a>
 <a class="sourceLine" id="cb4-13" data-line-number="13">  <span class="dt">stimulus_width =</span> <span class="dv">300</span>,</a>
 <a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"f"</span>, <span class="st">"j"</span>),</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">  <span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">  <span class="dt">data =</span> <span class="kw"><a href="../reference/insert_property.html">insert_property</a></span>(</a>
 <a class="sourceLine" id="cb4-16" data-line-number="16">    <span class="dt">stage =</span> <span class="st">"choice"</span>, </a>
 <a class="sourceLine" id="cb4-17" data-line-number="17">    <span class="dt">colour =</span> <span class="kw"><a href="../reference/insert_variable.html">insert_variable</a></span>(<span class="st">"colour"</span>),</a>
 <a class="sourceLine" id="cb4-18" data-line-number="18">    <span class="dt">correct_key =</span> <span class="kw"><a href="../reference/insert_variable.html">insert_variable</a></span>(<span class="st">"correct_key"</span>)</a>
