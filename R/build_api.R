@@ -76,11 +76,29 @@ run_locally <- function(path, port = 8000) {
 #' @param path path to the experiment folder
 #' @param project_id the google app engine project id
 #'
+#' @details The purpose of the \code{run_appengine()} function is to make it
+#' somewhat easier to deploy a jsPsych experiment to Google App Engine, so that
+#' the experiment can run in the cloud rather than on the local machine.
+#' The \code{path} argument
+#' specifies the location of the experiment to be deployed, and should be the same
+#' as the value of \code{path} that was used when calling
+#' \code{\link{build_experiment}()}) to build the experiment originally. The
+#' \code{project_id} is the name of the Google App Engine project that will host
+#' the experiment.
+#'
+#' At present, the functionality of \code{run_appengine()} is quite limited. All
+#' it does is construct the appropriate command that you will need to enter at
+#' the terminal. It does not execute that command, nor does it assist you in
+#' creating the Google App Engine project itself (it is assumed that the user
+#' already has a Google Cloud account and is authorised to deploy to the project)
+#'
+#' @seealso \code{\link{fn_save_datastore}}, \code{\link{build_experiment}}
+#'
 #' @export
 run_appengine <- function(path, project_id) {
   app <- file.path(path, "experiment", "app.yaml")
   cmd <- paste0("gcloud app deploy ", app, " --project=", project_id)
-  cat("To deploy, enter the following command at the console:\n")
+  cat("To deploy, enter the following command at the terminal:\n")
   cat(cmd, "\n")
   return(invisible(cmd))
 }

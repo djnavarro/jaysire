@@ -171,13 +171,38 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The purpose of the <code>run_appengine()</code> function is to make it
+somewhat easier to deploy a jsPsych experiment to Google App Engine, so that
+the experiment can run in the cloud rather than on the local machine.
+The <code>path</code> argument
+specifies the location of the experiment to be deployed, and should be the same
+as the value of <code>path</code> that was used when calling
+<code><a href='build_experiment.html'>build_experiment</a>()</code>) to build the experiment originally. The
+<code>project_id</code> is the name of the Google App Engine project that will host
+the experiment.</p>
+<p>At present, the functionality of <code>run_appengine()</code> is quite limited. All
+it does is construct the appropriate command that you will need to enter at
+the terminal. It does not execute that command, nor does it assist you in
+creating the Google App Engine project itself (it is assumed that the user
+already has a Google Cloud account and is authorised to deploy to the project)</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='fn_save_datastore.html'>fn_save_datastore</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code></p></div>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>
