@@ -5,7 +5,10 @@ var timeline = {
       "stimulus": ["Welcome to the experiment! Press any key to begin"],
       "choices": jsPsych.ANY_KEY,
       "response_ends_trial": true,
-      "post_trial_gap": [0]
+      "post_trial_gap": [0],
+      "data": {
+        "stage": ["start"]
+      }
     },
     {
       "type": ["instructions"],
@@ -17,7 +20,10 @@ var timeline = {
       "show_clickable_nav": false,
       "button_label_previous": ["Previous"],
       "button_label_next": ["Next"],
-      "post_trial_gap": [2000]
+      "post_trial_gap": [2000],
+      "data": {
+        "stage": ["instruction"]
+      }
     },
     {
       "timeline": [
@@ -27,7 +33,10 @@ var timeline = {
           "choices": jsPsych.NO_KEY,
           "trial_duration": function() {  return jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1);},
           "response_ends_trial": true,
-          "post_trial_gap": [0]
+          "post_trial_gap": [0],
+          "data": {
+            "stage": ["fixation"]
+          }
         },
         {
           "type": ["image-keyboard-response"],
@@ -37,15 +46,24 @@ var timeline = {
           "maintain_aspect_ratio": true,
           "choices": ["f", "j"],
           "response_ends_trial": true,
-          "post_trial_gap": [0]
+          "post_trial_gap": [0],
+          "data": {
+            "stage": ["choice"],
+            "colour": jsPsych.timelineVariable('colour'),
+            "correct_key": jsPsych.timelineVariable('correct_key')
+          }
         }
       ],
       "timeline_variables": [
         {
-          "circle": ["resource/image/orange.png"]
+          "circle": ["resource/image/orange.png"],
+          "colour": ["orange"],
+          "correct_key": [70]
         },
         {
-          "circle": ["resource/image/blue.png"]
+          "circle": ["resource/image/blue.png"],
+          "colour": ["blue"],
+          "correct_key": [74]
         }
       ],
       "repetitions": [5],

@@ -47,13 +47,15 @@ list.files(resources)
 
 ```{r instructions}
 welcome <- trial_html_keyboard_response(
-  "Welcome to the experiment! Press any key to begin"
+  stimulus = "Welcome to the experiment! Press any key to begin",
+  data = list(stage = "start")
 )
 
 finish <- trial_html_keyboard_response(
   stimulus = "Thank you!", 
   choices = respond_no_key(),
-  trial_duration = 2000
+  trial_duration = 2000,
+  data = list(stage = "end")
 )
 
 page1 <- paste0(
@@ -85,7 +87,8 @@ instructions <- trial_instructions(
   pages = c(page1, page2, page3, page4, page5), 
   show_clickable_nav = FALSE,
   allow_keys = TRUE,
-  post_trial_gap = 2000
+  post_trial_gap = 2000,
+  data = list(stage = "instruction")
 )
 ```
 
@@ -97,18 +100,28 @@ intervals <- c(250, 500, 750, 1000, 1250, 1500, 1750, 2000)
 fixation <- trial_html_keyboard_response(
   stimulus = '<div style="font-size:60px;">+</div>',
   choices = respond_no_key(),
-  trial_duration = fn_sample(intervals, 1)
+  trial_duration = fn_sample(intervals, 1),
+  data = list(stage = "fixation")
 )
 
 test <- trial_image_keyboard_response(
   stimulus = insert_variable("circle"), 
   stimulus_height = 300,
   stimulus_width = 300,
-  choices = c("f", "j")
+  choices = c("f", "j"),
+  data = list(
+    stage = "choice", 
+    colour = insert_variable("colour"),
+    correct_key = insert_variable("correct_key")
+  )
 )
 
 trials <- build_timeline(fixation, test) %>%
-  tl_add_variables(circle = insert_resource(c("orange.png", "blue.png"))) %>%
+  tl_add_variables(
+    circle = insert_resource(c("orange.png", "blue.png")),
+    colour = c("orange", "blue"),
+    correct_key = keycode(c("f","j"))
+  ) %>%
   tl_add_parameters(repetitions = 5, randomize_order = TRUE)
 ```
 
