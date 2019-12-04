@@ -35,7 +35,18 @@
 #' indicating the correctness of the response is given.
 #'
 #' \subsection{Stimulus display}{
-#' TBA
+#'
+#' The \code{stimulus} argument should be a vector of
+#' paths to the image files, one per frame. The file paths should refer to
+#' the locations of the image files at the time the experiment is *deployed*,
+#' so it is often convenient to use the \code{\link{insert_resource}}
+#' function to construct these file paths automatically. The images will be
+#' displayed in the order that they appear in the \code{stimulus} vector.
+#'
+#' The behaviour of an animation trial can be customised in various ways. The
+#' \code{frame_time} parameter specifies the length of time (in milliseconds) that
+#' each image stays on screen. The \code{sequence_reps} argument specifies the
+#' number of times the sequence repeats.
 #' }
 #'
 #' \subsection{Response mechanism}{
@@ -58,6 +69,9 @@
 #' work with numeric codes, the jaysire package includes the
 #' \code{\link{keycode}()} function to make it easier to convert from one format
 #' to the other.
+#'
+#' If \code{allow_response_before_correct = TRUE} the participant is permitted
+#' to make a response before the stimulus display completes.
 #' }
 #'
 #' \subsection{Feedback}{
