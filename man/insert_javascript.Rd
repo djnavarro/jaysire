@@ -9,6 +9,20 @@ insert_javascript(string)
 \arguments{
 \item{string}{a string to be interpreted as javascript code}
 }
+\value{
+An object of class "json"
+}
 \description{
 Insert input as raw javascript
+}
+\details{
+As much as possible, the jaysire package has been designed to
+allow the user to write a behavioural experiment from R that runs through
+the browser using the jsPsych javascript library, with no need to write
+any javascript code. However, in some cases this will not be possible and
+the user may need to pass raw javascript code to the experiment (e.g., when
+specifying an "on_finish" callback function). To do so, the javascript should
+be specified as a \code{string} that is passed to \code{insert_javascript()}.
+What this does is assign the string to the S3 class "json", which in turn
+means that it will be written to the "experiment.js" file as is.
 }
