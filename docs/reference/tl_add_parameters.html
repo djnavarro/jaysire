@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Modify timeline to add parameters — tl_add_parameters • jaysire</title>
+<title>Modify a timeline to add parameters — tl_add_parameters • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Modify timeline to add parameters — tl_add_parameters" />
+<meta property="og:title" content="Modify a timeline to add parameters — tl_add_parameters" />
 
-<meta property="og:description" content="Modify timeline to add parameters" />
+<meta property="og:description" content="Modify a timeline to add parameters" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -136,14 +136,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Modify timeline to add parameters</h1>
+    <h1>Modify a timeline to add parameters</h1>
     <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/timeline_modify.R'><code>R/timeline_modify.R</code></a></small>
     <div class="hidden name"><code>tl_add_parameters.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Modify timeline to add parameters</p>
+    <p>Modify a timeline to add parameters</p>
     
     </div>
 
@@ -154,21 +154,60 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>timeline</th>
-      <td><p>the timeline object</p></td>
+      <td><p>The timeline object</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>name value pairs</p></td>
+      <td><p>A set of name/value pairs defining the parameters</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>The modified timeline object</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>tl_add_parameters()</code> function provides a general
+purpose method of adding arbitrary parameters to an existing
+<code>timeline</code>. Anything that jsPsych recognises as a possible
+timeline parameter can be inserted using this method. Some possibilities
+are shown in the examples section.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='build_timeline.html'>build_timeline</a></code>, <code><a href='tl_add_variables.html'>tl_add_variables</a></code></p></div>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># typically we begin with a trial template:</span>
+<span class='no'>trial_template</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='trial_html_button_response.html'>trial_html_button_response</a></span>(
+     <span class='kw'>stimulus</span> <span class='kw'>=</span> <span class='fu'><a href='insert_variable.html'>insert_variable</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"my_stimulus"</span>),
+     <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"true"</span>, <span class='st'>"false"</span>)
+ )
+
+ <span class='co'># then we fill it out so that there is now a "block" of trials:</span>
+ <span class='no'>equations</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"13 + 23 = 36"</span>,  <span class='st'>"17 - 9 = 6"</span>, <span class='st'>"125 / 5 = 25"</span>)
+ <span class='no'>trials</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='build_timeline.html'>build_timeline</a></span>(<span class='no'>trial_template</span>) <span class='kw'>%&gt;%</span>
+     <span class='fu'><a href='tl_add_variables.html'>tl_add_variables</a></span>(<span class='kw'>my_stimulus</span> <span class='kw'>=</span> <span class='no'>equations</span>)
+
+ <span class='co'># we can randomise presentation order and repeat the block:</span>
+ <span class='no'>trials</span> <span class='kw'>&lt;-</span> <span class='no'>trials</span> <span class='kw'>%&gt;%</span>
+     <span class='fu'>tl_add_parameters</span>(<span class='kw'>randomize_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>repetitions</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

@@ -1,8 +1,34 @@
 
-#' Modify timeline to attach variables
+#' Modify a timeline to attach variables
 #'
-#' @param timeline the timeline object
-#' @param ... name value pairs
+#' @param timeline The timeline object
+#' @param ... A set of name/value pairs defining the timeline variables
+#' @return The modified timeline object
+#'
+#' @details When creating an experiment, a common pattern is to create a
+#' series of trials that are identical in every respect except for one thing
+#' that varies across the trial (e.g., a collection of
+#' \code{\link{trial_html_button_response}()} trials that are the same except
+#' for the text that is displayed). A natural way to handle this in the
+#' jsPsych framework is to create the trial in the usual fashion, except that
+#' instead of specifying the \emph{value} that needs to be included in the
+#' trial (e.g., the text itself) the code includes a reference to a
+#' \emph{timeline variable}. Inserting the \emph{reference} to the variable
+#' is the job of the \code{\link{insert_variable}()} function; \emph{attaching}
+#' that variable to the timeline and specifying its possible values is the
+#' job of \code{tl_add_variables}. This is most easily explained by using
+#' an example, as shown below.
+#'
+#' @examples
+#' # create a template from which a series of trials can be built
+#' template <- trial_html_button_response(stimulus = insert_variable("animal"))
+#'
+#' # create a timeline with three trials, all using the same template
+#' # but with a different value for the "animal" variable
+#' timeline <- build_timeline(template) %>%
+#'   tl_add_variables(animal = c("cat", "dog", "pig"))
+#'
+#' @seealso \code{\link{build_timeline}}, \code{\link{insert_variable}}
 #'
 #' @export
 tl_add_variables <- function(timeline, ...) {
@@ -12,10 +38,35 @@ tl_add_variables <- function(timeline, ...) {
   return(timeline)
 }
 
-#' Modify timeline to add parameters
+#' Modify a timeline to add parameters
 #'
-#' @param timeline the timeline object
-#' @param ... name value pairs
+#' @param timeline The timeline object
+#' @param ... A set of name/value pairs defining the parameters
+#' @return The modified timeline object
+#'
+#' @details The \code{tl_add_parameters()} function provides a general
+#' purpose method of adding arbitrary parameters to an existing
+#' \code{timeline}. Anything that jsPsych recognises as a possible
+#' timeline parameter can be inserted using this method. Some possibilities
+#' are shown in the examples section.
+#'
+#' @seealso \code{\link{build_timeline}}, \code{\link{tl_add_variables}}
+#'
+#' @examples
+#' # typically we begin with a trial template:
+#' trial_template <- trial_html_button_response(
+#'      stimulus = insert_variable(name = "my_stimulus"),
+#'      choices = c("true", "false")
+#'  )
+#'
+#'  # then we fill it out so that there is now a "block" of trials:
+#'  equations <- c("13 + 23 = 36",  "17 - 9 = 6", "125 / 5 = 25")
+#'  trials <- build_timeline(trial_template) %>%
+#'      tl_add_variables(my_stimulus = equations)
+#'
+#'  # we can randomise presentation order and repeat the block:
+#'  trials <- trials %>%
+#'      tl_add_parameters(randomize_order = TRUE, repetitions = 2)
 #'
 #' @export
 tl_add_parameters <- function(timeline, ...) {
@@ -25,8 +76,8 @@ tl_add_parameters <- function(timeline, ...) {
 
 #' Modify a timeline to execute within a loop
 #'
-#' @param timeline the timeline object
-#' @param loop_function javascript function that returns true if loop repeats, false if terminates
+#' @param timeline The timeline object
+#' @param loop_function A javascript function that returns true if loop repeats, false if terminates
 #'
 #' @return The modified timeline object
 #'

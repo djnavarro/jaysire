@@ -2,15 +2,46 @@
 % Please edit documentation in R/timeline_modify.R
 \name{tl_add_variables}
 \alias{tl_add_variables}
-\title{Modify timeline to attach variables}
+\title{Modify a timeline to attach variables}
 \usage{
 tl_add_variables(timeline, ...)
 }
 \arguments{
-\item{timeline}{the timeline object}
+\item{timeline}{The timeline object}
 
-\item{...}{name value pairs}
+\item{...}{A set of name/value pairs defining the timeline variables}
+}
+\value{
+The modified timeline object
 }
 \description{
-Modify timeline to attach variables
+Modify a timeline to attach variables
+}
+\details{
+When creating an experiment, a common pattern is to create a
+series of trials that are identical in every respect except for one thing
+that varies across the trial (e.g., a collection of
+\code{\link{trial_html_button_response}()} trials that are the same except
+for the text that is displayed). A natural way to handle this in the
+jsPsych framework is to create the trial in the usual fashion, except that
+instead of specifying the \emph{value} that needs to be included in the
+trial (e.g., the text itself) the code includes a reference to a
+\emph{timeline variable}. Inserting the \emph{reference} to the variable
+is the job of the \code{\link{insert_variable}()} function; \emph{attaching}
+that variable to the timeline and specifying its possible values is the
+job of \code{tl_add_variables}. This is most easily explained by using
+an example, as shown below.
+}
+\examples{
+# create a template from which a series of trials can be built
+template <- trial_html_button_response(stimulus = insert_variable("animal"))
+
+# create a timeline with three trials, all using the same template
+# but with a different value for the "animal" variable
+timeline <- build_timeline(template) \%>\%
+  tl_add_variables(animal = c("cat", "dog", "pig"))
+
+}
+\seealso{
+\code{\link{build_timeline}}, \code{\link{insert_variable}}
 }

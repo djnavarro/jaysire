@@ -7,9 +7,9 @@
 tl_display_while(timeline, loop_function)
 }
 \arguments{
-\item{timeline}{the timeline object}
+\item{timeline}{The timeline object}
 
-\item{loop_function}{javascript function that returns true if loop repeats, false if terminates}
+\item{loop_function}{A javascript function that returns true if loop repeats, false if terminates}
 }
 \value{
 The modified timeline object

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Modify timeline to attach variables — tl_add_variables • jaysire</title>
+<title>Modify a timeline to attach variables — tl_add_variables • jaysire</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Modify timeline to attach variables — tl_add_variables" />
+<meta property="og:title" content="Modify a timeline to attach variables — tl_add_variables" />
 
-<meta property="og:description" content="Modify timeline to attach variables" />
+<meta property="og:description" content="Modify a timeline to attach variables" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -136,14 +136,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Modify timeline to attach variables</h1>
+    <h1>Modify a timeline to attach variables</h1>
     <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/timeline_modify.R'><code>R/timeline_modify.R</code></a></small>
     <div class="hidden name"><code>tl_add_variables.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Modify timeline to attach variables</p>
+    <p>Modify a timeline to attach variables</p>
     
     </div>
 
@@ -154,21 +154,61 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>timeline</th>
-      <td><p>the timeline object</p></td>
+      <td><p>The timeline object</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>name value pairs</p></td>
+      <td><p>A set of name/value pairs defining the timeline variables</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>The modified timeline object</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>When creating an experiment, a common pattern is to create a
+series of trials that are identical in every respect except for one thing
+that varies across the trial (e.g., a collection of
+<code><a href='trial_html_button_response.html'>trial_html_button_response</a>()</code> trials that are the same except
+for the text that is displayed). A natural way to handle this in the
+jsPsych framework is to create the trial in the usual fashion, except that
+instead of specifying the <em>value</em> that needs to be included in the
+trial (e.g., the text itself) the code includes a reference to a
+<em>timeline variable</em>. Inserting the <em>reference</em> to the variable
+is the job of the <code><a href='insert_variable.html'>insert_variable</a>()</code> function; <em>attaching</em>
+that variable to the timeline and specifying its possible values is the
+job of <code>tl_add_variables</code>. This is most easily explained by using
+an example, as shown below.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='build_timeline.html'>build_timeline</a></code>, <code><a href='insert_variable.html'>insert_variable</a></code></p></div>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># create a template from which a series of trials can be built</span>
+<span class='no'>template</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='trial_html_button_response.html'>trial_html_button_response</a></span>(<span class='kw'>stimulus</span> <span class='kw'>=</span> <span class='fu'><a href='insert_variable.html'>insert_variable</a></span>(<span class='st'>"animal"</span>))
+
+<span class='co'># create a timeline with three trials, all using the same template</span>
+<span class='co'># but with a different value for the "animal" variable</span>
+<span class='no'>timeline</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='build_timeline.html'>build_timeline</a></span>(<span class='no'>template</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>tl_add_variables</span>(<span class='kw'>animal</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"cat"</span>, <span class='st'>"dog"</span>, <span class='st'>"pig"</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

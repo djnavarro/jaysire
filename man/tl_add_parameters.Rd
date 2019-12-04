@@ -2,15 +2,45 @@
 % Please edit documentation in R/timeline_modify.R
 \name{tl_add_parameters}
 \alias{tl_add_parameters}
-\title{Modify timeline to add parameters}
+\title{Modify a timeline to add parameters}
 \usage{
 tl_add_parameters(timeline, ...)
 }
 \arguments{
-\item{timeline}{the timeline object}
+\item{timeline}{The timeline object}
 
-\item{...}{name value pairs}
+\item{...}{A set of name/value pairs defining the parameters}
+}
+\value{
+The modified timeline object
 }
 \description{
-Modify timeline to add parameters
+Modify a timeline to add parameters
+}
+\details{
+The \code{tl_add_parameters()} function provides a general
+purpose method of adding arbitrary parameters to an existing
+\code{timeline}. Anything that jsPsych recognises as a possible
+timeline parameter can be inserted using this method. Some possibilities
+are shown in the examples section.
+}
+\examples{
+# typically we begin with a trial template:
+trial_template <- trial_html_button_response(
+     stimulus = insert_variable(name = "my_stimulus"),
+     choices = c("true", "false")
+ )
+
+ # then we fill it out so that there is now a "block" of trials:
+ equations <- c("13 + 23 = 36",  "17 - 9 = 6", "125 / 5 = 25")
+ trials <- build_timeline(trial_template) \%>\%
+     tl_add_variables(my_stimulus = equations)
+
+ # we can randomise presentation order and repeat the block:
+ trials <- trials \%>\%
+     tl_add_parameters(randomize_order = TRUE, repetitions = 2)
+
+}
+\seealso{
+\code{\link{build_timeline}}, \code{\link{tl_add_variables}}
 }
