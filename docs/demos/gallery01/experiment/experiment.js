@@ -9,12 +9,12 @@ var timeline = {
     },
     {
       "type": ["instructions"],
-      "pages": ["In this experiment, a circle will appear in the centre of the screen. If the circle is <b>blue<\/b>, press the letter F on the keyboard as fast as you can. If the circle is <b>orange<\/b>, press the letter J as fast asyou can. Click 'Next' to see examples.<br>", "If you see this blue circle, press F. <br><img src = 'resource/image/blue.png' width = 300px>", "If you see this orange circle, press J. <br><img src = 'resource/image/orange.png' width = 300px>", "Click the 'Next' button when you are ready to begin."],
-      "key_forward": ["rightarrow"],
-      "key_backward": ["leftarrow"],
+      "pages": ["To navigate these instructions, use the arrow keys on your keyboard. The right arrow will move you forward one page, and the left arrow will move you back one page. Press the right arrow key to continue.", "In this experiment, a circle will appear in the centre of the screen. If the circle is <b>blue<\/b>, press the letter F on the keyboard as fast as you can. If the circle is <b>orange<\/b>, press the letter J as fast asyou can.<br>", "If you see this blue circle, you should press F. <br><img src = 'resource/image/blue.png' width = 300px>", "If you see this orange circle, you should press J. <br><img src = 'resource/image/orange.png' width = 300px>", "When you are ready to begin, press the right arrow key."],
+      "key_forward": [39],
+      "key_backward": [37],
       "allow_backward": true,
       "allow_keys": true,
-      "show_clickable_nav": true,
+      "show_clickable_nav": false,
       "button_label_previous": ["Previous"],
       "button_label_next": ["Next"],
       "post_trial_gap": [2000]

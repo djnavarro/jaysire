@@ -4,8 +4,8 @@
 \alias{trial_instructions}
 \title{Specify pages of instructions to display}
 \usage{
-trial_instructions(pages, key_forward = "rightarrow",
-  key_backward = "leftarrow", allow_backward = TRUE,
+trial_instructions(pages, key_forward = keycode("right arrow"),
+  key_backward = keycode("left arrow"), allow_backward = TRUE,
   allow_keys = TRUE, show_clickable_nav = FALSE,
   button_label_previous = "Previous", button_label_next = "Next",
   post_trial_gap = 0, on_finish = NULL, on_load = NULL,

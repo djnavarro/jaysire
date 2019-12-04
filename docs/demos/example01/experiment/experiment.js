@@ -5,8 +5,8 @@ var timeline = {
         {
           "type": ["instructions"],
           "pages": ["Welcome! Use the arrow buttons to browse these instructions", "Your task is to decide if an equation like '2 + 2 = 4' is true or false", "You will respond by clicking a button", "Press the 'Next' button to begin!"],
-          "key_forward": ["rightarrow"],
-          "key_backward": ["leftarrow"],
+          "key_forward": [39],
+          "key_backward": [37],
           "allow_backward": true,
           "allow_keys": true,
           "show_clickable_nav": true,

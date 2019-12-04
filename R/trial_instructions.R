@@ -123,8 +123,8 @@
 #' @export
 trial_instructions <- function(
   pages,
-  key_forward = "rightarrow",
-  key_backward = "leftarrow",
+  key_forward = keycode("right arrow"),
+  key_backward = keycode("left arrow"),
   allow_backward = TRUE,
   allow_keys = TRUE,
   show_clickable_nav = FALSE,
