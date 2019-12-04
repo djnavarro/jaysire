@@ -158,12 +158,41 @@
 
     <pre class="usage"><span class='fu'>fn_save_locally</span>()</pre>
         
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A javascript function to save data locally</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The purpose of the <code>fn_save_locally()</code> is to return a
+javascript function that, when called from within the jsPsych experiment,
+will write the data to a CSV file on the local machine (in the data folder
+associated with the experiment). The intention is that when an experiment is
+to be deployed locally (i.e., using the <code><a href='run_locally.html'>run_locally</a>()</code> function
+to run the experiment using an R server on the local machine), the
+<code>fn_save_locally()</code> function provides the mechanism for saving the data.
+If the goal is simply to save the data set at the end of the experiment, the
+easiest way to do this is when building the experiment using
+<code><a href='build_experiment.html'>build_experiment</a>()</code>. Specifically, the method for doing this is
+to include the argument <code>on_finish = fn_save_locally()</code> as part of the
+call to <code><a href='build_experiment.html'>build_experiment</a>()</code>.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='run_locally.html'>run_locally</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code></p></div>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>
