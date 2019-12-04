@@ -1,5 +1,5 @@
 ---
-title: "1. Choice RT task"
+title: "8. A choice reaction time task"
 ---
 
 ```{r, include = FALSE}
@@ -124,7 +124,7 @@ build_experiment(
 )
 ```
 
-Working version of the experiment [here](../demos/gallery01/experiment/index.html).
+Working version of the experiment [here](../demos/example08/experiment/index.html).
 
 ```{r include=FALSE, message=FALSE, warning=FALSE}
 finish <- trial_html_keyboard_response(
@@ -136,7 +136,7 @@ finish <- trial_html_keyboard_response(
 build_experiment(
   timeline = build_timeline(welcome, instructions, trials, finish),
   resources = build_resources(resources),
-  path =  here::here("docs", "demos", "gallery01")
+  path =  here::here("docs", "demos", "example08")
 )
 ```
 

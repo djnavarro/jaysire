@@ -39,11 +39,8 @@ navbar:
         href: articles/jaysire06.html
       - text: 7. Loops and branches
         href: articles/jaysire07.html
-    gallery:
-      text: Gallery
-      menu:
-      - text: 1. Choice RT task
-        href: articles/experiment01.html
+      - text: 8. A choice RT task
+        href: articles/jaysire08.html
     github:
       icon: fab fa-github fa-lg
       href: https://github.com/djnavarro/jaysire
