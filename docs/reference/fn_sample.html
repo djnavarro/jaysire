@@ -181,14 +181,23 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Javascript function</p>
+    <p>Returns a javascript function that samples from an array of values</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Loosely mirrors the sample function in base, but uses the jsPsych
-randomisation functions to execute client side at runtime. At the moment it
-does not work when x is a character vector, and always returns an array even
-if the output is of length 1</p>
+    <p>The <code>fn_sample()</code> is used to return a function that, when called
+from within a jsPsych experiment, will mirror the behaviour of the <code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code>
+function from the base package using th jsPsych randomisation functions to
+at runtime. The input argument <code>x</code> specifies the set of values from which
+samples should be drawn, and the <code>size</code> argument specifies the number of
+samples to be drawn. When <code>replace = TRUE</code> items are sampled with
+replacement, and when <code>replace = FALSE</code> items are sampled without
+replacement. When sampling with replacement, the <code>weights</code> argument can
+be used to specify unequal sampling probabilities.</p>
+<p>The current implementation is limited. It does not work when <code>x</code> is a
+character vector, for example. Note also that the value returned within
+the jsPsych experiment is always an array (not a scalar), even when
+<code>size = 1</code>.</p>
     
 
   </div>
