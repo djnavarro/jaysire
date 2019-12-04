@@ -55,7 +55,7 @@ remotes::install_github("djnavarro/jaysire")
 
 ## Getting started
 
-There are a series of tutorial articles on the package website:
+There are a series of tutorial articles:
 
 1.  [Getting
     started](https://djnavarro.github.io/jaysire/articles/jaysire01.html)
@@ -71,6 +71,8 @@ There are a series of tutorial articles on the package website:
     pages](https://djnavarro.github.io/jaysire/articles/jaysire06.html)
 7.  [Loops and
     branches](https://djnavarro.github.io/jaysire/articles/jaysire07.html)
+8.  [A choice reaction time
+    task](https://djnavarro.github.io/jaysire/articles/jaysire08.html)
 
 ## Related packages
 
