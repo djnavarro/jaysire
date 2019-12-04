@@ -65,7 +65,37 @@
 #' }
 #'
 #' \subsection{Feedback}{
-#' TBA
+#'
+#' In a categorisation trial, there is always presumed to be a "correct" response
+#' for any given stimulus, and the participant is presented with feedback after
+#' the response is given. This feedback can be customised in several ways:
+#'
+#' \itemize{
+#' \item The \code{key_answer} argument specifies the numeric \code{\link{keycode}}
+#' that corresponds to the correct response for the current trial.
+#' \item The \code{correct_text} and \code{incorrect_text} arguments are used to
+#' customise the feedback text that is presented to the participant after a
+#' response is given. In both cases, there is a special value \code{"\%ANS\%"} that
+#' can be used, and will be substituted with the value of \code{text_answer}.
+#' For example if we set \code{text_answer = "WUG"}, we could then set
+#' \code{correct_text = "Correct! This is a \%ANS\%"} and
+#' \code{incorrect_text = "Wrong. This is a \%ANS\%"}. This functionality can be
+#' particularly useful if the values of \code{text_answer} and \code{stimulus}
+#' are specified using timeline variables (see \code{\link{insert_variable}()} and
+#' \code{\link{tl_add_variables}()}).
+#' \item The \code{force_correct_button_press} argument is a logical variable.
+#' If set to \code{TRUE} the participant cannot move forward to the next trial
+#' until the correct response is given.
+#' \item When \code{show_stim_with_feedback = TRUE}, the \code{stimulus} remains
+#' on screen while the feedback is presented. If it is set to \code{FALSE} the
+#' stimulus is not visible.
+#' \item Sometimes a categorisation trial has a deadline, specified by the value
+#' of \code{trial_duration}. If a response is not given by that time, the trial
+#' ends. Optionally, a feedback screen can be presented whenever this occurs,
+#' by setting \code{show_feedback_on_timeout = FALSE}, and the text of this
+#' feedback is specified by using the \code{timeout_message} argument.
+#' }
+#'
 #' }
 #'
 #' \subsection{Other behaviour}{

@@ -291,7 +291,37 @@ to the other.
 
 <h3>Feedback</h3>
 
-TBA
+
+In a categorisation trial, there is always presumed to be a "correct" response
+for any given stimulus, and the participant is presented with feedback after
+the response is given. This feedback can be customised in several ways:
+
+<ul>
+<li><p>The <code>key_answer</code> argument specifies the numeric <code><a href='keycode.html'>keycode</a></code>
+that corresponds to the correct response for the current trial.</p></li>
+<li><p>The <code>correct_text</code> and <code>incorrect_text</code> arguments are used to
+customise the feedback text that is presented to the participant after a
+response is given. In both cases, there is a special value <code>"%ANS%"</code> that
+can be used, and will be substituted with the value of <code>text_answer</code>.
+For example if we set <code>text_answer = "WUG"</code>, we could then set
+<code>correct_text = "Correct! This is a %ANS%"</code> and
+<code>incorrect_text = "Wrong. This is a %ANS%"</code>. This functionality can be
+particularly useful if the values of <code>text_answer</code> and <code>stimulus</code>
+are specified using timeline variables (see <code><a href='insert_variable.html'>insert_variable</a>()</code> and
+<code><a href='tl_add_variables.html'>tl_add_variables</a>()</code>).</p></li>
+<li><p>The <code>force_correct_button_press</code> argument is a logical variable.
+If set to <code>TRUE</code> the participant cannot move forward to the next trial
+until the correct response is given.</p></li>
+<li><p>When <code>show_stim_with_feedback = TRUE</code>, the <code>stimulus</code> remains
+on screen while the feedback is presented. If it is set to <code>FALSE</code> the
+stimulus is not visible.</p></li>
+<li><p>Sometimes a categorisation trial has a deadline, specified by the value
+of <code>trial_duration</code>. If a response is not given by that time, the trial
+ends. Optionally, a feedback screen can be presented whenever this occurs,
+by setting <code>show_feedback_on_timeout = FALSE</code>, and the text of this
+feedback is specified by using the <code>timeout_message</code> argument.</p></li>
+</ul>
+
 
 
 <h3>Other behaviour</h3>

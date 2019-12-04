@@ -61,7 +61,27 @@
 #' }
 #'
 #' \subsection{Feedback}{
-#' TBA
+#'
+#' In a categorisation trial, there is always presumed to be a "correct" response
+#' for any given stimulus, and the participant is presented with feedback after
+#' the response is given. This feedback can be customised in several ways:
+#'
+#' \itemize{
+#' \item The \code{key_answer} argument specifies the numeric \code{\link{keycode}}
+#' that corresponds to the correct response for the current trial.
+#' \item The \code{correct_text} and \code{incorrect_text} arguments are used to
+#' customise the feedback text that is presented to the participant after a
+#' response is given. In both cases, there is a special value \code{"\%ANS\%"} that
+#' can be used, and will be substituted with the value of \code{text_answer}.
+#' For example if we set \code{text_answer = "WUG"}, we could then set
+#' \code{correct_text = "Correct! This is a \%ANS\%"} and
+#' \code{incorrect_text = "Wrong. This is a \%ANS\%"}. This functionality can be
+#' particularly useful if the values of \code{text_answer} and \code{stimulus}
+#' are specified using timeline variables (see \code{\link{insert_variable}()} and
+#' \code{\link{tl_add_variables}()}).
+#' \item The \code{feedback_duration} argument specifies the length of time the
+#' feedback is displayed, in milliseconds.
+#' }
 #' }
 #'
 #' \subsection{Other behaviour}{
