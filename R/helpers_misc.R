@@ -5,6 +5,19 @@
 #' Response is accepted with any key press
 #'
 #' @export
+#' @details Many of the functions within the \code{trial_} family are designed
+#' to allow participants to respond using a key press, generally by specifying a
+#' a \code{choices} argument that indicates which keys will be accepted as valid
+#' responses (e.g., \code{choices = c("f","j")}). There are also cases where
+#' you may wish to allow every key to be a valid response (e.g., in situations
+#' where "Press any key to continue" is a sensible prompt).
+#' In those cases, specifying \code{choices = respond_any_key()} will
+#' produce the desired behaviour.
+#'
+#' @seealso \code{\link{respond_no_key}}, \code{\link{trial_html_keyboard_response}},
+#' \code{\link{trial_image_keyboard_response}}, \code{\link{trial_audio_keyboard_response}},
+#' \code{\link{trial_video_keyboard_response}}
+#'
 respond_any_key <- function() {
   js_code("jsPsych.ANY_KEY")
 }
@@ -12,6 +25,19 @@ respond_any_key <- function() {
 #' Response is not accepted for any key press
 #'
 #' @export
+#'
+#' @details Many of the functions within the \code{trial_} family are designed
+#' to allow participants to respond using a key press, generally by specifying a
+#' a \code{choices} argument that indicates which keys will be accepted as valid
+#' responses (e.g., \code{choices = c("f","j")}). There are also cases where
+#' you may wish to disable this, so that no key presses will be counted as valid
+#' responses (e.g., when a trial runs for a fixed duration but no response is
+#' expected). In those cases, specifying \code{choices = respond_no_key()} will
+#' produce the desired behaviour.
+#'
+#' @seealso \code{\link{respond_any_key}}, \code{\link{trial_html_keyboard_response}},
+#' \code{\link{trial_image_keyboard_response}}, \code{\link{trial_audio_keyboard_response}},
+#' \code{\link{trial_video_keyboard_response}}
 respond_no_key <- function() {
   js_code("jsPsych.NO_KEY")
 }

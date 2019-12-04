@@ -158,12 +158,33 @@
 
     <pre class="usage"><span class='fu'>respond_no_key</span>()</pre>
         
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Many of the functions within the <code>trial_</code> family are designed
+to allow participants to respond using a key press, generally by specifying a
+a <code>choices</code> argument that indicates which keys will be accepted as valid
+responses (e.g., <code>choices = c("f","j")</code>). There are also cases where
+you may wish to disable this, so that no key presses will be counted as valid
+responses (e.g., when a trial runs for a fixed duration but no response is
+expected). In those cases, specifying <code>choices = respond_no_key()</code> will
+produce the desired behaviour.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='respond_any_key.html'>respond_any_key</a></code>, <code><a href='trial_html_keyboard_response.html'>trial_html_keyboard_response</a></code>,
+<code><a href='trial_image_keyboard_response.html'>trial_image_keyboard_response</a></code>, <code><a href='trial_audio_keyboard_response.html'>trial_audio_keyboard_response</a></code>,
+<code><a href='trial_video_keyboard_response.html'>trial_video_keyboard_response</a></code></p></div>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>
