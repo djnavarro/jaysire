@@ -182,6 +182,36 @@ A trial object is simply a list containing the input arguments, with
 and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, <code>true</code> and <code>false</code>.</p>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>trial_generic()</code> function is the most flexible of
+all the functions within the <code>trial_</code> family, and can be use to
+insert a trial of any <code>type</code>. For example, by setting
+<code>type = "image-keyboard-response"</code>, it will create an image trial
+using a keyboard response, precisely analogous to trials created using
+the <code><a href='trial_image_keyboard_response.html'>trial_image_keyboard_response</a>()</code> function. More generally
+the <code>type</code> value should be a string that specifies the name of the
+corresponding jsPsych plugin file: in this case, the file name for the
+plugin "jspsych-image-keyboard-response.js" so the corresponding <code>type</code>
+value is "image-keyboard-response".</p>
+<p>While the advantage to <code>trial_generic()</code> is flexibility, the disadvantage
+is that all arguments to the plugin must be specified as named arguments passed
+via <code>...</code>, and it can take some trial and error to get a novel plugin to
+behave in the expected fashion. For example, if a particular argument to the
+jsPsych plugin takes a logical value, it may not always be sufficient to
+use logical values <code>TRUE</code> or <code>FALSE</code> when the trial is constructed
+from within R. The reason for this is that when the R code is converted to
+javascript (using the jsonlite package), it <em>does</em> correctly convert
+the R logicals <code>TRUE</code> and <code>FALSE</code> to the corresponding javascript
+logical values <code>true</code> and <code>false</code>, but by default this value is
+written to a javascript array of length one rather than recorded as a scalar
+value (i.e., the javascript code becomes <code>[true]</code> rather than <code>true</code>).
+When this occurs, jsPsych often does not produce the desired behaviour as
+these two entities are not considered equivalent in javascript.</p>
+<p>In future versions of jaysire there may be better support for arbitary
+plugins, but for the moment users should be aware that <code>trial_generic()</code>
+can be somewhat finicky to work with.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -190,6 +220,8 @@ written to file as the javascript logicals, <code>true</code> and <code>false</c
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
           </ul>
 
   </div>
