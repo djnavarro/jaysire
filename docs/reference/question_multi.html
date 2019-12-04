@@ -184,6 +184,30 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A question object to be passed to <code><a href='trial_survey_multi_choice.html'>trial_survey_multi_choice</a>()</code>
+or <code><a href='trial_survey_multi_select.html'>trial_survey_multi_select</a>()</code>.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>question_multi()</code> function is designed to be called when
+using <code><a href='trial_survey_multi_choice.html'>trial_survey_multi_choice</a>()</code> to construct a survey page that
+contains multiple choice items, or <code><a href='trial_survey_multi_select.html'>trial_survey_multi_select</a>()</code> to
+construct one with multi-selection items.</p>
+<p>When rendered as part of the study, the text specified
+by the <code>prompt</code> argument is shown to the participant, with a set of
+options presented either as radio buttons (for a multiple choice trial) or
+checkboxes (for a multiple selection trial). The text placed adjacent to the
+response options is specified by the <code>options</code> argument, and by default
+the options are laid out vertically. A horizontal arrangement can be
+produced by setting <code>horizontal = TRUE</code>. If <code>required = TRUE</code> the
+participant will not
+be allowed to continue to the next trial unless an answer is provided.</p>
+<p>The <code>name</code> argument should be a string that provides a convenient
+label for the question. If left unspecified, jsPsych defaults to labelling
+the questions within a survey page as "Q0", "Q1", "Q2", etc.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Survey page trials are constructed using the <code><a href='trial_survey_text.html'>trial_survey_text</a></code>,
@@ -199,6 +223,10 @@ trials can be specified using <code><a href='question_text.html'>question_text</
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
       <li><a href="#see-also">See also</a></li>
           </ul>
 

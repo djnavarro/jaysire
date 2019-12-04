@@ -148,6 +148,28 @@ trial_survey_multi_choice <- function(
 #' @param required is a response to the question required?
 #' @param name a convenient label for the question
 #'
+#' @return A question object to be passed to \code{\link{trial_survey_multi_choice}()}
+#' or \code{\link{trial_survey_multi_select}()}.
+#'
+#' @details The \code{question_multi()} function is designed to be called when
+#' using \code{\link{trial_survey_multi_choice}()} to construct a survey page that
+#' contains multiple choice items, or \code{\link{trial_survey_multi_select}()} to
+#' construct one with multi-selection items.
+#'
+#' When rendered as part of the study, the text specified
+#' by the \code{prompt} argument is shown to the participant, with a set of
+#' options presented either as radio buttons (for a multiple choice trial) or
+#' checkboxes (for a multiple selection trial). The text placed adjacent to the
+#' response options is specified by the \code{options} argument, and by default
+#' the options are laid out vertically. A horizontal arrangement can be
+#' produced by setting \code{horizontal = TRUE}. If \code{required = TRUE} the
+#' participant will not
+#' be allowed to continue to the next trial unless an answer is provided.
+#'
+#' The \code{name} argument should be a string that provides a convenient
+#' label for the question. If left unspecified, jsPsych defaults to labelling
+#' the questions within a survey page as "Q0", "Q1", "Q2", etc.
+#'
 #' @seealso Survey page trials are constructed using the \code{\link{trial_survey_text}},
 #' \code{\link{trial_survey_likert}}, \code{\link{trial_survey_multi_choice}} and
 #' \code{\link{trial_survey_multi_select}} functions. Individual questions for survey
