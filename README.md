@@ -78,6 +78,10 @@ There are a series of tutorial articles:
 
   - The [jsPsychR](https://github.com/CrumpLab/jspsychr) package by Matt
     Crump
+  - The [formr](https://github.com/rubenarslan/formr) package by Ruben
+    Arslan
+  - The [psychTestR](https://pmcharrison.github.io/psychTestR/) package
+    by Peter Harrison
   - My [xprmtnr](https://github.com/djnavarro/xprmntr) package (in
     development)
 
