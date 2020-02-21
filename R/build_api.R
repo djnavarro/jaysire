@@ -102,3 +102,109 @@ run_appengine <- function(path, project_id) {
   cat(cmd, "\n")
   return(invisible(cmd))
 }
+
+
+#' Deploy a jspsych experiment to a webserver
+#'
+#' @param path path to the experiment folder
+#' @param ssh ssh connection string to a webserver
+#' @param keyfile (optional) path to a ssh private key to log in to your webserver
+#' @param webserver_configured set this to true when you've configured your webserver
+#'
+#' @details The purpose of the \code{run_webserver()} function is to make it
+#' somewhat easier to deploy a jsPsych experiment to a webserver that you control,
+#' so that the experiment can run in the cloud rather than on the local machine.
+#'
+#' For this to work, you need to configure your webserver first. On a recent ubuntu image
+#' (available from most cloud providers), you can install apache and php with
+#' "\code{sudo apt install apache2 php}". You should probably also secure the connection
+#' between the webserver and the participants with https. If you have configured a domain
+#' name for your server, it is pretty simple to enable https via let's encrypt:
+#' "\code{sudo add-apt-repository ppa:certbot/certbot}",
+#' "\code{sudo apt install certbot python-certbot-apache}", and
+#' "\code{sudo certbot --apache}"
+#'
+#' Used together with \code{\link{fn_save_webserver}}, this will set up a folder on the server
+#' that apache can write to, and a little php script to receive said data
+#' (as recommended on \href{https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file}{the jspsych website}).
+#'
+#' @seealso \code{\link{fn_save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_data_webserver}}
+#'
+#' @examples
+#' \dontrun{
+#' build_experiment(..., on_finish = fn_save_webserver())
+#' run_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
+#' download_data_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
+#' }
+#'
+#' @export
+run_webserver <- function(path, ssh, keyfile = NULL,
+                          webserver_configured = FALSE) {
+  if (!requireNamespace("ssh", quietly = TRUE)) {
+    stop("In order to deploy to a webserver, please install ssh: install.packages('ssh')")
+  }
+
+  ## check if we'll be saving data to the webserver as well
+  save_webserver = file.exists(file.path(path, "experiment", "script", "record_result.php"))
+
+  # If we're saving to the webserver, create the data folder and fix permissions
+  # note: needs to have passwordless sudo configured
+  data_folder = "/var/www/server_data"
+  html_folder = "/var/www/html"
+  serverfolder_cmd <- paste0(c("sudo mkdir ",
+                               "sudo chgrp www-data ",
+                               "sudo chmod 775 "),
+                             data_folder)
+
+  if (!webserver_configured) {
+    ## print a little setup help
+    cat("To run the experiment, we need a webserver running. If you haven't yet, \n")
+    cat("you can install apache with\n")
+    cat(" sudo apt install apache2 php\n")
+    cat("and preferably enable https with\n")
+    cat(" sudo add-apt-repository ppa:certbot/certbot\n")
+    cat(" sudo apt install certbot python-certbot-apache\n")
+    cat(" sudo certbot --apache\n")
+    cat("Disable this message with webserver_configured = TRUE\n\n")
+  }
+
+  cat("To deploy, we're going to copy the experiment/ folder to /var/www/html on the server\n")
+  if (save_webserver) {
+    cat("and run the following commands on your webserver:\n")
+    cat(paste0(" ", serverfolder_cmd, "\n"), sep = "")
+  }
+
+  if (readline(prompt = "Ok? [Y/n] ") %in% c("y", "Y", "")) {
+    ssh_session <- ssh::ssh_connect(ssh, keyfile)
+    if (save_webserver) {
+      ssh::ssh_exec_wait(ssh_session, serverfolder_cmd)
+    }
+
+    ssh::scp_upload(
+      ssh_session,
+      files = list.files(file.path(path, "experiment"), full.names = TRUE),
+      to = html_folder)
+
+    ssh::ssh_disconnect(ssh_session)
+    cat("Deployment complete!")
+  }
+}
+
+
+#' Download data from a jspsych experiment deployed on a webserver
+#'
+#' @param ssh ssh connection string to a webserver
+#' @param keyfile (optional) path to a ssh private key to log in to your webserver
+#' @param to local folder to download the data to
+#'
+#' @details This function assumes the default setup by run_webserver, so all it does
+#' is download the folder /var/www/server_data
+#'
+#' @seealso \code{\link{fn_save_webserver}}, \code{\link{run_webserver}}
+#'
+#' @export
+download_data_webserver <- function(ssh, keyfile = NULL, to = ".") {
+  ssh_session <- ssh::ssh_connect(ssh, keyfile)
+  ssh::scp_download(ssh_session, "/var/www/server_data/", to = to)
+  ssh::ssh_disconnect(ssh_session)
+}

@@ -26,4 +26,5 @@ BugReports: https://github.com/djnavarro/jaysire/issues
 Suggests: 
     rmarkdown,
     testthat (>= 2.1.0),
-    covr
+    covr,
+    ssh
