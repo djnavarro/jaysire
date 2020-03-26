@@ -9,6 +9,7 @@ Description: The jaysire package allows the user to build browser based
     javascript library.
 License: MIT + file LICENSE
 Encoding: UTF-8
+SystemRequirements: libssh >= 0.6.0 (the original, not libssh2)
 LazyData: true
 Imports: 
     jsonlite,
@@ -26,4 +27,5 @@ BugReports: https://github.com/djnavarro/jaysire/issues
 Suggests: 
     rmarkdown,
     testthat (>= 2.1.0),
-    covr
+    covr,
+    ssh

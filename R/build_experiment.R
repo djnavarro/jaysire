@@ -201,6 +201,15 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
     scripts <- c(scripts, "jquery.min.js")
   }
 
+  # copy webserver-saving files if necessary
+  if(identical(init$on_finish, fn_save_webserver())){
+    file.copy(
+      from = system.file("extdata", "record_result.php", package = "jaysire"),
+      to = file.path(path, "experiment", "resource", "script")
+    )
+  }
+
+
   # variables to add to the data storage
   if(is.null(columns)) {
     add_properties <- character(0)
