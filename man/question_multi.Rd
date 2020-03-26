@@ -4,8 +4,13 @@
 \alias{question_multi}
 \title{Create a multiple choice/select question}
 \usage{
-question_multi(prompt, options, horizontal = FALSE, required = FALSE,
-  name = NULL)
+question_multi(
+  prompt,
+  options,
+  horizontal = FALSE,
+  required = FALSE,
+  name = NULL
+)
 }
 \arguments{
 \item{prompt}{the prompt for the question}

@@ -4,13 +4,25 @@
 \alias{trial_audio_slider_response}
 \title{Specify an audio trial with slider bar response}
 \usage{
-trial_audio_slider_response(stimulus, labels = c("0\%", "25\%", "50\%",
-  "75\%", "100\%"), button_label = "Continue", min = 0, max = 100,
-  start = 50, step = 1, slider_width = NULL,
-  require_movement = FALSE, prompt = NULL,
-  trial_ends_after_audio = FALSE, trial_duration = NULL,
-  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+trial_audio_slider_response(
+  stimulus,
+  labels = c("0\%", "25\%", "50\%", "75\%", "100\%"),
+  button_label = "Continue",
+  min = 0,
+  max = 100,
+  start = 50,
+  step = 1,
+  slider_width = NULL,
+  require_movement = FALSE,
+  prompt = NULL,
+  trial_ends_after_audio = FALSE,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{Path to the audio file to be played}

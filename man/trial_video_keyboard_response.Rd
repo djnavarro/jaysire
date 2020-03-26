@@ -4,12 +4,25 @@
 \alias{trial_video_keyboard_response}
 \title{Specify a video trial with keyboard response}
 \usage{
-trial_video_keyboard_response(sources, trial_ends_after_video = FALSE,
-  width = NULL, height = NULL, autoplay = TRUE, controls = FALSE,
-  start = NULL, stop = NULL, rate = 1, choices = respond_any_key(),
-  prompt = NULL, trial_duration = NULL, response_ends_trial = TRUE,
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+trial_video_keyboard_response(
+  sources,
+  trial_ends_after_video = FALSE,
+  width = NULL,
+  height = NULL,
+  autoplay = TRUE,
+  controls = FALSE,
+  start = NULL,
+  stop = NULL,
+  rate = 1,
+  choices = respond_any_key(),
+  prompt = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{sources}{Path(s) to the video file. Videos may be specified in multiple formats (e.g., .mp4, .ogg, .webm)}

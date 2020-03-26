@@ -8,10 +8,12 @@
 
 <title>Specify pages of instructions to display — trial_instructions • jaysire</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -32,11 +34,12 @@
 
 
 
-<meta property="og:title" content="Specify pages of instructions to display — trial_instructions" />
 
+<meta property="og:title" content="Specify pages of instructions to display — trial_instructions" />
 <meta property="og:description" content="The trial_instructions function is used to display
 one or more pages of instructions that a participant can browse." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -116,7 +119,6 @@ one or more pages of instructions that a participant can browse." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/djnavarro/jaysire">
@@ -143,19 +145,25 @@ one or more pages of instructions that a participant can browse." />
     </div>
 
     <div class="ref-description">
-    
     <p>The <code>trial_instructions</code> function is used to display
 one or more pages of instructions that a participant can browse.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>trial_instructions</span>(<span class='no'>pages</span>, <span class='kw'>key_forward</span> <span class='kw'>=</span> <span class='fu'><a href='keycode.html'>keycode</a></span>(<span class='st'>"right arrow"</span>),
-  <span class='kw'>key_backward</span> <span class='kw'>=</span> <span class='fu'><a href='keycode.html'>keycode</a></span>(<span class='st'>"left arrow"</span>), <span class='kw'>allow_backward</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>allow_keys</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>show_clickable_nav</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>button_label_previous</span> <span class='kw'>=</span> <span class='st'>"Previous"</span>, <span class='kw'>button_label_next</span> <span class='kw'>=</span> <span class='st'>"Next"</span>,
-  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>trial_instructions</span>(
+  <span class='no'>pages</span>,
+  <span class='kw'>key_forward</span> <span class='kw'>=</span> <span class='fu'><a href='keycode.html'>keycode</a></span>(<span class='st'>"right arrow"</span>),
+  <span class='kw'>key_backward</span> <span class='kw'>=</span> <span class='fu'><a href='keycode.html'>keycode</a></span>(<span class='st'>"left arrow"</span>),
+  <span class='kw'>allow_backward</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>allow_keys</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>show_clickable_nav</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>button_label_previous</span> <span class='kw'>=</span> <span class='st'>"Previous"</span>,
+  <span class='kw'>button_label_next</span> <span class='kw'>=</span> <span class='st'>"Next"</span>,
+  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -208,7 +216,7 @@ one or more pages of instructions that a participant can browse.</p>
       <td><p>An object containing additional data to store for the trial</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Functions with a <code>trial_</code> prefix always return a "trial" object.
@@ -223,7 +231,6 @@ A trial object is simply a list containing the input arguments, with
 <code>FALSE</code>) are transformed to character vectors <code>"true"</code> and <code>"false"</code>
 and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, <code>true</code> and <code>false</code>.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The <code>trial_instructions()</code> function is used to generate trials
@@ -261,9 +268,8 @@ function documentation.</p></li>
 <h3>Other behaviour</h3>
 
 
-Like all functions in the <code>trial_</code> family it contains four additional
-arguments:
-
+<p>Like all functions in the <code>trial_</code> family it contains four additional
+arguments:</p>
 <ul>
 <li><p>The <code>post_trial_gap</code> argument is a numeric value specifying the
 length of the pause between the current trial ending and the next one
@@ -284,14 +290,12 @@ the jsPsych data storage for this trial</p></li>
 <h3>Data</h3>
 
 
-When this function is called from R it returns the trial object that will
+<p>When this function is called from R it returns the trial object that will
 later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment</a></code>
 is called. However, when the trial runs as part of the experiment it returns
 values that are recorded in the jsPsych data store and eventually form part
-of the data set for the experiment.
-
-The data recorded by this trial is as follows:
-
+of the data set for the experiment.</p>
+<p>The data recorded by this trial is as follows:</p>
 <ul>
 <li><p>The <code>view_history</code> value is a JSON string containing the order of pages
 the subject viewed (including when the subject returned to previous pages)
@@ -301,8 +305,7 @@ in milliseconds for the subject to view all of the pages.</p></li>
 </ul>
 
 
-In addition, it records default variables that are recorded by all trials:
-
+<p>In addition, it records default variables that are recorded by all trials:</p>
 <ul>
 <li><p><code>trial_type</code> is a string that records the name of the plugin used to run the trial.</p></li>
 <li><p><code>trial_index</code> is a number that records the index of the current trial across the whole experiment.</p></li>
@@ -311,18 +314,15 @@ In addition, it records default variables that are recorded by all trials:
 </ul>
 
 
-    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-          </ul>
+    </ul>
 
   </div>
 </div>
@@ -334,7 +334,7 @@ In addition, it records default variables that are recorded by all trials:
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>

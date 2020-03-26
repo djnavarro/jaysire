@@ -4,11 +4,17 @@
 \alias{trial_survey_multi_select}
 \title{Specify a survey page with multiple selection items}
 \usage{
-trial_survey_multi_select(questions, preamble = "",
-  randomize_question_order = FALSE, button_label = "Continue",
+trial_survey_multi_select(
+  questions,
+  preamble = "",
+  randomize_question_order = FALSE,
+  button_label = "Continue",
   required_message = "You must choose at least one response for this question",
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{questions}{A question or list of questions}

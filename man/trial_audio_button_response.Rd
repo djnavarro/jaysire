@@ -4,12 +4,21 @@
 \alias{trial_audio_button_response}
 \title{Specify an audio trial with button response}
 \usage{
-trial_audio_button_response(stimulus, choices = c("button 0", "button 1",
-  "button 2"), button_html = NULL, margin_vertical = "0px",
-  margin_horizontal = "8px", prompt = NULL,
-  trial_ends_after_audio = FALSE, trial_duration = NULL,
-  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+trial_audio_button_response(
+  stimulus,
+  choices = c("button 0", "button 1", "button 2"),
+  button_html = NULL,
+  margin_vertical = "0px",
+  margin_horizontal = "8px",
+  prompt = NULL,
+  trial_ends_after_audio = FALSE,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{Path to the audio file to be played}

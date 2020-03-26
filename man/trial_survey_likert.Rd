@@ -4,10 +4,17 @@
 \alias{trial_survey_likert}
 \title{Specify a survey page with Likert scale items}
 \usage{
-trial_survey_likert(questions, preamble = "", scale_width = NULL,
-  randomize_question_order = FALSE, button_label = "Continue",
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+trial_survey_likert(
+  questions,
+  preamble = "",
+  scale_width = NULL,
+  randomize_question_order = FALSE,
+  button_label = "Continue",
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{questions}{A question or list of questions}

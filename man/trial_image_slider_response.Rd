@@ -4,14 +4,28 @@
 \alias{trial_image_slider_response}
 \title{Specify an image trial with slider bar response}
 \usage{
-trial_image_slider_response(stimulus, stimulus_height = NULL,
-  stimulus_width = NULL, maintain_aspect_ratio = TRUE,
+trial_image_slider_response(
+  stimulus,
+  stimulus_height = NULL,
+  stimulus_width = NULL,
+  maintain_aspect_ratio = TRUE,
   labels = c("0\%", "25\%", "50\%", "75\%", "100\%"),
-  button_label = "Continue", min = 0, max = 100, start = 50,
-  step = 1, slider_width = NULL, require_movement = FALSE,
-  prompt = NULL, stimulus_duration = NULL, trial_duration = NULL,
-  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+  button_label = "Continue",
+  min = 0,
+  max = 100,
+  start = 50,
+  step = 1,
+  slider_width = NULL,
+  require_movement = FALSE,
+  prompt = NULL,
+  stimulus_duration = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{The path of the image file to be displayed.}

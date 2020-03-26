@@ -8,10 +8,12 @@
 
 <title>Specify a categorization trial with an animated stimulus — trial_categorize_animation • jaysire</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -32,12 +34,13 @@
 
 
 
-<meta property="og:title" content="Specify a categorization trial with an animated stimulus — trial_categorize_animation" />
 
+<meta property="og:title" content="Specify a categorization trial with an animated stimulus — trial_categorize_animation" />
 <meta property="og:description" content="The trial_categorize_animation function is used to display
 a sequence of images at a fixed rate, collect a categorization response with the
 keyboard, and provide feedback." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -117,7 +120,6 @@ keyboard, and provide feedback." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/djnavarro/jaysire">
@@ -144,21 +146,29 @@ keyboard, and provide feedback." />
     </div>
 
     <div class="ref-description">
-    
     <p>The <code>trial_categorize_animation</code> function is used to display
 a sequence of images at a fixed rate, collect a categorization response with the
 keyboard, and provide feedback.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>trial_categorize_animation</span>(<span class='no'>stimuli</span>, <span class='no'>key_answer</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='respond_any_key.html'>respond_any_key</a></span>(), <span class='kw'>text_answer</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>correct_text</span> <span class='kw'>=</span> <span class='st'>"Correct"</span>, <span class='kw'>incorrect_text</span> <span class='kw'>=</span> <span class='st'>"Wrong"</span>,
-  <span class='kw'>frame_time</span> <span class='kw'>=</span> <span class='fl'>500</span>, <span class='kw'>sequence_reps</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>allow_response_before_complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>feedback_duration</span> <span class='kw'>=</span> <span class='fl'>2000</span>, <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>trial_categorize_animation</span>(
+  <span class='no'>stimuli</span>,
+  <span class='no'>key_answer</span>,
+  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='respond_any_key.html'>respond_any_key</a></span>(),
+  <span class='kw'>text_answer</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>correct_text</span> <span class='kw'>=</span> <span class='st'>"Correct"</span>,
+  <span class='kw'>incorrect_text</span> <span class='kw'>=</span> <span class='st'>"Wrong"</span>,
+  <span class='kw'>frame_time</span> <span class='kw'>=</span> <span class='fl'>500</span>,
+  <span class='kw'>sequence_reps</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>allow_response_before_complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>feedback_duration</span> <span class='kw'>=</span> <span class='fl'>2000</span>,
+  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -223,7 +233,7 @@ keyboard, and provide feedback.</p>
       <td><p>An object containing additional data to store for the trial</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Functions with a <code>trial_</code> prefix always return a "trial" object.
@@ -232,7 +242,6 @@ A trial object is simply a list containing the input arguments, with
 <code>FALSE</code>) are transformed to character vectors <code>"true"</code> and <code>"false"</code>
 and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, <code>true</code> and <code>false</code>.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The <code>trial_categorize_animation</code> function is used to show a sequence of images at a
@@ -241,31 +250,27 @@ indicating the correctness of the response is given.</p>
 <h3>Stimulus display</h3>
 
 
-The <code>stimulus</code> argument should be a vector of
+<p>The <code>stimulus</code> argument should be a vector of
 paths to the image files, one per frame. The file paths should refer to
 the locations of the image files at the time the experiment is *deployed*,
 so it is often convenient to use the <code><a href='insert_resource.html'>insert_resource</a></code>
 function to construct these file paths automatically. The images will be
-displayed in the order that they appear in the <code>stimulus</code> vector.
-
-The behaviour of an animation trial can be customised in various ways. The
+displayed in the order that they appear in the <code>stimulus</code> vector.</p>
+<p>The behaviour of an animation trial can be customised in various ways. The
 <code>frame_time</code> parameter specifies the length of time (in milliseconds) that
 each image stays on screen. The <code>sequence_reps</code> argument specifies the
-number of times the sequence repeats.
-
+number of times the sequence repeats.</p>
 
 <h3>Response mechanism</h3>
-
-For this kind of trial, participants can make a response by pressing a key,
+<p>For this kind of trial, participants can make a response by pressing a key,
 and the <code>choices</code> argument is used to control which keys will register
 a valid response. The default value <code>choices = <a href='respond_any_key.html'>respond_any_key</a>()</code>
 is to allow the participant to press any key to register their response.
 Alternatively it is possible to set <code>choices = <a href='respond_no_key.html'>respond_no_key</a>()</code>,
 which prevents all keys from registering a response: this can be useful if
 the trial is designed to run for a fixed duration, regardless of what the
-participant presses.
-
-In many situations it is preferable to require the participant to respond
+participant presses.</p>
+<p>In many situations it is preferable to require the participant to respond
 using specific keys (e.g., for a binary choice tasks, it may be desirable to
 require participants to press F for one response or J for the other). This
 can be achieved in two ways. One possibility is to use a character vector
@@ -274,19 +279,16 @@ numeric code that specifies the desired key in javascript, which in this
 case would be <code>choices = c(70, 74)</code>. To make it a little easier to
 work with numeric codes, the jaysire package includes the
 <code><a href='keycode.html'>keycode</a>()</code> function to make it easier to convert from one format
-to the other.
-
-If <code>allow_response_before_correct = TRUE</code> the participant is permitted
-to make a response before the stimulus display completes.
-
+to the other.</p>
+<p>If <code>allow_response_before_correct = TRUE</code> the participant is permitted
+to make a response before the stimulus display completes.</p>
 
 <h3>Feedback</h3>
 
 
-In a categorisation trial, there is always presumed to be a "correct" response
+<p>In a categorisation trial, there is always presumed to be a "correct" response
 for any given stimulus, and the participant is presented with feedback after
-the response is given. This feedback can be customised in several ways:
-
+the response is given. This feedback can be customised in several ways:</p>
 <ul>
 <li><p>The <code>key_answer</code> argument specifies the numeric <code><a href='keycode.html'>keycode</a></code>
 that corresponds to the correct response for the current trial.</p></li>
@@ -308,14 +310,12 @@ feedback is displayed, in milliseconds.</p></li>
 <h3>Other behaviour</h3>
 
 
-The <code>prompt</code> argument is used to specify text that remains on screen while
+<p>The <code>prompt</code> argument is used to specify text that remains on screen while
 the animation displays. The intended use is to remind participants of the
 valid response keys, but it allows HTML markup to be included and so can be
-used for more general purposes.
-
-Like all functions in the <code>trial_</code> family it contains four additional
-arguments:
-
+used for more general purposes.</p>
+<p>Like all functions in the <code>trial_</code> family it contains four additional
+arguments:</p>
 <ul>
 <li><p>The <code>post_trial_gap</code> argument is a numeric value specifying the
 length of the pause between the current trial ending and the next one
@@ -336,15 +336,13 @@ the jsPsych data storage for this trial</p></li>
 <h3>Data</h3>
 
 
-When this function is called from R it returns the trial object that will
+<p>When this function is called from R it returns the trial object that will
 later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment</a></code>
 is called. However, when the trial runs as part of the experiment it returns
 values that are recorded in the jsPsych data store and eventually form part
-of the data set for the experiment.
+of the data set for the experiment.</p>
 
-
-The data recorded by this trial is as follows:
-
+<p>The data recorded by this trial is as follows:</p>
 <ul>
 <li><p>The <code>stimulus</code> value is a JSON encoded representation of the array of
 stimuli displayed in the trial.</p></li>
@@ -357,8 +355,7 @@ on the screen until the subject's response.</p></li>
 false otherwise.</p></li>
 </ul>
 
-In addition, it records default variables that are recorded by all trials:
-
+<p>In addition, it records default variables that are recorded by all trials:</p>
 <ul>
 <li><p><code>trial_type</code> is a string that records the name of the plugin used to run the trial.</p></li>
 <li><p><code>trial_index</code> is a number that records the index of the current trial across the whole experiment.</p></li>
@@ -367,27 +364,22 @@ In addition, it records default variables that are recorded by all trials:
 </ul>
 
 
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>There are three types of categorization trial, corresponding to the
 <code>trial_categorize_animation</code>,
 <code><a href='trial_categorize_html.html'>trial_categorize_html</a></code> and
 <code><a href='trial_categorize_image.html'>trial_categorize_image</a></code> functions.</p></div>
-    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-
       <li><a href="#see-also">See also</a></li>
-          </ul>
+    </ul>
 
   </div>
 </div>
@@ -399,7 +391,7 @@ In addition, it records default variables that are recorded by all trials:
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>

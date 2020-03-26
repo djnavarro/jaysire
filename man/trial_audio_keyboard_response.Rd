@@ -4,11 +4,18 @@
 \alias{trial_audio_keyboard_response}
 \title{Specify an audio trial with keyboard response}
 \usage{
-trial_audio_keyboard_response(stimulus, choices = respond_any_key(),
-  prompt = NULL, trial_ends_after_audio = FALSE,
-  trial_duration = NULL, response_ends_trial = TRUE,
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+trial_audio_keyboard_response(
+  stimulus,
+  choices = respond_any_key(),
+  prompt = NULL,
+  trial_ends_after_audio = FALSE,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{Path to the audio file to be played}

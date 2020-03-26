@@ -4,10 +4,18 @@
 \alias{trial_html_keyboard_response}
 \title{Specify an HTML trial with keyboard response}
 \usage{
-trial_html_keyboard_response(stimulus, choices = respond_any_key(),
-  prompt = NULL, stimulus_duration = NULL, trial_duration = NULL,
-  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+trial_html_keyboard_response(
+  stimulus,
+  choices = respond_any_key(),
+  prompt = NULL,
+  stimulus_duration = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{The HTML content to be displayed.}

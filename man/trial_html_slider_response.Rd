@@ -4,13 +4,25 @@
 \alias{trial_html_slider_response}
 \title{Specify an HTML trial with slider bar response}
 \usage{
-trial_html_slider_response(stimulus, labels = c("0\%", "25\%", "50\%",
-  "75\%", "100\%"), button_label = "Continue", min = 0, max = 100,
-  start = 50, step = 1, slider_width = NULL,
-  require_movement = FALSE, prompt = NULL, stimulus_duration = NULL,
-  trial_duration = NULL, response_ends_trial = TRUE,
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+trial_html_slider_response(
+  stimulus,
+  labels = c("0\%", "25\%", "50\%", "75\%", "100\%"),
+  button_label = "Continue",
+  min = 0,
+  max = 100,
+  start = 50,
+  step = 1,
+  slider_width = NULL,
+  require_movement = FALSE,
+  prompt = NULL,
+  stimulus_duration = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{The HTML content to be displayed.}

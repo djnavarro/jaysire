@@ -4,14 +4,32 @@
 \alias{trial_video_slider_response}
 \title{Specify a video trial with slider bar response}
 \usage{
-trial_video_slider_response(sources, trial_ends_after_video = FALSE,
-  width = NULL, height = NULL, autoplay = TRUE, controls = FALSE,
-  start = NULL, stop = NULL, rate = 1, labels = c("0\%", "25\%",
-  "50\%", "75\%", "100\%"), min = 0, max = 100, slider_start = 50,
-  step = 1, slider_width = NULL, require_movement = FALSE,
-  button_label = "Continue", prompt = NULL, trial_duration = NULL,
-  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+trial_video_slider_response(
+  sources,
+  trial_ends_after_video = FALSE,
+  width = NULL,
+  height = NULL,
+  autoplay = TRUE,
+  controls = FALSE,
+  start = NULL,
+  stop = NULL,
+  rate = 1,
+  labels = c("0\%", "25\%", "50\%", "75\%", "100\%"),
+  min = 0,
+  max = 100,
+  slider_start = 50,
+  step = 1,
+  slider_width = NULL,
+  require_movement = FALSE,
+  button_label = "Continue",
+  prompt = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{sources}{Path(s) to the video file. Videos may be specified in multiple formats (e.g., .mp4, .ogg, .webm)}

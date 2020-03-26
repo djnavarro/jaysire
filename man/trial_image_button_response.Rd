@@ -4,13 +4,24 @@
 \alias{trial_image_button_response}
 \title{Specify an image trial with button response}
 \usage{
-trial_image_button_response(stimulus, stimulus_height = NULL,
-  stimulus_width = NULL, maintain_aspect_ratio = TRUE,
-  choices = c("button 0", "button 1", "button 2"), button_html = NULL,
-  margin_vertical = "0px", margin_horizontal = "8px", prompt = NULL,
-  stimulus_duration = NULL, trial_duration = NULL,
-  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+trial_image_button_response(
+  stimulus,
+  stimulus_height = NULL,
+  stimulus_width = NULL,
+  maintain_aspect_ratio = TRUE,
+  choices = c("button 0", "button 1", "button 2"),
+  button_html = NULL,
+  margin_vertical = "0px",
+  margin_horizontal = "8px",
+  prompt = NULL,
+  stimulus_duration = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{The path of the image file to be displayed.}

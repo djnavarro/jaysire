@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • jaysire</title>
+<title>Deploy a jspsych experiment to a webserver — run_webserver • jaysire</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,9 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Deploy a jspsych experiment to a webserver — run_webserver" />
+<meta property="og:description" content="Deploy a jspsych experiment to a webserver" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -136,24 +138,74 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Deploy a jspsych experiment to a webserver</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_api.R'><code>R/build_api.R</code></a></small>
+    <div class="hidden name"><code>run_webserver.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="jaysire01.html">1. Getting started</a></li>
-        <li><a href="jaysire02.html">2. Randomisation, repetition and variables</a></li>
-        <li><a href="jaysire03.html">3. Using resource files</a></li>
-        <li><a href="jaysire04.html">4. Image, video and audio files</a></li>
-        <li><a href="jaysire05.html">5. Buttons, key presses and sliders</a></li>
-        <li><a href="jaysire06.html">6. Survey pages</a></li>
-        <li><a href="jaysire07.html">7. Loops and branches</a></li>
-        <li><a href="jaysire08.html">8. A choice reaction time task</a></li>
-      </ul>
+    <div class="ref-description">
+    <p>Deploy a jspsych experiment to a webserver</p>
     </div>
+
+    <pre class="usage"><span class='fu'>run_webserver</span>(<span class='no'>path</span>, <span class='no'>ssh</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>webserver_configured</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>path to the experiment folder</p></td>
+    </tr>
+    <tr>
+      <th>ssh</th>
+      <td><p>ssh connection string to a webserver</p></td>
+    </tr>
+    <tr>
+      <th>keyfile</th>
+      <td><p>(optional) path to a ssh private key to log in to your webserver</p></td>
+    </tr>
+    <tr>
+      <th>webserver_configured</th>
+      <td><p>set this to true when you've configured your webserver</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The purpose of the <code>run_webserver()</code> function is to make it
+somewhat easier to deploy a jsPsych experiment to a webserver that you control,
+so that the experiment can run in the cloud rather than on the local machine.</p>
+<p>For this to work, you need to configure your webserver first. On a recent ubuntu image
+(available from most cloud providers), you can install apache and php with
+"<code>sudo apt install apache2 php</code>". You should probably also secure the connection
+between the webserver and the participants with https. If you have configured a domain
+name for your server, it is pretty simple to enable https via let's encrypt:
+"<code>sudo add-apt-repository ppa:certbot/certbot</code>",
+"<code>sudo apt install certbot python-certbot-apache</code>", and
+"<code>sudo certbot --apache</code>"</p>
+<p>Used together with <code><a href='fn_save_webserver.html'>fn_save_webserver</a></code>, this will set up a folder on the server
+that apache can write to, and a little php script to receive said data
+(as recommended on <a href='https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file'>the jspsych website</a>).</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='fn_save_webserver.html'>fn_save_webserver</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code>, <code><a href='download_data_webserver.html'>download_data_webserver</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='build_experiment.html'>build_experiment</a></span>(<span class='no'>...</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='fu'><a href='fn_save_webserver.html'>fn_save_webserver</a></span>())
+<span class='fu'>run_webserver</span>(<span class='kw'>ssh</span> <span class='kw'>=</span> <span class='st'>"user@server.com"</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='st'>"~/.ssh/id_rsa"</span>)
+<span class='fu'><a href='download_data_webserver.html'>download_data_webserver</a></span>(<span class='kw'>ssh</span> <span class='kw'>=</span> <span class='st'>"user@server.com"</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='st'>"~/.ssh/id_rsa"</span>)
+}</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 

@@ -4,12 +4,21 @@
 \alias{trial_html_button_response}
 \title{Specify an HTML trial with button response}
 \usage{
-trial_html_button_response(stimulus, choices = c("button 0", "button 1",
-  "button 2"), button_html = NULL, margin_vertical = "0px",
-  margin_horizontal = "8px", prompt = NULL, stimulus_duration = NULL,
-  trial_duration = NULL, response_ends_trial = TRUE,
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+trial_html_button_response(
+  stimulus,
+  choices = c("button 0", "button 1", "button 2"),
+  button_html = NULL,
+  margin_vertical = "0px",
+  margin_horizontal = "8px",
+  prompt = NULL,
+  stimulus_duration = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{The HTML content to be displayed.}

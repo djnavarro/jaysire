@@ -4,13 +4,23 @@
 \alias{trial_categorize_animation}
 \title{Specify a categorization trial with an animated stimulus}
 \usage{
-trial_categorize_animation(stimuli, key_answer,
-  choices = respond_any_key(), text_answer = "",
-  correct_text = "Correct", incorrect_text = "Wrong",
-  frame_time = 500, sequence_reps = 1,
-  allow_response_before_complete = FALSE, prompt = NULL,
-  feedback_duration = 2000, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+trial_categorize_animation(
+  stimuli,
+  key_answer,
+  choices = respond_any_key(),
+  text_answer = "",
+  correct_text = "Correct",
+  incorrect_text = "Wrong",
+  frame_time = 500,
+  sequence_reps = 1,
+  allow_response_before_complete = FALSE,
+  prompt = NULL,
+  feedback_duration = 2000,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimuli}{Character vector of paths to image files}

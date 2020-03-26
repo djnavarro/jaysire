@@ -8,10 +8,12 @@
 
 <title>Specify an animation trial — trial_animation • jaysire</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -32,11 +34,12 @@
 
 
 
-<meta property="og:title" content="Specify an animation trial — trial_animation" />
 
+<meta property="og:title" content="Specify an animation trial — trial_animation" />
 <meta property="og:description" content="The trial_animation function is used to display a
 sequence of images at a fixed rate." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -116,7 +119,6 @@ sequence of images at a fixed rate." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/djnavarro/jaysire">
@@ -143,17 +145,23 @@ sequence of images at a fixed rate." />
     </div>
 
     <div class="ref-description">
-    
     <p>The <code>trial_animation</code> function is used to display a
 sequence of images at a fixed rate.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>trial_animation</span>(<span class='no'>stimuli</span>, <span class='kw'>frame_time</span> <span class='kw'>=</span> <span class='fl'>250</span>, <span class='kw'>frame_isi</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>sequence_reps</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='respond_any_key.html'>respond_any_key</a></span>(), <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>trial_animation</span>(
+  <span class='no'>stimuli</span>,
+  <span class='kw'>frame_time</span> <span class='kw'>=</span> <span class='fl'>250</span>,
+  <span class='kw'>frame_isi</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>sequence_reps</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='respond_any_key.html'>respond_any_key</a></span>(),
+  <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -198,7 +206,7 @@ sequence of images at a fixed rate.</p>
       <td><p>An object containing additional data to store for the trial</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Functions with a <code>trial_</code> prefix always return a "trial" object.
@@ -207,7 +215,6 @@ A trial object is simply a list containing the input arguments, with
 <code>FALSE</code>) are transformed to character vectors <code>"true"</code> and <code>"false"</code>
 and are specified to be objects of class "json", ensuring that they will be
 written to file as the javascript logicals, <code>true</code> and <code>false</code>.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function is used to specify an "animation" trial in a jsPsych experiment.
@@ -217,26 +224,24 @@ point during the animation, and the time of the response is recorded.</p>
 <h3>Stimulus display</h3>
 
 
-The only required argument is <code>stimulus</code>, which should be a vector of
+<p>The only required argument is <code>stimulus</code>, which should be a vector of
 paths to the image files, one per frame. The file paths should refer to
 the locations of the image files at the time the experiment is *deployed*,
 so it is often convenient to use the <code><a href='insert_resource.html'>insert_resource</a></code>
 function to construct these file paths automatically. The images will be
-displayed in the order that they appear in the <code>stimulus</code> vector.
-
-The behaviour of an animation trial can be customised in various ways. The
+displayed in the order that they appear in the <code>stimulus</code> vector.</p>
+<p>The behaviour of an animation trial can be customised in various ways. The
 <code>frame_time</code> parameter specifies the length of time (in milliseconds) that
 each image stays on screen, and the <code>frame_isi</code> parameter controls the
 inter-stimulus interval (that is, the gap between successive images) during
 which a blank screen is shown. The <code>sequence_reps</code> argument specifies the
-number of times the sequence repeats.
-
+number of times the sequence repeats.</p>
 
 
 <h3>Response mechanism</h3>
 
 
-Because animation trials typically require precise timing, they are designed
+<p>Because animation trials typically require precise timing, they are designed
 to accept key press responses only, and <code>choices</code> argument is used to
 control which keys will register
 a valid response. The default value <code>choices = <a href='respond_any_key.html'>respond_any_key</a>()</code>
@@ -244,9 +249,8 @@ is to allow the participant to press any key to register their response.
 Alternatively it is possible to set <code>choices = <a href='respond_no_key.html'>respond_no_key</a>()</code>,
 which prevents all keys from registering a response: this can be useful if
 the trial is designed to run for a fixed duration, regardless of what the
-participant presses.
-
-In many situations it is preferable to require the participant to respond
+participant presses.</p>
+<p>In many situations it is preferable to require the participant to respond
 using specific keys (e.g., for a binary choice tasks, it may be desirable to
 require participants to press F for one response or J for the other). This
 can be achieved in two ways. One possibility is to use a character vector
@@ -255,20 +259,17 @@ numeric code that specifies the desired key in javascript, which in this
 case would be <code>choices = c(70, 74)</code>. To make it a little easier to
 work with numeric codes, the jaysire package includes the
 <code><a href='keycode.html'>keycode</a>()</code> function to make it easier to convert from one format
-to the other.
-
+to the other.</p>
 
 <h3>Other behaviour</h3>
 
 
-The <code>prompt</code> argument is used to specify text that remains on screen while
+<p>The <code>prompt</code> argument is used to specify text that remains on screen while
 the animation displays. The intended use is to remind participants of the
 valid response keys, but it allows HTML markup to be included and so can be
-used for more general purposes.
-
-Like all functions in the <code>trial_</code> family it contains four additional
-arguments:
-
+used for more general purposes.</p>
+<p>Like all functions in the <code>trial_</code> family it contains four additional
+arguments:</p>
 <ul>
 <li><p>The <code>post_trial_gap</code> argument is a numeric value specifying the
 length of the pause between the current trial ending and the next one
@@ -289,14 +290,12 @@ the jsPsych data storage for this trial</p></li>
 <h3>Data</h3>
 
 
-When this function is called from R it returns the trial object that will
+<p>When this function is called from R it returns the trial object that will
 later be inserted into the experiment when <code><a href='build_experiment.html'>build_experiment</a></code>
 is called. However, when the trial runs as part of the experiment it returns
 values that are recorded in the jsPsych data store and eventually form part
-of the data set for the experiment.
-
-The data recorded by this trial is as follows:
-
+of the data set for the experiment.</p>
+<p>The data recorded by this trial is as follows:</p>
 <ul>
 <li><p>The <code>animation_sequence</code> value is an array encoded in JSON format. Each
 element of the array is an object that represents a stimulus in the animation
@@ -311,8 +310,7 @@ to the start of the animation, and a key_press property, indicating which key
 was pressed.</p></li>
 </ul>
 
-In addition, it records default variables that are recorded by all trials:
-
+<p>In addition, it records default variables that are recorded by all trials:</p>
 <ul>
 <li><p><code>trial_type</code> is a string that records the name of the plugin used to run the trial.</p></li>
 <li><p><code>trial_index</code> is a number that records the index of the current trial across the whole experiment.</p></li>
@@ -321,18 +319,15 @@ In addition, it records default variables that are recorded by all trials:
 </ul>
 
 
-    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-          </ul>
+    </ul>
 
   </div>
 </div>
@@ -344,7 +339,7 @@ In addition, it records default variables that are recorded by all trials:
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>

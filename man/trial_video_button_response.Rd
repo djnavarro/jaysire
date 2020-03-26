@@ -4,13 +4,28 @@
 \alias{trial_video_button_response}
 \title{Specify a video trial with button response}
 \usage{
-trial_video_button_response(sources, trial_ends_after_video = FALSE,
-  width = NULL, height = NULL, autoplay = TRUE, controls = FALSE,
-  start = NULL, stop = NULL, rate = 1, choices = c("button 0",
-  "button 1", "button 2"), button_html = NULL, margin_vertical = "0px",
-  margin_horizontal = "8px", prompt = NULL, trial_duration = NULL,
-  response_ends_trial = TRUE, post_trial_gap = 0, on_finish = NULL,
-  on_load = NULL, data = NULL)
+trial_video_button_response(
+  sources,
+  trial_ends_after_video = FALSE,
+  width = NULL,
+  height = NULL,
+  autoplay = TRUE,
+  controls = FALSE,
+  start = NULL,
+  stop = NULL,
+  rate = 1,
+  choices = c("button 0", "button 1", "button 2"),
+  button_html = NULL,
+  margin_vertical = "0px",
+  margin_horizontal = "8px",
+  prompt = NULL,
+  trial_duration = NULL,
+  response_ends_trial = TRUE,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{sources}{Path(s) to the video file. Videos may be specified in multiple formats (e.g., .mp4, .ogg, .webm)}

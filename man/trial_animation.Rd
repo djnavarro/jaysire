@@ -4,10 +4,18 @@
 \alias{trial_animation}
 \title{Specify an animation trial}
 \usage{
-trial_animation(stimuli, frame_time = 250, frame_isi = 0,
-  sequence_reps = 1, choices = respond_any_key(), prompt = NULL,
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+trial_animation(
+  stimuli,
+  frame_time = 250,
+  frame_isi = 0,
+  sequence_reps = 1,
+  choices = respond_any_key(),
+  prompt = NULL,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimuli}{A vector of paths to the image files}

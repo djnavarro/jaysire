@@ -4,8 +4,7 @@
 \alias{question_text}
 \title{Create a free text response question}
 \usage{
-question_text(prompt, placeholder = "", rows = 1, columns = 40,
-  name = NULL)
+question_text(prompt, placeholder = "", rows = 1, columns = 40, name = NULL)
 }
 \arguments{
 \item{prompt}{The prompt for the question}

@@ -4,15 +4,26 @@
 \alias{trial_categorize_image}
 \title{Specify a categorization trial with an image stimulus}
 \usage{
-trial_categorize_image(stimulus, key_answer, choices = respond_any_key(),
-  text_answer = "", correct_text = "Correct",
-  incorrect_text = "Wrong", prompt = NULL,
-  force_correct_button_press = FALSE, show_stim_with_feedback = TRUE,
+trial_categorize_image(
+  stimulus,
+  key_answer,
+  choices = respond_any_key(),
+  text_answer = "",
+  correct_text = "Correct",
+  incorrect_text = "Wrong",
+  prompt = NULL,
+  force_correct_button_press = FALSE,
+  show_stim_with_feedback = TRUE,
   show_feedback_on_timeout = FALSE,
-  timeout_message = "Please respond faster", stimulus_duration = NULL,
-  feedback_duration = 2000, trial_duration = NULL,
-  post_trial_gap = 0, on_finish = NULL, on_load = NULL,
-  data = NULL)
+  timeout_message = "Please respond faster",
+  stimulus_duration = NULL,
+  feedback_duration = 2000,
+  trial_duration = NULL,
+  post_trial_gap = 0,
+  on_finish = NULL,
+  on_load = NULL,
+  data = NULL
+)
 }
 \arguments{
 \item{stimulus}{The path to the image file to be displayed.}
