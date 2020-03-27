@@ -40,10 +40,10 @@ that apache can write to, and a little php script to receive said data
 \dontrun{
 build_experiment(..., on_finish = save_webserver())
 run_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
-download_data_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
+download_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
 }
 
 }
 \seealso{
-\code{\link{save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_data_webserver}}
+\code{\link{save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_webserver}}
 }

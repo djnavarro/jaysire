@@ -21,5 +21,5 @@ never touch any other computer than the server you've presumably secured
 and have data processing agreements in place for.
 }
 \seealso{
-\code{\link{run_webserver}}, \code{\link{download_data_webserver}}
+\code{\link{run_webserver}}, \code{\link{download_webserver}}
 }

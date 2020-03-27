@@ -10,7 +10,7 @@
 #' never touch any other computer than the server you've presumably secured
 #' and have data processing agreements in place for.
 #'
-#' @seealso \code{\link{run_webserver}}, \code{\link{download_data_webserver}}
+#' @seealso \code{\link{run_webserver}}, \code{\link{download_webserver}}
 save_webserver <- function() {
   js_code(paste0(
     "function() {

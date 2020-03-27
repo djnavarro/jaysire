@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deploy a jspsych experiment to a webserver — run_webserver • jaysire</title>
+<title>Download data from a jspsych experiment deployed on a webserver — download_webserver • jaysire</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Deploy a jspsych experiment to a webserver — run_webserver" />
-<meta property="og:description" content="Deploy a jspsych experiment to a webserver" />
+<meta property="og:title" content="Download data from a jspsych experiment deployed on a webserver — download_webserver" />
+<meta property="og:description" content="Download data from a jspsych experiment deployed on a webserver" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -138,24 +138,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Deploy a jspsych experiment to a webserver</h1>
+    <h1>Download data from a jspsych experiment deployed on a webserver</h1>
     <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_api.R'><code>R/build_api.R</code></a></small>
-    <div class="hidden name"><code>run_webserver.Rd</code></div>
+    <div class="hidden name"><code>download_webserver.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Deploy a jspsych experiment to a webserver</p>
+    <p>Download data from a jspsych experiment deployed on a webserver</p>
     </div>
 
-    <pre class="usage"><span class='fu'>run_webserver</span>(<span class='no'>path</span>, <span class='no'>ssh</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>webserver_configured</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>download_webserver</span>(<span class='no'>ssh</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"."</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>path</th>
-      <td><p>path to the experiment folder</p></td>
-    </tr>
     <tr>
       <th>ssh</th>
       <td><p>ssh connection string to a webserver</p></td>
@@ -165,37 +161,19 @@
       <td><p>(optional) path to a ssh private key to log in to your webserver</p></td>
     </tr>
     <tr>
-      <th>webserver_configured</th>
-      <td><p>set this to true when you've configured your webserver</p></td>
+      <th>to</th>
+      <td><p>local folder to download the data to</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The purpose of the <code>run_webserver()</code> function is to make it
-somewhat easier to deploy a jsPsych experiment to a webserver that you control,
-so that the experiment can run in the cloud rather than on the local machine.</p>
-<p>For this to work, you need to configure your webserver first. On a recent ubuntu image
-(available from most cloud providers), you can install apache and php with
-"<code>sudo apt install apache2 php</code>". You should probably also secure the connection
-between the webserver and the participants with https. If you have configured a domain
-name for your server, it is pretty simple to enable https via let's encrypt:
-"<code>sudo add-apt-repository ppa:certbot/certbot</code>",
-"<code>sudo apt install certbot python-certbot-apache</code>", and
-"<code>sudo certbot --apache</code>"</p>
-<p>Used together with <code><a href='save_webserver.html'>save_webserver</a></code>, this will set up a folder on the server
-that apache can write to, and a little php script to receive said data
-(as recommended on <a href='https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file'>the jspsych website</a>).</p>
+    <p>This function assumes the default setup by run_webserver, so all it does
+is download the folder /var/www/server_data</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='save_webserver.html'>save_webserver</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code>, <code>download_webserver</code></p></div>
+    <div class='dont-index'><p><code><a href='save_webserver.html'>save_webserver</a></code>, <code><a href='run_webserver.html'>run_webserver</a></code></p></div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='build_experiment.html'>build_experiment</a></span>(<span class='no'>...</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='fu'><a href='save_webserver.html'>save_webserver</a></span>())
-<span class='fu'>run_webserver</span>(<span class='kw'>ssh</span> <span class='kw'>=</span> <span class='st'>"user@server.com"</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='st'>"~/.ssh/id_rsa"</span>)
-<span class='fu'>download_webserver</span>(<span class='kw'>ssh</span> <span class='kw'>=</span> <span class='st'>"user@server.com"</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='st'>"~/.ssh/id_rsa"</span>)
-}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -203,7 +181,6 @@ that apache can write to, and a little php script to receive said data
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

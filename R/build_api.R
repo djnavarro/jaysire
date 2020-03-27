@@ -128,13 +128,13 @@ run_googlecloud <- function(path, project_id) {
 #' that apache can write to, and a little php script to receive said data
 #' (as recommended on \href{https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file}{the jspsych website}).
 #'
-#' @seealso \code{\link{save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_data_webserver}}
+#' @seealso \code{\link{save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_webserver}}
 #'
 #' @examples
 #' \dontrun{
 #' build_experiment(..., on_finish = save_webserver())
 #' run_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
-#' download_data_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
+#' download_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
 #' }
 #'
 #' @export
@@ -203,7 +203,7 @@ run_webserver <- function(path, ssh, keyfile = NULL,
 #' @seealso \code{\link{save_webserver}}, \code{\link{run_webserver}}
 #'
 #' @export
-download_data_webserver <- function(ssh, keyfile = NULL, to = ".") {
+download_webserver <- function(ssh, keyfile = NULL, to = ".") {
   ssh_session <- ssh::ssh_connect(ssh, keyfile)
   ssh::scp_download(ssh_session, "/var/www/server_data/", to = to)
   ssh::ssh_disconnect(ssh_session)

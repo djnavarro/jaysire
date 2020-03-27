@@ -1,5 +1,5 @@
 
-#' Modify a timeline to attach variables
+#' Modify a timeline to set possible values for variables
 #'
 #' @param timeline The timeline object
 #' @param ... A set of name/value pairs defining the timeline variables
@@ -38,7 +38,7 @@ set_variables <- function(timeline, ...) {
   return(timeline)
 }
 
-#' Modify a timeline to add parameters
+#' Modify a timeline to set parameter values
 #'
 #' @param timeline The timeline object
 #' @param ... A set of name/value pairs defining the parameters

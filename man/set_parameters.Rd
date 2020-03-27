@@ -2,7 +2,7 @@
 % Please edit documentation in R/timeline_modify.R
 \name{set_parameters}
 \alias{set_parameters}
-\title{Modify a timeline to add parameters}
+\title{Modify a timeline to set parameter values}
 \usage{
 set_parameters(timeline, ...)
 }
@@ -15,7 +15,7 @@ set_parameters(timeline, ...)
 The modified timeline object
 }
 \description{
-Modify a timeline to add parameters
+Modify a timeline to set parameter values
 }
 \details{
 The \code{set_parameters()} function provides a general

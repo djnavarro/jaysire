@@ -2,7 +2,7 @@
 % Please edit documentation in R/timeline_modify.R
 \name{set_variables}
 \alias{set_variables}
-\title{Modify a timeline to attach variables}
+\title{Modify a timeline to set possible values for variables}
 \usage{
 set_variables(timeline, ...)
 }
@@ -15,7 +15,7 @@ set_variables(timeline, ...)
 The modified timeline object
 }
 \description{
-Modify a timeline to attach variables
+Modify a timeline to set possible values for variables
 }
 \details{
 When creating an experiment, a common pattern is to create a
