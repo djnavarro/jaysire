@@ -188,13 +188,13 @@ that apache can write to, and a little php script to receive said data
 (as recommended on <a href='https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file'>the jspsych website</a>).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='save_webserver.html'>save_webserver</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code>, <code>download_webserver</code></p></div>
+    <div class='dont-index'><p><code><a href='save_webserver.html'>save_webserver</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code>, <code><a href='download_webserver.html'>download_webserver</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='fu'><a href='build_experiment.html'>build_experiment</a></span>(<span class='no'>...</span>, <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='fu'><a href='save_webserver.html'>save_webserver</a></span>())
 <span class='fu'>run_webserver</span>(<span class='kw'>ssh</span> <span class='kw'>=</span> <span class='st'>"user@server.com"</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='st'>"~/.ssh/id_rsa"</span>)
-<span class='fu'>download_webserver</span>(<span class='kw'>ssh</span> <span class='kw'>=</span> <span class='st'>"user@server.com"</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='st'>"~/.ssh/id_rsa"</span>)
+<span class='fu'><a href='download_webserver.html'>download_webserver</a></span>(<span class='kw'>ssh</span> <span class='kw'>=</span> <span class='st'>"user@server.com"</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='st'>"~/.ssh/id_rsa"</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

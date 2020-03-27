@@ -104,6 +104,19 @@ run_googlecloud <- function(path, project_id) {
 }
 
 
+
+#' Download data from a jspsych experiment deployed on google cloud
+#'
+#' @details This function currently does nothing
+#'
+#' @seealso \code{\link{save_googlecloud}}, \code{\link{run_googlecloud}}
+#'
+#' @export
+download_googlecloud <- function() {
+}
+
+
+
 #' Deploy a jspsych experiment to a webserver
 #'
 #' @param path path to the experiment folder

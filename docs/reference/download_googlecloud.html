@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Insert reference to a timeline variable — insert_variable • jaysire</title>
+<title>Download data from a jspsych experiment deployed on google cloud — download_googlecloud • jaysire</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Insert reference to a timeline variable — insert_variable" />
-<meta property="og:description" content="Insert reference to a timeline variable" />
+<meta property="og:title" content="Download data from a jspsych experiment deployed on google cloud — download_googlecloud" />
+<meta property="og:description" content="Download data from a jspsych experiment deployed on google cloud" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -138,68 +138,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Insert reference to a timeline variable</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/insert.R'><code>R/insert.R</code></a></small>
-    <div class="hidden name"><code>insert_variable.Rd</code></div>
+    <h1>Download data from a jspsych experiment deployed on google cloud</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_api.R'><code>R/build_api.R</code></a></small>
+    <div class="hidden name"><code>download_googlecloud.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Insert reference to a timeline variable</p>
+    <p>Download data from a jspsych experiment deployed on google cloud</p>
     </div>
 
-    <pre class="usage"><span class='fu'>insert_variable</span>(<span class='no'>name</span>)</pre>
+    <pre class="usage"><span class='fu'>download_googlecloud</span>()</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>name</th>
-      <td><p>String specifying name of the variable to insert</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Javascript code that calls the jsPsych.timelineVariable() function</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>When creating an experiment, a common pattern is to create a
-series of trials that are identical in every respect except for one thing
-that varies across the trial (e.g., a collection of
-<code><a href='trial_html_button_response.html'>trial_html_button_response</a>()</code> trials that are the same except
-for the text that is displayed). A natural way to handle this in the
-jsPsych framework is to create the trial in the usual fashion, except that
-instead of specifying the <em>value</em> that needs to be included in the
-trial (e.g., the text itself) the code includes a reference to a
-<em>timeline variable</em>. This is the job of the <code><a href='insert_resource.html'>insert_resource()</a></code>
-function. As an example, instead of creating a trial in which
-<code>stimulus = "cat"</code> and another one that is identical except that
-<code>stimulus = "dog"</code>, you could create a "template" for both trials by
-setting <code>stimulus = insert_variable("animal")</code>. This acts as a kind
-promise that is filled (at runtime) by looking for an "animal" variable
-attached to the timeline. See the examples section for an illustration of
-how these functions are intended to work together.</p>
+    <p>This function currently does nothing</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='set_variables.html'>set_variables</a>()</code>, <code><a href='build_timeline.html'>build_timeline</a>()</code></p></div>
+    <div class='dont-index'><p><code><a href='save_googlecloud.html'>save_googlecloud</a></code>, <code><a href='run_googlecloud.html'>run_googlecloud</a></code></p></div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># create a template from which a series of trials can be built</span>
-<span class='no'>template</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='trial_html_button_response.html'>trial_html_button_response</a></span>(<span class='kw'>stimulus</span> <span class='kw'>=</span> <span class='fu'>insert_variable</span>(<span class='st'>"animal"</span>))
-
-<span class='co'># create a timeline with three trials, all using the same template</span>
-<span class='co'># but with a different value for the "animal" variable</span>
-<span class='no'>timeline</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='build_timeline.html'>build_timeline</a></span>(<span class='no'>template</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='set_variables.html'>set_variables</a></span>(<span class='kw'>animal</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"cat"</span>, <span class='st'>"dog"</span>, <span class='st'>"pig"</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
