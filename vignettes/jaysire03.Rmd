@@ -108,19 +108,19 @@ Notice that again I've used the `insert_variable()` function to indicate the bla
 
 ## Using resources in a timeline
 
-Much like we did in the previous example, we can construct the timeline by first transforming `trial_template` into a timeline object using the `build_timeline()` function, and then use the `add_variables()` function to specify the timeline variable "my_stimulus" that the template requires. The only difference between this time and the last one is that we need to use the `insert_resource()` function so that jaysire knows that it needs to treat `image_files` as filenames. So our code looks like this:
+Much like we did in the previous example, we can construct the timeline by first transforming `trial_template` into a timeline object using the `build_timeline()` function, and then use the `set_variables()` function to specify the timeline variable "my_stimulus" that the template requires. The only difference between this time and the last one is that we need to use the `insert_resource()` function so that jaysire knows that it needs to treat `image_files` as filenames. So our code looks like this:
 
 ```{r}
 trials <- build_timeline(trial_template) %>%
-  add_variables(my_stimulus = insert_resource(image_files)) 
+  set_variables(my_stimulus = insert_resource(image_files)) 
 ```
 
 Of course, in a real experiment we would probably want to randomise the order in which the stimuli are presented, so it would make more sense to add an extra step like this: 
 
 ```{r}
 trials <- build_timeline(trial_template) %>%
-  add_variables(my_stimulus = insert_resource(image_files)) %>%
-  add_parameters(randomize_order = TRUE)
+  set_variables(my_stimulus = insert_resource(image_files)) %>%
+  set_parameters(randomize_order = TRUE)
 ```
 
 In a complete experiment, the `trials` timeline would need to have other things added to it. We'd need some instructions at the start and a thank you message at the end. But I won't bother with that in this case, and so we'll pretend that `trials` is the entire timeline for the experiment.
@@ -171,8 +171,8 @@ trial_template <- trial_image_button_response(
 
 # ----------- build the timeline -----------
 trials <- build_timeline(trial_template) %>%
-  add_variables(my_stimulus = insert_resource(image_files)) %>%
-  add_parameters(randomize_order = TRUE)
+  set_variables(my_stimulus = insert_resource(image_files)) %>%
+  set_parameters(randomize_order = TRUE)
 
 # ----------- build the experiment -----------
 build_experiment(

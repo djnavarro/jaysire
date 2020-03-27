@@ -35,7 +35,7 @@ functions.
 
 <!-- - The `insert_` functions are used to tell jsPsych to "insert" the input into the experiment as a particular kind of entity: a reference to a resource file, a reference to a timeline variable, a data property or as raw javascript. -->
 
-<!-- - The `add_` and `display_` functions are used to modify how a timeline executes: by defining a timeline variable, adding parameters, executing in a loop, or executing if a condition holds -->
+<!-- - The `set_` and `display_` functions are used to modify how a timeline executes: by defining a timeline variable, adding parameters, executing in a loop, or executing if a condition holds -->
 
 <!-- - The `question_` family is used when constructing surveys -->
 

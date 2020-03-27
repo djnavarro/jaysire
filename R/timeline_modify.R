@@ -16,7 +16,7 @@
 #' \emph{timeline variable}. Inserting the \emph{reference} to the variable
 #' is the job of the \code{\link{insert_variable}()} function; \emph{attaching}
 #' that variable to the timeline and specifying its possible values is the
-#' job of \code{add_variables}. This is most easily explained by using
+#' job of \code{set_variables}. This is most easily explained by using
 #' an example, as shown below.
 #'
 #' @examples
@@ -26,12 +26,12 @@
 #' # create a timeline with three trials, all using the same template
 #' # but with a different value for the "animal" variable
 #' timeline <- build_timeline(template) %>%
-#'   add_variables(animal = c("cat", "dog", "pig"))
+#'   set_variables(animal = c("cat", "dog", "pig"))
 #'
 #' @seealso \code{\link{build_timeline}}, \code{\link{insert_variable}}
 #'
 #' @export
-add_variables <- function(timeline, ...) {
+set_variables <- function(timeline, ...) {
   vars <- list(...)
   vars <- purrr::transpose(vars)
   timeline[["timeline_variables"]] <- vars
@@ -44,13 +44,13 @@ add_variables <- function(timeline, ...) {
 #' @param ... A set of name/value pairs defining the parameters
 #' @return The modified timeline object
 #'
-#' @details The \code{add_parameters()} function provides a general
+#' @details The \code{set_parameters()} function provides a general
 #' purpose method of adding arbitrary parameters to an existing
 #' \code{timeline}. Anything that jsPsych recognises as a possible
 #' timeline parameter can be inserted using this method. Some possibilities
 #' are shown in the examples section.
 #'
-#' @seealso \code{\link{build_timeline}}, \code{\link{add_variables}}
+#' @seealso \code{\link{build_timeline}}, \code{\link{set_variables}}
 #'
 #' @examples
 #' # typically we begin with a trial template:
@@ -62,14 +62,14 @@ add_variables <- function(timeline, ...) {
 #'  # then we fill it out so that there is now a "block" of trials:
 #'  equations <- c("13 + 23 = 36",  "17 - 9 = 6", "125 / 5 = 25")
 #'  trials <- build_timeline(trial_template) %>%
-#'      add_variables(my_stimulus = equations)
+#'      set_variables(my_stimulus = equations)
 #'
 #'  # we can randomise presentation order and repeat the block:
 #'  trials <- trials %>%
-#'      add_parameters(randomize_order = TRUE, repetitions = 2)
+#'      set_parameters(randomize_order = TRUE, repetitions = 2)
 #'
 #' @export
-add_parameters <- function(timeline, ...) {
+set_parameters <- function(timeline, ...) {
   timeline <- c(timeline, ...)
   return(timeline)
 }

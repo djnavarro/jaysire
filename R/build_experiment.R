@@ -212,10 +212,10 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
 
   # variables to add to the data storage
   if(is.null(columns)) {
-    add_properties <- character(0)
+    set_properties <- character(0)
   } else {
     prop_str <- jsonlite::toJSON(columns, pretty = TRUE, json_verbatim = TRUE)
-    add_properties <- paste0("jsPsych.data.addProperties(", prop_str, ");\n")
+    set_properties <- paste0("jsPsych.data.addProperties(", prop_str, ");\n")
   }
 
   # write the timeline to a js string
@@ -235,7 +235,7 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
 
   # write both to file
   writeLines(
-    text = c(add_properties, timeline_json, init_json),
+    text = c(set_properties, timeline_json, init_json),
     con = file.path(path, "experiment", "experiment.js")
   )
 

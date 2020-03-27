@@ -20,8 +20,8 @@
 #' using a variety of functions. A timeline can be looped using the
 #' \code{\link{display_while}()} function, or executed contiionally using
 #' the \code{\link{display_if}()} function. Timeline variables can be attached
-#' using \code{\link{add_variables}()} and other parameters can be passed to
-#' the timeline using \code{\link{add_parameters}()}.
+#' using \code{\link{set_variables}()} and other parameters can be passed to
+#' the timeline using \code{\link{set_parameters}()}.
 #'
 #' @export
 build_timeline <- function(...){

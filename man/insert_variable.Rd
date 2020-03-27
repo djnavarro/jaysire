@@ -40,12 +40,12 @@ template <- trial_html_button_response(stimulus = insert_variable("animal"))
 # create a timeline with three trials, all using the same template
 # but with a different value for the "animal" variable
 timeline <- build_timeline(template) \%>\%
-  add_variables(animal = c("cat", "dog", "pig"))
+  set_variables(animal = c("cat", "dog", "pig"))
 
 
 
 
 }
 \seealso{
-\code{\link{add_variables}()}, \code{\link{build_timeline}()}
+\code{\link{set_variables}()}, \code{\link{build_timeline}()}
 }
