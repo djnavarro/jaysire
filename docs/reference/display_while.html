@@ -6,13 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Loop this timeline — display_while • jaysire</title>
+<title>Modify a timeline to execute within a loop — display_while • jaysire</title>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -32,10 +34,11 @@
 
 
 
-<meta property="og:title" content="Loop this timeline — display_while" />
 
-<meta property="og:description" content="Loop this timeline" />
+<meta property="og:title" content="Modify a timeline to execute within a loop — display_while" />
+<meta property="og:description" content="Modify a timeline to execute within a loop" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -109,10 +112,12 @@
     <li>
       <a href="../articles/jaysire07.html">7. Loops and branches</a>
     </li>
+    <li>
+      <a href="../articles/jaysire08.html">8. A choice RT task</a>
+    </li>
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/djnavarro/jaysire">
@@ -133,39 +138,64 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Loop this timeline</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_timeline.R'><code>R/build_timeline.R</code></a></small>
+    <h1>Modify a timeline to execute within a loop</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/timeline_modify.R'><code>R/timeline_modify.R</code></a></small>
     <div class="hidden name"><code>display_while.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-    <p>Loop this timeline</p>
-    
+    <p>Modify a timeline to execute within a loop</p>
     </div>
 
     <pre class="usage"><span class='fu'>display_while</span>(<span class='no'>timeline</span>, <span class='no'>loop_function</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>timeline</th>
-      <td><p>the timeline object</p></td>
+      <td><p>The timeline object</p></td>
     </tr>
     <tr>
       <th>loop_function</th>
-      <td><p>javascript function that returns true if loop repeats, false if terminates</p></td>
+      <td><p>A javascript function that returns true if loop repeats, false if terminates</p></td>
     </tr>
     </table>
-    
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The modified timeline object</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>display_while()</code> function is used to modify an existing
+<code>timeline</code> object, and provides the ability to include while loops
+within an experiment. To use it, the user must supply the
+<code>loop_function</code>, a javascript function that executes at
+runtime and should evaluate to true or false. If the
+loop function returns true, then the timeline object
+will execute for another iteration; this condinues until the
+loop function returns false.</p>
+<p>At present jaysire provides only limited tools for writing the
+loop function. The <code><a href='fn_data_condition.html'>fn_data_condition</a>()</code> function allows
+a simple approach that allows the loop function to query the
+jsPsych data store, but only in a limited way. Future versions will
+(hopefully) provide a richer tool set for this. However, for
+users who are comfortable with writing javascript functions directly
+the <code><a href='insert_javascript.html'>insert_javascript</a>()</code> function may be useful.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='display_if.html'>display_if</a></code>, <code><a href='build_timeline.html'>build_timeline</a></code>,
+<code><a href='fn_data_condition.html'>fn_data_condition</a></code>, <code><a href='insert_javascript.html'>insert_javascript</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
+    </ul>
 
   </div>
 </div>
@@ -173,11 +203,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Danielle Navarro.</p>
+  <p>Developed by <a href='https://compcogscisydney.org'>Danielle Navarro</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>

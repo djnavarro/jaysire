@@ -62,23 +62,23 @@ equations <- c(
 )
 ```
 
-Now that we have specified the stimuli as an ordinary R variable, what we need to do is to link it to the trial template we defined earlier. To do this, we first "wrap" `trial_template` into a timeline, and use the `tl_add_variables()` function to attach a variable to that timeline:
+Now that we have specified the stimuli as an ordinary R variable, what we need to do is to link it to the trial template we defined earlier. To do this, we first "wrap" `trial_template` into a timeline, and use the `add_variables()` function to attach a variable to that timeline:
 
 ```{r}
 trials <- build_timeline(trial_template) %>%
-  tl_add_variables(my_stimulus = equations)
+  add_variables(my_stimulus = equations)
 ```
 
 This might seem slightly odd, because in our first example we created all the trials individually and only wrapped them into a timeline at the very end. However, jsPsych allows you to nest timelines within other timelines, and this can be extremely useful. In this situation, what we have create is essentially a new "mini-timeline" that consists of six copies of the `trial_template`, each one using a different equation. This "templating" approach produces code that is much easier to write than if we had to use `trial_html_button_response()` six times, and as you might imagine this is much more efficient when there are hundreds of different stimuli!
 
 ## Randomisation
 
-So far, so good. However, one limitation with our code is that the experiment will run the six trials in the same order every time. If our experiment were running in R, what we could to is use the `sample()` function to shuffle stimuli, but that won't work in this situation because the experiment will (eventually) run through a web browser. So if we want to randomise the trial ordering we need to use the randomisation tools built into jsPsych. We can do this by attaching *parameters* to the timeline that we have just defined using the `tl_add_parameters()` function:
+So far, so good. However, one limitation with our code is that the experiment will run the six trials in the same order every time. If our experiment were running in R, what we could to is use the `sample()` function to shuffle stimuli, but that won't work in this situation because the experiment will (eventually) run through a web browser. So if we want to randomise the trial ordering we need to use the randomisation tools built into jsPsych. We can do this by attaching *parameters* to the timeline that we have just defined using the `add_parameters()` function:
 
 ```{r}
 trials <- build_timeline(trial_template) %>%
-  tl_add_variables(stimulus = equations) %>%
-  tl_add_parameters(randomize_order = TRUE)
+  add_variables(stimulus = equations) %>%
+  add_parameters(randomize_order = TRUE)
 ```
 
 In this version, the `trials` timeline contains the same six copies of the template, but jsPsych will show them in a random order when the experiment is run in the browser. 
@@ -89,8 +89,8 @@ We're almost there. Suppose we want to create a "block randomised" design, in wh
 
 ```{r}
 trials <- build_timeline(trial_template) %>%
-  tl_add_variables(stimulus = equations) %>%
-  tl_add_parameters(randomize_order = TRUE, repetitions = 2)
+  add_variables(stimulus = equations) %>%
+  add_parameters(randomize_order = TRUE, repetitions = 2)
 ```
 
 
@@ -132,8 +132,8 @@ equations <- c(
 
 # ----------- template -----------
 trials <- build_timeline(trial_template) %>%
-  tl_add_variables(stimulus = equations) %>%
-  tl_add_parameters(randomize_order = TRUE, repetitions = 2)
+  add_variables(stimulus = equations) %>%
+  add_parameters(randomize_order = TRUE, repetitions = 2)
 
 
 # ----------- final trial -----------

@@ -86,7 +86,7 @@
 #' \code{incorrect_text = "Wrong. This is a \%ANS\%"}. This functionality can be
 #' particularly useful if the values of \code{text_answer} and \code{stimulus}
 #' are specified using timeline variables (see \code{\link{insert_variable}()} and
-#' \code{\link{tl_add_variables}()}).
+#' \code{\link{add_variables}()}).
 #' \item The \code{force_correct_button_press} argument is a logical variable.
 #' If set to \code{TRUE} the participant cannot move forward to the next trial
 #' until the correct response is given.

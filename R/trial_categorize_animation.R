@@ -92,7 +92,7 @@
 #' \code{incorrect_text = "Wrong. This is a \%ANS\%"}. This functionality can be
 #' particularly useful if the values of \code{text_answer} and \code{stimulus}
 #' are specified using timeline variables (see \code{\link{insert_variable}()} and
-#' \code{\link{tl_add_variables}()}).
+#' \code{\link{add_variables}()}).
 #' \item The \code{feedback_duration} argument specifies the length of time the
 #' feedback is displayed, in milliseconds.
 #' }

@@ -117,12 +117,12 @@ test <- trial_image_keyboard_response(
 )
 
 trials <- build_timeline(fixation, test) %>%
-  tl_add_variables(
+  add_variables(
     circle = insert_resource(c("orange.png", "blue.png")),
     colour = c("orange", "blue"),
     correct_key = keycode(c("f","j"))
   ) %>%
-  tl_add_parameters(repetitions = 5, randomize_order = TRUE)
+  add_parameters(repetitions = 5, randomize_order = TRUE)
 ```
 
 

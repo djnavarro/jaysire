@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Return a javascript function that checks a data value — fn_data_condition • jaysire</title>
+<title>Modify a timeline to add parameters — add_parameters • jaysire</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Return a javascript function that checks a data value — fn_data_condition" />
-<meta property="og:description" content="Return a javascript function that checks a data value" />
+<meta property="og:title" content="Modify a timeline to add parameters — add_parameters" />
+<meta property="og:description" content="Modify a timeline to add parameters" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -138,51 +138,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Return a javascript function that checks a data value</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/data_condition.R'><code>R/data_condition.R</code></a></small>
-    <div class="hidden name"><code>fn_data_condition.Rd</code></div>
+    <h1>Modify a timeline to add parameters</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/timeline_modify.R'><code>R/timeline_modify.R</code></a></small>
+    <div class="hidden name"><code>add_parameters.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Return a javascript function that checks a data value</p>
+    <p>Modify a timeline to add parameters</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fn_data_condition</span>(<span class='no'>expr</span>, <span class='kw'>trials_back</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>add_parameters</span>(<span class='no'>timeline</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>expr</th>
-      <td><p>An expression to be evaluated within the jsPsych data store</p></td>
+      <th>timeline</th>
+      <td><p>The timeline object</p></td>
     </tr>
     <tr>
-      <th>trials_back</th>
-      <td><p>The number of trials before the present one for which to query the data</p></td>
+      <th>...</th>
+      <td><p>A set of name/value pairs defining the parameters</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A javascript function</p>
+    <p>The modified timeline object</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The <code>fn_data_condition()</code> function creates a javascript function that
-can query the jsPsych data store and evaluate the expression <code>expr</code> within the
-data store. It is (at present) very limited, and can only query the data store for
-a single trial (i.e., a single row in the data set). By default it queries the
-most recent trial (<code>trials_back = 1</code>) but this behaviour can be modified.</p>
-<p>The intention behind this function is that it be used in conjunction with functions
-such as <code><a href='display_if.html'>display_if</a>()</code> and <code><a href='display_while.html'>display_while</a>()</code> that
-require a javascript function that will evaluate to true or false, in order to
-determine whether to continue the while loop or whether the if condition holds.</p>
-<p>As an example, one might set <code>fn_data_condition(button_pressed == "0")</code>
-when calling <code><a href='display_if.html'>display_if</a>()</code>. If the participant had pressed
-button "0" on the previous trial, then the timeline in question will be
-executed. Otherwise it is not.</p>
-<p>Note that this function is a work in progress and will likely change in
-future versions in order to allow more flexibility.</p>
+    <p>The <code>add_parameters()</code> function provides a general
+purpose method of adding arbitrary parameters to an existing
+<code>timeline</code>. Anything that jsPsych recognises as a possible
+timeline parameter can be inserted using this method. Some possibilities
+are shown in the examples section.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
+    <div class='dont-index'><p><code><a href='build_timeline.html'>build_timeline</a></code>, <code><a href='add_variables.html'>add_variables</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># typically we begin with a trial template:</span>
+<span class='no'>trial_template</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='trial_html_button_response.html'>trial_html_button_response</a></span>(
+     <span class='kw'>stimulus</span> <span class='kw'>=</span> <span class='fu'><a href='insert_variable.html'>insert_variable</a></span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"my_stimulus"</span>),
+     <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"true"</span>, <span class='st'>"false"</span>)
+ )
+
+ <span class='co'># then we fill it out so that there is now a "block" of trials:</span>
+ <span class='no'>equations</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"13 + 23 = 36"</span>,  <span class='st'>"17 - 9 = 6"</span>, <span class='st'>"125 / 5 = 25"</span>)
+ <span class='no'>trials</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='build_timeline.html'>build_timeline</a></span>(<span class='no'>trial_template</span>) <span class='kw'>%&gt;%</span>
+     <span class='fu'><a href='add_variables.html'>add_variables</a></span>(<span class='kw'>my_stimulus</span> <span class='kw'>=</span> <span class='no'>equations</span>)
+
+ <span class='co'># we can randomise presentation order and repeat the block:</span>
+ <span class='no'>trials</span> <span class='kw'>&lt;-</span> <span class='no'>trials</span> <span class='kw'>%&gt;%</span>
+     <span class='fu'>add_parameters</span>(<span class='kw'>randomize_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>repetitions</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -190,6 +198,8 @@ future versions in order to allow more flexibility.</p>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

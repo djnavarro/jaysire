@@ -12,12 +12,12 @@
 #' most recent trial (\code{trials_back = 1}) but this behaviour can be modified.
 #'
 #' The intention behind this function is that it be used in conjunction with functions
-#' such as \code{\link{tl_display_if}()} and \code{\link{tl_display_while}()} that
+#' such as \code{\link{display_if}()} and \code{\link{display_while}()} that
 #' require a javascript function that will evaluate to true or false, in order to
 #' determine whether to continue the while loop or whether the if condition holds.
 #'
 #' As an example, one might set \code{fn_data_condition(button_pressed == "0")}
-#' when calling \code{\link{tl_display_if}()}. If the participant had pressed
+#' when calling \code{\link{display_if}()}. If the participant had pressed
 #' button "0" on the previous trial, then the timeline in question will be
 #' executed. Otherwise it is not.
 #'

@@ -108,12 +108,12 @@ insert_resource <- function(file, type = NULL) {
 #' # create a timeline with three trials, all using the same template
 #' # but with a different value for the "animal" variable
 #' timeline <- build_timeline(template) %>%
-#'   tl_add_variables(animal = c("cat", "dog", "pig"))
+#'   add_variables(animal = c("cat", "dog", "pig"))
 #'
 #'
 #'
 #'
-#' @seealso \code{\link{tl_add_variables}()}, \code{\link{build_timeline}()}
+#' @seealso \code{\link{add_variables}()}, \code{\link{build_timeline}()}
 #' @export
 #'
 insert_variable <- function(name) {

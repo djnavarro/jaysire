@@ -36,10 +36,10 @@ flag_files <- c("bisexual.svg", "transgender.svg", "rainbow.svg")
 
 # testing procedure is a timeline of fixate/query events
 choice_trials <- timeline(fixation, query) %>%
-  tl_add_variables(
+  add_variables(
     prompt = paste("is this the", flag_names, "flag? (y/n)"),
     stimulus = insert_resource(flag_files)) %>%
-  tl_add_parameters(randomize_order = TRUE, repetitions = 2)
+  add_parameters(randomize_order = TRUE, repetitions = 2)
 
 
 

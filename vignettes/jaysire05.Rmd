@@ -70,7 +70,7 @@ slider_trial <- trial_image_slider_response(
 
 # randomise the order of the two "substantial trials"
 tests <- build_timeline(button_trial, slider_trial) %>%
-  tl_add_parameters(randomize_order = TRUE)
+  add_parameters(randomize_order = TRUE)
 
 # build the experiment
 build_experiment(

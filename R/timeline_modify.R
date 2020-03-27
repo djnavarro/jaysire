@@ -16,7 +16,7 @@
 #' \emph{timeline variable}. Inserting the \emph{reference} to the variable
 #' is the job of the \code{\link{insert_variable}()} function; \emph{attaching}
 #' that variable to the timeline and specifying its possible values is the
-#' job of \code{tl_add_variables}. This is most easily explained by using
+#' job of \code{add_variables}. This is most easily explained by using
 #' an example, as shown below.
 #'
 #' @examples
@@ -26,12 +26,12 @@
 #' # create a timeline with three trials, all using the same template
 #' # but with a different value for the "animal" variable
 #' timeline <- build_timeline(template) %>%
-#'   tl_add_variables(animal = c("cat", "dog", "pig"))
+#'   add_variables(animal = c("cat", "dog", "pig"))
 #'
 #' @seealso \code{\link{build_timeline}}, \code{\link{insert_variable}}
 #'
 #' @export
-tl_add_variables <- function(timeline, ...) {
+add_variables <- function(timeline, ...) {
   vars <- list(...)
   vars <- purrr::transpose(vars)
   timeline[["timeline_variables"]] <- vars
@@ -44,13 +44,13 @@ tl_add_variables <- function(timeline, ...) {
 #' @param ... A set of name/value pairs defining the parameters
 #' @return The modified timeline object
 #'
-#' @details The \code{tl_add_parameters()} function provides a general
+#' @details The \code{add_parameters()} function provides a general
 #' purpose method of adding arbitrary parameters to an existing
 #' \code{timeline}. Anything that jsPsych recognises as a possible
 #' timeline parameter can be inserted using this method. Some possibilities
 #' are shown in the examples section.
 #'
-#' @seealso \code{\link{build_timeline}}, \code{\link{tl_add_variables}}
+#' @seealso \code{\link{build_timeline}}, \code{\link{add_variables}}
 #'
 #' @examples
 #' # typically we begin with a trial template:
@@ -62,14 +62,14 @@ tl_add_variables <- function(timeline, ...) {
 #'  # then we fill it out so that there is now a "block" of trials:
 #'  equations <- c("13 + 23 = 36",  "17 - 9 = 6", "125 / 5 = 25")
 #'  trials <- build_timeline(trial_template) %>%
-#'      tl_add_variables(my_stimulus = equations)
+#'      add_variables(my_stimulus = equations)
 #'
 #'  # we can randomise presentation order and repeat the block:
 #'  trials <- trials %>%
-#'      tl_add_parameters(randomize_order = TRUE, repetitions = 2)
+#'      add_parameters(randomize_order = TRUE, repetitions = 2)
 #'
 #' @export
-tl_add_parameters <- function(timeline, ...) {
+add_parameters <- function(timeline, ...) {
   timeline <- c(timeline, ...)
   return(timeline)
 }
@@ -81,7 +81,7 @@ tl_add_parameters <- function(timeline, ...) {
 #'
 #' @return The modified timeline object
 #'
-#' @details The \code{tl_display_while()} function is used to modify an existing
+#' @details The \code{display_while()} function is used to modify an existing
 #' \code{timeline} object, and provides the ability to include while loops
 #' within an experiment. To use it, the user must supply the
 #' \code{loop_function}, a javascript function that executes at
@@ -98,11 +98,11 @@ tl_add_parameters <- function(timeline, ...) {
 #' users who are comfortable with writing javascript functions directly
 #' the \code{\link{insert_javascript}()} function may be useful.
 #'
-#' @seealso \code{\link{tl_display_if}}, \code{\link{build_timeline}},
+#' @seealso \code{\link{display_if}}, \code{\link{build_timeline}},
 #' \code{\link{fn_data_condition}}, \code{\link{insert_javascript}}
 #'
 #' @export
-tl_display_while <- function(timeline, loop_function) {
+display_while <- function(timeline, loop_function) {
   timeline[["loop_function"]] <- loop_function
   return(timeline)
 }
@@ -113,7 +113,7 @@ tl_display_while <- function(timeline, loop_function) {
 #' @param conditional_function A javascript function that returns true if the timeline should execute and false otherwise
 #' @return The modified timeline object
 #'
-#' @details The \code{tl_display_if()} function is used to modify an existing
+#' @details The \code{display_if()} function is used to modify an existing
 #' \code{timeline} object, and provides the ability for conditional branching
 #' within an experiment. To use it, the user must supply the
 #' \code{conditional_function}, a javascript function that executes at
@@ -130,11 +130,11 @@ tl_display_while <- function(timeline, loop_function) {
 #' users who are comfortable with writing javascript functions directly
 #' the \code{\link{insert_javascript}()} function may be useful.
 #'
-#' @seealso \code{\link{tl_display_while}}, \code{\link{build_timeline}},
+#' @seealso \code{\link{display_while}}, \code{\link{build_timeline}},
 #' \code{\link{fn_data_condition}}, \code{\link{insert_javascript}}
 #'
 #' @export
-tl_display_if <- function(timeline, conditional_function) {
+display_if <- function(timeline, conditional_function) {
   timeline[["conditional_function"]] <- conditional_function
   return(timeline)
 }

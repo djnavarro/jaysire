@@ -12,7 +12,7 @@
 #'
 #' @seealso \code{\link{run_webserver}}, \code{\link{download_data_webserver}}
 fn_save_webserver <- function() {
-  jaysire:::js_code(paste0(
+  js_code(paste0(
     "function() {
     var url = 'resource/script/record_result.php';
     var data = {filedata: jsPsych.data.get().csv()};
