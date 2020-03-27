@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_api.R
 \name{run_googlecloud}
 \alias{run_googlecloud}
-\title{Deploy a jspsych experiment on google app engie}
+\title{Deploy a jspsych experiment on google cloud}
 \usage{
 run_googlecloud(path, project_id)
 }
@@ -12,7 +12,7 @@ run_googlecloud(path, project_id)
 \item{project_id}{the google app engine project id}
 }
 \description{
-Deploy a jspsych experiment on google app engie
+Deploy a jspsych experiment on google cloud
 }
 \details{
 The purpose of the \code{run_googlecloud()} function is to make it

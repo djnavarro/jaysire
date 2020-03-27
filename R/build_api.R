@@ -71,7 +71,7 @@ run_locally <- function(path, port = 8000) {
 
 }
 
-#' Deploy a jspsych experiment on google app engie
+#' Deploy a jspsych experiment on google cloud
 #'
 #' @param path path to the experiment folder
 #' @param project_id the google app engine project id
