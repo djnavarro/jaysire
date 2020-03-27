@@ -60,9 +60,9 @@ last thing that the subject clicked on).
 ends. It can be constructed manually using \code{\link{insert_javascript}()}, but
 in many cases there is a jaysire function that will create the appropriate function
 for you. For example, if you want the data to be saved locally at the end of the
-experiment you can set \code{on_finish = \link{fn_save_locally}()}, whereas if you
+experiment you can set \code{on_finish = \link{save_locally}()}, whereas if you
 want the data to be saved to the Google Datastore you can set
-\code{on_finish = \link{fn_save_datastore}()}.
+\code{on_finish = \link{save_datastore}()}.
 
 \item \code{on_trial_start} is a javascript function that executes when a
 trial begins.

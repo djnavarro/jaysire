@@ -182,7 +182,7 @@ page4 <- trial_survey_text(
 build_experiment(
   timeline = build_timeline(page1, page2, page3, page4),
   path = temporary_folder(), 
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Download data from a jspsych experiment deployed on a webserver — download_data_webserver • jaysire</title>
+<title>Return a javascript function to save data to Google datastore — save_datastore • jaysire</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Download data from a jspsych experiment deployed on a webserver — download_data_webserver" />
-<meta property="og:description" content="Download data from a jspsych experiment deployed on a webserver" />
+<meta property="og:title" content="Return a javascript function to save data to Google datastore — save_datastore" />
+<meta property="og:description" content="Return a javascript function to save data to Google datastore" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -138,47 +138,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Download data from a jspsych experiment deployed on a webserver</h1>
-    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_api.R'><code>R/build_api.R</code></a></small>
-    <div class="hidden name"><code>download_data_webserver.Rd</code></div>
+    <h1>Return a javascript function to save data to Google datastore</h1>
+    <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/save_locally.R'><code>R/save_locally.R</code></a></small>
+    <div class="hidden name"><code>save_datastore.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Download data from a jspsych experiment deployed on a webserver</p>
+    <p>Return a javascript function to save data to Google datastore</p>
     </div>
 
-    <pre class="usage"><span class='fu'>download_data_webserver</span>(<span class='no'>ssh</span>, <span class='kw'>keyfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"."</span>)</pre>
+    <pre class="usage"><span class='fu'>save_datastore</span>()</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>ssh</th>
-      <td><p>ssh connection string to a webserver</p></td>
-    </tr>
-    <tr>
-      <th>keyfile</th>
-      <td><p>(optional) path to a ssh private key to log in to your webserver</p></td>
-    </tr>
-    <tr>
-      <th>to</th>
-      <td><p>local folder to download the data to</p></td>
-    </tr>
-    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A javascript function to write data to the Google datastore</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function assumes the default setup by run_webserver, so all it does
-is download the folder /var/www/server_data</p>
+    <p>The purpose of the <code>save_datastore()</code> is to return a
+javascript function that, when called from within the jsPsych experiment,
+will write the data to the Google datastore.
+The intention is that when an experiment is
+to be deployed on Google App Engine (i.e., using the <code><a href='run_appengine.html'>run_appengine</a>()</code>
+function to deploy the experiment), the
+<code>save_datastore()</code> function provides the mechanism for saving the data.
+If the goal is simply to save the data set at the end of the experiment, the
+easiest way to do this is when building the experiment using
+<code><a href='build_experiment.html'>build_experiment</a>()</code>. Specifically, the method for doing this is
+to include the argument <code>on_finish = save_datastore()</code> as part of the
+call to <code><a href='build_experiment.html'>build_experiment</a>()</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='save_webserver.html'>save_webserver</a></code>, <code><a href='run_webserver.html'>run_webserver</a></code></p></div>
+    <div class='dont-index'><p><code><a href='run_appengine.html'>run_appengine</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
     </ul>

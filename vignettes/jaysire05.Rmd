@@ -77,7 +77,7 @@ build_experiment(
   timeline = build_timeline(keypress_trial, tests),
   resources = build_resources(resources),
   path = temporary_folder(), 
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 

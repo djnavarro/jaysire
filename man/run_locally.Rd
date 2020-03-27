@@ -32,7 +32,7 @@ generally permit client-side javascript (e.g., the code that runs the jsPsych
 experiment) to save files to arbitrary locations. For this reason writing the
 data to file is the job of the R server, not the javascript code that
 is running through the browser. In other words, if the experiment is deployed
-locally using the \code{run_locally()} function, then the \code{\link{fn_save_locally}()}
+locally using the \code{run_locally()} function, then the \code{\link{save_locally}()}
 function that used to record data locally will work properly. If, however, the
 "index.html" file is opened without starting the R server, data will not be
 saved to file.
@@ -45,5 +45,5 @@ running, and future versions of the package may develope this functionality
 further.
 }
 \seealso{
-\code{\link{fn_save_locally}}, \code{\link{build_experiment}}
+\code{\link{save_locally}}, \code{\link{build_experiment}}
 }

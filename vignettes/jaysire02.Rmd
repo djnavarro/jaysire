@@ -146,7 +146,7 @@ finish <- trial_html_keyboard_response(
 build_experiment(
   timeline = build_timeline(instructions, trials, finish),
   path = temporary_folder(),
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 

@@ -134,7 +134,7 @@ build_experiment(
   resources = build_resources(resources),
   columns = insert_property(experiment = "choice_rt"),  
   path = temporary_folder(),
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 

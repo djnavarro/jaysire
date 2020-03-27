@@ -134,7 +134,7 @@ build_experiment(
   timeline = trials,
   path = file.path(tempdir(), "images_exp"), 
   resources = build_resources(resource_folder),
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 
@@ -179,7 +179,7 @@ build_experiment(
   timeline = trials,
   path = file.path(tempdir(), "images_exp"), 
   resources = build_resources(resource_folder),
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 

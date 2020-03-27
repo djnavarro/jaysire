@@ -98,11 +98,11 @@ Now all we have to do is write the experiment into this folder `build_experiment
 build_experiment(
   timeline = all_trials,
   path = temporary_folder(),
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 
-The other thing I've specified here is the `on_finish` argument, which tells jsPsych what do to when the experiment ends. For our simple experiment, the only thing we want to do is save the data. To keep it simple, we'll assume the experiment is going to be run on the same computer where the experiment is stored, and so I've used the `fn_save_locally()` function here. 
+The other thing I've specified here is the `on_finish` argument, which tells jsPsych what do to when the experiment ends. For our simple experiment, the only thing we want to do is save the data. To keep it simple, we'll assume the experiment is going to be run on the same computer where the experiment is stored, and so I've used the `save_locally()` function here. 
 
 ## What have we created?
 
@@ -153,7 +153,7 @@ trial2 <- trial_html_button_response(
 build_experiment(
   timeline = build_timeline(instructions, trial1, trial2),
   path = temporary_folder(),
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 

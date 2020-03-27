@@ -23,7 +23,7 @@
 #' experiment) to save files to arbitrary locations. For this reason writing the
 #' data to file is the job of the R server, not the javascript code that
 #' is running through the browser. In other words, if the experiment is deployed
-#' locally using the \code{run_locally()} function, then the \code{\link{fn_save_locally}()}
+#' locally using the \code{run_locally()} function, then the \code{\link{save_locally}()}
 #' function that used to record data locally will work properly. If, however, the
 #' "index.html" file is opened without starting the R server, data will not be
 #' saved to file.
@@ -35,7 +35,7 @@
 #' running, and future versions of the package may develope this functionality
 #' further.
 #'
-#' @seealso \code{\link{fn_save_locally}}, \code{\link{build_experiment}}
+#' @seealso \code{\link{save_locally}}, \code{\link{build_experiment}}
 #'
 #' @export
 run_locally <- function(path, port = 8000) {
@@ -92,7 +92,7 @@ run_locally <- function(path, port = 8000) {
 #' creating the Google App Engine project itself (it is assumed that the user
 #' already has a Google Cloud account and is authorised to deploy to the project)
 #'
-#' @seealso \code{\link{fn_save_datastore}}, \code{\link{build_experiment}}
+#' @seealso \code{\link{save_datastore}}, \code{\link{build_experiment}}
 #'
 #' @export
 run_appengine <- function(path, project_id) {
@@ -124,15 +124,15 @@ run_appengine <- function(path, project_id) {
 #' "\code{sudo apt install certbot python-certbot-apache}", and
 #' "\code{sudo certbot --apache}"
 #'
-#' Used together with \code{\link{fn_save_webserver}}, this will set up a folder on the server
+#' Used together with \code{\link{save_webserver}}, this will set up a folder on the server
 #' that apache can write to, and a little php script to receive said data
 #' (as recommended on \href{https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file}{the jspsych website}).
 #'
-#' @seealso \code{\link{fn_save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_data_webserver}}
+#' @seealso \code{\link{save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_data_webserver}}
 #'
 #' @examples
 #' \dontrun{
-#' build_experiment(..., on_finish = fn_save_webserver())
+#' build_experiment(..., on_finish = save_webserver())
 #' run_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
 #' download_data_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
 #' }
@@ -200,7 +200,7 @@ run_webserver <- function(path, ssh, keyfile = NULL,
 #' @details This function assumes the default setup by run_webserver, so all it does
 #' is download the folder /var/www/server_data
 #'
-#' @seealso \code{\link{fn_save_webserver}}, \code{\link{run_webserver}}
+#' @seealso \code{\link{save_webserver}}, \code{\link{run_webserver}}
 #'
 #' @export
 download_data_webserver <- function(ssh, keyfile = NULL, to = ".") {

@@ -21,5 +21,5 @@ This function assumes the default setup by run_webserver, so all it does
 is download the folder /var/www/server_data
 }
 \seealso{
-\code{\link{fn_save_webserver}}, \code{\link{run_webserver}}
+\code{\link{save_webserver}}, \code{\link{run_webserver}}
 }

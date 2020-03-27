@@ -32,18 +32,18 @@ name for your server, it is pretty simple to enable https via let's encrypt:
 "\code{sudo apt install certbot python-certbot-apache}", and
 "\code{sudo certbot --apache}"
 
-Used together with \code{\link{fn_save_webserver}}, this will set up a folder on the server
+Used together with \code{\link{save_webserver}}, this will set up a folder on the server
 that apache can write to, and a little php script to receive said data
 (as recommended on \href{https://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file}{the jspsych website}).
 }
 \examples{
 \dontrun{
-build_experiment(..., on_finish = fn_save_webserver())
+build_experiment(..., on_finish = save_webserver())
 run_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
 download_data_webserver(ssh = "user@server.com", keyfile = "~/.ssh/id_rsa")
 }
 
 }
 \seealso{
-\code{\link{fn_save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_data_webserver}}
+\code{\link{save_webserver}}, \code{\link{build_experiment}}, \code{\link{download_data_webserver}}
 }

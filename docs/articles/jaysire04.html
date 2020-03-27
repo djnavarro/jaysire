@@ -164,9 +164,9 @@
 <a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">path =</span> exp_path, </a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="dt">resources =</span> <span class="kw"><a href="../reference/build_resources.html">build_resources</a></span>(resources),</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="dt">use_webaudio =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/fn_save_locally.html">fn_save_locally</a></span>()</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/save_locally.html">save_locally</a></span>()</a>
 <a class="sourceLine" id="cb6-7" data-line-number="7">)</a></code></pre></div>
-<p>Most of this should look familiar. I’ve specified the <code>timeline</code> that describes the experiment, the <code>path</code> to the folder where it should be located, I’ve used the <code><a href="../reference/build_resources.html">build_resources()</a></code> function to tell jaysire how to handle each of the resource files, and I’ve indicated that when the experiment finishes we should <code><a href="../reference/fn_save_locally.html">fn_save_locally()</a></code> into the data folder (see the <a href="jaysire01.html">first article</a> for more information about the data folder).</p>
+<p>Most of this should look familiar. I’ve specified the <code>timeline</code> that describes the experiment, the <code>path</code> to the folder where it should be located, I’ve used the <code><a href="../reference/build_resources.html">build_resources()</a></code> function to tell jaysire how to handle each of the resource files, and I’ve indicated that when the experiment finishes we should <code><a href="../reference/save_locally.html">save_locally()</a></code> into the data folder (see the <a href="jaysire01.html">first article</a> for more information about the data folder).</p>
 <p>There is one thing that is new. I’ve specified the <code>use_webaudio</code> argument and set it to <code>FALSE</code>. The reason for this is that when you’re running the experiment locally, the web browser treats locally stored audio files as though they were being hosted on a <em>different</em> server to the webpage itself, and that triggers a “cross origin request error” (it is treated as a security risk). Fortunately, jsPsych includes a method to disable this and by setting <code>use_webaudio = FALSE</code> you can get around this issue and run your audio files even when the experiment is running locally!</p>
 </div>
 <div id="what-have-we-created" class="section level2">
@@ -177,10 +177,10 @@
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 4 x 4</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;   name         type  from                                     to                </span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;                                    &lt;chr&gt;             </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; 1 heart.mpg    video /tmp/RtmplVk8K9/temp_libpath42b56f7d8e7… resource/video/he…</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; 2 heart.png    image /tmp/RtmplVk8K9/temp_libpath42b56f7d8e7… resource/image/he…</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; 3 heart.webm   video /tmp/RtmplVk8K9/temp_libpath42b56f7d8e7… resource/video/he…</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; 4 lukewarm_ba… audio /tmp/RtmplVk8K9/temp_libpath42b56f7d8e7… resource/audio/lu…</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; 1 heart.mpg    video /tmp/Rtmp4RmfcP/temp_libpath4be820fbe06… resource/video/he…</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; 2 heart.png    image /tmp/Rtmp4RmfcP/temp_libpath4be820fbe06… resource/image/he…</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; 3 heart.webm   video /tmp/Rtmp4RmfcP/temp_libpath4be820fbe06… resource/video/he…</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; 4 lukewarm_ba… audio /tmp/Rtmp4RmfcP/temp_libpath4be820fbe06… resource/audio/lu…</span></a></code></pre></div>
 <p>Now take a look at where all the files have ended up:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(exp_path, <span class="dt">recursive =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;  [1] "experiment/experiment.js"                                   </span></a>
@@ -232,7 +232,7 @@
 <a class="sourceLine" id="cb9-30" data-line-number="30">  <span class="dt">path =</span> <span class="kw"><a href="../reference/temporary_folder.html">temporary_folder</a></span>(), </a>
 <a class="sourceLine" id="cb9-31" data-line-number="31">  <span class="dt">resources =</span> <span class="kw"><a href="../reference/build_resources.html">build_resources</a></span>(resources),</a>
 <a class="sourceLine" id="cb9-32" data-line-number="32">  <span class="dt">use_webaudio =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb9-33" data-line-number="33">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/fn_save_locally.html">fn_save_locally</a></span>()</a>
+<a class="sourceLine" id="cb9-33" data-line-number="33">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/save_locally.html">save_locally</a></span>()</a>
 <a class="sourceLine" id="cb9-34" data-line-number="34">)</a></code></pre></div>
 <p>You can check out a working version of the experiment <a href="../demos/example04/experiment/index.html">here</a>.</p>
 </div>

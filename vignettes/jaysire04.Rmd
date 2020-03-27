@@ -80,11 +80,11 @@ build_experiment(
   path = exp_path, 
   resources = build_resources(resources),
   use_webaudio = FALSE,
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 
-Most of this should look familiar. I've specified the `timeline` that describes the experiment, the `path` to the folder where it should be located, I've used the `build_resources()` function to tell jaysire how to handle each of the resource files, and I've indicated that when the experiment finishes we should `fn_save_locally()` into the data folder (see the [first article](jaysire01.html) for more information about the data folder). 
+Most of this should look familiar. I've specified the `timeline` that describes the experiment, the `path` to the folder where it should be located, I've used the `build_resources()` function to tell jaysire how to handle each of the resource files, and I've indicated that when the experiment finishes we should `save_locally()` into the data folder (see the [first article](jaysire01.html) for more information about the data folder). 
 
 There is one thing that is new. I've specified the `use_webaudio` argument and set it to `FALSE`. The reason for this is that when you're running the experiment locally, the web browser treats locally stored audio files as though they were being hosted on a *different* server to the webpage itself, and that triggers a "cross origin request error" (it is treated as a security risk). Fortunately, jsPsych includes a method to disable this and by setting `use_webaudio = FALSE` you can get around this issue and run your audio files even when the experiment is running locally!  
 
@@ -137,7 +137,7 @@ build_experiment(
   path = temporary_folder(), 
   resources = build_resources(resources),
   use_webaudio = FALSE,
-  on_finish = fn_save_locally()
+  on_finish = save_locally()
 )
 ```
 

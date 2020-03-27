@@ -32,5 +32,5 @@ creating the Google App Engine project itself (it is assumed that the user
 already has a Google Cloud account and is authorised to deploy to the project)
 }
 \seealso{
-\code{\link{fn_save_datastore}}, \code{\link{build_experiment}}
+\code{\link{save_datastore}}, \code{\link{build_experiment}}
 }

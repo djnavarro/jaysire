@@ -4,22 +4,22 @@
 #' @export
 #' @return A javascript function to save data locally
 #'
-#' @details The purpose of the \code{fn_save_locally()} is to return a
+#' @details The purpose of the \code{save_locally()} is to return a
 #' javascript function that, when called from within the jsPsych experiment,
 #' will write the data to a CSV file on the local machine (in the data folder
 #' associated with the experiment). The intention is that when an experiment is
 #' to be deployed locally (i.e., using the \code{\link{run_locally}()} function
 #' to run the experiment using an R server on the local machine), the
-#' \code{fn_save_locally()} function provides the mechanism for saving the data.
+#' \code{save_locally()} function provides the mechanism for saving the data.
 #' If the goal is simply to save the data set at the end of the experiment, the
 #' easiest way to do this is when building the experiment using
 #' \code{\link{build_experiment}()}. Specifically, the method for doing this is
-#' to include the argument \code{on_finish = fn_save_locally()} as part of the
+#' to include the argument \code{on_finish = save_locally()} as part of the
 #' call to \code{\link{build_experiment}()}.
 #'
 #' @seealso \code{\link{run_locally}}, \code{\link{build_experiment}}
 #'
-fn_save_locally <- function() {
+save_locally <- function() {
   js_code(
   "function() {
     var data = jsPsych.data.get().csv();
@@ -37,22 +37,22 @@ fn_save_locally <- function() {
 #' @export
 #' @return A javascript function to write data to the Google datastore
 #'
-#' @details The purpose of the \code{fn_save_datastore()} is to return a
+#' @details The purpose of the \code{save_datastore()} is to return a
 #' javascript function that, when called from within the jsPsych experiment,
 #' will write the data to the Google datastore.
 #' The intention is that when an experiment is
 #' to be deployed on Google App Engine (i.e., using the \code{\link{run_appengine}()}
 #' function to deploy the experiment), the
-#' \code{fn_save_datastore()} function provides the mechanism for saving the data.
+#' \code{save_datastore()} function provides the mechanism for saving the data.
 #' If the goal is simply to save the data set at the end of the experiment, the
 #' easiest way to do this is when building the experiment using
 #' \code{\link{build_experiment}()}. Specifically, the method for doing this is
-#' to include the argument \code{on_finish = fn_save_datastore()} as part of the
+#' to include the argument \code{on_finish = save_datastore()} as part of the
 #' call to \code{\link{build_experiment}()}.
 #'
 #' @seealso \code{\link{run_appengine}}, \code{\link{build_experiment}}
 #'
-fn_save_datastore <- function() {
+save_datastore <- function() {
   js_code(
     "function() {
       $.post('submit',{\"content\": jsPsych.data.get().csv()})
