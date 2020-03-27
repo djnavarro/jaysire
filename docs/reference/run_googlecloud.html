@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deploy a jspsych experiment on google app engie — run_appengine • jaysire</title>
+<title>Deploy a jspsych experiment on google app engie — run_googlecloud • jaysire</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,7 @@
 
 
 
-<meta property="og:title" content="Deploy a jspsych experiment on google app engie — run_appengine" />
+<meta property="og:title" content="Deploy a jspsych experiment on google app engie — run_googlecloud" />
 <meta property="og:description" content="Deploy a jspsych experiment on google app engie" />
 <meta name="twitter:card" content="summary" />
 
@@ -140,14 +140,14 @@
     <div class="page-header">
     <h1>Deploy a jspsych experiment on google app engie</h1>
     <small class="dont-index">Source: <a href='https://github.com/djnavarro/jaysire/blob/master/R/build_api.R'><code>R/build_api.R</code></a></small>
-    <div class="hidden name"><code>run_appengine.Rd</code></div>
+    <div class="hidden name"><code>run_googlecloud.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Deploy a jspsych experiment on google app engie</p>
     </div>
 
-    <pre class="usage"><span class='fu'>run_appengine</span>(<span class='no'>path</span>, <span class='no'>project_id</span>)</pre>
+    <pre class="usage"><span class='fu'>run_googlecloud</span>(<span class='no'>path</span>, <span class='no'>project_id</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,7 +164,7 @@
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The purpose of the <code>run_appengine()</code> function is to make it
+    <p>The purpose of the <code>run_googlecloud()</code> function is to make it
 somewhat easier to deploy a jsPsych experiment to Google App Engine, so that
 the experiment can run in the cloud rather than on the local machine.
 The <code>path</code> argument
@@ -173,14 +173,14 @@ as the value of <code>path</code> that was used when calling
 <code><a href='build_experiment.html'>build_experiment</a>()</code>) to build the experiment originally. The
 <code>project_id</code> is the name of the Google App Engine project that will host
 the experiment.</p>
-<p>At present, the functionality of <code>run_appengine()</code> is quite limited. All
+<p>At present, the functionality of <code>run_googlecloud()</code> is quite limited. All
 it does is construct the appropriate command that you will need to enter at
 the terminal. It does not execute that command, nor does it assist you in
 creating the Google App Engine project itself (it is assumed that the user
 already has a Google Cloud account and is authorised to deploy to the project)</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='save_appengine.html'>save_appengine</a></code>, <code><a href='build_experiment.html'>build_experiment</a></code></p></div>
+    <div class='dont-index'><p><code>save_googlecloud</code>, <code><a href='build_experiment.html'>build_experiment</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

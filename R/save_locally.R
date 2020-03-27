@@ -37,22 +37,22 @@ save_locally <- function() {
 #' @export
 #' @return A javascript function to write data to the Google datastore
 #'
-#' @details The purpose of the \code{save_datastore()} is to return a
+#' @details The purpose of the \code{save_googlecloud()} is to return a
 #' javascript function that, when called from within the jsPsych experiment,
 #' will write the data to the Google datastore.
 #' The intention is that when an experiment is
-#' to be deployed on Google App Engine (i.e., using the \code{\link{run_appengine}()}
+#' to be deployed on Google App Engine (i.e., using the \code{\link{run_googlecloud}()}
 #' function to deploy the experiment), the
-#' \code{save_datastore()} function provides the mechanism for saving the data.
+#' \code{save_googlecloud()} function provides the mechanism for saving the data.
 #' If the goal is simply to save the data set at the end of the experiment, the
 #' easiest way to do this is when building the experiment using
 #' \code{\link{build_experiment}()}. Specifically, the method for doing this is
-#' to include the argument \code{on_finish = save_datastore()} as part of the
+#' to include the argument \code{on_finish = save_googlecloud()} as part of the
 #' call to \code{\link{build_experiment}()}.
 #'
-#' @seealso \code{\link{run_appengine}}, \code{\link{build_experiment}}
+#' @seealso \code{\link{run_googlecloud}}, \code{\link{build_experiment}}
 #'
-save_datastore <- function() {
+save_googlecloud <- function() {
   js_code(
     "function() {
       $.post('submit',{\"content\": jsPsych.data.get().csv()})

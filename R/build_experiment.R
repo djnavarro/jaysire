@@ -50,7 +50,7 @@
 #' for you. For example, if you want the data to be saved locally at the end of the
 #' experiment you can set \code{on_finish = \link{save_locally}()}, whereas if you
 #' want the data to be saved to the Google Datastore you can set
-#' \code{on_finish = \link{save_datastore}()}.
+#' \code{on_finish = \link{save_googlecloud}()}.
 #'
 #' \item \code{on_trial_start} is a javascript function that executes when a
 #' trial begins.
@@ -184,7 +184,7 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
   )
 
   # copy GAE files if necessary
-  if(identical(init$on_finish, save_datastore())){
+  if(identical(init$on_finish, save_googlecloud())){
     file.copy(
       from = system.file("extdata", "app.yaml", package = "jaysire"),
       to = file.path(path, "experiment")
