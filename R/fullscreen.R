@@ -18,7 +18,7 @@ fullscreen <- function(
   drop_nulls(
     trial(
       type = "fullscreen",
-      fullscreen_mode = fullscreen_mode,
+      fullscreen_mode = js_logical(fullscreen_mode),
       message = message,
       button_label = button_label,
       delay_after = delay_after
