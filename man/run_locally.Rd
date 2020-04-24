@@ -4,10 +4,19 @@
 \alias{run_locally}
 \title{Deploy a jspsych experiment locally}
 \usage{
-run_locally(path, port = 8000)
+run_locally(
+  path,
+  experiment_folder = "experiment",
+  data_folder = "data",
+  port = 8000
+)
 }
 \arguments{
-\item{path}{Path to the experiment folder}
+\item{path}{Path where the experiment is deployed}
+
+\item{experiment_folder}{Experiment subfolder}
+
+\item{data_folder}{Data subfolder}
 
 \item{port}{The port to use}
 }
@@ -17,11 +26,12 @@ Deploy a jspsych experiment locally
 \details{
 The purpose of the \code{run_locally()} function is to start an
 R server running (using the plumber package) that will
-serve the experiment from the local machine. The \code{path} argument
-specifies the location of the experiment to be run, and should be the same
-as the value of \code{path} that was used when calling
-\code{\link{build_experiment}()}) to build the experiment originally. The
-\code{port} is the numeric value of the port on which the experiment is served.
+serve the experiment from the local machine. The \code{path},
+\code{experiment_folder} and \code{data_folder} arguments specify the location
+specify where the experiment should be deployed, and should be the same
+that was used when calling \code{\link{build_experiment}()}) to build the
+experiment originally. The \code{port} is the numeric value of the port on
+which the experiment is served.
 Once \code{run_locally()} has been called, a browser window should open
 showing the relevant page.
 
@@ -41,7 +51,7 @@ The second reason for using \code{run_locally()} is that it opens up the possibi
 that an experiment could use server-side R code at runtime. At the moment jaysire
 does not have any functionality to do so, but in principle there is nothing
 preventing the R server from playing a more active role when the experiment is
-running, and future versions of the package may develope this functionality
+running, and future versions of the package may develop this functionality
 further.
 }
 \seealso{
