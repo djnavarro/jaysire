@@ -3,16 +3,19 @@
 
 #' Deploy a jspsych experiment locally
 #'
-#' @param path Path to the experiment folder
+#' @param path Path where the experiment is deployed
+#' @param experiment_folder Experiment subfolder
+#' @param data_folder Data subfolder
 #' @param port The port to use
 #'
 #' @details The purpose of the \code{run_locally()} function is to start an
 #' R server running (using the plumber package) that will
-#' serve the experiment from the local machine. The \code{path} argument
-#' specifies the location of the experiment to be run, and should be the same
-#' as the value of \code{path} that was used when calling
-#' \code{\link{build_experiment}()}) to build the experiment originally. The
-#' \code{port} is the numeric value of the port on which the experiment is served.
+#' serve the experiment from the local machine. The \code{path},
+#' \code{experiment_folder} and \code{data_folder} arguments specify the location
+#' specify where the experiment should be deployed, and should be the same
+#' that was used when calling \code{\link{build_experiment}()}) to build the
+#' experiment originally. The \code{port} is the numeric value of the port on
+#' which the experiment is served.
 #' Once \code{run_locally()} has been called, a browser window should open
 #' showing the relevant page.
 #'
@@ -32,18 +35,18 @@
 #' that an experiment could use server-side R code at runtime. At the moment jaysire
 #' does not have any functionality to do so, but in principle there is nothing
 #' preventing the R server from playing a more active role when the experiment is
-#' running, and future versions of the package may develope this functionality
+#' running, and future versions of the package may develop this functionality
 #' further.
 #'
 #' @seealso \code{\link{save_locally}}, \code{\link{build_experiment}}
 #'
 #' @export
-run_locally <- function(path, port = 8000) {
+run_locally <- function(path, experiment_folder = "experiment", data_folder = "data", port = 8000) {
 
   pr <- plumber::plumber$new()
 
-  static_site <- file.path(path, "experiment")
-  data_folder <- file.path(path, "data")
+  static_site <- file.path(path, experiment_folder)
+  static_data_folder <- file.path(path, data_folder)
   static_router <- plumber::PlumberStatic$new(static_site)
 
   pr$mount("/", static_router)
@@ -54,11 +57,11 @@ run_locally <- function(path, port = 8000) {
 
     tsp <- get_timestamp()
     file_id <- paste(
-      "data", get_timestamp(), get_alphanumeric(10), sep = "_"
+      data_folder, get_timestamp(), get_alphanumeric(10), sep = "_"
     )
     dat$file_id <- file_id
     dat <- dat[, c(ncol(dat), 1:ncol(dat)-1), drop = FALSE]
-    readr::write_csv(dat, file.path(data_folder, paste0(file_id, ".csv")))
+    readr::write_csv(dat, file.path(static_data_folder, paste0(file_id, ".csv")))
   })
 
   pr$registerHook("exit", function(){
@@ -71,20 +74,20 @@ run_locally <- function(path, port = 8000) {
 
 }
 
-#' Deploy a jspsych experiment on google app engie
+#' Deploy a jspsych experiment on google app engine
 #'
-#' @param path path to the experiment folder
+#' @param path Path where the experiment is deployed
+#' @param experiment_folder Experiment subfolder
 #' @param project_id the google app engine project id
 #'
 #' @details The purpose of the \code{run_googlecloud()} function is to make it
 #' somewhat easier to deploy a jsPsych experiment to Google App Engine, so that
 #' the experiment can run in the cloud rather than on the local machine.
-#' The \code{path} argument
-#' specifies the location of the experiment to be deployed, and should be the same
-#' as the value of \code{path} that was used when calling
-#' \code{\link{build_experiment}()}) to build the experiment originally. The
-#' \code{project_id} is the name of the Google App Engine project that will host
-#' the experiment.
+#' The \code{path} and \code{experiment_folder} arguments
+#' specify where the experiment should be deployed, and should be the same
+#' that was used when calling \code{\link{build_experiment}()}) to build the
+#' experiment originally. The \code{project_id} is the name of the Google App
+#' Engine project that will host the experiment.
 #'
 #' At present, the functionality of \code{run_googlecloud()} is quite limited. All
 #' it does is construct the appropriate command that you will need to enter at
@@ -95,8 +98,8 @@ run_locally <- function(path, port = 8000) {
 #' @seealso \code{\link{save_googlecloud}}, \code{\link{build_experiment}}
 #'
 #' @export
-run_googlecloud <- function(path, project_id) {
-  app <- file.path(path, "experiment", "app.yaml")
+run_googlecloud <- function(path, experiment_folder = "experiment", project_id) {
+  app <- file.path(path, experiment_folder, "app.yaml")
   cmd <- paste0("gcloud app deploy ", app, " --project=", project_id)
   cat("To deploy, enter the following command at the terminal:\n")
   cat(cmd, "\n")
@@ -119,7 +122,8 @@ download_googlecloud <- function() {
 
 #' Deploy a jspsych experiment to a webserver
 #'
-#' @param path path to the experiment folder
+#' @param path Path where the experiment is deployed
+#' @param experiment_folder Experiment subfolder
 #' @param ssh ssh connection string to a webserver
 #' @param keyfile (optional) path to a ssh private key to log in to your webserver
 #' @param webserver_configured set this to true when you've configured your webserver
@@ -151,23 +155,23 @@ download_googlecloud <- function() {
 #' }
 #'
 #' @export
-run_webserver <- function(path, ssh, keyfile = NULL,
+run_webserver <- function(path, experiment_folder = "experiment", ssh, keyfile = NULL,
                           webserver_configured = FALSE) {
   if (!requireNamespace("ssh", quietly = TRUE)) {
     stop("In order to deploy to a webserver, please install ssh: install.packages('ssh')")
   }
 
   ## check if we'll be saving data to the webserver as well
-  save_webserver = file.exists(file.path(path, "experiment", "script", "record_result.php"))
+  save_webserver = file.exists(file.path(path, experiment_folder, "script", "record_result.php"))
 
   # If we're saving to the webserver, create the data folder and fix permissions
   # note: needs to have passwordless sudo configured
-  data_folder = "/var/www/server_data"
+  server_data_folder = "/var/www/server_data"
   html_folder = "/var/www/html"
   serverfolder_cmd <- paste0(c("sudo mkdir ",
                                "sudo chgrp www-data ",
                                "sudo chmod 775 "),
-                             data_folder)
+                             server_data_folder)
 
   if (!webserver_configured) {
     ## print a little setup help
@@ -195,7 +199,7 @@ run_webserver <- function(path, ssh, keyfile = NULL,
 
     ssh::scp_upload(
       ssh_session,
-      files = list.files(file.path(path, "experiment"), full.names = TRUE),
+      files = list.files(file.path(path, experiment_folder), full.names = TRUE),
       to = html_folder)
 
     ssh::ssh_disconnect(ssh_session)
