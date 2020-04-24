@@ -5,7 +5,9 @@
 #' Build the experiment files
 #'
 #' @param timeline A timeline object
-#' @param path A string specifying a folder in which to build the experiment
+#' @param path A string specifying the path in which to build the experiment
+#' @param experiment_folder A string specifying the experiment subfolder
+#' @param data_folder A string specifying the data subfolder
 #' @param resources A tibble specifying how to construct resource files, or NULL
 #' @param columns Additional data values (constants) to store
 #' @param ... Arguments to pass to jsPsych.init()
@@ -25,13 +27,15 @@
 #'
 #' When called, the \code{build_experiment()} function writes all the experiment files,
 #' compiled to javascript and HTML. The file structure it creates is as follows. Within
-#' the \code{path} folder are two subfolders, named "data" and "experiment". The "data"
-#' folder is empty, but intended to serve as a location to which data files can be
-#' written. The "experiment" folder contains the "index.html" file, which is the primary
-#' source file for the experiment page, and an "experiment.js" file that specifies the
-#' jsPsych timeline and calls the jsPsych.init() javascript function that starts the
-#' experiment running. It also contains a "resource" folder with other necessary files
-#' (see \code{\link{build_resources}()} for detail).
+#' the \code{path} folder are two subfolders, \code{data_folder} and
+#' \code{experiment_folder} (named "data" and "experiment" by default). The
+#' \code{data_folder} folder is empty, but intended to serve as a location to which
+#' data files can be written. The \code{experiment_folder} folder contains the
+#' "index.html" file, which is the primary source file for the experiment page, and an
+#' "experiment.js" file that specifies the jsPsych timeline and calls the
+#' jsPsych.init() javascript function that starts the experiment running. It also
+#' contains a "resource" folder with other necessary files (see
+#' \code{\link{build_resources}()} for detail).
 #'
 #' Because \code{build_experiment()} creates the call to jsPsych.init(), it can also
 #' be used to specify any parameters that the user may wish to pass to that function
@@ -125,7 +129,7 @@
 #' the GitHub page.
 #'
 #' @export
-build_experiment <- function(timeline, path, resources = NULL, columns = NULL, ...) {
+build_experiment <- function(timeline, path, experiment_folder = "experiment", data_folder = "data", resources = NULL, columns = NULL, ...) {
 
   # set up
   init <- list(...)
@@ -141,21 +145,21 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
 
   # create tree
   dir.create(path)
-  dir.create(file.path(path, "experiment"))
-  dir.create(file.path(path, "experiment", "resource"))
-  dir.create(file.path(path, "experiment", "resource", "script"))
-  dir.create(file.path(path, "experiment", "resource", "style"))
-  dir.create(file.path(path, "experiment", "resource", "audio"))
-  dir.create(file.path(path, "experiment", "resource", "video"))
-  dir.create(file.path(path, "experiment", "resource", "image"))
-  dir.create(file.path(path, "experiment", "resource", "other"))
-  dir.create(file.path(path, "data"))
+  dir.create(file.path(path, experiment_folder))
+  dir.create(file.path(path, experiment_folder, "resource"))
+  dir.create(file.path(path, experiment_folder, "resource", "script"))
+  dir.create(file.path(path, experiment_folder, "resource", "style"))
+  dir.create(file.path(path, experiment_folder, "resource", "audio"))
+  dir.create(file.path(path, experiment_folder, "resource", "video"))
+  dir.create(file.path(path, experiment_folder, "resource", "image"))
+  dir.create(file.path(path, experiment_folder, "resource", "other"))
+  dir.create(file.path(path, data_folder))
 
   # copy resource files
   if(!is.null(resources)) {
     file.copy(
       from = resources$from,
-      to = file.path(path, "experiment", resources$to)
+      to = file.path(path, experiment_folder, resources$to)
     )
   }
 
@@ -165,7 +169,7 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
       "extdata", "jsPsych-6.1.0", stylesheets,
       package = "jaysire"
     ),
-    to = file.path(path, "experiment", "resource", "style")
+    to = file.path(path, experiment_folder, "resource", "style")
   )
 
   # copy jspsych scripts
@@ -174,28 +178,28 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
       "extdata", "jsPsych-6.1.0", scripts,
       package = "jaysire"
     ),
-    to = file.path(path, "experiment", "resource", "script")
+    to = file.path(path, experiment_folder, "resource", "script")
   )
 
   # copy jaysire files [<-- pretty sure this is now unnecessary]
   file.copy(
     from = system.file("extdata", "xprmntr.js", package = "jaysire"),
-    to = file.path(path, "experiment", "resource", "script")
+    to = file.path(path, experiment_folder, "resource", "script")
   )
 
   # copy GAE files if necessary
   if(identical(init$on_finish, save_googlecloud())){
     file.copy(
       from = system.file("extdata", "app.yaml", package = "jaysire"),
-      to = file.path(path, "experiment")
+      to = file.path(path, experiment_folder)
     )
     file.copy(
       from = system.file("extdata", "backend.py", package = "jaysire"),
-      to = file.path(path, "experiment")
+      to = file.path(path, experiment_folder)
     )
     file.copy(
       from = system.file("extdata", "jquery.min.js", package = "jaysire"),
-      to = file.path(path, "experiment", "resource", "script")
+      to = file.path(path, experiment_folder, "resource", "script")
     )
 
     scripts <- c(scripts, "jquery.min.js")
@@ -205,7 +209,7 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
   if(identical(init$on_finish, save_webserver())){
     file.copy(
       from = system.file("extdata", "record_result.php", package = "jaysire"),
-      to = file.path(path, "experiment", "resource", "script")
+      to = file.path(path, experiment_folder, "resource", "script")
     )
   }
 
@@ -236,7 +240,7 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
   # write both to file
   writeLines(
     text = c(set_properties, timeline_json, init_json),
-    con = file.path(path, "experiment", "experiment.js")
+    con = file.path(path, experiment_folder, "experiment.js")
   )
 
   # header info for html file
@@ -256,7 +260,7 @@ build_experiment <- function(timeline, path, resources = NULL, columns = NULL, .
   )
 
   # write the file
-  writeLines(html, file.path(path, "experiment", "index.html"))
+  writeLines(html, file.path(path, experiment_folder, "index.html"))
 
   return(invisible(NULL))
 
