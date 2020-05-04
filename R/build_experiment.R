@@ -8,6 +8,8 @@
 #' @param path A string specifying the path in which to build the experiment
 #' @param experiment_folder A string specifying the experiment subfolder
 #' @param data_folder A string specifying the data subfolder
+#' @param experiment_title A string specifying the title of the experiment
+#' @param usingPavlovia A logical specifying if the experiment will run in Pavlovia
 #' @param resources A tibble specifying how to construct resource files, or NULL
 #' @param columns Additional data values (constants) to store
 #' @param ... Arguments to pass to jsPsych.init()
@@ -35,7 +37,10 @@
 #' "experiment.js" file that specifies the jsPsych timeline and calls the
 #' jsPsych.init() javascript function that starts the experiment running. It also
 #' contains a "resource" folder with other necessary files (see
-#' \code{\link{build_resources}()} for detail).
+#' \code{\link{build_resources}()} for detail). If specified, \code{experiment_title}
+#' will set the name of the experiment as the title of the HTML file in "index.html".
+#' \code{usingPavlovia} is a logical that specifies whether the experiment will run
+#' online in Pavlovia.
 #'
 #' Because \code{build_experiment()} creates the call to jsPsych.init(), it can also
 #' be used to specify any parameters that the user may wish to pass to that function
@@ -129,7 +134,7 @@
 #' the GitHub page.
 #'
 #' @export
-build_experiment <- function(timeline, path, experiment_folder = "experiment", data_folder = "data", resources = NULL, columns = NULL, ...) {
+build_experiment <- function(timeline, path, experiment_folder = "experiment", data_folder = "data", experiment_title = NULL, usingPavlovia = FALSE, resources = NULL, columns = NULL, ...) {
 
   # set up
   init <- list(...)
@@ -163,7 +168,7 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
     )
   }
 
-  # copy jspsych scripts
+  # copy jspsych stylesheet
   file.copy(
     from = system.file(
       "extdata", "jsPsych-6.1.0", stylesheets,
@@ -181,11 +186,27 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
     to = file.path(path, experiment_folder, "resource", "script")
   )
 
-  # copy jaysire files [<-- pretty sure this is now unnecessary]
-  file.copy(
-    from = system.file("extdata", "xprmntr.js", package = "jaysire"),
-    to = file.path(path, experiment_folder, "resource", "script")
-  )
+  if (!usingPavlovia) {
+    # copy jaysire files [<-- pretty sure this is now unnecessary]
+    file.copy(
+      from = system.file("extdata", "xprmntr.js", package = "jaysire"),
+      to = file.path(path, experiment_folder, "resource", "script")
+    )
+    scripts <- c(scripts, "xprmntr.js")
+  } else {
+    # Need to do this because pavlovia plugin is not part of jsPsych
+    file.copy(
+      from = system.file("extdata", "jspsych-pavlovia.js", package = "jaysire"),
+      to = file.path(path, experiment_folder, "resource", "script")
+    )
+    # Need to avoid doing this manually because it's set automatically as a plugin
+    # scripts <- c(scripts, "jspsych-pavlovia.js")
+    file.copy(
+      from = system.file("extdata", "jquery.min.js", package = "jaysire"),
+      to = file.path(path, experiment_folder, "resource", "script")
+    )
+    scripts <- c(scripts, "jquery.min.js")
+  }
 
   # copy GAE files if necessary
   if(identical(init$on_finish, save_googlecloud())){
@@ -197,12 +218,14 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
       from = system.file("extdata", "backend.py", package = "jaysire"),
       to = file.path(path, experiment_folder)
     )
-    file.copy(
-      from = system.file("extdata", "jquery.min.js", package = "jaysire"),
-      to = file.path(path, experiment_folder, "resource", "script")
-    )
+    if (!usingPavlovia) {
+      file.copy(
+        from = system.file("extdata", "jquery.min.js", package = "jaysire"),
+        to = file.path(path, experiment_folder, "resource", "script")
+      )
 
-    scripts <- c(scripts, "jquery.min.js")
+      scripts <- c(scripts, "jquery.min.js")
+    }
   }
 
   # copy webserver-saving files if necessary
@@ -212,7 +235,6 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
       to = file.path(path, experiment_folder, "resource", "script")
     )
   }
-
 
   # variables to add to the data storage
   if(is.null(columns)) {
@@ -248,11 +270,16 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
     '<!DOCTYPE html>',
     '  <html lang="en-us">',
     '  <head>',
-    paste0('    <script src = "resource/script/', scripts, '"></script>'),
-    paste0('    <script src = "resource/script/xprmntr.js"></script>'),
-    paste0('    <script src = "', resources$to[resources$type == "script"], '"></script>'),
-    paste0('    <script src = "experiment.js"></script>'),
     paste0('    <link rel="stylesheet" href="resource/style/', stylesheets, '">'),
+    paste0('    <script src = "resource/script/', scripts, '"></script>'),
+    paste0('    <script src = "experiment.js"></script>')
+  )
+
+  if (length(resources$to[resources$type == "script"]) > 0) { html <- c(html, paste0('    <script src = "', resources$to[resources$type == "script"], '"></script>')) }
+
+  if (length(experiment_title) > 0) { html <- c(html, paste0('    <title>', experiment_title, '</title>')) }
+
+  html <- c(html,
     '  </head>',
     '  <body>',
     '  </body>',

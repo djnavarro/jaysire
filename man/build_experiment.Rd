@@ -9,6 +9,8 @@ build_experiment(
   path,
   experiment_folder = "experiment",
   data_folder = "data",
+  experiment_title = NULL,
+  usingPavlovia = FALSE,
   resources = NULL,
   columns = NULL,
   ...
@@ -22,6 +24,10 @@ build_experiment(
 \item{experiment_folder}{A string specifying the experiment subfolder}
 
 \item{data_folder}{A string specifying the data subfolder}
+
+\item{experiment_title}{A string specifying the title of the experiment}
+
+\item{usingPavlovia}{A logical specifying if the experiment will run in Pavlovia}
 
 \item{resources}{A tibble specifying how to construct resource files, or NULL}
 
@@ -57,7 +63,10 @@ data files can be written. The \code{experiment_folder} folder contains the
 "experiment.js" file that specifies the jsPsych timeline and calls the
 jsPsych.init() javascript function that starts the experiment running. It also
 contains a "resource" folder with other necessary files (see
-\code{\link{build_resources}()} for detail).
+\code{\link{build_resources}()} for detail). If specified, \code{experiment_title}
+will set the name of the experiment as the title of the HTML file in "index.html".
+\code{usingPavlovia} is a logical that specifies whether the experiment will run
+online in Pavlovia.
 
 Because \code{build_experiment()} creates the call to jsPsych.init(), it can also
 be used to specify any parameters that the user may wish to pass to that function
