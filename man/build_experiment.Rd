@@ -19,7 +19,11 @@ build_experiment(
 \arguments{
 \item{timeline}{A timeline object}
 
-\item{path}{A string specifying a folder in which to build the experiment}
+\item{path}{A string specifying the path in which to build the experiment}
+
+\item{experiment_folder}{A string specifying the experiment subfolder}
+
+\item{data_folder}{A string specifying the data subfolder}
 
 \item{experiment_title}{A string specifying the title of the experiment}
 
