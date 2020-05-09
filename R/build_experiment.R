@@ -161,7 +161,7 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   dir.create(file.path(path, data_folder))
 
   # copy resource files
-  if(!is.null(resources)) {
+  if (!is.null(resources)) {
     file.copy(
       from = resources$from,
       to = file.path(path, experiment_folder, resources$to)
@@ -186,14 +186,7 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
     to = file.path(path, experiment_folder, "resource", "script")
   )
 
-  if (!usingPavlovia) {
-    # copy jaysire files [<-- pretty sure this is now unnecessary]
-    file.copy(
-      from = system.file("extdata", "xprmntr.js", package = "jaysire"),
-      to = file.path(path, experiment_folder, "resource", "script")
-    )
-    scripts <- c(scripts, "xprmntr.js")
-  } else {
+  if (usingPavlovia) {
     # Need to do this because pavlovia plugin is not part of jsPsych
     file.copy(
       from = system.file("extdata", "jspsych-pavlovia.js", package = "jaysire"),
@@ -209,7 +202,7 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   }
 
   # copy GAE files if necessary
-  if(identical(init$on_finish, save_googlecloud())){
+  if (identical(init$on_finish, save_googlecloud())) {
     file.copy(
       from = system.file("extdata", "app.yaml", package = "jaysire"),
       to = file.path(path, experiment_folder)
@@ -229,7 +222,7 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   }
 
   # copy webserver-saving files if necessary
-  if(identical(init$on_finish, save_webserver())){
+  if (identical(init$on_finish, save_webserver())) {
     file.copy(
       from = system.file("extdata", "record_result.php", package = "jaysire"),
       to = file.path(path, experiment_folder, "resource", "script")
@@ -237,7 +230,7 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   }
 
   # variables to add to the data storage
-  if(is.null(columns)) {
+  if (is.null(columns)) {
     set_properties <- character(0)
   } else {
     prop_str <- jsonlite::toJSON(columns, pretty = TRUE, json_verbatim = TRUE)
@@ -271,8 +264,8 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
     '  <html lang="en-us">',
     '  <head>',
     paste0('    <link rel="stylesheet" href="resource/style/', stylesheets, '">'),
-    paste0('    <script src = "resource/script/', scripts, '"></script>'),
-    paste0('    <script src = "experiment.js"></script>')
+    paste0('    <script src="resource/script/', scripts, '"></script>'),
+    paste0('    <script src="experiment.js"></script>')
   )
 
   if (length(resources$to[resources$type == "script"]) > 0) { html <- c(html, paste0('    <script src = "', resources$to[resources$type == "script"], '"></script>')) }

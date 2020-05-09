@@ -60,7 +60,7 @@ run_locally <- function(path, experiment_folder = "experiment", data_folder = "d
       data_folder, get_timestamp(), get_alphanumeric(10), sep = "_"
     )
     dat$file_id <- file_id
-    dat <- dat[, c(ncol(dat), 1:ncol(dat)-1), drop = FALSE]
+    dat <- dat[, c(ncol(dat), 1:ncol(dat) - 1), drop = FALSE]
     readr::write_csv(dat, file.path(static_data_folder, paste0(file_id, ".csv")))
   })
 
