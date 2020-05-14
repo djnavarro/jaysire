@@ -10,7 +10,7 @@ build_experiment(
   experiment_folder = "experiment",
   data_folder = "data",
   experiment_title = NULL,
-  usingPavlovia = FALSE,
+  jsPsych_path = file.path(system.file("extdata", "jsPsych", package = "jaysire")),
   resources = NULL,
   columns = NULL,
   ...
@@ -27,7 +27,7 @@ build_experiment(
 
 \item{experiment_title}{A string specifying the title of the experiment}
 
-\item{usingPavlovia}{A logical specifying if the experiment will run in Pavlovia}
+\item{jsPsych_path}{A string specifying the path to jsPsych}
 
 \item{resources}{A tibble specifying how to construct resource files, or NULL}
 
@@ -65,8 +65,7 @@ jsPsych.init() javascript function that starts the experiment running. It also
 contains a "resource" folder with other necessary files (see
 \code{\link{build_resources}()} for detail). If specified, \code{experiment_title}
 will set the name of the experiment as the title of the HTML file in "index.html".
-\code{usingPavlovia} is a logical that specifies whether the experiment will run
-online in Pavlovia.
+\code{jsPsych_path} is a string that specifies the path to jsPsych.
 
 Because \code{build_experiment()} creates the call to jsPsych.init(), it can also
 be used to specify any parameters that the user may wish to pass to that function

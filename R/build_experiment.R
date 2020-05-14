@@ -9,7 +9,7 @@
 #' @param experiment_folder A string specifying the experiment subfolder
 #' @param data_folder A string specifying the data subfolder
 #' @param experiment_title A string specifying the title of the experiment
-#' @param usingPavlovia A logical specifying if the experiment will run in Pavlovia
+#' @param jsPsych_path A string specifying the path to jsPsych
 #' @param resources A tibble specifying how to construct resource files, or NULL
 #' @param columns Additional data values (constants) to store
 #' @param ... Arguments to pass to jsPsych.init()
@@ -39,8 +39,7 @@
 #' contains a "resource" folder with other necessary files (see
 #' \code{\link{build_resources}()} for detail). If specified, \code{experiment_title}
 #' will set the name of the experiment as the title of the HTML file in "index.html".
-#' \code{usingPavlovia} is a logical that specifies whether the experiment will run
-#' online in Pavlovia.
+#' \code{jsPsych_path} is a string that specifies the path to jsPsych.
 #'
 #' Because \code{build_experiment()} creates the call to jsPsych.init(), it can also
 #' be used to specify any parameters that the user may wish to pass to that function
@@ -134,7 +133,7 @@
 #' the GitHub page.
 #'
 #' @export
-build_experiment <- function(timeline, path, experiment_folder = "experiment", data_folder = "data", experiment_title = NULL, usingPavlovia = FALSE, resources = NULL, columns = NULL, ...) {
+build_experiment <- function(timeline, path, experiment_folder = "experiment", data_folder = "data", experiment_title = NULL, jsPsych_path = file.path(system.file("extdata", "jsPsych", package = "jaysire")), resources = NULL, columns = NULL, ...) {
 
   # set up
   init <- list(...)
@@ -145,8 +144,9 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   flattl <- unlist(timeline)
   plugins <- flattl[grep(pattern = "type$", x = names(flattl))]
   plugins <- unique(unname(plugins))
+  using_pavlovia <- "pavlovia" %in% plugins
+  plugins <- setdiff(plugins, "pavlovia")
   plugins <- paste0("jspsych-", plugins, ".js")
-  scripts <- c(scripts, plugins)
 
   # create tree
   dir.create(path)
@@ -164,39 +164,51 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   if (!is.null(resources)) {
     file.copy(
       from = resources$from,
-      to = file.path(path, experiment_folder, resources$to)
+      to = file.path(path, experiment_folder, resources$to),
+      overwrite = TRUE,
+      copy.date = TRUE
     )
   }
 
   # copy jspsych stylesheet
   file.copy(
-    from = system.file(
-      "extdata", "jsPsych-6.1.0", stylesheets,
-      package = "jaysire"
-    ),
-    to = file.path(path, experiment_folder, "resource", "style")
+    from = file.path(jsPsych_path, "css", stylesheets),
+    to = file.path(path, experiment_folder, "resource", "style"),
+    overwrite = TRUE,
+    copy.date = TRUE
   )
 
   # copy jspsych scripts
   file.copy(
-    from = system.file(
-      "extdata", "jsPsych-6.1.0", scripts,
-      package = "jaysire"
-    ),
-    to = file.path(path, experiment_folder, "resource", "script")
+    from = file.path(jsPsych_path, scripts),
+    to = file.path(path, experiment_folder, "resource", "script"),
+    overwrite = TRUE,
+    copy.date = TRUE
   )
 
-  if (usingPavlovia) {
+  # copy jspsych plugins
+  file.copy(
+    from = file.path(jsPsych_path, "plugins", plugins),
+    to = file.path(path, experiment_folder, "resource", "script"),
+    overwrite = TRUE,
+    copy.date = TRUE
+  )
+  scripts <- c(scripts, plugins)
+
+  if (using_pavlovia) {
     # Need to do this because pavlovia plugin is not part of jsPsych
     file.copy(
       from = system.file("extdata", "jspsych-pavlovia.js", package = "jaysire"),
-      to = file.path(path, experiment_folder, "resource", "script")
+      to = file.path(path, experiment_folder, "resource", "script"),
+      overwrite = TRUE,
+      copy.date = TRUE
     )
-    # Need to avoid doing this manually because it's set automatically as a plugin
-    # scripts <- c(scripts, "jspsych-pavlovia.js")
+    scripts <- c(scripts, "jspsych-pavlovia.js")
     file.copy(
       from = system.file("extdata", "jquery.min.js", package = "jaysire"),
-      to = file.path(path, experiment_folder, "resource", "script")
+      to = file.path(path, experiment_folder, "resource", "script"),
+      overwrite = TRUE,
+      copy.date = TRUE
     )
     scripts <- c(scripts, "jquery.min.js")
   }
@@ -205,16 +217,22 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   if (identical(init$on_finish, save_googlecloud())) {
     file.copy(
       from = system.file("extdata", "app.yaml", package = "jaysire"),
-      to = file.path(path, experiment_folder)
+      to = file.path(path, experiment_folder),
+      overwrite = TRUE,
+      copy.date = TRUE
     )
     file.copy(
       from = system.file("extdata", "backend.py", package = "jaysire"),
-      to = file.path(path, experiment_folder)
+      to = file.path(path, experiment_folder),
+      overwrite = TRUE,
+      copy.date = TRUE
     )
-    if (!usingPavlovia) {
+    if (!using_pavlovia) {
       file.copy(
         from = system.file("extdata", "jquery.min.js", package = "jaysire"),
-        to = file.path(path, experiment_folder, "resource", "script")
+        to = file.path(path, experiment_folder, "resource", "script"),
+        overwrite = TRUE,
+        copy.date = TRUE
       )
 
       scripts <- c(scripts, "jquery.min.js")
@@ -225,7 +243,9 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
   if (identical(init$on_finish, save_webserver())) {
     file.copy(
       from = system.file("extdata", "record_result.php", package = "jaysire"),
-      to = file.path(path, experiment_folder, "resource", "script")
+      to = file.path(path, experiment_folder, "resource", "script"),
+      overwrite = TRUE,
+      copy.date = TRUE
     )
   }
 
