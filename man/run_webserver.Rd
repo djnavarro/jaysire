@@ -4,10 +4,18 @@
 \alias{run_webserver}
 \title{Deploy a jspsych experiment to a webserver}
 \usage{
-run_webserver(path, ssh, keyfile = NULL, webserver_configured = FALSE)
+run_webserver(
+  path,
+  experiment_folder = "experiment",
+  ssh,
+  keyfile = NULL,
+  webserver_configured = FALSE
+)
 }
 \arguments{
-\item{path}{path to the experiment folder}
+\item{path}{Path where the experiment is deployed}
+
+\item{experiment_folder}{Experiment subfolder}
 
 \item{ssh}{ssh connection string to a webserver}
 
