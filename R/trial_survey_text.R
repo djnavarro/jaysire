@@ -166,6 +166,7 @@ trial_survey_text <- function(
 #' @param placeholder A string specifying the placeholder text
 #' @param rows Number of rows spanned by the text box
 #' @param columns Number of columns spanned by the text box
+#' @param required Is a response to the question required?
 #' @param name A convenient label for the question
 #'
 #' @return A question object to be passed to \code{\link{trial_survey_text}()}.
@@ -180,6 +181,9 @@ trial_survey_text <- function(
 #' (e.g., \code{placeholder = "Type your answer here"})
 #' it is displayed in faded text within the box, and will disappear as soon as
 #' the participant begins typing the response.
+#'
+#' If \code{required = TRUE} the participant will not
+#' be allowed to continue to the next trial unless an answer is provided.
 #'
 #' The \code{name} argument should be a string that provides a convenient
 #' label for the question. If left unspecified, jsPsych defaults to labelling
@@ -198,6 +202,7 @@ question_text <- function(
   placeholder = "",
   rows = 1,
   columns = 40,
+  required = FALSE,
   name = NULL
 ) {
   q <- drop_nulls(
@@ -206,6 +211,7 @@ question_text <- function(
       placeholder = placeholder,
       rows = rows,
       columns = columns,
+      required = required,
       name = name
     )
   )

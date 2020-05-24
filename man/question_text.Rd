@@ -4,7 +4,14 @@
 \alias{question_text}
 \title{Create a free text response question}
 \usage{
-question_text(prompt, placeholder = "", rows = 1, columns = 40, name = NULL)
+question_text(
+  prompt,
+  placeholder = "",
+  rows = 1,
+  columns = 40,
+  required = FALSE,
+  name = NULL
+)
 }
 \arguments{
 \item{prompt}{The prompt for the question}
@@ -14,6 +21,8 @@ question_text(prompt, placeholder = "", rows = 1, columns = 40, name = NULL)
 \item{rows}{Number of rows spanned by the text box}
 
 \item{columns}{Number of columns spanned by the text box}
+
+\item{required}{Is a response to the question required?}
 
 \item{name}{A convenient label for the question}
 }
@@ -34,6 +43,9 @@ a \code{placeholder} string is specified
 (e.g., \code{placeholder = "Type your answer here"})
 it is displayed in faded text within the box, and will disappear as soon as
 the participant begins typing the response.
+
+If \code{required = TRUE} the participant will not
+be allowed to continue to the next trial unless an answer is provided.
 
 The \code{name} argument should be a string that provides a convenient
 label for the question. If left unspecified, jsPsych defaults to labelling
