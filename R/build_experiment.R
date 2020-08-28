@@ -283,6 +283,7 @@ build_experiment <- function(timeline, path, experiment_folder = "experiment", d
     '<!DOCTYPE html>',
     '  <html lang="en-us">',
     '  <head>',
+    '    <meta charset="utf-8">',
     paste0('    <link rel="stylesheet" href="resource/style/', stylesheets, '">'),
     paste0('    <script src="resource/script/', scripts, '"></script>'),
     paste0('    <script src="experiment.js"></script>')
