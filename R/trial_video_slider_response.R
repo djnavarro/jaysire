@@ -61,7 +61,7 @@
 #' minimum value (leftmost point on the slider) and the maximum value (rightmost point
 #' on the slider) that a participant can respond with.
 #'
-#' \item The \code{start} parameter is a numeric value that indicates where the value
+#' \item The \code{slider_start} parameter is a numeric value that indicates where the value
 #' of the the slider is initially position. By default this is set to the middle of
 #' the scale, but there are many cases where it may be sensible to have the slider
 #' bar start at one end of the scale.
@@ -73,7 +73,7 @@
 #'
 #' \item The text labels displayed below the slider bar can also be customised by
 #' specifying the \code{labels} parameter. This argument should be a character vector
-#' that contains the labels to be displaed. Labels will be displayed at equally spaced
+#' that contains the labels to be displayed. Labels will be displayed at equally spaced
 #' intervals along the slider, though it is possible to include blank labels to create
 #' the impression of unequal spacing if that is required.
 #'
