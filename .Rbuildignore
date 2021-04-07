@@ -16,3 +16,4 @@
 ^codecov\.yml$
 ^vignettes/jaysire08\.Rmd$
 ^_pkgdown.yml$
+^pkgdown-tweaks.R$
