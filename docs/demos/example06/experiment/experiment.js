@@ -80,7 +80,8 @@ var timeline = {
           "prompt": ["Anything else you would like to mention?"],
           "placeholder": ["Type your answer here"],
           "rows": [8],
-          "columns": [60]
+          "columns": [60],
+          "required": [false]
         }
       ],
       "randomize_question_order": false,

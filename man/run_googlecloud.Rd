@@ -14,11 +14,7 @@ run_googlecloud(path, experiment_folder = "experiment", project_id)
 \item{project_id}{the google app engine project id}
 }
 \description{
-<<<<<<< HEAD
-Deploy a jspsych experiment on google cloud
-=======
 Deploy a jspsych experiment on google app engine
->>>>>>> c412c5b34a3a42552ba605b6a7ccd26be9b908b2
 }
 \details{
 The purpose of the \code{run_googlecloud()} function is to make it

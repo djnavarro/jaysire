@@ -26,13 +26,19 @@ insert_lines <- function(file, new_lines) {
   if(is.null(ind)) rlang::warn(paste0("no </head> line found in: ", file))
   if(length(ind) > 1) rlang::warn(paste0("multiple </head> lines found in: ", file))
 
-  # assume file doesn't begin or end with </head>
-  lines <- c(
-    lines[1:(ind[1]-1)],
-    new_lines,
-    lines[ind[1]:length(lines)]
-  )
-  brio::write_lines(lines, file)
+  # don't add lines if the tracker is already there
+  tracker_ind <- stringr::str_which(lines, stringr::fixed(site))
+  if(length(tracker_ind) == 0) {
+
+    # assume file doesn't begin or end with </head>
+    lines <- c(
+      lines[1:(ind[1]-1)],
+      new_lines,
+      lines[ind[1]:length(lines)]
+    )
+    brio::write_lines(lines, file)
+
+  }
 }
 
 # insert for all files

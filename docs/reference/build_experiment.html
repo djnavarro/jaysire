@@ -163,7 +163,17 @@
     <p>Build the experiment files</p>
     </div>
 
-    <pre class="usage"><span class='fu'>build_experiment</span><span class='op'>(</span><span class='va'>timeline</span>, <span class='va'>path</span>, resources <span class='op'>=</span> <span class='cn'>NULL</span>, columns <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>build_experiment</span><span class='op'>(</span>
+  <span class='va'>timeline</span>,
+  <span class='va'>path</span>,
+  experiment_folder <span class='op'>=</span> <span class='st'>"experiment"</span>,
+  data_folder <span class='op'>=</span> <span class='st'>"data"</span>,
+  experiment_title <span class='op'>=</span> <span class='cn'>NULL</span>,
+  jsPsych_path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"jsPsych"</span>, package <span class='op'>=</span> <span class='st'>"jaysire"</span><span class='op'>)</span><span class='op'>)</span>,
+  resources <span class='op'>=</span> <span class='cn'>NULL</span>,
+  columns <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -174,7 +184,23 @@
     </tr>
     <tr>
       <th>path</th>
-      <td><p>A string specifying a folder in which to build the experiment</p></td>
+      <td><p>A string specifying the path in which to build the experiment</p></td>
+    </tr>
+    <tr>
+      <th>experiment_folder</th>
+      <td><p>A string specifying the experiment subfolder</p></td>
+    </tr>
+    <tr>
+      <th>data_folder</th>
+      <td><p>A string specifying the data subfolder</p></td>
+    </tr>
+    <tr>
+      <th>experiment_title</th>
+      <td><p>A string specifying the title of the experiment</p></td>
+    </tr>
+    <tr>
+      <th>jsPsych_path</th>
+      <td><p>A string specifying the path to jsPsych</p></td>
     </tr>
     <tr>
       <th>resources</th>
@@ -207,13 +233,17 @@ using the <code><a href='build_resources.html'>build_resources</a>()</code> func
 function for a more detailed description of what this tibble should contain.</p>
 <p>When called, the <code>build_experiment()</code> function writes all the experiment files,
 compiled to javascript and HTML. The file structure it creates is as follows. Within
-the <code>path</code> folder are two subfolders, named "data" and "experiment". The "data"
-folder is empty, but intended to serve as a location to which data files can be
-written. The "experiment" folder contains the "index.html" file, which is the primary
-source file for the experiment page, and an "experiment.js" file that specifies the
-jsPsych timeline and calls the jsPsych.init() javascript function that starts the
-experiment running. It also contains a "resource" folder with other necessary files
-(see <code><a href='build_resources.html'>build_resources</a>()</code> for detail).</p>
+the <code>path</code> folder are two subfolders, <code>data_folder</code> and
+<code>experiment_folder</code> (named "data" and "experiment" by default). The
+<code>data_folder</code> folder is empty, but intended to serve as a location to which
+data files can be written. The <code>experiment_folder</code> folder contains the
+"index.html" file, which is the primary source file for the experiment page, and an
+"experiment.js" file that specifies the jsPsych timeline and calls the
+jsPsych.init() javascript function that starts the experiment running. It also
+contains a "resource" folder with other necessary files (see
+<code><a href='build_resources.html'>build_resources</a>()</code> for detail). If specified, <code>experiment_title</code>
+will set the name of the experiment as the title of the HTML file in "index.html".
+<code>jsPsych_path</code> is a string that specifies the path to jsPsych.</p>
 <p>Because <code>build_experiment()</code> creates the call to jsPsych.init(), it can also
 be used to specify any parameters that the user may wish to pass to that function
 via the <code>...</code>. There are quite a number of parameters you can specify this way:</p>

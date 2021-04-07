@@ -71,7 +71,7 @@ var timeline = {
         }
       ],
       "repetitions": [5],
-      "randomize_order": [true]
+      "randomize_order": true
     },
     {
       "type": ["html-keyboard-response"],

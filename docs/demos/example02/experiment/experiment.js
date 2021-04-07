@@ -44,7 +44,7 @@ var timeline = {
           "stimulus": ["4 * 23 = 92"]
         }
       ],
-      "randomize_order": [true],
+      "randomize_order": true,
       "repetitions": [2]
     },
     {

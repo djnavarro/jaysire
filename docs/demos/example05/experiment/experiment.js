@@ -42,7 +42,7 @@ var timeline = {
           "post_trial_gap": [0]
         }
       ],
-      "randomize_order": [true]
+      "randomize_order": true
     },
     {
       "type": ["html-keyboard-response"],

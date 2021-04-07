@@ -41,7 +41,7 @@ var timeline = {
           "my_stimulus": ["resource/image/stimulus8.png"]
         }
       ],
-      "randomize_order": [true]
+      "randomize_order": true
     },
     {
       "type": ["html-keyboard-response"],
