@@ -1,6 +1,6 @@
-pandoc: 2.3.1
-pkgdown: 1.4.1
-pkgdown_sha: ~
+pandoc: 2.7.3
+pkgdown: 1.6.1.9001
+pkgdown_sha: 58807eede312d522d04834d8efebe784a8b7229a
 articles:
   jaysire01: jaysire01.html
   jaysire02: jaysire02.html
@@ -10,4 +10,5 @@ articles:
   jaysire06: jaysire06.html
   jaysire07: jaysire07.html
   jaysire08: jaysire08.html
+last_built: 2021-04-07T10:52Z
 

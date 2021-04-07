@@ -6,19 +6,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2. Randomisation, repetition and variables • jaysire</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="2. Randomisation, repetition and variables">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="jaysire">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,8 +84,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/djnavarro/jaysire">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/djnavarro/jaysire" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +99,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="jaysire02_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>2. Randomisation, repetition and variables</h1>
+      <h1 data-toc-skip>2. Randomisation, repetition and variables</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/djnavarro/jaysire/blob/master/vignettes/jaysire02.Rmd"><code>vignettes/jaysire02.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/djnavarro/jaysire/blob/master/vignettes/jaysire02.Rmd" class="external-link"><code>vignettes/jaysire02.Rmd</code></a></small>
       <div class="hidden name"><code>jaysire02.Rmd</code></div>
 
     </div>
@@ -121,145 +123,145 @@
 <em>Repetition</em> of blocks of trials</li>
 </ul>
 <p>We’ll define our instruction set the same way we did last time, using <code><a href="../reference/trial_instructions.html">trial_instructions()</a></code> to create a browsable sequence of instruction pages:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">instructions &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_instructions.html">trial_instructions</a></span>(</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="dt">pages =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="st">"Welcome! Use the arrow buttons to browse these instructions"</span>,</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="st">"Your task is to decide if an equation like '2 + 2 = 4' is true or false"</span>,</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="st">"You will respond by clicking a button"</span>,</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="st">"Press the 'Next' button to begin!"</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">  ),</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="dt">show_clickable_nav =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="dt">post_trial_gap =</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/djnavarro/jaysire" class="external-link">jaysire</a></span><span class="op">)</span>
+
+<span class="va">instructions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_instructions.html">trial_instructions</a></span><span class="op">(</span>
+  pages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+    <span class="st">"Welcome! Use the arrow buttons to browse these instructions"</span>,
+    <span class="st">"Your task is to decide if an equation like '2 + 2 = 4' is true or false"</span>,
+    <span class="st">"You will respond by clicking a button"</span>,
+    <span class="st">"Press the 'Next' button to begin!"</span>
+  <span class="op">)</span>,
+  show_clickable_nav <span class="op">=</span> <span class="cn">TRUE</span>,
+  post_trial_gap <span class="op">=</span> <span class="fl">1000</span>
+<span class="op">)</span></code></pre></div>
 <div id="trial-templates" class="section level2">
 <h2 class="hasAnchor">
 <a href="#trial-templates" class="anchor"></a>Trial templates</h2>
 <p>In the original example, our next step was to define a specific trial using <code>trial_html_button()</code> response, in which the <code>stimulus</code> argument corresponded to a specific equation like “2 + 2 = 4”, and the <code>choices</code> offered to participants were to judge the equation to be “true” or “false”. This time around, we’ll do the same thing <em>except</em> we won’t specify the <code>stimulus</code> directly. Instead, what we’ll do is define a <em>timeline variable</em> using the <code>variable()</code> function. The <code><a href="../reference/insert_variable.html">insert_variable()</a></code> function has only a single argument <code>name</code>, which tells jsPsych what to to call the timeline variable. So we can create a kind of “trial template” like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">trial_template &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_button_response.html">trial_html_button_response</a></span>(</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/insert_variable.html">insert_variable</a></span>(<span class="dt">name =</span> <span class="st">"my_stimulus"</span>),</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"true"</span>, <span class="st">"false"</span>),</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">post_trial_gap =</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">trial_template</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_html_button_response.html">trial_html_button_response</a></span><span class="op">(</span>
+  stimulus <span class="op">=</span> <span class="fu"><a href="../reference/insert_variable.html">insert_variable</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"my_stimulus"</span><span class="op">)</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"true"</span>, <span class="st">"false"</span><span class="op">)</span>,
+  post_trial_gap <span class="op">=</span> <span class="fl">1000</span>
+<span class="op">)</span></code></pre></div>
 </div>
 <div id="attaching-variables-to-timelines" class="section level2">
 <h2 class="hasAnchor">
 <a href="#attaching-variables-to-timelines" class="anchor"></a>Attaching variables to timelines</h2>
 <p>Our next step is to specify what possible values the variable can have. Let’s do that by creating a character vector that lists all the equations we want to show people:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">equations &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="st">"13 + 23 = 36"</span>,  </a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="st">"17 - 9 = 6"</span>, </a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="st">"125 / 5 = 25"</span>, </a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="st">"2 - 4 = 6"</span>, </a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="st">"12 + 39 = 43"</span>, </a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="st">"4 * 23 = 92"</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">equations</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+  <span class="st">"13 + 23 = 36"</span>,  
+  <span class="st">"17 - 9 = 6"</span>, 
+  <span class="st">"125 / 5 = 25"</span>, 
+  <span class="st">"2 - 4 = 6"</span>, 
+  <span class="st">"12 + 39 = 43"</span>, 
+  <span class="st">"4 * 23 = 92"</span>
+<span class="op">)</span></code></pre></div>
 <p>Now that we have specified the stimuli as an ordinary R variable, what we need to do is to link it to the trial template we defined earlier. To do this, we first “wrap” <code>trial_template</code> into a timeline, and use the <code><a href="../reference/set_variables.html">set_variables()</a></code> function to attach a variable to that timeline:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">trials &lt;-<span class="st"> </span><span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(trial_template) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/set_variables.html">set_variables</a></span>(<span class="dt">my_stimulus =</span> equations)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">trials</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/build_timeline.html">build_timeline</a></span><span class="op">(</span><span class="va">trial_template</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_variables.html">set_variables</a></span><span class="op">(</span>my_stimulus <span class="op">=</span> <span class="va">equations</span><span class="op">)</span></code></pre></div>
 <p>This might seem slightly odd, because in our first example we created all the trials individually and only wrapped them into a timeline at the very end. However, jsPsych allows you to nest timelines within other timelines, and this can be extremely useful. In this situation, what we have create is essentially a new “mini-timeline” that consists of six copies of the <code>trial_template</code>, each one using a different equation. This “templating” approach produces code that is much easier to write than if we had to use <code><a href="../reference/trial_html_button_response.html">trial_html_button_response()</a></code> six times, and as you might imagine this is much more efficient when there are hundreds of different stimuli!</p>
 </div>
 <div id="randomisation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#randomisation" class="anchor"></a>Randomisation</h2>
-<p>So far, so good. However, one limitation with our code is that the experiment will run the six trials in the same order every time. If our experiment were running in R, what we could to is use the <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> function to shuffle stimuli, but that won’t work in this situation because the experiment will (eventually) run through a web browser. So if we want to randomise the trial ordering we need to use the randomisation tools built into jsPsych. We can do this by attaching <em>parameters</em> to the timeline that we have just defined using the <code><a href="../reference/set_parameters.html">set_parameters()</a></code> function:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">trials &lt;-<span class="st"> </span><span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(trial_template) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/set_variables.html">set_variables</a></span>(<span class="dt">stimulus =</span> equations) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/set_parameters.html">set_parameters</a></span>(<span class="dt">randomize_order =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>So far, so good. However, one limitation with our code is that the experiment will run the six trials in the same order every time. If our experiment were running in R, what we could to is use the <code><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample()</a></code> function to shuffle stimuli, but that won’t work in this situation because the experiment will (eventually) run through a web browser. So if we want to randomise the trial ordering we need to use the randomisation tools built into jsPsych. We can do this by attaching <em>parameters</em> to the timeline that we have just defined using the <code><a href="../reference/set_parameters.html">set_parameters()</a></code> function:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">trials</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/build_timeline.html">build_timeline</a></span><span class="op">(</span><span class="va">trial_template</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_variables.html">set_variables</a></span><span class="op">(</span>stimulus <span class="op">=</span> <span class="va">equations</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_parameters.html">set_parameters</a></span><span class="op">(</span>randomize_order <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>In this version, the <code>trials</code> timeline contains the same six copies of the template, but jsPsych will show them in a random order when the experiment is run in the browser.</p>
 </div>
 <div id="repetition" class="section level2">
 <h2 class="hasAnchor">
 <a href="#repetition" class="anchor"></a>Repetition</h2>
 <p>We’re almost there. Suppose we want to create a “block randomised” design, in which all six items are presented in a random order, and then the same six items are repeated in a <em>different</em> randomised order. This kind of design is quite common in experimental psychology, and we can create one by setting the <code>repetitions</code> parameter for the timeline:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">trials &lt;-<span class="st"> </span><span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(trial_template) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/set_variables.html">set_variables</a></span>(<span class="dt">stimulus =</span> equations) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/set_parameters.html">set_parameters</a></span>(<span class="dt">randomize_order =</span> <span class="ot">TRUE</span>, <span class="dt">repetitions =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">trials</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/build_timeline.html">build_timeline</a></span><span class="op">(</span><span class="va">trial_template</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_variables.html">set_variables</a></span><span class="op">(</span>stimulus <span class="op">=</span> <span class="va">equations</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_parameters.html">set_parameters</a></span><span class="op">(</span>randomize_order <span class="op">=</span> <span class="cn">TRUE</span>, repetitions <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="summary" class="section level2">
 <h2 class="hasAnchor">
 <a href="#summary" class="anchor"></a>Summary</h2>
 <p>At this point we are done, more or less. We’ll still have to do the boring job of creating a final trial that tells the participant that the experiment is complete, and of course we’ll have to use the <code><a href="../reference/build_experiment.html">build_experiment()</a></code> function to actually build the experiment! Once we’ve done that, we end up with the following as the complete code for the experiment:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># ----------- instructions -----------</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">instructions &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_instructions.html">trial_instructions</a></span>(</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="dt">pages =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="st">"Welcome! Use the arrow buttons to browse these instructions"</span>,</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">    <span class="st">"Your task is to decide if an equation like '2 + 2 = 4' is true or false"</span>,</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">    <span class="st">"You will respond by clicking a button"</span>,</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">    <span class="st">"Press the 'Next' button to begin!"</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">  ),</a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="dt">show_clickable_nav =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">  <span class="dt">post_trial_gap =</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">)</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co"># ----------- template -----------</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16">trial_template &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_button_response.html">trial_html_button_response</a></span>(</a>
-<a class="sourceLine" id="cb7-17" data-line-number="17">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/insert_variable.html">insert_variable</a></span>(<span class="st">"stimulus"</span>),</a>
-<a class="sourceLine" id="cb7-18" data-line-number="18">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"true"</span>, <span class="st">"false"</span>),</a>
-<a class="sourceLine" id="cb7-19" data-line-number="19">  <span class="dt">post_trial_gap =</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20">)</a>
-<a class="sourceLine" id="cb7-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22"><span class="co"># ----------- all stimuli -----------</span></a>
-<a class="sourceLine" id="cb7-23" data-line-number="23">equations &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb7-24" data-line-number="24">  <span class="st">"13 + 23 = 36"</span>,  </a>
-<a class="sourceLine" id="cb7-25" data-line-number="25">  <span class="st">"17 - 9 = 6"</span>, </a>
-<a class="sourceLine" id="cb7-26" data-line-number="26">  <span class="st">"125 / 5 = 25"</span>, </a>
-<a class="sourceLine" id="cb7-27" data-line-number="27">  <span class="st">"2 - 4 = 6"</span>, </a>
-<a class="sourceLine" id="cb7-28" data-line-number="28">  <span class="st">"12 + 39 = 43"</span>, </a>
-<a class="sourceLine" id="cb7-29" data-line-number="29">  <span class="st">"4 * 23 = 92"</span></a>
-<a class="sourceLine" id="cb7-30" data-line-number="30">)</a>
-<a class="sourceLine" id="cb7-31" data-line-number="31"></a>
-<a class="sourceLine" id="cb7-32" data-line-number="32"><span class="co"># ----------- template -----------</span></a>
-<a class="sourceLine" id="cb7-33" data-line-number="33">trials &lt;-<span class="st"> </span><span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(trial_template) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-34" data-line-number="34"><span class="st">  </span><span class="kw"><a href="../reference/set_variables.html">set_variables</a></span>(<span class="dt">stimulus =</span> equations) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-35" data-line-number="35"><span class="st">  </span><span class="kw"><a href="../reference/set_parameters.html">set_parameters</a></span>(<span class="dt">randomize_order =</span> <span class="ot">TRUE</span>, <span class="dt">repetitions =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb7-36" data-line-number="36"></a>
-<a class="sourceLine" id="cb7-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb7-38" data-line-number="38"><span class="co"># ----------- final trial -----------</span></a>
-<a class="sourceLine" id="cb7-39" data-line-number="39">finish &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_html_keyboard_response.html">trial_html_keyboard_response</a></span>(</a>
-<a class="sourceLine" id="cb7-40" data-line-number="40">  <span class="dt">stimulus =</span> <span class="st">"All done! Press any key to finish"</span>,</a>
-<a class="sourceLine" id="cb7-41" data-line-number="41">  <span class="dt">choices =</span> <span class="kw"><a href="../reference/respond_any_key.html">respond_any_key</a></span>()</a>
-<a class="sourceLine" id="cb7-42" data-line-number="42">)</a>
-<a class="sourceLine" id="cb7-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb7-44" data-line-number="44"><span class="co"># ----------- build the experiment -----------</span></a>
-<a class="sourceLine" id="cb7-45" data-line-number="45"><span class="kw"><a href="../reference/build_experiment.html">build_experiment</a></span>(</a>
-<a class="sourceLine" id="cb7-46" data-line-number="46">  <span class="dt">timeline =</span> <span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(instructions, trials, finish),</a>
-<a class="sourceLine" id="cb7-47" data-line-number="47">  <span class="dt">path =</span> <span class="kw"><a href="../reference/temporary_folder.html">temporary_folder</a></span>(),</a>
-<a class="sourceLine" id="cb7-48" data-line-number="48">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/save_locally.html">save_locally</a></span>()</a>
-<a class="sourceLine" id="cb7-49" data-line-number="49">)</a>
-<a class="sourceLine" id="cb7-50" data-line-number="50"><span class="co">#&gt; Warning in dir.create(path): '/tmp/RtmpXQ7a2A/jaysire_o1rua' already exists</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/djnavarro/jaysire" class="external-link">jaysire</a></span><span class="op">)</span>
+
+<span class="co"># ----------- instructions -----------</span>
+<span class="va">instructions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_instructions.html">trial_instructions</a></span><span class="op">(</span>
+  pages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+    <span class="st">"Welcome! Use the arrow buttons to browse these instructions"</span>,
+    <span class="st">"Your task is to decide if an equation like '2 + 2 = 4' is true or false"</span>,
+    <span class="st">"You will respond by clicking a button"</span>,
+    <span class="st">"Press the 'Next' button to begin!"</span>
+  <span class="op">)</span>,
+  show_clickable_nav <span class="op">=</span> <span class="cn">TRUE</span>,
+  post_trial_gap <span class="op">=</span> <span class="fl">1000</span>
+<span class="op">)</span>
+
+<span class="co"># ----------- template -----------</span>
+<span class="va">trial_template</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_html_button_response.html">trial_html_button_response</a></span><span class="op">(</span>
+  stimulus <span class="op">=</span> <span class="fu"><a href="../reference/insert_variable.html">insert_variable</a></span><span class="op">(</span><span class="st">"stimulus"</span><span class="op">)</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"true"</span>, <span class="st">"false"</span><span class="op">)</span>,
+  post_trial_gap <span class="op">=</span> <span class="fl">1000</span>
+<span class="op">)</span>
+
+<span class="co"># ----------- all stimuli -----------</span>
+<span class="va">equations</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+  <span class="st">"13 + 23 = 36"</span>,  
+  <span class="st">"17 - 9 = 6"</span>, 
+  <span class="st">"125 / 5 = 25"</span>, 
+  <span class="st">"2 - 4 = 6"</span>, 
+  <span class="st">"12 + 39 = 43"</span>, 
+  <span class="st">"4 * 23 = 92"</span>
+<span class="op">)</span>
+
+<span class="co"># ----------- template -----------</span>
+<span class="va">trials</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/build_timeline.html">build_timeline</a></span><span class="op">(</span><span class="va">trial_template</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_variables.html">set_variables</a></span><span class="op">(</span>stimulus <span class="op">=</span> <span class="va">equations</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_parameters.html">set_parameters</a></span><span class="op">(</span>randomize_order <span class="op">=</span> <span class="cn">TRUE</span>, repetitions <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+
+
+<span class="co"># ----------- final trial -----------</span>
+<span class="va">finish</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_html_keyboard_response.html">trial_html_keyboard_response</a></span><span class="op">(</span>
+  stimulus <span class="op">=</span> <span class="st">"All done! Press any key to finish"</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="../reference/respond_any_key.html">respond_any_key</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="co"># ----------- build the experiment -----------</span>
+<span class="fu"><a href="../reference/build_experiment.html">build_experiment</a></span><span class="op">(</span>
+  timeline <span class="op">=</span> <span class="fu"><a href="../reference/build_timeline.html">build_timeline</a></span><span class="op">(</span><span class="va">instructions</span>, <span class="va">trials</span>, <span class="va">finish</span><span class="op">)</span>,
+  path <span class="op">=</span> <span class="fu"><a href="../reference/temporary_folder.html">temporary_folder</a></span><span class="op">(</span><span class="op">)</span>,
+  on_finish <span class="op">=</span> <span class="fu"><a href="../reference/save_locally.html">save_locally</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="co">#&gt; Warning in dir.create(path): '/tmp/RtmpVEeaG9/jaysire_lbhtv' already exists</span></code></pre></div>
 <p>You can check out a working version of the experiment <a href="../demos/example02/experiment/index.html">here</a>.</p>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#trial-templates">Trial templates</a></li>
-      <li><a href="#attaching-variables-to-timelines">Attaching variables to timelines</a></li>
-      <li><a href="#randomisation">Randomisation</a></li>
-      <li><a href="#repetition">Repetition</a></li>
-      <li><a href="#summary">Summary</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://compcogscisydney.org">Danielle Navarro</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://compcogscisydney.org" class="external-link external-link">Danielle Navarro</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -267,6 +269,8 @@
 
   
 
+
+  
 
   </body>
 </html>

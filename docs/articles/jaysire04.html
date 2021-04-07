@@ -6,19 +6,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>4. Image, video and audio files • jaysire</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="4. Image, video and audio files">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="jaysire">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,8 +84,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/djnavarro/jaysire">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/djnavarro/jaysire" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +99,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="jaysire04_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>4. Image, video and audio files</h1>
+      <h1 data-toc-skip>4. Image, video and audio files</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/djnavarro/jaysire/blob/master/vignettes/jaysire04.Rmd"><code>vignettes/jaysire04.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/djnavarro/jaysire/blob/master/vignettes/jaysire04.Rmd" class="external-link"><code>vignettes/jaysire04.Rmd</code></a></small>
       <div class="hidden name"><code>jaysire04.Rmd</code></div>
 
     </div>
@@ -111,61 +113,67 @@
     
     
 <p>In the <a href="jaysire03.html">previous article</a> I provided a short walkthrough of resource files, and how they are handled in jaysire and jsPsych. However, the only form of resource file we looked at in that article were image files, and trials were handled using the <code><a href="../reference/trial_image_button_response.html">trial_image_button_response()</a></code> function. In this article I’ll extend this discussion, introducing audio files and video files. To make our lives a little easier, this time around I won’t create the resource files from scratch. Instead, I’ll use resource files that come bundled with the jaysire package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">resources &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"resources"</span>, <span class="dt">package =</span> <span class="st">"jaysire"</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(resources)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; [1] "heart.mpg"          "heart.png"          "heart.webm"        </span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt; [4] "lukewarm_banjo.mp3"</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/djnavarro/jaysire" class="external-link">jaysire</a></span><span class="op">)</span>
+<span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"resources"</span>, package <span class="op">=</span> <span class="st">"jaysire"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">resources</span><span class="op">)</span>
+<span class="co">#&gt; [1] "heart.mpg"          "heart.png"          "heart.webm"        </span>
+<span class="co">#&gt; [4] "lukewarm_banjo.mp3"</span></code></pre></div>
 <p>We have one image file (“heart.png”), two versions of the same video in different formats (“heart.mpg” and “heart.webm”), and a single audio file (“lukewarm_banjo.mp3”).</p>
 <div id="images" class="section level2">
 <h2 class="hasAnchor">
 <a href="#images" class="anchor"></a>Images</h2>
 <p>First, let’s write an trial using <code><a href="../reference/trial_image_button_response.html">trial_image_button_response()</a></code> to handle display the image file and ask people to rate its pleasantness on a 3-point scale:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">image_trial &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_image_button_response.html">trial_image_button_response</a></span>(</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/insert_resource.html">insert_resource</a></span>(<span class="st">"heart.png"</span>), </a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">stimulus_height =</span> <span class="dv">400</span>,</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">stimulus_width =</span> <span class="dv">400</span>,</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>) </a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">image_trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_image_button_response.html">trial_image_button_response</a></span><span class="op">(</span>
+  stimulus <span class="op">=</span> <span class="fu"><a href="../reference/insert_resource.html">insert_resource</a></span><span class="op">(</span><span class="st">"heart.png"</span><span class="op">)</span>, 
+  stimulus_height <span class="op">=</span> <span class="fl">400</span>,
+  stimulus_width <span class="op">=</span> <span class="fl">400</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span><span class="op">)</span> 
+<span class="op">)</span></code></pre></div>
 <p>This is familiar to us from the previous article. I’ve specified the <code>stimulus</code> itself using the <code><a href="../reference/insert_resource.html">insert_resource()</a></code> function, listed the <code>choices</code> available to participants, and some ancillary information about the size of the image.</p>
 </div>
 <div id="videos" class="section level2">
 <h2 class="hasAnchor">
 <a href="#videos" class="anchor"></a>Videos</h2>
 <p>Embedding videos in an experiment is – in principle – exactly the same as embedding images. Instead of using <code><a href="../reference/trial_image_button_response.html">trial_image_button_response()</a></code> we use <code><a href="../reference/trial_video_button_response.html">trial_video_button_response()</a></code>. However, there are a few complexities to note here. First, video files often require codecs to run, not every browser supports every form of video, and so on. As a consequence, it is often a good idea to have multiple versions of your video file, and let the browser find a version that it can display. As a consequence, instead of having a <code>stimulus</code> argument, we specify the video file using a vector of <code>sources</code>, like so:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">video_trial &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_video_button_response.html">trial_video_button_response</a></span>(</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">sources =</span> <span class="kw"><a href="../reference/insert_resource.html">insert_resource</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"heart.mpg"</span>, <span class="st">"heart.webm"</span>)), </a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>), </a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">trial_ends_after_video =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">response_ends_trial =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">video_trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_video_button_response.html">trial_video_button_response</a></span><span class="op">(</span>
+  sources <span class="op">=</span> <span class="fu"><a href="../reference/insert_resource.html">insert_resource</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"heart.mpg"</span>, <span class="st">"heart.webm"</span><span class="op">)</span><span class="op">)</span>, 
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span><span class="op">)</span>, 
+  trial_ends_after_video <span class="op">=</span> <span class="cn">FALSE</span>,
+  response_ends_trial <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span></code></pre></div>
 <p>By default, <code><a href="../reference/trial_video_button_response.html">trial_video_button_response()</a></code> will end the trial as soon as the participant makes a response <em>or</em> the video ends. However, there are arguments that you can specify that allow you to make this decision yourself, as this example illustrates.</p>
 </div>
 <div id="audio" class="section level2">
 <h2 class="hasAnchor">
 <a href="#audio" class="anchor"></a>Audio</h2>
 <p>The structure of the audio trial is essentially the same as what we’ve seen previously.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">audio_trial &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_audio_button_response.html">trial_audio_button_response</a></span>(</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/insert_resource.html">insert_resource</a></span>(<span class="st">"lukewarm_banjo.mp3"</span>),</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>), </a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">trial_ends_after_audio =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="dt">response_ends_trial =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">audio_trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_audio_button_response.html">trial_audio_button_response</a></span><span class="op">(</span>
+  stimulus <span class="op">=</span> <span class="fu"><a href="../reference/insert_resource.html">insert_resource</a></span><span class="op">(</span><span class="st">"lukewarm_banjo.mp3"</span><span class="op">)</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span><span class="op">)</span>, 
+  trial_ends_after_audio <span class="op">=</span> <span class="cn">FALSE</span>,
+  response_ends_trial <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span></code></pre></div>
 <p>However, there is one nuance to audio files if you are playing them locally (i.e., on your own computer, rather than from a remote server), which I’ll explain in the next section.</p>
 </div>
 <div id="building-the-experiment" class="section level2">
 <h2 class="hasAnchor">
 <a href="#building-the-experiment" class="anchor"></a>Building the experiment</h2>
 <p>To build the experiment, I’ll start by specifying where the experiment is going to live on my computer. As with previous articles, I’ll just put it in a temporary folder:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">exp_path &lt;-<span class="st"> </span><span class="kw"><a href="../reference/temporary_folder.html">temporary_folder</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">exp_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/temporary_folder.html">temporary_folder</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>To build the experiment into the <code>exp_path</code> folder, I’ll call the <code>experiment()</code> function:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/build_experiment.html">build_experiment</a></span>(</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="dt">timeline =</span> <span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(image_trial, video_trial, audio_trial),</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">path =</span> exp_path, </a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="dt">resources =</span> <span class="kw"><a href="../reference/build_resources.html">build_resources</a></span>(resources),</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="dt">use_webaudio =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/save_locally.html">save_locally</a></span>()</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/build_experiment.html">build_experiment</a></span><span class="op">(</span>
+  timeline <span class="op">=</span> <span class="fu"><a href="../reference/build_timeline.html">build_timeline</a></span><span class="op">(</span><span class="va">image_trial</span>, <span class="va">video_trial</span>, <span class="va">audio_trial</span><span class="op">)</span>,
+  path <span class="op">=</span> <span class="va">exp_path</span>, 
+  resources <span class="op">=</span> <span class="fu"><a href="../reference/build_resources.html">build_resources</a></span><span class="op">(</span><span class="va">resources</span><span class="op">)</span>,
+  use_webaudio <span class="op">=</span> <span class="cn">FALSE</span>,
+  on_finish <span class="op">=</span> <span class="fu"><a href="../reference/save_locally.html">save_locally</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <p>Most of this should look familiar. I’ve specified the <code>timeline</code> that describes the experiment, the <code>path</code> to the folder where it should be located, I’ve used the <code><a href="../reference/build_resources.html">build_resources()</a></code> function to tell jaysire how to handle each of the resource files, and I’ve indicated that when the experiment finishes we should <code><a href="../reference/save_locally.html">save_locally()</a></code> into the data folder (see the <a href="jaysire01.html">first article</a> for more information about the data folder).</p>
 <p>There is one thing that is new. I’ve specified the <code>use_webaudio</code> argument and set it to <code>FALSE</code>. The reason for this is that when you’re running the experiment locally, the web browser treats locally stored audio files as though they were being hosted on a <em>different</em> server to the webpage itself, and that triggers a “cross origin request error” (it is treated as a security risk). Fortunately, jsPsych includes a method to disable this and by setting <code>use_webaudio = FALSE</code> you can get around this issue and run your audio files even when the experiment is running locally!</p>
 </div>
@@ -173,97 +181,92 @@
 <h2 class="hasAnchor">
 <a href="#what-have-we-created" class="anchor"></a>What have we created?</h2>
 <p>There is one last thing worth discussing, namely the file structure of the experiment that we have build. To start with, let’s take a look at what <code><a href="../reference/build_resources.html">build_resources()</a></code> creates:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/build_resources.html">build_resources</a></span>(resources)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 4 x 4</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;   name         type  from                                     to                </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;                                    &lt;chr&gt;             </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; 1 heart.mpg    video /tmp/RtmpJ7a2M8/temp_libpath335d2e79f18… resource/video/he…</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; 2 heart.png    image /tmp/RtmpJ7a2M8/temp_libpath335d2e79f18… resource/image/he…</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; 3 heart.webm   video /tmp/RtmpJ7a2M8/temp_libpath335d2e79f18… resource/video/he…</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; 4 lukewarm_ba… audio /tmp/RtmpJ7a2M8/temp_libpath335d2e79f18… resource/audio/lu…</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/build_resources.html">build_resources</a></span><span class="op">(</span><span class="va">resources</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 4 x 4</span>
+<span class="co">#&gt;   name         type  from                                     to                </span>
+<span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;                                    &lt;chr&gt;             </span>
+<span class="co">#&gt; 1 heart.mpg    video /tmp/RtmpchIozg/temp_libpath7d96320034c… resource/video/he…</span>
+<span class="co">#&gt; 2 heart.png    image /tmp/RtmpchIozg/temp_libpath7d96320034c… resource/image/he…</span>
+<span class="co">#&gt; 3 heart.webm   video /tmp/RtmpchIozg/temp_libpath7d96320034c… resource/video/he…</span>
+<span class="co">#&gt; 4 lukewarm_ba… audio /tmp/RtmpchIozg/temp_libpath7d96320034c… resource/audio/lu…</span></code></pre></div>
 <p>Now take a look at where all the files have ended up:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(exp_path, <span class="dt">recursive =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;  [1] "experiment/experiment.js"                                   </span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;  [2] "experiment/index.html"                                      </span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;  [3] "experiment/resource/audio/lukewarm_banjo.mp3"               </span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  [4] "experiment/resource/image/heart.png"                        </span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  [5] "experiment/resource/script/jspsych-audio-button-response.js"</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  [6] "experiment/resource/script/jspsych-image-button-response.js"</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  [7] "experiment/resource/script/jspsych-video-button-response.js"</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  [8] "experiment/resource/script/jspsych.js"                      </span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  [9] "experiment/resource/script/xprmntr.js"                      </span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; [10] "experiment/resource/style/jspsych.css"                      </span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt; [11] "experiment/resource/video/heart.mpg"                        </span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt; [12] "experiment/resource/video/heart.webm"</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">exp_path</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt;  [1] "experiment/experiment.js"                                   </span>
+<span class="co">#&gt;  [2] "experiment/index.html"                                      </span>
+<span class="co">#&gt;  [3] "experiment/resource/audio/lukewarm_banjo.mp3"               </span>
+<span class="co">#&gt;  [4] "experiment/resource/image/heart.png"                        </span>
+<span class="co">#&gt;  [5] "experiment/resource/script/jspsych-audio-button-response.js"</span>
+<span class="co">#&gt;  [6] "experiment/resource/script/jspsych-image-button-response.js"</span>
+<span class="co">#&gt;  [7] "experiment/resource/script/jspsych-video-button-response.js"</span>
+<span class="co">#&gt;  [8] "experiment/resource/script/jspsych.js"                      </span>
+<span class="co">#&gt;  [9] "experiment/resource/script/xprmntr.js"                      </span>
+<span class="co">#&gt; [10] "experiment/resource/style/jspsych.css"                      </span>
+<span class="co">#&gt; [11] "experiment/resource/video/heart.mpg"                        </span>
+<span class="co">#&gt; [12] "experiment/resource/video/heart.webm"</span></code></pre></div>
 </div>
 <div id="summary" class="section level2">
 <h2 class="hasAnchor">
 <a href="#summary" class="anchor"></a>Summary</h2>
 <p>Here is the entire experiment:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jaysire)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">resources &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"resources"</span>, <span class="dt">package =</span> <span class="st">"jaysire"</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(resources)</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt; [1] "heart.mpg"          "heart.png"          "heart.webm"        </span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; [4] "lukewarm_banjo.mp3"</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">image_trial &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_image_button_response.html">trial_image_button_response</a></span>(</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/insert_resource.html">insert_resource</a></span>(<span class="st">"heart.png"</span>), </a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="dt">stimulus_height =</span> <span class="dv">400</span>,</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">  <span class="dt">stimulus_width =</span> <span class="dv">400</span>,</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>) </a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">)</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">video_trial &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_video_button_response.html">trial_video_button_response</a></span>(</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">  <span class="dt">sources =</span> <span class="kw"><a href="../reference/insert_resource.html">insert_resource</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"heart.mpg"</span>, <span class="st">"heart.webm"</span>)), </a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>), </a>
-<a class="sourceLine" id="cb9-17" data-line-number="17">  <span class="dt">trial_ends_after_video =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb9-18" data-line-number="18">  <span class="dt">response_ends_trial =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb9-19" data-line-number="19">)</a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb9-21" data-line-number="21">audio_trial &lt;-<span class="st"> </span><span class="kw"><a href="../reference/trial_audio_button_response.html">trial_audio_button_response</a></span>(</a>
-<a class="sourceLine" id="cb9-22" data-line-number="22">  <span class="dt">stimulus =</span> <span class="kw"><a href="../reference/insert_resource.html">insert_resource</a></span>(<span class="st">"lukewarm_banjo.mp3"</span>),</a>
-<a class="sourceLine" id="cb9-23" data-line-number="23">  <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span>), </a>
-<a class="sourceLine" id="cb9-24" data-line-number="24">  <span class="dt">trial_ends_after_audio =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb9-25" data-line-number="25">  <span class="dt">response_ends_trial =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb9-26" data-line-number="26">)</a>
-<a class="sourceLine" id="cb9-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb9-28" data-line-number="28"><span class="kw"><a href="../reference/build_experiment.html">build_experiment</a></span>(</a>
-<a class="sourceLine" id="cb9-29" data-line-number="29">  <span class="dt">timeline =</span> <span class="kw"><a href="../reference/build_timeline.html">build_timeline</a></span>(image_trial, video_trial, audio_trial),</a>
-<a class="sourceLine" id="cb9-30" data-line-number="30">  <span class="dt">path =</span> <span class="kw"><a href="../reference/temporary_folder.html">temporary_folder</a></span>(), </a>
-<a class="sourceLine" id="cb9-31" data-line-number="31">  <span class="dt">resources =</span> <span class="kw"><a href="../reference/build_resources.html">build_resources</a></span>(resources),</a>
-<a class="sourceLine" id="cb9-32" data-line-number="32">  <span class="dt">use_webaudio =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb9-33" data-line-number="33">  <span class="dt">on_finish =</span> <span class="kw"><a href="../reference/save_locally.html">save_locally</a></span>()</a>
-<a class="sourceLine" id="cb9-34" data-line-number="34">)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/djnavarro/jaysire" class="external-link">jaysire</a></span><span class="op">)</span>
+<span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"resources"</span>, package <span class="op">=</span> <span class="st">"jaysire"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">resources</span><span class="op">)</span>
+<span class="co">#&gt; [1] "heart.mpg"          "heart.png"          "heart.webm"        </span>
+<span class="co">#&gt; [4] "lukewarm_banjo.mp3"</span>
+
+<span class="va">image_trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_image_button_response.html">trial_image_button_response</a></span><span class="op">(</span>
+  stimulus <span class="op">=</span> <span class="fu"><a href="../reference/insert_resource.html">insert_resource</a></span><span class="op">(</span><span class="st">"heart.png"</span><span class="op">)</span>, 
+  stimulus_height <span class="op">=</span> <span class="fl">400</span>,
+  stimulus_width <span class="op">=</span> <span class="fl">400</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span><span class="op">)</span> 
+<span class="op">)</span>
+
+<span class="va">video_trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_video_button_response.html">trial_video_button_response</a></span><span class="op">(</span>
+  sources <span class="op">=</span> <span class="fu"><a href="../reference/insert_resource.html">insert_resource</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"heart.mpg"</span>, <span class="st">"heart.webm"</span><span class="op">)</span><span class="op">)</span>, 
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span><span class="op">)</span>, 
+  trial_ends_after_video <span class="op">=</span> <span class="cn">FALSE</span>,
+  response_ends_trial <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span>
+
+<span class="va">audio_trial</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trial_audio_button_response.html">trial_audio_button_response</a></span><span class="op">(</span>
+  stimulus <span class="op">=</span> <span class="fu"><a href="../reference/insert_resource.html">insert_resource</a></span><span class="op">(</span><span class="st">"lukewarm_banjo.mp3"</span><span class="op">)</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unpleasant"</span>, <span class="st">"Neutral"</span>, <span class="st">"Pleasant"</span><span class="op">)</span>, 
+  trial_ends_after_audio <span class="op">=</span> <span class="cn">FALSE</span>,
+  response_ends_trial <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="../reference/build_experiment.html">build_experiment</a></span><span class="op">(</span>
+  timeline <span class="op">=</span> <span class="fu"><a href="../reference/build_timeline.html">build_timeline</a></span><span class="op">(</span><span class="va">image_trial</span>, <span class="va">video_trial</span>, <span class="va">audio_trial</span><span class="op">)</span>,
+  path <span class="op">=</span> <span class="fu"><a href="../reference/temporary_folder.html">temporary_folder</a></span><span class="op">(</span><span class="op">)</span>, 
+  resources <span class="op">=</span> <span class="fu"><a href="../reference/build_resources.html">build_resources</a></span><span class="op">(</span><span class="va">resources</span><span class="op">)</span>,
+  use_webaudio <span class="op">=</span> <span class="cn">FALSE</span>,
+  on_finish <span class="op">=</span> <span class="fu"><a href="../reference/save_locally.html">save_locally</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <p>You can check out a working version of the experiment <a href="../demos/example04/experiment/index.html">here</a>.</p>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#images">Images</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#audio">Audio</a></li>
-      <li><a href="#building-the-experiment">Building the experiment</a></li>
-      <li><a href="#what-have-we-created">What have we created?</a></li>
-      <li><a href="#summary">Summary</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://compcogscisydney.org">Danielle Navarro</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://compcogscisydney.org" class="external-link external-link">Danielle Navarro</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -271,6 +274,8 @@
 
   
 
+
+  
 
   </body>
 </html>

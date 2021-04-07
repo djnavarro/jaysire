@@ -6,21 +6,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build jsPsych Experiments in R • jaysire</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Build jsPsych Experiments in R">
 <meta property="og:description" content="The jaysire package allows the user to build browser based 
     behavioral experiments within R by providing an interface to the jsPsych
     javascript library.">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -41,7 +43,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -85,7 +87,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/djnavarro/jaysire">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -106,7 +108,7 @@
 <a href="#behavioural-experiments-with-jaysire" class="anchor"></a>Behavioural experiments with jaysire</h1></div>
 <!-- badges: start -->
 
-<p>The goal of jaysire is to provide a method for writing behavioural experiments in R that can be deployed through a web browser. The package relies on the <a href="https://www.jspsych.org">jsPsych</a> library by Josh de Leeuw (<a href="https://github.com/jspsych/jsPsych/">GitHub page</a>) to create the experiments, and is structured so that functions in jaysire use the same argument names as the corresponding jsPsych functions. For the most part, function names in jaysire are organised around families that share a common prefix. For example, the <code>trial_</code> family is used to define individual trials within an experiment, <code>build_</code> functions construct more complex entities, and so on. See the <a href="https://djnavarro.github.io/jaysire/reference/">reference page</a> for the complete list of all functions.</p>
+<p>The goal of jaysire is to provide a method for writing behavioural experiments in R that can be deployed through a web browser. The package relies on the <a href="https://www.jspsych.org" class="external-link">jsPsych</a> library by Josh de Leeuw (<a href="https://github.com/jspsych/jsPsych/" class="external-link">GitHub page</a>) to create the experiments, and is structured so that functions in jaysire use the same argument names as the corresponding jsPsych functions. For the most part, function names in jaysire are organised around families that share a common prefix. For example, the <code>trial_</code> family is used to define individual trials within an experiment, <code>build_</code> functions construct more complex entities, and so on. See the <a href="https://djnavarro.github.io/jaysire/reference/" class="external-link">reference page</a> for the complete list of all functions.</p>
 <!-- - The `trial_` functions are used to define individual trials in the experiment -->
 <!-- - The `build_` functions are used to construct more complex entities: there are build functions for timelines, experiments and resource file lists. -->
 <!-- - The `insert_` functions are used to tell jsPsych to "insert" the input into the experiment as a particular kind of entity: a reference to a resource file, a reference to a timeline variable, a data property or as raw javascript. -->
@@ -118,32 +120,33 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>The jaysire package has not been released on CRAN, but you can install it directly from GitHub using the following commands:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">#install.packages("remotes")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"djnavarro/jaysire"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#install.packages("remotes")</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"djnavarro/jaysire"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h2>
 <p>There are a series of tutorial articles:</p>
-<ol>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire01.html">Getting started</a></li>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire02.html">Randomisation, repetition and variables</a></li>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire03.html">Using resource files</a></li>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire04.html">Image, video and audio files</a></li>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire05.html">Buttons, key presses and sliders</a></li>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire06.html">Survey pages</a></li>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire07.html">Loops and branches</a></li>
-<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire08.html">A choice reaction time task</a></li>
+<ol style="list-style-type: decimal">
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire01.html" class="external-link">Getting started</a></li>
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire02.html" class="external-link">Randomisation, repetition and variables</a></li>
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire03.html" class="external-link">Using resource files</a></li>
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire04.html" class="external-link">Image, video and audio files</a></li>
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire05.html" class="external-link">Buttons, key presses and sliders</a></li>
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire06.html" class="external-link">Survey pages</a></li>
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire07.html" class="external-link">Loops and branches</a></li>
+<li><a href="https://djnavarro.github.io/jaysire/articles/jaysire08.html" class="external-link">A choice reaction time task</a></li>
 </ol>
 </div>
 <div id="related-packages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#related-packages" class="anchor"></a>Related packages</h2>
 <ul>
-<li>The <a href="https://github.com/CrumpLab/jspsychr">jsPsychR</a> package by Matt Crump</li>
-<li>The <a href="https://github.com/rubenarslan/formr">formr</a> package by Ruben Arslan</li>
-<li>The <a href="https://pmcharrison.github.io/psychTestR/">psychTestR</a> package by Peter Harrison</li>
-<li>My <a href="https://github.com/djnavarro/xprmntr">xprmtnr</a> package (in development)</li>
+<li>The <a href="https://github.com/CrumpLab/jspsychr" class="external-link">jsPsychR</a> package by Matt Crump</li>
+<li>The <a href="https://github.com/rubenarslan/formr" class="external-link">formr</a> package by Ruben Arslan</li>
+<li>The <a href="https://pmcharrison.github.io/psychTestR/" class="external-link">psychTestR</a> package by Peter Harrison</li>
+<li>My <a href="https://github.com/djnavarro/xprmntr" class="external-link">xprmtnr</a> package (in development)</li>
 </ul>
 </div>
 <div id="name" class="section level2">
@@ -154,50 +157,56 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/djnavarro/jaysire">https://​github.com/​djnavarro/​jaysire</a>
+<li>Browse source code at <br><a href="https://github.com/djnavarro/jaysire/">https://​github.com/​djnavarro/​jaysire/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/djnavarro/jaysire/issues">https://​github.com/​djnavarro/​jaysire/​issues</a>
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
 <a href="https://compcogscisydney.org">Danielle Navarro</a> <br><small class="roles"> Maintainer </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/djnavarro/jaysire"><img src="https://travis-ci.org/djnavarro/jaysire.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://codecov.io/gh/djnavarro/jaysire?branch=master"><img src="https://codecov.io/gh/djnavarro/jaysire/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://cran.r-project.org/package=jaysire"><img src="https://www.r-pkg.org/badges/version/jaysire" alt="CRAN status"></a></li>
+<li><a href="https://travis-ci.org/djnavarro/jaysire" class="external-link"><img src="https://travis-ci.org/djnavarro/jaysire.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://codecov.io/gh/djnavarro/jaysire?branch=master" class="external-link"><img src="https://codecov.io/gh/djnavarro/jaysire/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://cran.r-project.org/package=jaysire" class="external-link"><img src="https://www.r-pkg.org/badges/version/jaysire" alt="CRAN status"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://compcogscisydney.org">Danielle Navarro</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://compcogscisydney.org" class="external-link">Danielle Navarro</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -205,6 +214,8 @@
 
   
 
+
+  
 
   </body>
 </html>

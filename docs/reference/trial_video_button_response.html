@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -38,7 +42,8 @@
 <meta property="og:title" content="Specify a video trial with button response — trial_video_button_response" />
 <meta property="og:description" content="The trial_video_button_response function is used to play
 a video stimulus and collect a response using on screen buttons." />
-<meta name="twitter:card" content="summary" />
+
+
 
 
 
@@ -54,9 +59,16 @@ a video stimulus and collect a response using on screen buttons." />
 
 
 
+
+  
+
+  
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -78,7 +90,7 @@ a video stimulus and collect a response using on screen buttons." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -122,7 +134,7 @@ a video stimulus and collect a response using on screen buttons." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/djnavarro/jaysire">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -149,28 +161,28 @@ a video stimulus and collect a response using on screen buttons." />
 a video stimulus and collect a response using on screen buttons.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>trial_video_button_response</span>(
-  <span class='no'>sources</span>,
-  <span class='kw'>trial_ends_after_video</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>controls</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stop</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"button 0"</span>, <span class='st'>"button 1"</span>, <span class='st'>"button 2"</span>),
-  <span class='kw'>button_html</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>margin_vertical</span> <span class='kw'>=</span> <span class='st'>"0px"</span>,
-  <span class='kw'>margin_horizontal</span> <span class='kw'>=</span> <span class='st'>"8px"</span>,
-  <span class='kw'>prompt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>trial_duration</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>response_ends_trial</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>post_trial_gap</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>on_finish</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>on_load</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>trial_video_button_response</span><span class='op'>(</span>
+  <span class='va'>sources</span>,
+  trial_ends_after_video <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  height <span class='op'>=</span> <span class='cn'>NULL</span>,
+  autoplay <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  controls <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  start <span class='op'>=</span> <span class='cn'>NULL</span>,
+  stop <span class='op'>=</span> <span class='cn'>NULL</span>,
+  rate <span class='op'>=</span> <span class='fl'>1</span>,
+  choices <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"button 0"</span>, <span class='st'>"button 1"</span>, <span class='st'>"button 2"</span><span class='op'>)</span>,
+  button_html <span class='op'>=</span> <span class='cn'>NULL</span>,
+  margin_vertical <span class='op'>=</span> <span class='st'>"0px"</span>,
+  margin_horizontal <span class='op'>=</span> <span class='st'>"8px"</span>,
+  prompt <span class='op'>=</span> <span class='cn'>NULL</span>,
+  trial_duration <span class='op'>=</span> <span class='cn'>NULL</span>,
+  response_ends_trial <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  post_trial_gap <span class='op'>=</span> <span class='fl'>0</span>,
+  on_finish <span class='op'>=</span> <span class='cn'>NULL</span>,
+  on_load <span class='op'>=</span> <span class='cn'>NULL</span>,
+  data <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -272,10 +284,10 @@ family of trials, all of which display a stimulus of a particular type (image,
 audio, video or HTML) and collect responses using a particular mechanism
 (button, keyboard or slider).
 This one plays a video and records responses generated with a button click.</p>
-<h3>Stimulus display</h3>
+<h3 class='hasAnchor' id='stimulus-display'><a class='anchor' href='#stimulus-display'></a>Stimulus display</h3>
 <p>TBA</p>
 
-<h3>Response mechanism</h3>
+<h3 class='hasAnchor' id='response-mechanism'><a class='anchor' href='#response-mechanism'></a>Response mechanism</h3>
 
 
 <p>The response buttons can be customized using HTML formatting, via the <code>button_html</code> argument.
@@ -287,7 +299,7 @@ same template will be applied to every button. The templating is defined using a
 the jsPsych library creates an HTML button of class "jspsych-btn" and the styling is governed by the
 corresponding CSS.</p>
 
-<h3>Other behaviour</h3>
+<h3 class='hasAnchor' id='other-behaviour'><a class='anchor' href='#other-behaviour'></a>Other behaviour</h3>
 <p>Depending on parameter settings, the trial can end when the subject responds
 (<code>response_ends_trial = TRUE</code>), or after a fixed amount of time
 (specified using the <code>trial_duration</code> argument) has elapsed. The trial can
@@ -312,7 +324,7 @@ the jsPsych data storage for this trial</p></li>
 </ul>
 
 
-<h3>Data</h3>
+<h3 class='hasAnchor' id='data'><a class='anchor' href='#data'></a>Data</h3>
 
 
 <p>When this function is called from R it returns the trial object that will
@@ -360,26 +372,21 @@ stimuli (image, audio, video and HTML) and three types of response options
 <code><a href='trial_html_slider_response.html'>trial_html_slider_response</a></code>.</p></div>
 
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://compcogscisydney.org'>Danielle Navarro</a>.</p>
+  <p><p>Developed by <a href="https://compcogscisydney.org" class="external-link">Danielle Navarro</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -387,6 +394,8 @@ stimuli (image, audio, video and HTML) and three types of response options
 
   
 
+
+  
 
   </body>
 </html>
