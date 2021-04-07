@@ -4,12 +4,30 @@
 \alias{build_experiment}
 \title{Build the experiment files}
 \usage{
-build_experiment(timeline, path, resources = NULL, columns = NULL, ...)
+build_experiment(
+  timeline,
+  path,
+  experiment_folder = "experiment",
+  data_folder = "data",
+  experiment_title = NULL,
+  jsPsych_path = file.path(system.file("extdata", "jsPsych", package = "jaysire")),
+  resources = NULL,
+  columns = NULL,
+  ...
+)
 }
 \arguments{
 \item{timeline}{A timeline object}
 
-\item{path}{A string specifying a folder in which to build the experiment}
+\item{path}{A string specifying the path in which to build the experiment}
+
+\item{experiment_folder}{A string specifying the experiment subfolder}
+
+\item{data_folder}{A string specifying the data subfolder}
+
+\item{experiment_title}{A string specifying the title of the experiment}
+
+\item{jsPsych_path}{A string specifying the path to jsPsych}
 
 \item{resources}{A tibble specifying how to construct resource files, or NULL}
 
@@ -37,13 +55,17 @@ function for a more detailed description of what this tibble should contain.
 
 When called, the \code{build_experiment()} function writes all the experiment files,
 compiled to javascript and HTML. The file structure it creates is as follows. Within
-the \code{path} folder are two subfolders, named "data" and "experiment". The "data"
-folder is empty, but intended to serve as a location to which data files can be
-written. The "experiment" folder contains the "index.html" file, which is the primary
-source file for the experiment page, and an "experiment.js" file that specifies the
-jsPsych timeline and calls the jsPsych.init() javascript function that starts the
-experiment running. It also contains a "resource" folder with other necessary files
-(see \code{\link{build_resources}()} for detail).
+the \code{path} folder are two subfolders, \code{data_folder} and
+\code{experiment_folder} (named "data" and "experiment" by default). The
+\code{data_folder} folder is empty, but intended to serve as a location to which
+data files can be written. The \code{experiment_folder} folder contains the
+"index.html" file, which is the primary source file for the experiment page, and an
+"experiment.js" file that specifies the jsPsych timeline and calls the
+jsPsych.init() javascript function that starts the experiment running. It also
+contains a "resource" folder with other necessary files (see
+\code{\link{build_resources}()} for detail). If specified, \code{experiment_title}
+will set the name of the experiment as the title of the HTML file in "index.html".
+\code{jsPsych_path} is a string that specifies the path to jsPsych.
 
 Because \code{build_experiment()} creates the call to jsPsych.init(), it can also
 be used to specify any parameters that the user may wish to pass to that function

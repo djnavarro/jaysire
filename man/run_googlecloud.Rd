@@ -2,28 +2,33 @@
 % Please edit documentation in R/build_api.R
 \name{run_googlecloud}
 \alias{run_googlecloud}
-\title{Deploy a jspsych experiment on google cloud}
+\title{Deploy a jspsych experiment on google app engine}
 \usage{
-run_googlecloud(path, project_id)
+run_googlecloud(path, experiment_folder = "experiment", project_id)
 }
 \arguments{
-\item{path}{path to the experiment folder}
+\item{path}{Path where the experiment is deployed}
+
+\item{experiment_folder}{Experiment subfolder}
 
 \item{project_id}{the google app engine project id}
 }
 \description{
+<<<<<<< HEAD
 Deploy a jspsych experiment on google cloud
+=======
+Deploy a jspsych experiment on google app engine
+>>>>>>> c412c5b34a3a42552ba605b6a7ccd26be9b908b2
 }
 \details{
 The purpose of the \code{run_googlecloud()} function is to make it
 somewhat easier to deploy a jsPsych experiment to Google App Engine, so that
 the experiment can run in the cloud rather than on the local machine.
-The \code{path} argument
-specifies the location of the experiment to be deployed, and should be the same
-as the value of \code{path} that was used when calling
-\code{\link{build_experiment}()}) to build the experiment originally. The
-\code{project_id} is the name of the Google App Engine project that will host
-the experiment.
+The \code{path} and \code{experiment_folder} arguments
+specify where the experiment should be deployed, and should be the same
+that was used when calling \code{\link{build_experiment}()}) to build the
+experiment originally. The \code{project_id} is the name of the Google App
+Engine project that will host the experiment.
 
 At present, the functionality of \code{run_googlecloud()} is quite limited. All
 it does is construct the appropriate command that you will need to enter at

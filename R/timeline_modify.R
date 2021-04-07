@@ -70,7 +70,7 @@ set_variables <- function(timeline, ...) {
 #'
 #' @export
 set_parameters <- function(timeline, ...) {
-  timeline <- c(timeline, ...)
+  timeline <- purrr::map_if(c(timeline, ...), is.logical, js_logical)
   return(timeline)
 }
 
