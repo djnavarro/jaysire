@@ -10,7 +10,7 @@
 #' @param button_label Label placed on the "continue" button
 #' @param min Minimum value of the slider
 #' @param max Maximum value of the slider
-#' @param start Initial value of the slider
+#' @param slider_start Initial value of the slider
 #' @param step Step size of the slider
 #' @param slider_width Horizontal width of the slider (defaults to display width)
 #' @param require_movement Does the user need to move the slider before clicking the continue button?
@@ -58,7 +58,7 @@
 #' minimum value (leftmost point on the slider) and the maximum value (rightmost point
 #' on the slider) that a participant can respond with.
 #'
-#' \item The \code{start} parameter is a numeric value that indicates where the value
+#' \item The \code{slider_start} parameter is a numeric value that indicates where the value
 #' of the the slider is initially position. By default this is set to the middle of
 #' the scale, but there are many cases where it may be sensible to have the slider
 #' bar start at one end of the scale.
@@ -174,7 +174,7 @@ trial_html_slider_response <- function(
   button_label = "Continue",
   min = 0,
   max = 100,
-  start = 50,
+  slider_start = 50,
   step = 1,
   slider_width = NULL,
   require_movement = FALSE,
@@ -198,7 +198,7 @@ trial_html_slider_response <- function(
       button_label = button_label,
       min = min,
       max = max,
-      start = start,
+      slider_start = slider_start,
       step = step,
       slider_width = slider_width,
       require_movement = js_logical(require_movement),

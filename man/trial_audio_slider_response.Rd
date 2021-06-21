@@ -10,7 +10,7 @@ trial_audio_slider_response(
   button_label = "Continue",
   min = 0,
   max = 100,
-  start = 50,
+  slider_start = 50,
   step = 1,
   slider_width = NULL,
   require_movement = FALSE,
@@ -35,7 +35,7 @@ trial_audio_slider_response(
 
 \item{max}{Maximum value of the slider}
 
-\item{start}{Initial value of the slider}
+\item{slider_start}{Initial value of the slider}
 
 \item{step}{Step size of the slider}
 
@@ -101,7 +101,7 @@ ways depending on the following arguments:
 minimum value (leftmost point on the slider) and the maximum value (rightmost point
 on the slider) that a participant can respond with.
 
-\item The \code{start} parameter is a numeric value that indicates where the value
+\item The \code{slider_start} parameter is a numeric value that indicates where the value
 of the the slider is initially position. By default this is set to the middle of
 the scale, but there are many cases where it may be sensible to have the slider
 bar start at one end of the scale.
